@@ -36,4 +36,4 @@ Both protocols must be reported separately; neither is equivalent to full-docume
 
 ## Status
 
-The manifests and split-isolation assertions are implemented and generated. Use `src/splitting.py::load_split_bundle` to load/validate the frozen inputs and `python scripts/verify_split_manifest.py` to check both protocols. No model training or result-based selection has been performed. Future experiment commands must load these manifests rather than create independent splits.
+The manifests and split-isolation assertions are implemented and generated. Use `src/splitting.py::load_split_bundle` to load/validate the frozen inputs and `python scripts/verify_split_manifest.py` to check both protocols. Phase 4 first-pass models, grouped tuning, and feature ablations are recorded in `docs/MODEL_EXPERIMENTS_v1.md`. The locked test partitions remain unused. Future experiment commands must load these manifests rather than create independent splits.

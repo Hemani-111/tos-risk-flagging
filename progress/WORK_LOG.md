@@ -119,3 +119,24 @@ Reconstruction counts reconcile, label mapping and keys are verified, conflict t
 - Outputs: `results/eda/v1/EDA_REPORT.md`, JSON/CSV summaries, and five captioned PNG figures. Reviewed the phrase chart visually; captions state sample sizes and interpretation limits.
 - First run revealed an ordering bug in topic composition plotting; corrected and reran successfully. `.venv` run completed with exit code 0. No locked-test data entered analysis.
 - Phase 3 is complete. Next: Phase 4 model/feature experiments using frozen split manifests, with development-only selection and final test still locked.
+
+## 2026-11-02 — Phase 4 model and feature experiments
+
+### First-pass family comparison
+
+- Added `scripts/run_model_benchmarks.py`; ran all ten planned baseline families separately under primary unseen-service and secondary duplicate-aware protocols. Fitted only on each train partition and scored only on validation. Sparse NB/LR/Linear SVM used word TF-IDF; tree, RF, HistGradientBoosting, KNN, and RBF SVM used training-fitted 100-component TruncatedSVD features. Each run saved per-class metrics, Risky precision/recall and FP/FN counts, confusion matrices, validation predictions, fit/inference timings, parameters, environment, warnings, and protocol metadata.
+- Initial strongest validation macro F1 was Linear SVM: 0.820 primary and 0.819 secondary. These are one-pass development scores, not final test results. Dense baselines use a different representation, recorded in the report.
+
+### Grouped tuning and representation comparison
+
+- Added `scripts/run_grouped_cv_tuning.py`. It uses the manifest's three fixed training-only grouped folds and refits TF-IDF per fold. Compared Logistic Regression and Linear SVM, balanced weights, C={0.1, 1, 10}, word unigram, word unigram/bigram, and character 3–5 gram representations.
+- Best grouped CV scores were word unigram/bigram Linear SVM C=1: 0.8316 ± 0.0026 primary and 0.8386 ± 0.0021 secondary. Word unigram and character-only variants were lower in both protocols.
+- Added `scripts/evaluate_tuned_candidates.py`; CV-selected balanced Linear SVM C=1 and Logistic Regression C=10 were refit on the full training partition and scored once on validation. Validation Linear SVM macro F1 was 0.8201 primary (Risky P/R 0.797/0.826) and 0.8195 secondary (0.787/0.845). The locked test rows were never loaded into feature fitting or scoring.
+
+### Numeric feature ablation and interpretation
+
+- Added `scripts/run_lexical_feature_ablation.py`, comparing text-only, six lexical indicators only, and text plus indicators on the same fixed grouped folds. Numeric scaling was fit on each training fold. Lexical-only macro F1 was about 0.44; combined features gave 0.8319 primary and 0.8395 secondary for Linear SVM versus 0.8316 and 0.8386 for text alone. Logistic Regression decreased slightly with the combined features.
+- The tiny SVM difference is not a persuasive gain; lexical SVM fits took roughly 13–15 seconds per fold versus about 0.2 seconds for text only. Some SVM fits emitted 5,000-iteration convergence warnings. Keep the simpler text representation for now; readability and sentence count remain heuristic.
+- Added `docs/MODEL_EXPERIMENTS_v1.md` with first-pass family results, grouped tuning, feature ablation, and limits. Updated README, experiment protocol, and project context with reproduction commands.
+- The initial benchmark's HistGradientBoosting run emits a Windows joblib physical-core detection warning but completes. It is preserved in the run metadata. No replacement model is selected and no production artifact was modified.
+- Phase 4 completion gate met: all essential classical families were run or explicitly separated by representation, promising linear candidates were tuned on training folds, and tested representation/lexical comparisons are documented. Next is Phase 5 error, uncertainty, and document-level analysis.

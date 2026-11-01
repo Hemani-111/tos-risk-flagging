@@ -61,6 +61,18 @@ To regenerate the development-only EDA outputs (locked test rows are excluded):
 python scripts\run_eda.py
 ```
 
+To reproduce the Phase 4 development-only comparisons:
+
+```powershell
+python scripts\run_model_benchmarks.py --protocol primary
+python scripts\run_model_benchmarks.py --protocol clause
+python scripts\run_grouped_cv_tuning.py
+python scripts\run_lexical_feature_ablation.py
+python scripts\evaluate_tuned_candidates.py
+```
+
+See [docs/MODEL_EXPERIMENTS_v1.md](docs/MODEL_EXPERIMENTS_v1.md) for methods, results, and limitations. These commands do not evaluate the locked test partition.
+
 ### Backend
 
 ```bash

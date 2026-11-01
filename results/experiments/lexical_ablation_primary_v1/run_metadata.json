@@ -1,0 +1,21 @@
+{
+  "protocol": "primary",
+  "features": [
+    "log_chars",
+    "log_words",
+    "mean_word_length",
+    "log_sentences",
+    "readability_heuristic",
+    "contains_negation"
+  ],
+  "scaling": "StandardScaler fitted separately within each training fold",
+  "text_features": "word TF-IDF unigram/bigram, min_df=2, max_features=60000",
+  "locked_test_used": false,
+  "rows": 13439,
+  "fold_column": "primary_cv_fold",
+  "grouped_by": "frozen manifest folds",
+  "source_script": "scripts/run_lexical_feature_ablation.py",
+  "source_script_sha256": "232da07845e547771b8976209ac51bed01010a432728a73507609b91ee4a2593",
+  "git_revision_before_experiment_changes": "dabd342ab24e2d0cec34eaa3f173144d04e0185d",
+  "working_tree_had_uncommitted_phase4_changes": true
+}

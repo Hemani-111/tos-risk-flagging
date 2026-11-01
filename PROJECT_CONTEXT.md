@@ -4,7 +4,7 @@ Last updated: 2 November 2026
 
 ## Current milestone
 
-Phases 0 through 3 are complete. The evaluation protocol, split manifests, and development-only EDA are reproducible. Phase 4 model comparisons are next; no new model training has started. The historical processed CSV, existing model artifacts, and notebooks remain unchanged.
+Phases 0 through 4 are complete. Development-only model comparisons and grouped tuning are reproducible for both frozen protocols. Phase 5 error and uncertainty analysis is next; no replacement production model has been selected. The historical processed CSV, existing model artifacts, and notebooks remain unchanged.
 
 ## Reproducible commands
 
@@ -15,6 +15,10 @@ Use the root `.venv` created with Python 3.11.9.
 - `python scripts/create_splits.py` regenerates the shared manifests and overlap assertions.
 - `python scripts/verify_split_manifest.py` checks checksums, row-ID coverage, group isolation, exact-text isolation, CV fold assignments, and included class representation for both protocols.
 - `python scripts/run_eda.py` writes development-only descriptive tables, figures, and a report to `results/eda/v1/`.
+- `python scripts/run_model_benchmarks.py --protocol primary` runs the first-pass model family screen; use `clause` for the secondary protocol.
+- `python scripts/run_grouped_cv_tuning.py` tunes linear models and text representations on fixed training-only grouped folds.
+- `python scripts/run_lexical_feature_ablation.py` compares text-only, lexical-only, and combined features on grouped training folds.
+- `python scripts/evaluate_tuned_candidates.py` scores CV-selected linear candidates on validation.
 - `python scripts/baseline_smoke.py` records selected-model outputs, artifact hashes, and one local smoke timing.
 
 ## Data and evaluation decisions
@@ -37,4 +41,4 @@ Use the root `.venv` created with Python 3.11.9.
 
 ## Next
 
-Proceed to Phase 4 model comparisons. Use `src/splitting.py::load_split_bundle` and the frozen primary/secondary protocols; reserve test partitions for final evaluation. Phase 3 results and leakage controls are in `results/eda/v1/EDA_REPORT.md`.
+Proceed to Phase 5 error analysis, uncertainty assessment, and independent document evaluation planning. Phase 4 results are in `docs/MODEL_EXPERIMENTS_v1.md` and `results/experiments/`; preserve the locked test partitions until the final selection procedure is frozen.

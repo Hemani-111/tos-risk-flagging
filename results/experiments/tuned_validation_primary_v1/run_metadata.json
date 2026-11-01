@@ -1,0 +1,27 @@
+{
+  "protocol": "primary",
+  "split_id": "split_manifest_v1",
+  "dataset_sha256": "cee557cc927d754cf17675154ed5e1e32eee2fdb9af6700c526e62cd66969f8c",
+  "selection_source": "results/experiments/grouped_cv_primary_linear_features_v1/cv_tuning_metrics.csv",
+  "selection_partition": "fixed grouped CV inside train",
+  "scoring_partition": "validation",
+  "locked_test_used": false,
+  "training_rows": 13439,
+  "validation_rows": 2658,
+  "vectorizer_fit_seconds": 0.8436931999749504,
+  "vocabulary_size": 44489,
+  "selected_parameters": [
+    [
+      "linear_svm",
+      1.0
+    ],
+    [
+      "logistic_regression",
+      10.0
+    ]
+  ],
+  "source_script": "scripts/evaluate_tuned_candidates.py",
+  "source_script_sha256": "28879b46f08b397d0a31824b03ab6361750be87519c0fc111ab0e349a85990ce",
+  "git_revision_before_experiment_changes": "dabd342ab24e2d0cec34eaa3f173144d04e0185d",
+  "working_tree_had_uncommitted_phase4_changes": true
+}

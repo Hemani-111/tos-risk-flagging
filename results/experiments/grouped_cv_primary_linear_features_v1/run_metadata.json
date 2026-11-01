@@ -1,0 +1,86 @@
+{
+  "run_id": "grouped_cv_primary_linear_features_v1",
+  "protocol": "primary",
+  "split_id": "split_manifest_v1",
+  "dataset_sha256": "cee557cc927d754cf17675154ed5e1e32eee2fdb9af6700c526e62cd66969f8c",
+  "locked_test_used": false,
+  "selection_partition": "fixed grouped CV folds within training only",
+  "seed": 20261102,
+  "git_revision": "dabd342ab24e2d0cec34eaa3f173144d04e0185d",
+  "sklearn_version": "1.9.0",
+  "training_rows": 13439,
+  "training_point_ids_sha256": "77bdf9bc0b6e83ace73429e4fd5fef4b24475bdd691fdca2a7a122d63192a665",
+  "fold_column": "primary_cv_fold",
+  "group_column": "service_component",
+  "folds": [
+    0,
+    1,
+    2
+  ],
+  "grid": {
+    "representations": {
+      "word_unigram": {
+        "analyzer": "word",
+        "ngram_range": [
+          1,
+          1
+        ],
+        "max_features": 60000,
+        "min_df": 2
+      },
+      "word_uni_bi": {
+        "analyzer": "word",
+        "ngram_range": [
+          1,
+          2
+        ],
+        "max_features": 60000,
+        "min_df": 2
+      },
+      "char_wb_3_5": {
+        "analyzer": "char_wb",
+        "ngram_range": [
+          3,
+          5
+        ],
+        "max_features": 80000,
+        "min_df": 3
+      }
+    },
+    "families": [
+      "logistic_regression",
+      "linear_svm"
+    ],
+    "C": [
+      0.1,
+      1.0,
+      10.0
+    ],
+    "class_weight": "balanced"
+  },
+  "best_cv_row": {
+    "protocol": "primary",
+    "representation": "word_uni_bi",
+    "model": "linear_svm",
+    "C": 1.0,
+    "class_weight": "balanced",
+    "fold_macro_f1": [
+      0.8335013905606973,
+      0.8326403568511331,
+      0.8285595211707854
+    ],
+    "mean_macro_f1": 0.8315670895275385,
+    "std_macro_f1": 0.002639970705833488,
+    "mean_fit_and_vectorize_seconds": 1.0024459999985993,
+    "folds": [
+      0,
+      1,
+      2
+    ],
+    "fold_warnings_last": []
+  },
+  "source_script": "scripts/run_grouped_cv_tuning.py",
+  "source_script_sha256": "9966c26211b43bb41da9d279449aa956508602a09cb813e413b51c496575e692",
+  "git_revision_before_experiment_changes": "dabd342ab24e2d0cec34eaa3f173144d04e0185d",
+  "working_tree_had_uncommitted_phase4_changes": true
+}
