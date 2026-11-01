@@ -1,0 +1,222 @@
+{
+  "analysis_date": "2026-11-02",
+  "split_id": "split_manifest_v1",
+  "source_dataset": "data\\processed\\audit_v1\\clauses_benchmark_english_v1.csv",
+  "source_dataset_sha256": "cee557cc927d754cf17675154ed5e1e32eee2fdb9af6700c526e62cd66969f8c",
+  "protocol": "primary development only: included train + validation; locked test excluded",
+  "development_rows": 16097,
+  "training_rows": 13439,
+  "validation_rows": 2658,
+  "labels": {
+    "Neutral": 6773,
+    "Risky": 5266,
+    "Safe": 4058
+  },
+  "topics": 27,
+  "services": 1358,
+  "documents": 2369,
+  "service_concentration": {
+    "top_1_service_clause_share": 0.004721376654034913,
+    "top_10_services_clause_share": 0.04162266260793937,
+    "top_50_services_clause_share": 0.16704976082499845,
+    "service_hhi": 0.0016179286190472683,
+    "top_services": [
+      {
+        "service_key": "2453",
+        "rows": 76,
+        "name": "iFunny",
+        "Risky": 31,
+        "Neutral": 31,
+        "Safe": 14,
+        "total": 76
+      },
+      {
+        "service_key": "1815",
+        "rows": 74,
+        "name": "Khan Academy",
+        "Risky": 28,
+        "Neutral": 28,
+        "Safe": 18,
+        "total": 74
+      },
+      {
+        "service_key": "219",
+        "rows": 73,
+        "name": "Instagram",
+        "Risky": 27,
+        "Neutral": 31,
+        "Safe": 15,
+        "total": 73
+      },
+      {
+        "service_key": "217",
+        "rows": 67,
+        "name": "Google",
+        "Risky": 28,
+        "Neutral": 23,
+        "Safe": 16,
+        "total": 67
+      },
+      {
+        "service_key": "297",
+        "rows": 67,
+        "name": "GitHub",
+        "Risky": 13,
+        "Neutral": 30,
+        "Safe": 24,
+        "total": 67
+      },
+      {
+        "service_key": "536",
+        "rows": 65,
+        "name": "Discord",
+        "Risky": 21,
+        "Neutral": 31,
+        "Safe": 13,
+        "total": 65
+      },
+      {
+        "service_key": "1364",
+        "rows": 64,
+        "name": "Brilliant",
+        "Risky": 17,
+        "Neutral": 28,
+        "Safe": 19,
+        "total": 64
+      },
+      {
+        "service_key": "2475",
+        "rows": 62,
+        "name": "DoorDash",
+        "Risky": 28,
+        "Neutral": 28,
+        "Safe": 6,
+        "total": 62
+      },
+      {
+        "service_key": "2454",
+        "rows": 61,
+        "name": "The Walt Disney Company",
+        "Risky": 22,
+        "Neutral": 27,
+        "Safe": 12,
+        "total": 61
+      },
+      {
+        "service_key": "2461",
+        "rows": 61,
+        "name": "Merriam-Webster",
+        "Risky": 26,
+        "Neutral": 24,
+        "Safe": 11,
+        "total": 61
+      },
+      {
+        "service_key": "4521",
+        "rows": 59,
+        "name": "Gettr",
+        "Risky": 19,
+        "Neutral": 30,
+        "Safe": 10,
+        "total": 59
+      },
+      {
+        "service_key": "2572",
+        "rows": 58,
+        "name": "HP | Hewlett-Packard",
+        "Risky": 25,
+        "Neutral": 22,
+        "Safe": 11,
+        "total": 58
+      },
+      {
+        "service_key": "225",
+        "rows": 58,
+        "name": "Spotify",
+        "Risky": 18,
+        "Neutral": 32,
+        "Safe": 8,
+        "total": 58
+      },
+      {
+        "service_key": "200",
+        "rows": 58,
+        "name": "Twitch",
+        "Risky": 22,
+        "Neutral": 25,
+        "Safe": 11,
+        "total": 58
+      },
+      {
+        "service_key": "230",
+        "rows": 57,
+        "name": "PayPal",
+        "Risky": 24,
+        "Neutral": 17,
+        "Safe": 16,
+        "total": 57
+      },
+      {
+        "service_key": "2581",
+        "rows": 57,
+        "name": "Cisco",
+        "Risky": 17,
+        "Neutral": 29,
+        "Safe": 11,
+        "total": 57
+      },
+      {
+        "service_key": "193",
+        "rows": 56,
+        "name": "LinkedIn",
+        "Risky": 25,
+        "Neutral": 14,
+        "Safe": 17,
+        "total": 56
+      },
+      {
+        "service_key": "2646",
+        "rows": 56,
+        "name": "Guilded",
+        "Risky": 14,
+        "Neutral": 27,
+        "Safe": 15,
+        "total": 56
+      },
+      {
+        "service_key": "3262",
+        "rows": 55,
+        "name": "Privacy.com",
+        "Risky": 22,
+        "Neutral": 21,
+        "Safe": 12,
+        "total": 55
+      },
+      {
+        "service_key": "2198",
+        "rows": 54,
+        "name": "Zoom Video Communications",
+        "Risky": 21,
+        "Neutral": 21,
+        "Safe": 12,
+        "total": 54
+      }
+    ]
+  },
+  "ngram_method": "CountVectorizer word unigrams/bigrams; min document frequency 15, max vocabulary 40,000; add-0.5 smoothed class-vs-rest term-frequency log odds. Negation terms retained.",
+  "readability_method": "Flesch Reading Ease form with a simple English syllable-group heuristic; report as rough proxy only.",
+  "limitations": [
+    "Topic, service, and dataset label fields are available only retrospectively; they are not model input features.",
+    "Labels are case-derived annotations, so phrase/length/topic associations do not establish causal or legal risk.",
+    "The readability value is a heuristic and short excerpt sentence counts are imperfect.",
+    "No model has been trained yet; error-rate analysis is deferred until Phase 4/5 development predictions exist.",
+    "These plots describe curated development excerpts, not all clauses in policies or all services."
+  ],
+  "figures": {
+    "class_balance.png": "English development label counts (N=16,097); locked test excluded.",
+    "topic_label_composition.png": "Within-topic class shares for the 15 most represented topics; retrospective labels only.",
+    "word_count_by_label.png": "Word-count distribution by dataset label; log scale and 5th–95th percentile whiskers.",
+    "service_concentration.png": "Cumulative clause share across services represented in development; not a service safety rank.",
+    "class_associated_phrases.png": "Top smoothed log-odds unigrams/bigrams by label; negation retained; associative only."
+  }
+}

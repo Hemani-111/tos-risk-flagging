@@ -3,7 +3,7 @@
 Date: 2 November 2026  
 Repository: https://github.com/kiran-8287/tos-risk-flagging  
 Course: DS3010 Introduction to Machine Learning, IIT Palakkad  
-Status: Planning and initial repository audit completed; implementation phases below are pending.
+Status: Phases 0–3 implemented and recorded in `progress/WORK_LOG.md`; Phase 4 is next. Later phases remain pending.
 
 ## 1. Purpose and intended outcome
 

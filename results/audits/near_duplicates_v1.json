@@ -1,0 +1,24 @@
+{
+  "audit_date": "2026-11-02",
+  "dataset_sha256": "cee557cc927d754cf17675154ed5e1e32eee2fdb9af6700c526e62cd66969f8c",
+  "method": "Deterministic 32-permutation MinHash, 8 bands x 4 rows over character 4-gram sets; exact Jaccard rerank.",
+  "normalization": "Strip HTML-like tags, decode HTML entities, collapse whitespace, Unicode casefold.",
+  "unique_normalized_quotes": 18718,
+  "candidate_pairs_from_lsh": 33755,
+  "reported_pairs_at_or_above_threshold": 2039,
+  "jaccard_threshold": 0.72,
+  "reviewed_high_confidence_pairs": 43,
+  "high_confidence_threshold": 0.99,
+  "pairs_below_high_confidence_threshold": 1996,
+  "services_constrained_by_reviewed_pairs": 69,
+  "largest_reviewed_service_component": 5,
+  "review_decisions_csv": "results\\audits\\near_duplicate_decisions_v1.csv",
+  "oversized_lsh_buckets_skipped": 0,
+  "bucket_cap": 250,
+  "output_csv": "results\\audits\\near_duplicates_v1.csv",
+  "limitations": [
+    "LSH is approximate and may miss near-duplicates; the output is a candidate list, not a confirmed match list.",
+    "Skipped oversized buckets can contain boilerplate and remain a residual overlap source.",
+    "Pairs below the reviewed 0.99 cutoff remain advisory candidates; the split audit must report them as residual near-duplicate overlap."
+  ]
+}

@@ -1,0 +1,287 @@
+{
+  "audit_date": "2026-11-02",
+  "source_identity": "Verified exact match to all five files in Zenodo record 15012282 v1 by published MD5 checksums.",
+  "source_url": "https://zenodo.org/records/15012282",
+  "source_version": "ToS;DR policies dataset (raw) - 21/07/2023, v1; published 2025-03-12",
+  "source_retrieval_date": "Unknown for this local copy.",
+  "source_license": "Not stated on the Zenodo record page; redistribution rights need confirmation.",
+  "raw_files": {
+    "topics": {
+      "bytes": 7917,
+      "md5": "85ed1f4b58b4c5e5f175d84f0de2596b",
+      "sha256": "1e007251d1829fa5b8a1e876535ffb5b1f58e53d74d13a0c6f697d8e3b8f0712"
+    },
+    "services": {
+      "bytes": 1319970,
+      "md5": "64ac285bc77bd7ff0ca60f47c0c40726",
+      "sha256": "874f66ab70815afa24bc153d16ed0d61f498a50352be03fcae577dc184d1723e"
+    },
+    "cases": {
+      "bytes": 87139,
+      "md5": "61c98e27d9aab783cdcff47d6ea63ed7",
+      "sha256": "03ca521f91c0b858a6038b48751e403fec072cdbec7c26af93df1c70df0ed6cd"
+    },
+    "points": {
+      "bytes": 17316610,
+      "md5": "5bab8d2ace5e998732364be3a35010f4",
+      "sha256": "2835066dd8357a4569da19acae5e529c11256ce9b887a9430b6c9b8469dfe52b"
+    },
+    "documents": {
+      "bytes": 267789157,
+      "md5": "6c54b471a08a35ddb0e8c52fef930690",
+      "sha256": "2da8e86ba088c7185506bdf1ba712dcad0a211bac7acde76ede3176c7e344f9d"
+    }
+  },
+  "raw_schemas": {
+    "topics": [
+      "id",
+      "title",
+      "subtitle",
+      "description",
+      "created_at",
+      "updated_at"
+    ],
+    "services": [
+      "id",
+      "name",
+      "url",
+      "created_at",
+      "updated_at",
+      "wikipedia",
+      "keywords",
+      "related",
+      "slug",
+      "is_comprehensively_reviewed",
+      "rating",
+      "status"
+    ],
+    "cases": [
+      "id",
+      "classification",
+      "score",
+      "title",
+      "description",
+      "topic_id",
+      "created_at",
+      "updated_at",
+      "privacy_related",
+      "docbot_regex"
+    ],
+    "points": [
+      "id",
+      "rank",
+      "title",
+      "source",
+      "status",
+      "analysis",
+      "created_at",
+      "updated_at",
+      "service_id",
+      "quote_text",
+      "case_id",
+      "old_id",
+      "point_change",
+      "quote_start",
+      "quote_end",
+      "service_needs_rating_update",
+      "document_id",
+      "annotation_ref"
+    ],
+    "documents": [
+      "id",
+      "name",
+      "url",
+      "xpath",
+      "text",
+      "created_at",
+      "updated_at",
+      "service_id",
+      "reviewed",
+      "status",
+      "crawler_server"
+    ]
+  },
+  "row_counts": {
+    "topics": 28,
+    "services": 8175,
+    "cases": 253,
+    "points": 31706,
+    "documents": 16786
+  },
+  "foreign_key_checks": {
+    "point_rows_with_unknown_case_id": 0,
+    "point_rows_with_unknown_service_id": 0,
+    "point_rows_with_nonnull_unknown_document_id": 0,
+    "case_rows_with_unknown_topic_id": 0
+  },
+  "pipeline_counts": {
+    "points_total": 31706,
+    "points_approved": 23968,
+    "approved_with_nonnull_quote": 22498,
+    "approved_with_nonblank_quote": 22497,
+    "rows_after_case_join": 22497,
+    "rows_after_topic_join": 22497,
+    "unmatched_case_rows": 0,
+    "unmatched_topic_rows": 0,
+    "unknown_or_missing_classification_rows": 0,
+    "candidate_rows": 22497,
+    "historical_rows": 22497
+  },
+  "candidate_label_counts": {
+    "Neutral": 9759,
+    "Risky": 7015,
+    "Safe": 5723
+  },
+  "raw_classification_counts": {
+    "neutral": 9759,
+    "bad": 6558,
+    "good": 5723,
+    "blocker": 457
+  },
+  "all_case_classification_counts": {
+    "good": 91,
+    "neutral": 81,
+    "bad": 65,
+    "blocker": 16
+  },
+  "point_status_counts": {
+    "approved": 23968,
+    "declined": 7203,
+    "pending": 452,
+    "changes-requested": 45,
+    "disputed": 36,
+    "draft": 2
+  },
+  "unknown_classifications": {},
+  "missing_values_candidate": {
+    "point_id": 0,
+    "quote_text": 0,
+    "case_id": 0,
+    "classification": 0,
+    "label": 0,
+    "topic_id": 0,
+    "topic_title": 0,
+    "service_id": 0,
+    "document_id": 11
+  },
+  "quote_quality": {
+    "character_length_quantiles": {
+      "0": 1.0,
+      "0.25": 92.0,
+      "0.5": 161.0,
+      "0.75": 271.0,
+      "0.95": 570.2000000000007,
+      "0.99": 1042.0,
+      "1": 13394.0
+    },
+    "quotes_under_20_characters": 304,
+    "quotes_over_5000_characters": 5,
+    "quotes_with_html_like_markup": 8790,
+    "quotes_with_replacement_character": 0,
+    "quotes_with_common_mojibake_markers": 2,
+    "language_detector": "langid 1.1.6; HTML-like tags stripped, entities decoded; only visible text >=40 characters classified.",
+    "language_classified_rows": 20602,
+    "language_excluded_short_rows": 1895,
+    "language_counts": {
+      "af": 4,
+      "am": 39,
+      "br": 1,
+      "ca": 3,
+      "cs": 4,
+      "da": 3,
+      "de": 106,
+      "el": 2,
+      "en": 19227,
+      "es": 163,
+      "et": 29,
+      "fi": 1,
+      "fr": 628,
+      "gl": 1,
+      "he": 13,
+      "hr": 1,
+      "hu": 3,
+      "it": 21,
+      "ja": 5,
+      "lb": 1,
+      "lt": 5,
+      "lv": 2,
+      "mt": 27,
+      "nl": 24,
+      "no": 52,
+      "oc": 2,
+      "pl": 6,
+      "pt": 23,
+      "qu": 18,
+      "ro": 8,
+      "ru": 23,
+      "rw": 6,
+      "sl": 2,
+      "th": 18,
+      "tr": 17,
+      "zh": 114
+    },
+    "language_caveat": "Automatic estimates for dataset profiling only; short clauses and classifier errors require review."
+  },
+  "english_benchmark": {
+    "rows": 19189,
+    "label_counts": {
+      "Neutral": 8097,
+      "Risky": 6285,
+      "Safe": 4807
+    },
+    "selection": "Conflict-free rows automatically classified as English after stripping markup and requiring at least 40 visible characters.",
+    "excluded_non_english_or_unknown_rows_from_conflict_free_candidate": 3256,
+    "path": "data\\processed\\audit_v1\\clauses_benchmark_english_v1.csv"
+  },
+  "annotation_shape": {
+    "cases_with_multiple_approved_quoted_points": 245,
+    "maximum_approved_quoted_points_per_case": 909,
+    "interpretation": "Several point annotations may share one case; this pipeline retains each point as a separate row."
+  },
+  "dataset_coverage": {
+    "candidate_distinct_services": 1781,
+    "candidate_distinct_documents": 3109,
+    "candidate_distinct_cases": 250,
+    "candidate_distinct_topics": 27
+  },
+  "key_checks": {
+    "topics.id_unique": true,
+    "services.id_unique": true,
+    "cases.id_unique": true,
+    "points.id_unique": true,
+    "documents.id_unique": true
+  },
+  "text_audit": {
+    "normalisation": "Unicode casefold plus whitespace collapse and trim; punctuation retained",
+    "duplicate_rows_including_first": 843,
+    "excess_rows_after_first": 505,
+    "normalised_duplicate_groups": 338,
+    "duplicate_groups_within_one_case": 281,
+    "duplicate_groups_across_cases": 57,
+    "duplicate_groups_across_services": 295,
+    "duplicate_groups_across_documents": 300,
+    "duplicate_service_graph": {
+      "connected_services": 422,
+      "components": 66,
+      "largest_component_services": 252,
+      "policy": "Join services that share a normalized exact-text group into one split component; preserve all rows."
+    },
+    "conflicting_normalised_text_groups": 23,
+    "conflict_rows": 52,
+    "conflict_policy": "Export for review; do not silently majority-label or drop in this candidate.",
+    "conflict_groups_quarantined_from_benchmark": 23,
+    "benchmark_candidate_rows_after_conflict_quarantine": 22445,
+    "benchmark_exclusion_policy": "Exclude every row whose normalized text has more than one label; retain all original rows in clauses_clean_candidate.csv and conflict_review.csv."
+  },
+  "historical_label_counts": {
+    "Neutral": 9759,
+    "Risky": 7015,
+    "Safe": 5723
+  },
+  "historical_matches_candidate_exact_order": true,
+  "notes": [
+    "No data is removed based on text duplication or label conflicts in the candidate export.",
+    "All five file MD5s match the Zenodo v1 record; local retrieval date is unknown and the record page does not state a license.",
+    "documents.csv is fingerprinted but is not joined into the clause table, matching the existing preprocessing notebook."
+  ]
+}

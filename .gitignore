@@ -39,6 +39,8 @@ data/raw/*
 !data/raw/.gitkeep
 data/processed/*
 !data/processed/.gitkeep
+!data/processed/audit_v1/
+!data/processed/audit_v1/*.csv
 
 # Models
 models/*.joblib

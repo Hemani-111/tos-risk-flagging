@@ -1,0 +1,198 @@
+{
+  "split_id": "split_manifest_v1",
+  "created_date": "2026-11-02",
+  "git_revision": "f1d5632d4359b6352fae97d6a85447d329006f3a",
+  "dataset": "data\\processed\\audit_v1\\clauses_benchmark_english_v1.csv",
+  "dataset_sha256": "cee557cc927d754cf17675154ed5e1e32eee2fdb9af6700c526e62cd66969f8c",
+  "near_duplicate_candidate_sha256": "782ac106c044783aada5cd5ad4eac4b67d13eb2d2a6ea36d4885f066dc390695",
+  "near_duplicate_decisions_sha256": "e1ba64b5350273dd505152bf2cfd224cbf5572dd8dafa2b74a8b0f722ff390a5",
+  "row_count": 19189,
+  "seed": 20261102,
+  "allocation": {
+    "outer_folds": 20,
+    "primary_fold_counts_train_validation_test": [
+      14,
+      3,
+      3
+    ],
+    "clause_fold_counts_train_validation_test": [
+      14,
+      3,
+      3
+    ],
+    "target_fractions": {
+      "train": 0.7,
+      "validation": 0.15,
+      "test": 0.15
+    }
+  },
+  "assignment_method": "One fixed StratifiedGroupKFold(20, shuffle=True, random_state=20261102) assignment per protocol. Folds 0-13 train, 14-16 validation, 17-19 locked test. No seed search.",
+  "primary_grouping": "Connected service components from normalized exact quote text, repeated document IDs, point/document service mismatches, and reviewed near-duplicate pairs with character 4-gram Jaccard >=0.99. Cross-partition exact visible-text matches and lower-similarity candidates are excluded from the lower-priority holdout.",
+  "secondary_grouping": "Connected normalized visible-text components from exact text matches and reviewed near-duplicate pairs with character 4-gram Jaccard >=0.99; services may overlap.",
+  "development_cv": "Three-fold StratifiedGroupKFold within training rows only; validation is available for candidate selection; test remains locked.",
+  "primary_partition_counts": {
+    "train": {
+      "rows": 13439,
+      "fraction_of_included": 0.719356,
+      "fraction_of_source": 0.700349,
+      "excluded_rows": 0,
+      "labels": {
+        "Neutral": 5669,
+        "Risky": 4402,
+        "Safe": 3368
+      },
+      "distinct_services": 1143,
+      "distinct_documents": 1976
+    },
+    "validation": {
+      "rows": 2658,
+      "fraction_of_included": 0.142276,
+      "fraction_of_source": 0.138517,
+      "excluded_rows": 224,
+      "labels": {
+        "Neutral": 1104,
+        "Risky": 864,
+        "Safe": 690
+      },
+      "distinct_services": 215,
+      "distinct_documents": 393
+    },
+    "test": {
+      "rows": 2585,
+      "fraction_of_included": 0.138368,
+      "fraction_of_source": 0.134713,
+      "excluded_rows": 283,
+      "labels": {
+        "Neutral": 1053,
+        "Risky": 858,
+        "Safe": 674
+      },
+      "distinct_services": 240,
+      "distinct_documents": 405
+    }
+  },
+  "clause_partition_counts": {
+    "train": {
+      "rows": 13434,
+      "fraction_of_included": 0.720592,
+      "fraction_of_source": 0.700089,
+      "excluded_rows": 0,
+      "labels": {
+        "Neutral": 5668,
+        "Risky": 4400,
+        "Safe": 3366
+      },
+      "distinct_services": 1524,
+      "distinct_documents": 2576
+    },
+    "validation": {
+      "rows": 2607,
+      "fraction_of_included": 0.139838,
+      "fraction_of_source": 0.135859,
+      "excluded_rows": 270,
+      "labels": {
+        "Neutral": 1065,
+        "Risky": 863,
+        "Safe": 679
+      },
+      "distinct_services": 936,
+      "distinct_documents": 1329
+    },
+    "test": {
+      "rows": 2602,
+      "fraction_of_included": 0.13957,
+      "fraction_of_source": 0.135599,
+      "excluded_rows": 276,
+      "labels": {
+        "Neutral": 1077,
+        "Risky": 855,
+        "Safe": 670
+      },
+      "distinct_services": 966,
+      "distinct_documents": 1357
+    }
+  },
+  "group_sizes": {
+    "primary_component_count": 1401,
+    "primary_largest_component_rows": 689,
+    "primary_largest_component_services": 29,
+    "clause_component_count": 18675,
+    "clause_largest_component_rows": 7
+  },
+  "overlap_audit": {
+    "primary_service_component_cross_partition": false,
+    "primary_exact_normalized_text_cross_partition": false,
+    "primary_exact_visible_text_cross_partition_after_exclusion": false,
+    "primary_exact_visible_text_groups_crossing_before_exclusion": 43,
+    "clause_exact_visible_text_groups_crossing_before_exclusion": 0,
+    "primary_document_id_cross_partition": false,
+    "primary_point_document_service_mismatch_rows": 5,
+    "primary_point_document_service_mismatches": [
+      {
+        "point_id": 14761,
+        "document_id": "347",
+        "point_service_id": "217",
+        "document_service_id": "3536"
+      },
+      {
+        "point_id": 14755,
+        "document_id": "347",
+        "point_service_id": "217",
+        "document_service_id": "3536"
+      },
+      {
+        "point_id": 6381,
+        "document_id": "1239",
+        "point_service_id": "1472",
+        "document_service_id": "2802"
+      },
+      {
+        "point_id": 6383,
+        "document_id": "1239",
+        "point_service_id": "1472",
+        "document_service_id": "2802"
+      },
+      {
+        "point_id": 6380,
+        "document_id": "1239",
+        "point_service_id": "1472",
+        "document_service_id": "2802"
+      }
+    ],
+    "clause_text_component_cross_partition": false,
+    "clause_exact_visible_text_cross_partition": false,
+    "residual_near_duplicate_candidate_pairs_crossing_primary_partitions": 0,
+    "residual_near_duplicate_candidate_pairs_crossing_clause_partitions": 0,
+    "near_duplicate_candidate_pairs_crossing_primary_before_exclusion": 870,
+    "near_duplicate_candidate_pairs_crossing_clause_before_exclusion": 859,
+    "rows_excluded_from_primary_by_partition": {
+      "train": 0,
+      "validation": 224,
+      "test": 283
+    },
+    "rows_excluded_from_clause_by_partition": {
+      "train": 0,
+      "validation": 270,
+      "test": 276
+    },
+    "note": "For every detected near-duplicate candidate pair crossing partitions, exclude the text group from the lower-priority holdout partition (train > validation > test). The MinHash audit is approximate and can miss matches."
+  },
+  "selection_criteria_registered": {
+    "primary_metric": "macro F1",
+    "operating_tradeoffs": [
+      "Risky recall",
+      "Risky precision"
+    ],
+    "operational_costs": [
+      "inference latency",
+      "artifact size",
+      "peak memory when measurable"
+    ]
+  },
+  "near_duplicate_exclusion_policy": "Keep all training rows; if a detected near-duplicate text pair crosses partitions, remove its text rows from the lower-priority holdout (validation before test). Both endpoints are excluded from evaluation only if separate pairs require it. Rows remain in the source dataset and manifest with explicit exclusion reasons.",
+  "limitations": [
+    "The group constraints can move the achieved split proportions away from 70/15/15; report the actual counts above.",
+    "Near-duplicate LSH has residual false negatives; detected pairs are excluded across partitions, while missed pairs remain possible.",
+    "Rows excluded for conflicting labels remain outside both single-label split settings."
+  ]
+}

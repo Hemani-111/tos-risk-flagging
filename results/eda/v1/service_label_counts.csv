@@ -1,0 +1,1359 @@
+service_key,rows,name,Risky,Neutral,Safe,total
+2453,76,iFunny,31,31,14,76
+1815,74,Khan Academy,28,28,18,74
+219,73,Instagram,27,31,15,73
+217,67,Google,28,23,16,67
+297,67,GitHub,13,30,24,67
+536,65,Discord,21,31,13,65
+1364,64,Brilliant,17,28,19,64
+2475,62,DoorDash,28,28,6,62
+2454,61,The Walt Disney Company,22,27,12,61
+2461,61,Merriam-Webster,26,24,11,61
+4521,59,Gettr,19,30,10,59
+2572,58,HP | Hewlett-Packard,25,22,11,58
+225,58,Spotify,18,32,8,58
+200,58,Twitch,22,25,11,58
+230,57,PayPal,24,17,16,57
+2581,57,Cisco,17,29,11,57
+193,56,LinkedIn,25,14,17,56
+2646,56,Guilded,14,27,15,56
+3262,55,Privacy.com,22,21,12,55
+2198,54,Zoom Video Communications,21,21,12,54
+1575,53,Enpass,18,27,8,53
+195,52,Twitter,24,20,8,52
+180,52,Steam,16,24,12,52
+1741,52,Discovery,33,14,5,52
+1892,52,Artspace,19,27,6,52
+846,52,Crunchyroll,18,25,9,52
+2645,52,Rumble,20,22,10,52
+1511,52,Shopify,21,21,10,52
+417,51,Adobe Services,26,15,10,51
+4813,50,CodeSandbox,11,20,19,50
+5630,49,Opera,16,24,9,49
+1638,49,Redbubble,15,18,16,49
+1748,49,McDonald's,19,25,5,49
+2498,48,Element,6,25,17,48
+2392,48,Instructure,17,20,11,48
+2447,48,likee,20,21,7,48
+185,48,Netflix,22,12,14,48
+182,47,Facebook,27,13,7,47
+2120,47,Alibaba,25,20,2,47
+187,47,Meredith,24,15,8,47
+306,47,Mega,12,23,12,47
+264,46,VKontakte,18,20,8,46
+2580,46,Future PLC,17,19,10,46
+3824,46,SpanishDict,20,16,10,46
+1588,45,Coinbase,18,15,12,45
+2532,45,Authy (Twilio),12,18,15,45
+1013,45,Fiverr,20,20,5,45
+3181,45,Headspace,13,22,10,45
+2354,44,WeMod,14,23,7,44
+1830,44,Strava,14,25,5,44
+2399,44,Fivestars,12,22,10,44
+697,44,NordVPN,14,19,11,44
+7108,44,OpenAI,14,21,9,44
+866,43,Dailymotion,20,16,7,43
+632,43,edX,15,18,10,43
+4219,43,Getty Images,24,11,8,43
+8283,42,t2bot.io,7,22,13,42
+1362,41,Wattpad,12,22,7,41
+2745,41,Disney+,23,9,9,41
+805,41,xda-developers,12,16,13,41
+4154,41,ClassDojo,13,16,12,41
+369,41,Riot Games (League of Legends),10,26,5,41
+5870,40,Photomath,10,25,5,40
+506,40,YNAB. (You Need a Budget),6,24,10,40
+1581,40,HideMyAss!,11,9,20,40
+609,40,Bandcamp,9,18,13,40
+528,40,Signal,3,13,24,40
+539,40,Blizzard,14,23,3,40
+2062,40,Calendly,17,13,10,40
+198,39,WhatsApp,14,17,8,39
+1950,39,Chegg,13,22,4,39
+989,39,Washington Post,20,14,5,39
+183,39,CouchSurfing,16,20,3,39
+5114,39,Never Install,10,23,6,39
+2315,39,Fandango,20,17,2,39
+158,39,Apple Services,13,13,13,39
+2068,39,Surfshark,15,14,10,39
+4147,38,Remind,11,13,14,38
+356,38,SourceForge,14,18,6,38
+462,38,Tinder,20,13,5,38
+2391,38,LBRY,14,17,7,38
+276,38,SoundCloud,17,10,11,38
+2529,37,Encyclopedia Britannica,19,9,9,37
+319,37,W3Schools,13,21,3,37
+318,37,CNN,22,15,0,37
+175,37,Pinterest,13,18,6,37
+4992,37,The Hershey Company,19,11,7,37
+4514,37,Booking.com,19,10,8,37
+322,37,BBC,13,16,8,37
+527,36,Qwant,3,17,16,36
+509,36,Free Code Camp,6,16,14,36
+1745,36,ProtonVPN,4,12,20,36
+270,36,Dropbox,15,12,9,36
+2579,36,Pearltrees,13,17,6,36
+262,36,Symbaloo,12,16,8,36
+8429,36,Conjuguemos,13,10,13,36
+221,36,Waze,12,13,11,36
+2031,36,Creative Commons,20,11,5,36
+1487,36,Brave,4,22,10,36
+2371,35,Vivaldi,1,17,17,35
+2409,35,Kaspersky,12,12,11,35
+2455,35,matrix.org,5,16,14,35
+2531,34,NBC News,20,11,3,34
+2701,34,ExpressVPN,11,13,10,34
+226,34,eBay,12,18,4,34
+1788,34,Condé Nast,25,6,3,34
+3682,34,webmail,8,22,4,34
+2141,34,Avast,10,16,8,34
+4407,34,tldrlegal,4,25,5,34
+3587,33,Wickr Me,6,15,12,33
+2809,33,Wallapop,8,22,3,33
+165,33,Goodreads,12,18,3,33
+2039,33,Virtual World Computing Cocoon MyData Rewards,11,20,2,33
+616,33,Pornhub,9,19,5,33
+5873,33, Common Sense Media,8,22,3,33
+2685,33,ADT,21,7,5,33
+1448,33,TikTok,22,8,3,33
+715,33,BlaBlaCar,17,10,6,33
+1339,32,Amazon AWS,17,10,5,32
+912,32,Malwarebytes,11,11,10,32
+460,32,Credit Karma,15,12,5,32
+4516,32,Audacity,8,9,15,32
+3206,32,Parler,9,9,14,32
+2808,32,Consumer News & Business Channel,18,11,3,32
+244,32,Microsoft Services,21,9,2,32
+2718,32,Medscape,11,17,4,32
+2895,32,Line Corporation,21,6,5,32
+3580,32,Yleisradio,6,12,14,32
+3002,32,MobyGames,11,19,2,32
+2412,31,Pixel8Earth,10,9,12,31
+6252,31,WordArt,11,18,2,31
+314,31,Quora,13,12,6,31
+2207,31,hCaptcha,10,15,6,31
+311,31,Snapchat,19,6,6,31
+2674,31,PureVPN,11,12,8,31
+1522,31,ShortcutWorld.com,8,18,5,31
+2201,30,Jitsi,4,17,9,30
+4079,30,Stingle Photos,3,11,16,30
+2312,30,Archive of Our Own,3,19,8,30
+1936,30,Metacafe,8,18,4,30
+164,30,Vimeo,8,16,6,30
+2618,30,Schoology,12,12,6,30
+2746,30,Arch Linux,4,14,12,30
+3620,30,Open Source Initiative,7,15,8,30
+505,30,Canva,10,18,2,30
+331,30,Bing,22,1,7,30
+251,30,Foursquare,13,9,8,30
+274,30,YouTube,12,15,3,30
+3716,29,Simply Earth,14,11,4,29
+798,29,Patook,11,14,4,29
+6074,29,Campfire Writing,10,17,2,29
+1742,29,National Geographic,8,17,4,29
+1713,29,FaceApp,11,9,9,29
+707,29,Nextcloud,2,8,19,29
+3534,29,Flipboard,16,8,5,29
+8205,29,Print Friendly,11,7,11,29
+5049,29,Team SDS,5,11,13,29
+2758,28,XE.com,10,12,6,28
+2444,28,Amazon Prime Video,14,5,9,28
+634,28,Bumble,10,10,8,28
+347,28,GoDaddy,17,5,6,28
+232,28,OpenStreetMap,5,17,6,28
+1812,28,Healthline,13,11,4,28
+1003,28,Medium,12,6,10,28
+2238,28,SoloLearn,6,18,4,28
+2308,28,Rakuten,6,19,3,28
+470,28,BitPay,7,18,3,28
+192,28,DeviantArt,6,18,4,28
+491,28,Proton AG,0,7,21,28
+4803,28,WeatherBug ,16,9,3,28
+208,28,Pure Dating,7,19,2,28
+2073,27,DeepL,5,5,17,27
+513,27,BitChute,6,15,6,27
+2481,27,Instabridge,13,8,6,27
+698,27,Sync,0,17,10,27
+2659,27,Alan Thomson Simulation,5,14,8,27
+1348,26,Bitwarden,9,12,5,26
+390,26,F-List,8,17,1,26
+511,26,MyAnimeList,7,16,3,26
+3144,26,OneSignal,15,5,6,26
+2195,26,Wolt,9,5,12,26
+6057,26,Busuu,3,19,4,26
+1537,26,Pexgle,15,5,6,26
+3855,26,Guiding Tech,9,13,4,26
+358,26,kik-messenger,16,4,6,26
+348,26,Hulu,15,7,4,26
+2436,26,V.H. Hess,6,14,6,26
+705,26,Nvidia,15,5,6,26
+1696,26,Tresorit,5,11,10,26
+6742,25,Bereal,10,10,5,25
+2429,25,pCloud,3,14,8,25
+576,25,Atlassian,12,6,7,25
+252,25,Uber,15,7,3,25
+1466,25,Miraheze,4,13,8,25
+4163,25,Represent,13,8,4,25
+2518,25,FamilyTreeDNA,11,10,4,25
+2995,25,Among Us,13,7,5,25
+1372,25,Presearch,4,19,2,25
+4560,25,SpaceHey,4,16,5,25
+313,25,IMDb,13,7,5,25
+186,25,Flickr,15,5,5,25
+489,25,Xfinity,5,17,3,25
+3551,25,Wise,6,15,4,25
+2224,25,Smartmessages,1,12,12,25
+4223,25,supabase,7,8,10,25
+2716,24,CyberGhost,3,10,11,24
+5127,24,Project Z,6,13,5,24
+2074,24,Letterboxd,3,14,7,24
+4024,24,Just Eat,13,8,3,24
+214,24,WeTransfer,10,11,3,24
+2458,24,BBVA,9,8,7,24
+1563,24,IKEA,14,5,5,24
+275,24,Minecraft,15,7,2,24
+591,24,Ecosia,9,3,12,24
+727,23,New York Times,6,14,3,23
+2555,23,FanFiction,4,14,5,23
+2536,23,WordReference,9,8,6,23
+2690,23,Selfie2Anime,13,7,3,23
+3060,23,BandLab,11,6,6,23
+2986,23,VSCO,11,10,2,23
+5643,23,Ableton,6,9,8,23
+291,23,iCloud,8,8,7,23
+2474,23,Reuters,11,9,3,23
+2804,23,LightyearVPN,8,11,4,23
+6751,23,Odysee,9,7,7,23
+693,23,Viagogo,9,10,4,23
+190,23,Amazon,14,7,2,23
+3259,23,GlobaliD,7,5,11,23
+3291,23,SC Johnson,19,2,2,23
+5450,23,Figma,6,14,3,23
+3936,23,Any.Run,3,17,3,23
+4070,23,miHoYo,8,8,7,23
+860,23,Yandex,14,7,2,23
+825,23,Samsung,17,3,3,23
+3657,22,Top GG,8,7,7,22
+3255,22,ViacomCBS,15,2,5,22
+224,22,Bitly,7,10,5,22
+1954,22,How-To Geek,9,5,8,22
+4139,22,MIT App Inventor,7,11,4,22
+315,22,WikiHow,12,7,3,22
+6686,22,Leetify,6,12,4,22
+2865,22,DrugBank,6,13,3,22
+2947,22,Skillshare,10,12,0,22
+6078,22,Product Report Card ,5,17,0,22
+2736,22,WikiTree,5,9,8,22
+1593,22,ISODME,7,9,6,22
+6717,22,iMenuPro,3,11,8,22
+794,22,Heroku,5,8,9,22
+5358,22,Royal Road,5,16,1,22
+312,22,Stack Overflow,9,9,4,22
+239,22,Disqus,12,9,1,22
+1946,21,Telegram,1,6,14,21
+206,21,Slack,1,12,8,21
+3738,21,Gather Town,7,7,7,21
+3335,21,Realestate.com.au,14,2,5,21
+1447,21,Observable,4,15,2,21
+3015,21,Session,3,8,10,21
+2853,21,Profilic,7,7,7,21
+613,21,Doodle,7,7,7,21
+2416,21,BitDefender,6,4,11,21
+403,21,Fur Affinity,10,9,2,21
+856,21,Zoho,1,8,12,21
+3906,21,YouGov,12,7,2,21
+2205,21,Adventurer's Codex,6,10,5,21
+2773,21,Goose VPN,6,6,9,21
+7103,21,Pico,5,11,5,21
+2262,20,Listudy,2,8,10,20
+445,20,Walmart,15,1,4,20
+1012,20,BetterHelp,5,14,1,20
+3553,20,IDrive,2,14,4,20
+4463,20,Vercel,8,9,3,20
+1007,20,Brainly,4,16,0,20
+447,20,BlueStacks,3,12,5,20
+3964,20,Astronomer,9,1,10,20
+173,20,WordPress.org,4,5,11,20
+317,20,Fox News,16,3,1,20
+1694,20,Mailfence,1,9,10,20
+2629,20,STiBaRC,2,11,7,20
+580,20,Liberapay,2,11,7,20
+3118,20,Icedrive,4,13,3,20
+6568,20,Inkscape ,0,11,9,20
+2506,20,SmartNews,12,5,3,20
+813,20,Quizlet,7,11,2,20
+1607,20,SourceHut,1,9,10,20
+2669,20,AirVPN,2,8,10,20
+2202,20,Turnitin,3,14,3,20
+4418,20,TubeBuddy,14,3,3,20
+1377,20,Upcloud,2,8,10,20
+5059,20,Roadtrip Nation,7,12,1,20
+3137,19,BudgetBakers,8,9,2,19
+614,19,Amnesty International Limited (UK),3,2,14,19
+1209,19,Ryver,4,11,4,19
+3536,19,Google Analytics,10,6,3,19
+534,19,Kahoot!,5,11,3,19
+744,19,Duolingo,6,8,5,19
+2748,19,IVPN,3,11,5,19
+5211,19,Truth Social,5,10,4,19
+1557,19,23andMe,6,10,3,19
+1519,19,Open Humans,3,4,12,19
+2582,19,Linksys,12,4,3,19
+2310,18,Revolut,7,5,6,18
+823,18,Wishlist,9,7,2,18
+3854,18,KidzSearch,4,9,5,18
+2196,18,Houseparty,12,4,2,18
+1735,18,The Movie Database (TMDb),7,6,5,18
+523,18,Search Encrypt,3,13,2,18
+1684,18,Roll20,3,9,6,18
+2568,18,NewPipe,0,3,15,18
+806,18,Lichess,6,5,7,18
+5070,18,Privacy Guides,0,6,12,18
+2648,18,Vidble,5,10,3,18
+2977,18,CounterMail,4,6,8,18
+2848,18,BlueMail,5,7,6,18
+2768,18,Unity,4,9,5,18
+1545,18,DiscourseHosting,1,9,8,18
+2917,18,Taco Time,4,10,4,18
+1636,18,Internet Archive,3,13,2,18
+2911,18,Free Software Foundation,3,4,11,18
+836,17,Scratch,2,9,6,17
+2002,17,Hacker Wars,6,9,2,17
+2658,17,Metager,1,5,11,17
+4346,17,PrivacySpy,0,9,8,17
+5113,17,Canvas,4,8,5,17
+287,17,wix,6,9,2,17
+2426,17,The MOD Archive,3,11,3,17
+6429,17,Gap Creek Media,4,6,7,17
+6860,17,Salad,2,14,1,17
+1580,17,CCleaner,7,6,4,17
+2619,17,Savvas Learning Company,4,5,8,17
+641,17,Mullvad,1,5,11,17
+624,17,Epic Games,9,6,2,17
+2432,17,Mojeek,2,5,10,17
+5516,17,Moodle,3,1,13,17
+2359,17,Hinterland Games,5,8,4,17
+2368,17,The Weather Channel,9,5,3,17
+2036,17,Orchid VPN,3,8,6,17
+1340,17,Discourse,3,4,10,17
+5054,17,Yello,7,5,5,17
+635,16,OsmAnd,3,10,3,16
+639,16,mastodon.social,5,4,7,16
+535,16,itch.io,6,5,5,16
+1799,16,Venmo,9,6,1,16
+2912,16,McAfee,13,1,2,16
+2866,16,VPN.AC,0,7,9,16
+8006,16,Anydesk,2,6,8,16
+2679,16,Podyssey Podcasts,6,7,3,16
+6694,16,Jsbin,1,11,4,16
+2521,16,Valour,6,7,3,16
+7357,16,Enphase,12,3,1,16
+838,16,10minutemail,9,3,4,16
+1421,16,vinted,5,8,3,16
+3011,16,CollegeBoard,8,4,4,16
+2651,16,Trader Joe's,6,3,7,16
+327,16,RiseUp.net,1,7,8,16
+5047,16,Cryptee,2,4,10,16
+1931,16,Cloze,8,4,4,16
+4416,15,ePlus Technology,11,1,3,15
+2219,15,RUNALYZE,1,7,7,15
+1024,15,MattressFirm,1,14,0,15
+4529,15,Pluto TV,7,7,1,15
+1433,15,ICANN,10,3,2,15
+3582,15,Weblate,1,5,9,15
+4423,15,Gandi,7,1,7,15
+2131,15,Zapier,5,3,7,15
+4005,15,Raindrop.io,5,6,4,15
+809,15,Todoist,8,5,2,15
+267,15,SpiderOak,4,3,8,15
+4527,15,MX Player,4,10,1,15
+2423,15,Weasyl,9,4,2,15
+2944,15,Bullet VPN,3,7,5,15
+2417,15,ControlC.com,2,8,5,15
+2689,15,Chess.com,5,9,1,15
+1367,15,Webtoon (Naver/Line),2,10,3,15
+719,15,npm,3,9,3,15
+7415,15,Geneanet,5,6,4,15
+7344,15,Meower,0,8,7,15
+1548,15,ShapeShift,13,0,2,15
+7328,15,Cakey Bot,1,2,12,15
+2811,15,Swiss Government,4,6,5,15
+2901,15,Talking Tom and Friends,2,12,1,15
+2677,15,Incog.host,2,4,9,15
+4062,14,KeyMe,2,7,5,14
+461,14,yelp,7,3,4,14
+2252,14,Taskade,4,7,3,14
+2652,14,GrubHub,9,4,1,14
+6610,14,Xandr,7,6,1,14
+733,14,XVideos,5,6,3,14
+2806,14,Staples Inc,7,7,0,14
+160,14,toodledo,5,7,2,14
+6820,14,Filen,3,8,3,14
+453,14,King Digital Entertainment (Candy Crush),8,6,0,14
+2225,14,Phone2Action,6,4,4,14
+2050,14,Common Application,8,4,2,14
+2077,14,LibreOffice,4,4,6,14
+3477,14,Poki,4,8,2,14
+2075,14,Nexus Mods,5,7,2,14
+5741,14,EthicalAds,1,12,1,14
+522,14,Wolfram Alpha,5,4,5,14
+1731,14,Follow My Health,3,8,3,14
+5256,14,ente.io,3,11,0,14
+3108,14,HBO,10,4,0,14
+3007,14,Amino,2,9,3,14
+514,14,GitLab,2,11,1,14
+7729,14,Australia Post,3,4,7,14
+7054,14,scribe,7,7,0,14
+2981,14,OVPN,1,4,9,14
+5721,14,do not pay,8,5,1,14
+8721,13,Recipe Realm,5,6,2,13
+2266,13,Hacking with Swift,1,3,9,13
+455,13,The Guardian,4,7,2,13
+4261,13,arXiv,1,3,9,13
+2650,13,ThisNew,10,3,0,13
+3749,13,Bright Cellars,5,4,4,13
+1787,13,WebMD,6,7,0,13
+2370,13,Planio,3,3,7,13
+5423,13,Try Hack Me,3,5,5,13
+2964,13,European Commission,0,2,11,13
+2413,13,Padlet,3,7,3,13
+530,13,Mozilla.org,4,4,5,13
+2743,13,TorGuard,3,4,6,13
+2844,13,Google Chrome,9,1,3,13
+2534,13,YTS,3,8,2,13
+1574,13,Dashlane,2,7,4,13
+6722,13,ArvanCloud,6,5,2,13
+1357,13,Minds,4,4,5,13
+2693,13,Paradox Interactive,3,7,3,13
+2699,13,HubSpot,4,8,1,13
+2508,13,BOTLABS.GG LLC,7,4,2,13
+731,13,Mailchimp,3,8,2,13
+8083,13,Flourish,2,9,2,13
+1465,13,TV Tropes,5,5,3,13
+8116,13,iCivics,2,8,3,13
+896,12,Target,9,1,2,12
+8080,12,TruNews,5,7,0,12
+1488,12,Cover your Tracks,0,2,10,12
+602,12,Posteo,0,5,7,12
+6126,12,Anime Music Quiz,3,5,4,12
+740,12,JetBrains,6,4,2,12
+2727,12,Okta,8,2,2,12
+8072,12,Monarch Money,3,6,3,12
+2552,12,SimpleLogin,1,3,8,12
+5056,12,American Red Cross,1,10,1,12
+1877,12,Pepper&Carrot,1,1,10,12
+3599,12,Techlore,2,3,7,12
+2240,12,ByGabyArdigo,4,4,4,12
+3465,12,Cleanfox,3,2,7,12
+3273,12,Surface Owl,6,3,3,12
+2875,12,e-foundation,4,4,4,12
+2948,12,VPNHub,1,3,8,12
+2431,12,Cash App,5,6,1,12
+2983,12,MOBY Group,3,8,1,12
+3622,12,TWINT,4,2,6,12
+3802,12,Waterfox,0,3,9,12
+2178,12,Neocities,5,5,2,12
+5331,11,Security Trails,3,7,1,11
+596,11,ToS;DR,0,1,10,11
+3577,11,Spark Mail,3,7,1,11
+2499,11,France Université Numérique,1,5,5,11
+3852,11,Toggl Track,5,4,2,11
+1941,11,Wikiwand,6,4,1,11
+4721,11,4721,1,9,1,11
+5065,11,CITI Program,6,2,3,11
+5581,11,Zones,2,4,5,11
+6478,11,OP.GG,6,3,2,11
+6650,11,mod.io,2,6,3,11
+7310,11,Raspberry Pi ,4,5,2,11
+161,11,LastPass,5,2,4,11
+6721,11,Fill It Forward,3,3,5,11
+320,11,Dictionary.com,8,2,1,11
+837,11,Netsyms Technologies,0,4,7,11
+2973,11,Swisscows,0,1,10,11
+328,11,Colloq.io,3,4,4,11
+2584,11,CryptPad,1,5,5,11
+1472,11,PrivacyTools,3,5,3,11
+8430,11,Amethyst Craft,2,7,2,11
+849,11,GOV.UK,4,3,4,11
+2860,11,HideIPVPN,6,3,2,11
+2870,11,USSeek,4,7,0,11
+2954,11,Fakespot,5,3,3,11
+3607,11,EDRi,1,4,6,11
+4691,11,RethinkDNS,0,2,9,11
+4605,11,Browserling,4,6,1,11
+2309,11,lib.reviews,0,4,7,11
+2751,11,SaferVPN,3,7,1,11
+253,11,last.fm,6,4,1,11
+3985,11,myFRITZ!,1,5,5,11
+3930,11,Code.org,2,5,4,11
+4105,11,Photopea,3,5,3,11
+4865,11,Delta Math,5,2,4,11
+5815,10,UNICEF USA,3,4,3,10
+167,10,Indiegogo,5,2,3,10
+7733,10,Tron-Free,3,5,2,10
+7412,10,GT Booster,2,8,0,10
+1439,10,remove.bg,1,4,5,10
+1022,10,WhatIsMyIP.com,5,5,0,10
+811,10,Humble Bundle,5,3,2,10
+1445,10,PythonAnywhere,0,8,2,10
+8074,10,Character Count Online,3,4,3,10
+168,10,Airbnb,4,4,2,10
+7105,10,Hey.Café,1,7,2,10
+728,10,Pixiv,1,9,0,10
+7672,10,neeva,3,6,1,10
+708,10,icepop,5,3,2,10
+157,10,Tutanota,0,2,8,10
+2688,10,The Wall Street Journal,6,3,1,10
+7057,10,Waymo,4,5,1,10
+7007,10,stats.fm,5,3,2,10
+5108,10,Pianomarvel,3,6,1,10
+1796,10,LinusTechTips.com,1,6,3,10
+1804,10,IXL,6,0,4,10
+2712,10,IPVanish,3,3,4,10
+5552,10,#TeamSeas,3,6,1,10
+2061,10,Yubico,2,7,1,10
+3940,10,Softonic,2,6,2,10
+3968,10,Kodi,0,4,6,10
+2116,10,Standard Notes,0,2,8,10
+4447,10,Linguee,2,4,4,10
+1870,10,Snopes,3,5,2,10
+5050,10,Career Fair Plus,2,5,3,10
+273,10,Sumo,4,5,1,10
+438,10,mondosol,5,1,4,10
+2041,10,Whereby,3,1,6,10
+3934,10,Hero,4,4,2,10
+3878,10,Starbase 118,3,4,3,10
+2129,10,Gladly,4,4,2,10
+216,10,salesforce,8,1,1,10
+405,10,Feedly,4,1,5,10
+3532,10,Toyota,4,5,1,10
+2242,10,Guerrilla Mail,2,6,2,10
+3177,10,DealDash,3,5,2,10
+3185,10,Owl Mail,1,7,2,10
+3131,10,Electronic Arts,6,3,1,10
+3158,10,Watermark Insights,2,8,0,10
+2978,10,CTemplar,0,2,8,10
+3109,10,Spankbang,5,4,1,10
+2395,10,PriceCharting,1,4,5,10
+2893,10,Rovio,1,9,0,10
+2896,10,Dhaka Tribune,2,8,0,10
+2867,10,Binance,2,7,1,10
+8114,9,Blender,4,0,5,9
+1379,9,Brain.fm,0,7,2,9
+7911,9,AutismDate,0,8,1,9
+1958,9,Pocket Casts,1,2,6,9
+1947,9,MyFitnessPal,6,1,2,9
+7438,9,Toddle,0,4,5,9
+4549,9,JMServices,6,2,1,9
+2890,9,People For the Ethical Treatment of Animals,5,3,1,9
+2641,9,TCRF | The Cutting Room Floor,0,5,4,9
+2880,9,CryptoKitties,1,7,1,9
+2868,9,Outfit7,2,7,0,9
+4730,9,StreamingSearch ,2,6,1,9
+2684,9,Mapillary,3,5,1,9
+2990,9,Textnow,5,4,0,9
+241,9,XING,3,3,3,9
+7734,9,Deveroonie.xyz,3,4,2,9
+7692,9,H&R Block,5,2,2,9
+2671,9,HideMe VPN,2,6,1,9
+3171,9,Manscaped,1,7,1,9
+2558,9,Calyx Institute,0,0,9,9
+2069,9,Dribbble,2,6,1,9
+4195,9,Buzzfeed,5,2,2,9
+4165,9,BookBub,3,5,1,9
+3145,9,Cinemax,3,5,1,9
+2557,9,TourOfCalifornia.org,1,5,3,9
+236,9,IFTTT,3,5,1,9
+4159,9,Mozilla VPN,0,6,3,9
+202,9,Microsoft Store,6,2,1,9
+2769,9,Scammer.info,6,2,1,9
+2396,9,RightsStatements,1,0,8,9
+1524,9,Newgrounds,2,3,4,9
+2303,9,Spark for Appraisers,0,2,7,9
+682,9,Electronic Frontier Foundation,2,1,6,9
+6785,9,GMA Network,2,5,2,9
+1832,9,osu!,0,5,4,9
+246,9,Kolab Now,0,3,6,9
+503,9,Visible,8,1,0,9
+8075,9,HTTP Injector,2,7,0,9
+5939,9,Earnably,2,4,3,9
+586,9,Tapas,2,5,2,9
+1627,9,iNaturalist,3,6,0,9
+3370,9,Codeberg,0,3,6,9
+3663,9,Science News,5,3,1,9
+5420,9,Monkeytype,0,7,2,9
+3481,9,Smart Survey Work,1,6,2,9
+169,9,phpBB,0,5,4,9
+2706,9,tawk.to,3,5,1,9
+3779,9,WinZip,1,4,4,9
+5494,9,HackenProof,5,2,2,9
+579,9,Tipeee,2,1,6,9
+2213,9,Pillowfort,1,2,6,9
+3659,9,Psiphon,6,1,2,9
+3680,9,Clue,0,6,3,9
+6392,9,Arista Networks,4,5,0,9
+969,9,ToS;DR Phoenix,0,4,5,9
+8326,9,ptgms Industries,0,2,7,9
+821,9,WaniKani,1,2,6,9
+332,9,Jagex (including RuneScape),2,5,2,9
+3401,9,PDF24.org,2,5,2,9
+1676,9,Replit,3,4,2,9
+3751,9,Vault.ooo,0,6,3,9
+284,9,JustPark,3,5,1,9
+4728,8,Movie Finder,2,5,1,8
+3840,8,ADHD Boss,4,3,1,8
+380,8,ResearchGate,4,2,2,8
+8071,8,Ramsey Solutions,4,3,1,8
+5430,8,Handshake,4,3,1,8
+1629,8,Honey,2,1,5,8
+3475,8,DAVx⁵,0,0,8,8
+5064,8,eintelligenceoutreach.com,4,4,0,8
+2678,8,Infomaniak,2,1,5,8
+2400,8,Flipgrid,2,3,3,8
+473,8,FC2,3,2,3,8
+4106,8,ITV,4,2,2,8
+2364,8,Red Pocket,1,7,0,8
+7114,8,PokeTube,0,1,7,8
+191,8,MeMail,5,1,2,8
+302,8,Indeed,6,1,1,8
+2052,8,Path of Exile,2,4,2,8
+2735,8,The Society for German Genealogy in Eastern Europe,2,4,2,8
+2311,8,Ruqqus,1,6,1,8
+2776,8,AdGuard Software Limited,1,3,4,8
+336,8,Fitbit,0,2,6,8
+6390,8,Paygvpn,1,7,0,8
+3297,8,Prager University,3,4,1,8
+325,8,Imgur,4,2,2,8
+6800,8,LambdaGeneration Community,3,2,3,8
+2434,8,Job Accomodation Network,0,3,5,8
+6771,8,KeyCDN,2,4,2,8
+2571,8,Windscribe,2,2,4,8
+847,8,idka (DEPRECATED),2,1,5,8
+2520,8,Logitech,6,1,1,8
+8047,8,Operation Smile ,0,8,0,8
+1678,8,Evaneos,0,1,7,8
+2243,8,Temp Mail,2,1,5,8
+2940,8,Vultr,6,2,0,8
+292,8,Habbo,4,3,1,8
+2419,8,1Muslim,1,7,0,8
+2908,8,Oxfam,3,2,3,8
+810,8,E-Poll Surveys,2,4,2,8
+1173,8,Newegg.com,5,2,1,8
+1831,8,Speaky,3,2,3,8
+3623,8,Glympse,2,2,4,8
+2623,8,Canadian Broadcasting Corporation,3,3,2,8
+1356,8,AniList,2,6,0,8
+5661,8,Blooket,0,4,4,8
+6239,8,Not the Bee,2,4,2,8
+6113,8,LingQ,4,3,1,8
+6310,8,Fast Quick Search,5,2,1,8
+3149,7,Waste Management,1,5,1,7
+4085,7,Rediff,2,3,2,7
+6454,7,Buycott,5,1,1,7
+4102,7,YogaDNS,0,2,5,7
+1355,7,Kitsu,1,6,0,7
+3786,7,Skatedeluxe,3,1,3,7
+5980,7,Bio.Link,2,2,3,7
+1709,7,Wizards of the Coast,3,2,2,7
+1358,7,Gab,2,5,0,7
+323,7,Zillow,4,3,0,7
+1737,7,Monzo,1,3,3,7
+3343,7,PrivacyWall,2,5,0,7
+1723,7,Alignable,2,4,1,7
+2667,7,Desmos,4,1,2,7
+4431,7,Buy me a coffee,1,4,2,7
+2517,7,Pokemon.com,5,2,0,7
+5376,7,SplashLearn,2,4,1,7
+3804,7,KeePassXC,1,2,4,7
+578,7,Ubuntu,3,1,3,7
+3429,7,Omegle,3,4,0,7
+2620,7,McGraw-Hill Education,2,5,0,7
+608,7,Setlisting,4,1,2,7
+636,7,Hacker News,2,3,2,7
+6330,7,Wurst Client,3,1,3,7
+7770,7,Next Admit,0,7,0,7
+3194,7,Qualified.com,4,2,1,7
+2358,7,Women Also Know Stuff,2,3,2,7
+4136,7,Entrust,1,5,1,7
+4403,7,Cryptomator,1,2,4,7
+7354,7,Prodigy Education Inc.,3,1,3,7
+2979,7,StartMail,1,3,3,7
+4374,7,Activision Publishing,2,4,1,7
+1527,7,Inrupt Inc,1,5,1,7
+2043,7,e621/e926,0,6,1,7
+2415,7,Immunet,3,3,1,7
+1572,7,1Password,0,5,2,7
+8037,7,Buddy,2,5,0,7
+2424,7,Rockstar Games,4,3,0,7
+1027,7,f.lux,1,6,0,7
+2965,7,Betternet,2,4,1,7
+5215,7,Pacer,3,1,3,7
+1727,7,Overleaf,2,3,2,7
+3310,7,StrawPoll,1,5,1,7
+3199,7,Inoreader,3,2,2,7
+4814,7,CraftBru,0,5,2,7
+3269,7,FACEIT,1,4,2,7
+6391,7,Similar Worlds,3,1,3,7
+6223,7,CaptiVoice,4,3,0,7
+2138,7,Tidal,1,6,0,7
+1790,7,Bible Gateway,3,3,1,7
+2433,7,KartaView (formerly OpenStreetCam and OpenStreetView),1,5,1,7
+3285,7,YouPorn,3,1,3,7
+4042,7,KiwiCo ,0,7,0,7
+1346,6,ICS / Masjid Tucson,1,1,4,6
+2907,6,Affinity,2,0,4,6
+8170,6,Jami,0,0,6,6
+316,6,CNet,2,4,0,6
+3086,6,Darebee,2,0,4,6
+3095,6,Anchor,2,4,0,6
+702,6,RationalWiki,0,4,2,6
+1569,6,Feedbin,1,0,5,6
+4124,6,The Social Dilemma,3,0,3,6
+4130,6,Bleeping Computer,1,5,0,6
+7063,6,Chipotle Mexican Grill,4,2,0,6
+692,6,AnkiWeb,0,5,1,6
+4671,6,Read Aloud,0,3,3,6
+4690,6,codejunkies,1,0,5,6
+1505,6,eBird,4,2,0,6
+729,6,Royal Society of Chemistry,2,2,2,6
+7379,6,Android වැඩකාරයෝ,3,3,0,6
+3058,6,Picclick,1,5,0,6
+1886,6,VirusTotal,1,2,3,6
+4138,6,Intel,1,2,3,6
+7296,6,Ryanair,0,4,2,6
+1501,6,SciStarter,2,2,2,6
+2741,6,Bloomberg L. P.,2,4,0,6
+1960,6,FullContact,1,0,5,6
+4470,6,Earth 2,3,3,0,6
+7912,6,Home Title Lock,0,6,0,6
+7867,6,Varsity Tutors,3,2,1,6
+2878,6,Yewtu.be,0,2,4,6
+2888,6,USA TODAY,4,2,0,6
+2647,6,Rule34,2,3,1,6
+2430,6,Mint Mobile,2,4,0,6
+243,6,Etsy,3,2,1,6
+2420,6,Ripe NCC,2,1,3,6
+459,6,fivesquid,2,2,2,6
+4565,6,Vorwerk Thermomix,2,3,1,6
+2123,6,ActBlue,3,1,2,6
+2784,6,Affirm,4,2,0,6
+341,6,OLX,4,2,0,6
+1733,6,420A3.com,0,1,5,6
+2470,6,BECU,4,1,1,6
+2193,6,Pirate Party Australia,0,1,5,6
+3290,6,Poshmark,2,3,1,6
+3234,6,Bentley Motors,1,5,0,6
+4076,6,Aegis Authenticator,0,0,6,6
+3186,6,VIZIO,2,4,0,6
+2846,6,Orange,2,1,3,6
+2503,6,Instacart,4,1,1,6
+5196,6,Max Kohler Visual Communication,0,1,5,6
+209,6,coursera,1,4,1,6
+3995,6,Overwolf,3,1,2,6
+3939,6,Panda Security ,2,3,1,6
+4082,6,Grameenphone,1,5,0,6
+2705,6,Weatheralex1 Hub,1,5,0,6
+2228,6,MuseScore,3,2,1,6
+520,6,DEPRECATED #67,3,1,2,6
+3386,6,Barinsta,1,0,5,6
+6004,6,Polyfill,1,3,2,6
+3688,6,Njalla,1,5,0,6
+3697,6,Tutor.com,3,3,0,6
+8470,6,"Skiff World, Inc",3,2,1,6
+3616,6,SocialPass,1,0,5,6
+5467,6,Dotdash,1,4,1,6
+5682,6,Waldhör Solutions,1,0,5,6
+1462,6,GOG,0,2,4,6
+2731,6,CactusVPN,2,4,0,6
+1387,6,Nabu Casa,3,3,0,6
+8763,6,Switched,0,4,2,6
+2437,5,Poll Everywhere,1,3,1,5
+2443,5,Listia,1,2,2,5
+8204,5,Iket's website,0,1,4,5
+863,5,Skribbl.io,2,3,0,5
+3515,5,AppsFlyer,3,1,1,5
+1702,5,Ko-fi,1,3,1,5
+8087,5,Q Care Plus ,1,4,0,5
+271,5,NewsBlur,2,1,2,5
+2223,5,bol-d-air.net,0,1,4,5
+361,5,EVE Online,2,2,1,5
+222,5,DuckDuckGo,0,1,4,5
+3538,5,Google Pay,1,4,0,5
+6001,5,Pepsi,3,1,1,5
+1746,5,Pixelfed,0,2,3,5
+3778,5,Comparitech ,0,5,0,5
+3772,5,Escrow.com,0,4,1,5
+2577,5,Sony,3,2,0,5
+3693,5,OnlyFans,1,4,0,5
+2212,5,Anonfiles,2,3,0,5
+1552,5,FAKKU,3,2,0,5
+3928,5,CoinGecko,3,2,0,5
+2786,5,Torrent Privacy,1,3,1,5
+2794,5,FastestVPN,0,3,2,5
+1728,5,MRichard333,4,1,0,5
+6513,5,Helena Express,1,1,3,5
+6388,5,From Zero!,3,2,0,5
+2182,5,F-Droid,0,0,5,5
+1730,5,Ballotpedia,1,1,3,5
+6340,5,Gamebanana,1,4,0,5
+5888,5,unsplash,3,1,1,5
+6226,5,JustAnswer,1,4,0,5
+163,5,softpedia,2,2,1,5
+3422,5,Conversations,0,0,5,5
+5432,5,Flatiron Media,3,2,0,5
+385,5,Chrome Webstore,2,3,0,5
+1715,5,MiiCharacters,3,1,1,5
+2516,5,Deezer,2,2,1,5
+2059,5,The Session,0,0,5,5
+1521,5,Dr. McDougall's Health & Medical Center,0,5,0,5
+2738,5,EthanMcBloxxer,0,1,4,5
+2969,5,VPNArea,0,4,1,5
+2971,5,Playasia,1,4,0,5
+2935,5,ProWritingAid,0,3,2,5
+803,5,City of Reading,0,2,3,5
+7909,5,Dealer ,1,2,2,5
+451,5,EasyNews,3,0,2,5
+873,5,MapQuest,3,2,0,5
+201,5,greenisbetter,1,3,1,5
+1952,5,Flight Rising,1,1,3,5
+1959,5,NextDNS,0,0,5,5
+4453,5,Browsi,2,2,1,5
+4603,5,Fanlore ,1,3,1,5
+3148,5,Tribune Publishing,1,4,0,5
+6714,5,hinge,1,3,1,5
+678,5,DesignCrowd,1,1,3,5
+6624,5,overcast.fm,1,2,2,5
+4096,5,noice.link,3,2,0,5
+1893,5,Jumbo Privacy,0,3,2,5
+4030,5,Kialo,1,2,2,5
+4011,5,Getaround,4,1,0,5
+1611,5,HQ,2,3,0,5
+6748,5,y.com.sb,0,2,3,5
+3216,5,Streamlabs,2,3,0,5
+6452,5,FOCUS HOME INTERACTIVE,0,3,2,5
+5107,5,GDLauncher,3,0,2,5
+5142,5,Undertheboard,4,1,0,5
+4161,5,MacRumors,2,3,0,5
+4842,5,linuxbuz,0,5,0,5
+2559,5,Briar,0,0,5,5
+4303,5,Tesla,1,2,2,5
+2019,5,INKR,1,4,0,5
+4232,5,iHeartRadio,4,0,1,5
+3123,5,search.ch,4,0,1,5
+2988,5,MIT Technology Review,3,2,0,5
+1891,5,Doublelist,1,4,0,5
+7188,5,LineageOS,0,3,2,5
+2556,5,MCProHosting,0,4,1,5
+4152,5,MalCare,0,5,0,5
+464,5,Square,2,2,1,5
+2406,5,Photofeeler,2,3,0,5
+3523,4,Clicknupload,1,2,1,4
+2241,4,Join Run,0,1,3,4
+5614,4,Discord.Club,2,0,2,4
+245,4,envato,1,3,0,4
+1020,4,National Hockey League (NHL.com),1,3,0,4
+5968,4,ShuShu.tech,3,1,0,4
+2253,4,Weather Underground,0,4,0,4
+2258,4,Qubes OS,1,3,0,4
+2562,4,Asus,3,1,0,4
+5658,4,avoidthehack!,0,1,3,4
+272,4,IBM,1,2,1,4
+853,4,Inspire,3,1,0,4
+8117,4,HMA,0,3,1,4
+2621,4,CommonLit,0,4,0,4
+1443,4,Parsec,3,1,0,4
+3648,4,CuriosityStream,3,1,0,4
+3653,4,Syracuse University,1,1,2,4
+6364,4,ADATA,1,3,0,4
+3365,4,Mozilla Thunderbird,1,3,0,4
+5253,4,Paul Schroer - Photographer,0,1,3,4
+1559,4,HERE Technologies,2,2,0,4
+3150,4,Rooster Teeth,0,4,0,4
+1894,4,Human Rights Foundation,0,1,3,4
+4009,4,Windy,2,2,0,4
+6710,4,Return YouTube Dislike,0,1,3,4
+683,4,DnD5e.info,0,1,3,4
+211,4,Myspace,2,2,0,4
+1798,4,Loot Crate,2,2,0,4
+285,4,Scotiabank,1,1,2,4
+283,4,Hypster,0,4,0,4
+2070,4,Houzz,0,2,2,4
+2851,4,Bitcoin Project,1,2,1,4
+1601,4,Chilliapps - Abandonment Protector,1,1,2,4
+3188,4,BYUtv,3,1,0,4
+2435,4,Mimo,0,3,1,4
+3221,4,New Relic,3,0,1,4
+1809,4,Custom Ink,3,0,1,4
+5911,4,youtubemp3free,2,1,1,4
+5896,4,FreeBsd,3,1,0,4
+2226,4,Fosstodon,0,1,3,4
+3317,4,Jehovah's Witnesses,1,2,1,4
+3660,4,Leads Leap,0,3,1,4
+5322,4,State of Illinois,1,3,0,4
+5294,4,JukeHost,2,2,0,4
+5218,4,Cloudburst Media,2,2,0,4
+5213,4,Too Good To Go,0,4,0,4
+2800,4,UTunnel VPN,1,2,1,4
+3418,4,The School District of Philadelphia,2,2,0,4
+3225,4,mail.ch,0,0,4,4
+3316,4,Anti-Captcha,0,4,0,4
+3283,4,NerdWallet,4,0,0,4
+484,4,Let's Encrypt,2,1,1,4
+2398,4,Huge Miniatures,1,0,3,4
+3100,4,Arq Backup,1,2,1,4
+7420,4,Moqups,1,3,0,4
+1497,4,Moddb.com,3,0,1,4
+736,4,MusicBrainz,0,0,4,4
+4226,4,Mine,2,1,1,4
+4078,4,Open Camera,2,0,2,4
+4725,4,Stitcher,2,2,0,4
+4203,4,Login Lockdown,3,1,0,4
+4227,4,Open Broadcaster Software,1,0,3,4
+1944,4,PsychonautWiki,1,0,3,4
+4129,4,Cyren,0,4,0,4
+2265,4,Totem Project,0,3,1,4
+4122,4,TOLOnews,0,4,0,4
+2403,4,Pear Deck,0,3,1,4
+1570,4,AliExpress,0,4,0,4
+263,4,Boingo,1,3,0,4
+4864,4,WazirX,0,4,0,4
+2760,4,Manjaro Linux,0,1,3,4
+2927,4,Personal Capital,1,1,2,4
+2411,4,Layers of London,0,2,2,4
+7654,4,Ad Lightning,2,1,1,4
+757,4,Apple Media Services (DEPRECATED),0,4,0,4
+3006,4,Sudomemo,1,3,0,4
+2943,4,Udemy,1,2,1,4
+4500,4,Sierra Club,2,2,0,4
+795,4,SpeakerMatch,2,2,0,4
+4501,4,Do Good Points,2,2,0,4
+2512,4,Trakt,1,1,2,4
+4526,4,123tv.live,1,2,1,4
+841,4,Space Oddities,0,1,3,4
+820,4,Web & SEO Designers,0,2,2,4
+1342,3,Blender Market,1,1,1,3
+8884,3,frontendfriendly.xyz,0,0,3,3
+205,3,RapidShare,2,1,0,3
+2933,3,Electrify America,2,1,0,3
+2916,3,Delivery.com,2,0,1,3
+286,3,Sonic.net,0,2,1,3
+2972,3,FairVote,0,1,2,3
+2393,3,McGraw Hill,1,0,2,3
+2046,3,Save Our Bank,0,1,2,3
+3068,3,Clario,0,3,0,3
+3063,3,AppValley,1,0,2,3
+3074,3,Digiarty Software,0,3,0,3
+4366,3,NovelAI,0,1,2,3
+2017,3,City of Sacramento,0,3,0,3
+1496,3,loom,2,1,0,3
+310,3,Splice,0,3,0,3
+178,3,fightforthefuture.org,1,1,1,3
+7042,3,Patient Access,2,1,0,3
+3156,3,Savetz Publishing,1,2,0,3
+3162,3,Texoma Council of Governments,0,2,1,3
+5117,3,Forge Of Empires,2,1,0,3
+2374,3,Wigwam Design,0,0,3,3
+3874,3,VLC Help,0,3,0,3
+2486,3,Imgix,1,1,1,3
+4051,3,Tunefind,0,1,2,3
+713,3,Open Book Publishers,0,0,3,3
+1824,3,Mycroft AI,2,1,0,3
+5057,3,TravelAlaska.com,1,1,1,3
+1866,3,InfoSec Handbook (discontinued?),0,0,3,3
+1875,3,Blogtrottr,1,1,1,3
+4133,3,Summer of HYPERlocal (discontinued?),0,0,3,3
+4116,3,Stool Analyzer,0,3,0,3
+1802,3,ctrlaltdev,0,0,3,3
+7209,3,~Vern,0,2,1,3
+7367,3,PrivadoVPN,0,2,1,3
+7358,3,Pet Friend,1,2,0,3
+1538,3,Free Steam Keys,0,2,1,3
+2955,3,HoneyGain,1,1,1,3
+4819,3,MathFlare,0,2,1,3
+4816,3,Kami,0,1,2,3
+2459,3,Nebula,1,1,1,3
+2369,3,Vonage,2,1,0,3
+1701,3,Crowdin,3,0,0,3
+1717,3,moovweb,1,2,0,3
+6548,3,drawar.io ,2,0,1,3
+6492,3,Utreon,0,1,2,3
+590,3,Slither.io,2,1,0,3
+6387,3,RblxTrade,0,3,0,3
+5967,3,Hypothesis,0,2,1,3
+6033,3,vericast,1,2,0,3
+1605,3,Yakka,0,0,3,3
+3277,3,USL,2,0,1,3
+1639,3,4chan,1,2,0,3
+166,3,Nabble,1,2,0,3
+338,3,Quake Live,2,1,0,3
+3355,3,jamesbush.dev,0,1,2,3
+8251,3,SpaceTraders,3,0,0,3
+1386,3,OpenWeatherMap,2,0,1,3
+3414,3,Kwed.Org,0,0,3,3
+2852,3,Ethereum,2,1,0,3
+8112,3,Sanctioned Suicide,1,1,1,3
+8380,3,American Academy of Pediatric Dentistry,2,1,0,3
+869,3,Nintendo,1,2,0,3
+261,3,LiveJournal,1,1,1,3
+3388,3,SchildiChat,0,3,0,3
+3387,3,OpenTracks,0,0,3,3
+6411,3,PRIVATORIA,0,3,0,3
+6417,3,Weights and Biases,3,0,0,3
+2218,3,YNAB,1,1,1,3
+3624,3,K-9 Mail,0,0,3,3
+364,3,badoo,1,1,1,3
+326,3,Blogspot,3,0,0,3
+3224,3,Crayon.co,0,3,0,3
+5656,3,LitcCharts,2,1,0,3
+5460,3,Encyclopaedia Metallum,0,1,2,3
+372,3,Billions in Change,3,0,0,3
+5725,3,Leetcode,2,1,0,3
+3542,3,Edpuzzle,0,1,2,3
+3403,3,GamingOnLinux,0,0,3,3
+3543,3,Skiff,0,3,0,3
+6877,3,Pokétwo,1,2,0,3
+3239,3,Miro,2,1,0,3
+5621,3,THe Calm Sleep,0,2,1,3
+6713,3,AlfaCloud  ,0,3,0,3
+2713,3,Trumba,2,0,1,3
+6692,3,PussTheCat,0,2,1,3
+2269,3,Paper.li,0,1,2,3
+6695,3,Cuty,1,2,0,3
+2634,3,Whois,0,3,0,3
+2673,3,StrongVPN,1,2,0,3
+2628,3,Ocado,0,3,0,3
+229,3,tinyurl,0,3,0,3
+2261,3,Python Tutor,0,2,1,3
+5233,3,FUJITSU GENERAL,2,1,0,3
+5517,3,Collabora Productivity,0,1,2,3
+2561,3,Lenovo,1,2,0,3
+2796,3,GlassWire,0,1,2,3
+3764,3,Pennsylvania State University,2,1,0,3
+2128,3,Uncrowned Empire,0,0,3,3
+278,3,Flattr,0,2,1,3
+5403,3,Valid Number,0,2,1,3
+5388,3,AAX.com,1,1,1,3
+3184,3,Later.com,2,0,1,3
+3164,3,Ruby Shore Software,2,1,0,3
+7127,2,Voice.Ai,2,0,0,2
+3147,2,Accepted,0,2,0,2
+2698,2,Qualtrics,0,1,1,2
+1576,2,Intuitive Password,1,0,1,2
+3965,2,APPS112,0,2,0,2
+3925,2,BryceWray.com,0,0,2,2
+3974,2,Speedrun.com,1,0,1,2
+389,2,Lumen (Century Link),1,1,0,2
+2473,2,U.S. Department of Justice,1,1,0,2
+1518,2,Thumbzilla,2,0,0,2
+1507,2,EyeWire,0,2,0,2
+3106,2,ch.ch,1,0,1,2
+2367,2,PictureThis,0,2,0,2
+5250,2,Fairfax County Public Schools,0,0,2,2
+1876,2,pinboard,0,0,2,2
+5058,2,invited.tv ,1,0,1,2
+4035,2,Least Authority,1,0,1,2
+4077,2,Fritter,0,0,2,2
+2682,2,Stairway Learning (discontinued?),1,1,0,2
+4644,2,Cronometer,0,2,0,2
+4908,2,Technote,0,2,0,2
+4917,2,IntelTechniques By Michael Bazzel,0,0,2,2
+4157,2,Firefox Monitor,0,2,0,2
+4164,2,Buzzsprout,1,1,0,2
+4826,2,Free Music Archive,1,1,0,2
+5051,2,Universal Minecraft Converter,0,1,1,2
+7189,2,MEE6,2,0,0,2
+2063,2,Ritual,0,0,2,2
+1940,2,Sanctioned Suicide (DEPRECATED domin for sale),0,1,1,2
+1810,2,4ocean,0,1,1,2
+4934,2,Quick Thoughts App,0,2,0,2
+210,2,QuickBooks,0,1,1,2
+3077,2,Buffalo 7,0,2,0,2
+465,2,Restream,0,2,0,2
+1540,2,Harper Macaw Shop,0,1,1,2
+7375,2,OMDb ,0,2,0,2
+196,2,Reputation.com,0,2,0,2
+4517,2,Ultimate Guitar,0,2,0,2
+2882,2,Wesfarmers,1,1,0,2
+7763,2,Blue Sky Apps,1,1,0,2
+7880,2,Tenable,1,0,1,2
+7843,2,Gage Crib,1,1,0,2
+2892,2,Aternos,1,0,1,2
+2889,2,OpenTTD,2,0,0,2
+2422,2,Kairos Software,0,0,2,2
+7886,2,COS.TV,1,1,0,2
+4457,2,cryptouniverse.io,0,2,0,2
+4607,2,CIRRANTiC,2,0,0,2
+4695,2,Revision ReviOS ,1,1,0,2
+300,2,Stack Exchange,2,0,0,2
+2863,2,Identity Guard,2,0,0,2
+1957,2,Politics & War,0,2,0,2
+7711,2,rosettastone,0,2,0,2
+7669,2,TugOfWar,1,0,1,2
+4548,2,AnoniCloud,0,0,2,2
+4766,2,ResMed ,0,2,0,2
+4402,2,Internet Download Manager,0,2,0,2
+204,2,DEPRECATED #11,0,2,0,2
+1887,2,Rampow,0,2,0,2
+457,2,PlayStation Network Services,2,0,0,2
+756,2,Private Internet Access,0,1,1,2
+3010,2,The Church Factory,0,1,1,2
+5351,2,Turbowarp,0,2,0,2
+2260,2,Nitrokey,1,0,1,2
+6832,2,IsoLabs,0,2,0,2
+6611,2,Glifico,0,1,1,2
+5539,2,Sentry,0,1,1,2
+2729,2,Red Ventures,1,1,0,2
+374,2,BitTorrent,1,1,0,2
+3676,2,Segment (Twilio),2,0,0,2
+5675,2,GiftCardQuiz,2,0,0,2
+2381,2,Neurohr Bytes Software,0,1,1,2
+3695,2,ipinfo.io,0,2,0,2
+3679,2,Z-Library,2,0,0,2
+3711,2,Adblock Plus,1,0,1,2
+3702,2,Siteimprove,1,0,1,2
+5704,2,US Product Testing,2,0,0,2
+2210,2,Pastebin,1,1,0,2
+2707,2,AstrillVPN,0,1,1,2
+2306,2,Scientology,1,0,1,2
+268,2,webSaver,1,1,0,2
+3861,2,FamilySearch,0,2,0,2
+532,2,The Hello World Collection,0,0,2,2
+1740,2,Dairy Queen,2,0,0,2
+3176,2,Stanford University,0,1,1,2
+2700,2,Ring LLC,1,1,0,2
+5470,2,Eclipse Foundation,0,2,0,2
+2778,2,Webflow,0,2,0,2
+3848,2,Box,1,1,0,2
+3190,2,SmileBack,0,2,0,2
+6501,2,Project Drawdown,2,0,0,2
+6475,2,Streamlare ,0,2,0,2
+6375,2,NatureSpa.,0,0,2,2
+6369,2,Fembed,0,2,0,2
+5688,2,Ferris Chat,1,1,0,2
+3407,2,TBS,0,2,0,2
+3339,2,Daylio,0,1,1,2
+6419,2,FingerprintJS,1,1,0,2
+6395,2,BrainFacts,0,1,1,2
+6389,2,LibreWolf,0,1,1,2
+6220,2,United HealthCare Services,0,2,0,2
+6222,2,sweetfrog,0,2,0,2
+1625,2,Goguardian,2,0,0,2
+1626,2,Lydia,2,0,0,2
+6663,2,Fedora Email,0,2,0,2
+1596,2,PeerTube,1,0,1,2
+6458,2,TheITBros.com,0,0,2,2
+6456,2,Youthumb,2,0,0,2
+6324,2,ConnorCode,0,0,2,2
+6225,2,loophole.cloud,0,2,0,2
+3434,2,Dark Reader,0,1,1,2
+2858,2,NewsGuard,1,1,0,2
+1383,2,Yr.no,1,0,1,2
+8070,2,Reclaim The Net,0,1,1,2
+3476,2,3P Learning,0,2,0,2
+3450,2,MYKI,0,1,1,2
+6325,2,Web Hosting Secret Revealed,1,0,1,2
+2666,2,Auth0,0,2,0,2
+8351,2,Free Telly,0,2,0,2
+829,2,Avaaz,1,1,0,2
+8444,2,Thisapp,1,0,1,2
+266,2,Zoosk,1,1,0,2
+858,2,Clicksco,0,2,0,2
+8527,2,Programmer Network,1,0,1,2
+1359,2,UK Fluids Network,0,1,1,2
+1467,2,ShoutWiki,0,2,0,2
+1469,2,Neoseeker,2,0,0,2
+1493,2,KJVPCE,0,0,2,2
+2627,1,Nelink,1,0,0,1
+260,1,Audiotool,0,0,1,1
+8121,1,BFM TV,0,1,0,1
+861,1,FileInfo,0,1,0,1
+8484,1,1HD,1,0,0,1
+1006,1,witches.live mastodon,0,0,1,1
+4448,1,UniversityStudent.org,0,1,0,1
+2661,1,ClipConverter.cc,1,0,0,1
+1441,1,Glassdoor,1,0,0,1
+1440,1,Any.do,1,0,0,1
+8081,1,Blackbox AI,1,0,0,1
+2456,1,MyHeritage,0,1,0,1
+2450,1,pagecdn,1,0,0,1
+6197,1,Cyka.fun (DEPRECATED),0,0,1,1
+6143,1,PillPack,0,1,0,1
+6132,1,Meadow Park CBD Oil,0,1,0,1
+3452,1,Cookiebot,0,1,0,1
+343,1,Xfire,1,0,0,1
+6356,1,ADscore,1,0,0,1
+6289,1,System1,0,1,0,1
+6270,1,Unstoppable Domains ,0,1,0,1
+3400,1,Holy Cow,0,1,0,1
+3375,1,QNAP,0,1,0,1
+3332,1,WAtoday,0,1,0,1
+6424,1,iFixit,1,0,0,1
+6418,1,Truebill,1,0,0,1
+1680,1,Shmoop,0,0,1,1
+5985,1,Startup Alley,1,0,0,1
+5904,1,hover,0,1,0,1
+5850,1,Financial Times Pro,0,1,0,1
+583,1,Skycloud,1,0,0,1
+1628,1,PCPartPicker,0,1,0,1
+1623,1,Attain By Aetna,1,0,0,1
+1620,1,Canadian Dental Association,0,1,0,1
+6219,1,Rambox,0,1,0,1
+6378,1,IP Location,0,1,0,1
+6599,1,Badgr,0,1,0,1
+6542,1,NamesMaker,0,0,1,1
+6511,1,Eggactyl,1,0,0,1
+6472,1,Privnote,0,0,1,1
+6469,1,Bulbagarden,1,0,0,1
+6463,1,Retrospring,0,1,0,1
+6457,1,Clickio,0,1,0,1
+3272,1,KISS Metrics,0,1,0,1
+3260,1,TechWiser,0,1,0,1
+2859,1,Disco Elysium,1,0,0,1
+1616,1,Deliberative Entertainment,1,0,0,1
+1603,1,OpenWrt Forum,0,1,0,1
+1602,1,Rainforest Alliance,1,0,0,1
+1599,1,offtopical.net (DEPRECATED),0,0,1,1
+1590,1,Digital Advertising Platform | ReklamStore,0,1,0,1
+6657,1,Freedom,0,0,1,1
+172,1,Diasporg,0,0,1,1
+1716,1,Project Gutenberg,0,1,0,1
+2209,1,Beacon CRM,0,0,1,1
+2203,1,Poker-Engine,0,0,1,1
+3573,1,SpaceDock,0,1,0,1
+3531,1,Next of Windows,0,0,1,1
+3526,1,OpenSubtitles.org,0,1,0,1
+349,1,Arc Games,0,1,0,1
+1689,1,Algolia,0,0,1,1
+6655,1,NurseryCam ,0,0,1,1
+6652,1,Alltech,0,0,1,1
+6639,1,AzireVPN,0,0,1,1
+282,1,500px,1,0,0,1
+281,1,zooniverse,0,0,1,1
+2505,1,Iziram,0,0,1,1
+3247,1,TaxAct,1,0,0,1
+6898,1,Two Cans and String,1,0,0,1
+6767,1,WebsiteCarbon,0,0,1,1
+2384,1,Oculus,0,0,1,1
+5558,1,Veygo,0,1,0,1
+2726,1,Independent Australia,0,1,0,1
+2233,1,mailin.vote (discontinued?),0,0,1,1
+3618,1,Twitter Revue Service,0,1,0,1
+3590,1,improvedigital.com ,0,1,0,1
+5821,1,Girls Who Code,0,1,0,1
+5466,1,Mouse Sensitivity,1,0,0,1
+3740,1,Mangadex,0,0,1,1
+3705,1,Rave,1,0,0,1
+3678,1,Greenhouse,0,0,1,1
+5453,1,Python,0,1,0,1
+2633,1,Ufile (DEPRECATED moved to service 5291),0,0,1,1
+1562,1,DIY Tube Video Community,0,0,1,1
+5323,1,Oceanhero,0,1,0,1
+3839,1,New Mexico State University,0,1,0,1
+3801,1,Topaz Labs,1,0,0,1
+3790,1,TrafficWave,0,1,0,1
+3789,1,The Information,0,1,0,1
+2576,1,Netgear,0,1,0,1
+5507,1,Good News Network ,1,0,0,1
+5217,1,Charity Miles,0,1,0,1
+521,1,Good ToDo,1,0,0,1
+2801,1,Smith Brothers Farms,0,1,0,1
+2140,1,LauraKalbag,0,0,1,1
+2139,1,Priority Matrix,0,0,1,1
+5204,1,Bold.org,0,1,0,1
+5424,1,Xavio,0,0,1,1
+5365,1,BitBoy Crypto,0,1,0,1
+1556,1,MonoPrice,0,1,0,1
+3182,1,PrankHotLine,0,1,0,1
+2385,1,Syniverse,1,0,0,1
+695,1,BillPay,0,0,1,1
+711,1,Honeypot,0,0,1,1
+709,1,Tartle,0,0,1,1
+394,1,Jobvite,1,0,0,1
+2479,1,Nginx,0,1,0,1
+2466,1,SendGrid (Twilio),0,1,0,1
+5251,1,Hawaii State Department of Education,0,1,0,1
+234,1,CreditNerds,0,1,0,1
+3110,1,EvoWise,0,1,0,1
+3102,1,WizeBot,0,1,0,1
+3101,1,Cookie-Script.com,1,0,0,1
+1504,1,Atlas of Living Australia,0,0,1,1
+7256,1,AbuseIPDB,1,0,0,1
+7230,1,GoPro,1,0,0,1
+4994,1,Nilly,0,0,1,1
+4947,1,The Spamhaus Project,0,1,0,1
+404,1,Keybase,1,0,0,1
+402,1,Covered California,1,0,0,1
+4942,1,Canary Mail,0,1,0,1
+516,1,Warner Bros,1,0,0,1
+1806,1,RateYourMusic,0,1,0,1
+1800,1,Minetest Forums,1,0,0,1
+4127,1,Rythm ,0,1,0,1
+4117,1,ReviewMeta,0,1,0,1
+4100,1,Overclock.net,1,0,0,1
+1825,1,Consumer Reports,0,1,0,1
+1822,1,Herbalife,0,1,0,1
+5033,1,Pilot Institute,0,1,0,1
+5012,1,Syphon app ,0,1,0,1
+7390,1,visiting angels ,1,0,0,1
+7388,1,Smadent,0,1,0,1
+7380,1,Talentprise,0,1,0,1
+7374,1,Safebase,0,1,0,1
+7362,1,Open Assistant,0,0,1,1
+296,1,ello,1,0,0,1
+308,1,Nokia,0,1,0,1
+4081,1,Project HOPE.,0,1,0,1
+430,1,Bold Type Tickets,0,1,0,1
+4218,1,Synapse X,0,1,0,1
+416,1,Verizon Communications,0,1,0,1
+4620,1,TruthFinder,1,0,0,1
+4921,1,Ingenta Connect,0,1,0,1
+4909,1,NOMOROBO,1,0,0,1
+3069,1,Lulu,0,0,1,1
+3055,1,Doctolib,0,0,1,1
+3003,1,Center for Responsive Politics,0,1,0,1
+7735,1,Waldo Vision,1,0,0,1
+7671,1,Tenor,1,0,0,1
+7667,1,Aidlab,0,1,0,1
+7657,1,Aggro Magnet Games,0,0,1,1
+755,1,Dominion Energy,1,0,0,1
+4604,1,Digital Photography Review ,0,0,1,1
+4598,1,simonoh.me,0,0,1,1
+4553,1,Bushwick Ayuda Mutua,0,0,1,1
+2775,1,Ra4w VPN,1,0,0,1
+2027,1,Uphold,0,1,0,1
+4705,1,Free,0,0,1,1
+7502,1,Nam Huy,0,1,0,1
+749,1,AlternativeTo,1,0,0,1
+2387,1,Banned.Video,1,0,0,1
+2989,1,Thomas Liquet's Website,0,1,0,1
+2936,1,Paris Elysees,1,0,0,1
+2421,1,King James Bible App,0,0,1,1
+748,1,JSTOR,1,0,0,1
+7917,1,jsDelivr,0,1,0,1
+2732,1,Branded Surveys,0,1,0,1
+4540,1,Università Commerciale Luigi Bocconi,0,0,1,1
+4522,1,Yidio,0,1,0,1
+4513,1,Prisma Media,0,0,1,1
+4511,1,ParkMobile.io,0,1,0,1
+436,1,Australian Broadcasting Corporation,0,1,0,1
+2004,1,Code Combat,0,0,1,1
+1948,1,Ali Reza Hayati's Personal Page,0,0,1,1
+4502,1,Definition.org,0,1,0,1
+4616,1,Direct.me,0,1,0,1
+7913,1,ouo.io,0,1,0,1
+7887,1,Gemini,0,1,0,1
+7879,1,VB-AUDIO,1,0,0,1
+1381,1,Adafruit,0,1,0,1
+2906,1,Vodafone Ghana,0,1,0,1
+290,1,fruux,1,0,0,1
+2891,1,ArchWiki,0,0,1,1
+2881,1,Our World In Data,1,0,0,1
+2662,1,S-Config,0,0,1,1
+1336,1,Roblox,0,0,1,1
+1009,1,Nexon,1,0,0,1
+8930,1,Freemake,0,1,0,1
+8900,1,FlorisBoard,0,0,1,1
+8115,1,fireflies,0,1,0,1
+8181,1,DiscordHub,0,1,0,1
+1345,1,Marco Polo,0,1,0,1
+1335,1,Brick Hill,0,1,0,1

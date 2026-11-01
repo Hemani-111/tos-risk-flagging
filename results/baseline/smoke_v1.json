@@ -1,0 +1,35 @@
+{
+  "date": "2026-11-02",
+  "fixture": "We may share your personal information with our partners. You can delete your account at any time. We retain records as required by law.",
+  "labels": [
+    "Risky",
+    "Safe",
+    "Risky"
+  ],
+  "feature_count": 58099,
+  "timings_seconds_single_run": {
+    "tfidf_transform": 0.005418599990662187,
+    "model_predict": 0.012741400045342743,
+    "analysis_api_including_test_client": 0.022483499953523278
+  },
+  "api": {
+    "status_code": 200,
+    "total_clauses": 3,
+    "risky_count": 2,
+    "labels": [
+      "Risky",
+      "Safe",
+      "Risky"
+    ]
+  },
+  "model_classes": [
+    "Neutral",
+    "Risky",
+    "Safe"
+  ],
+  "artifact_sha256": {
+    "model.joblib": "db0e6c6f1f6295911cc66fa552a910258ce2d8bb5f28bee62aeaa2c6ef681af2",
+    "vectorizer.joblib": "40f91145fe1638ecb902d488f77420c4be88bdbbb3b55871fa926fc5f22ff5aa"
+  },
+  "caveat": "Single local smoke run for reproducibility; timings are not a performance benchmark."
+}
