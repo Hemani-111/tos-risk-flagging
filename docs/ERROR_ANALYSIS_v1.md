@@ -45,4 +45,4 @@ This is a development trade-off for review routing, not a deployed abstention po
 
 ## Independent document set status
 
-No frozen local snapshots or human annotations are available yet. The ToSDR excerpt labels cannot stand in for complete-document ground truth. Eight official source candidates from four services absent from the full benchmark are listed in `data/review/document_sources_candidates_v1.csv`. `docs/INDEPENDENT_DOCUMENT_EVALUATION.md` defines the review procedure and `data/review/document_annotations_template_v1.csv` is a blank annotation template. Full-document performance remains unmeasured pending snapshots and human annotations.
+Six local snapshots from three services absent from the full benchmark are frozen locally and indexed in `data/review/document_sources_candidates_v1.csv`; the two Perplexity pages returned HTTP 403 and are not in the frozen set. The ToSDR excerpt labels cannot stand in for complete-document ground truth. `docs/INDEPENDENT_DOCUMENT_EVALUATION.md` defines the review procedure, and separate reviewer sheets are ready. Full-document performance remains unmeasured pending human annotations.

@@ -6,7 +6,7 @@ Measure extraction, segmentation, clause predictions, and missed risky material 
 
 ## Selection and provenance
 
-1. Use the eight candidate sources in `data/review/document_sources_candidates_v1.csv`: consumer terms and privacy policies for Anthropic, Mistral AI, Perplexity AI, and You.com. These services were checked and do not appear in the full conflict-free ToSDR benchmark. The fixed candidate list was chosen without model results.
+1. The frozen set currently has six documents: consumer terms and privacy policies for Anthropic, Mistral AI, and You.com. These services were checked and do not appear in the full conflict-free ToSDR benchmark. Perplexity terms/privacy remain in the source registry but this environment returned HTTP 403 for both snapshots; they are not part of the frozen set.
 2. Record the official source URL, document title/type, retrieval date, version/effective date if shown, local snapshot path, and SHA-256. Keep raw documents out of Git unless redistribution rights are confirmed.
 3. Freeze the source list and snapshots before annotation. Keep a development document subset separate from any final document evaluation subset.
 4. Do not select documents based on model predictions or known model successes.
@@ -15,7 +15,10 @@ The official sources were checked on 2 November 2026: [Anthropic Legal Center](h
 
 ## Annotation
 
-- Two reviewers independently examine the same document text and identify policy clauses that merit attention under the project's three-class rubric. Preserve exact source spans and surrounding context. Record reviewer ID, label, risk type, uncertainty, and rationale in `data/review/document_annotations_template_v1.csv`.
+- For the initial annotation round, two reviewers independently examine the same three consumer Terms of Service documents (Anthropic, Mistral AI, and You.com). Privacy snapshots are frozen for a later round. Review the complete text and identify policy clauses that merit attention; the prepared clause rows are navigation aids and do not replace a full-document pass. A reviewer-added-span row is provided for material the segmenter missed.
+- Use the blind content sheets `reviewer_a_segments_v1.csv` and `reviewer_b_segments_v1.csv` under the ignored `data/review/snapshots_v1/` folder. `data/review/annotator_a_sheet_v1.csv` and `_b_...` are tracked metadata stubs only. The content sheets include no model predictions and are excluded from Git because they reproduce source text.
+- Offsets refer to character positions in each extracted `.txt` snapshot, not PDF page coordinates. The HTML visible-text and PDF text extracts are working review copies; extraction completeness and fidelity to the application parser have not yet been independently verified. Preserve exact spans and surrounding context. Record reviewer ID, label, risk type, uncertainty, and rationale.
+- Apply this operational adaptation of the project’s three classes: **Risky** when the clause materially limits user rights, privacy, control, or fair treatment; **Safe** when it affirmatively provides a user-protective right or safeguard; **Neutral** when it is informational or does not support either judgment. Consider the full clause and context, not isolated terms. ToS;DR's source case ratings include good, neutral, bad, and blocker; this project collapses material adverse cases into Risky and protective cases into Safe for clause-level review. See the [ToS;DR rating definitions](https://github.com/tosdr/docs/blob/master/phoenix/README.md). This rubric is for consistent student review, not legal advice.
 - Use only `Risky`, `Neutral`, or `Safe` when the rubric supports one; use `Needs adjudication` in the annotation note for unresolved cases, not as a model class.
 - Compare reviewer agreement before reconciliation. Reconcile disagreements with a written decision and preserve both original judgments. Report agreement and the number of adjudicated spans.
 - The annotation is a student-reviewed reference. It is not legal advice or a claim of expert legal correctness.
@@ -28,4 +31,4 @@ Do not tune model features or thresholds against a frozen final document set. If
 
 ## Current status
 
-The repository has a fixed candidate source list but no frozen local snapshots or human annotations. Confirm the correct consumer-facing product/region, save the documents locally, and fill snapshot version/hash fields before annotation. Do not generate synthetic labels or use model predictions as reference labels. Document-level evaluation remains pending until reviewers supply completed annotations and source records.
+Six local snapshots and text extracts are available under the ignored `data/review/snapshots_v1/` folder. Their hashes, extraction paths, and retrieval dates are in the source registry. Two blind annotation sheets covering 951 current-segmenter clauses across the three consumer ToS are generated there; tracked metadata stubs cover all six frozen documents. The snapshots and content sheets are omitted from Git because they may be copyrighted. Do not generate synthetic labels or use model predictions as reference labels. Document-level evaluation remains pending until reviewers return completed sheets and adjudication notes.

@@ -79,9 +79,12 @@ Development error and probability analyses use validation and grouped training f
 python scripts\analyze_development_errors.py
 python scripts\analyze_uncertainty.py
 python scripts\verify_document_source_candidates.py
+python scripts\fetch_document_source_candidates.py
+python scripts\prepare_document_review_sheets.py
+python scripts\prepare_document_review_segments.py
 ```
 
-Independent full-document evaluation requires human annotations; see [docs/INDEPENDENT_DOCUMENT_EVALUATION.md](docs/INDEPENDENT_DOCUMENT_EVALUATION.md).
+The fetch step stores raw snapshots and extracted review text under ignored `data/review/snapshots_v1/`; it records HTTP failures in the source registry. The segment preparation step creates blind reviewer copies for the initial three-service Terms of Service round. Independent full-document evaluation requires two human annotations and adjudication; see [docs/INDEPENDENT_DOCUMENT_EVALUATION.md](docs/INDEPENDENT_DOCUMENT_EVALUATION.md).
 
 ### Backend
 

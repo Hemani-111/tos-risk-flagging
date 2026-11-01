@@ -4,7 +4,7 @@ Last updated: 2 November 2026
 
 ## Current milestone
 
-Phases 0 through 4 are complete. Phase 5 development error and uncertainty analysis is underway; independent complete-document evaluation awaits human annotations. No replacement production model has been selected. The historical processed CSV, existing model artifacts, and notebooks remain unchanged.
+Phases 0 through 4 are complete. Phase 5 development error and uncertainty analysis is complete; its independent complete-document evaluation is prepared and awaits two human reviewers and adjudication. Six official source snapshots are frozen locally (three consumer Terms of Service and three privacy policies); the first blind review round covers 951 clauses from the three terms documents. No replacement production model has been selected. The historical processed CSV, existing model artifacts, and notebooks remain unchanged.
 
 ## Reproducible commands
 
@@ -21,6 +21,8 @@ Use the root `.venv` created with Python 3.11.9.
 - `python scripts/evaluate_tuned_candidates.py` scores CV-selected linear candidates on validation.
 - `python scripts/analyze_development_errors.py` exports validation error counts and a deterministic human review queue.
 - `python scripts/analyze_uncertainty.py` evaluates raw Logistic Regression probabilities and CV-derived review thresholds.
+- `python scripts/verify_document_source_candidates.py` checks source candidates against the benchmark; `python scripts/fetch_document_source_candidates.py` freezes local snapshots where accessible.
+- `python scripts/prepare_document_review_sheets.py` writes tracked metadata stubs; `python scripts/prepare_document_review_segments.py` creates blind clause annotation copies in the ignored snapshot folder. See `docs/INDEPENDENT_DOCUMENT_EVALUATION.md` for rubric and limitations.
 - `python scripts/baseline_smoke.py` records selected-model outputs, artifact hashes, and one local smoke timing.
 
 ## Data and evaluation decisions
@@ -43,4 +45,4 @@ Use the root `.venv` created with Python 3.11.9.
 
 ## Next
 
-Finish Phase 5 by obtaining independent complete-document annotations from two reviewers. The rubric and blank template are in `docs/INDEPENDENT_DOCUMENT_EVALUATION.md` and `data/review/document_annotations_template_v1.csv`. Keep the locked test partitions untouched.
+Finish Phase 5 by obtaining independent complete-document annotations from two reviewers and adjudicating disagreements. The blind segment sheets are in ignored `data/review/snapshots_v1/`; send each reviewer their separate copy. Perplexity snapshot retrieval was blocked with HTTP 403, so it is excluded from the frozen set. Keep the locked test partitions untouched.

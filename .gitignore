@@ -37,6 +37,7 @@ frontend/.env.*.local
 # Data
 data/raw/*
 !data/raw/.gitkeep
+data/review/snapshots_v1/
 data/processed/*
 !data/processed/.gitkeep
 !data/processed/audit_v1/
