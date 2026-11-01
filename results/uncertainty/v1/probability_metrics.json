@@ -1,0 +1,33 @@
+{
+  "model": "balanced LogisticRegression C=10 with word unigram/bigram TF-IDF",
+  "protocol": "primary unseen-service",
+  "split_id": "split_manifest_v1",
+  "locked_test_used": false,
+  "training_oof": {
+    "rows": 13439,
+    "accuracy": 0.834883547883027,
+    "multiclass_brier_score": 0.24039387570545473,
+    "log_loss": 0.4370847969179899,
+    "top_label_ece_10_bins": 0.007224520406017681,
+    "mean_top_label_confidence": 0.837642408020928
+  },
+  "validation": {
+    "rows": 2658,
+    "accuracy": 0.8212942061700527,
+    "multiclass_brier_score": 0.2528544387155337,
+    "log_loss": 0.4580433714947912,
+    "top_label_ece_10_bins": 0.02260553594636598,
+    "mean_top_label_confidence": 0.8430538533144736
+  },
+  "fold_fit_seconds_including_vectorization": [
+    1.8980807000189088,
+    1.7738771999720484,
+    2.5681820000172593
+  ],
+  "probabilities_calibrated": false,
+  "interpretation": "Raw probabilities are evaluated but not calibrated. Confidence cutoffs are chosen from training OOF only; validation coverage/error are an untouched development check, not a final test estimate.",
+  "source_script": "scripts/analyze_uncertainty.py",
+  "source_script_sha256": "a7565c8a68e1abaeb7813cd4f8e14ca696d1026bf60d663901fbc752c09d3990",
+  "git_revision_before_phase5_changes": "506435ec8f37df269f9eddb6576c04eb2bb1ec82",
+  "working_tree_had_uncommitted_phase5_changes": true
+}

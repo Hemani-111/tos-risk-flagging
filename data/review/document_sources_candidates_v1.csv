@@ -1,0 +1,7 @@
+document_id,service_name,document_type,official_source_url,document_version_or_effective_date,source_presence_check,retrieved_date,snapshot_sha256,review_status
+mistral_consumer_terms_row,Mistral AI,Terms of Service,https://legal.mistral.ai/terms/row-consumer-terms/,2026-10-12,absent_from_full_conflict_free_benchmark,2026-11-02,,source_link_recorded_snapshot_pending
+mistral_privacy,Mistral AI,Privacy Policy,https://legal.mistral.ai/terms/privacy-policy/,2026-09-03,absent_from_full_conflict_free_benchmark,2026-11-02,,source_link_recorded_snapshot_pending
+perplexity_consumer_terms,Perplexity AI,Terms of Service,https://www.perplexity.ai/hub/legal/terms-of-service,2026-01-23,absent_from_full_conflict_free_benchmark,2026-11-02,,source_link_recorded_snapshot_pending
+perplexity_privacy,Perplexity AI,Privacy Policy,https://www.perplexity.ai/hub/legal/privacy-policy,2026-10-23,absent_from_full_conflict_free_benchmark,2026-11-02,,source_link_recorded_snapshot_pending
+you_com_terms,You.com,Terms of Service,https://about.you.com/legal/terms,2024-08-27,absent_from_full_conflict_free_benchmark,2026-11-02,,source_link_recorded_snapshot_pending
+you_com_privacy,You.com,Privacy Policy,https://you.com/privacy,2026-09-22,absent_from_full_conflict_free_benchmark,2026-11-02,,source_link_recorded_snapshot_pending

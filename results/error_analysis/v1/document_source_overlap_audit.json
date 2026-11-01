@@ -1,0 +1,42 @@
+{
+  "benchmark": "clauses_benchmark_v1.csv",
+  "results": [
+    {
+      "service": "Anthropic",
+      "matched_raw_names": [],
+      "matched_dataset_names": [],
+      "matched_dataset_service_ids": [],
+      "absent_from_full_conflict_free_benchmark": true
+    },
+    {
+      "service": "Mistral AI",
+      "matched_raw_names": [],
+      "matched_dataset_names": [],
+      "matched_dataset_service_ids": [],
+      "absent_from_full_conflict_free_benchmark": true
+    },
+    {
+      "service": "Perplexity AI",
+      "matched_raw_names": [
+        "Perplexity AI"
+      ],
+      "matched_dataset_names": [],
+      "matched_dataset_service_ids": [],
+      "absent_from_full_conflict_free_benchmark": true
+    },
+    {
+      "service": "You.com",
+      "matched_raw_names": [
+        "You.com",
+        "flirt-hits-4-you.com"
+      ],
+      "matched_dataset_names": [],
+      "matched_dataset_service_ids": [],
+      "absent_from_full_conflict_free_benchmark": true
+    }
+  ],
+  "source_script": "scripts/verify_document_source_candidates.py",
+  "source_script_sha256": "15820fa2391b809155950d659e7e224b97dd6798568e4ad7a6c4ba42c85da435",
+  "git_revision_before_phase5_changes": "506435ec8f37df269f9eddb6576c04eb2bb1ec82",
+  "working_tree_had_uncommitted_phase5_changes": true
+}

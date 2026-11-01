@@ -1,0 +1,578 @@
+point_id,predicted_label,protocol,model,C,quote_text,label,topic_title,case_id,service_id,is_error,error_type,tag_negation,tag_exception_or_qualification,tag_permission_or_discretion,tag_third_party_sharing,tag_deletion_or_retention,tag_liability_or_indemnity,tag_termination_or_changes,tag_user_rights_or_access
+1019,Risky,primary,linear_svm,1.0,"The user is obliged </p> <p> (a) to provide only true and non-misleading statements along with its real name, and to refrain from using pseudonyms or pen names, </p>",Neutral,Anonymity,213,241,True,Neutral__as__Risky,False,False,False,False,False,False,False,False
+1558,Risky,primary,linear_svm,1.0,"Twitch may disclose user information if we believe in good faith that such disclosure is necessary to comply with U.S.
+state and federal laws or other applicable laws around the world (for example, in the country of your residence), or respond to a court order, judicial or other government request, subpoena, or warrant in the manner legally required.",Neutral,[Deprecated],168,200,True,Neutral__as__Risky,False,False,True,True,False,False,False,True
+2058,Risky,primary,linear_svm,1.0,"You agree that Apple may, in its sole discretion and without prior notice, terminate your access to the Site and/or block your future access to the Site if we determine that you have violated these Terms of Use or other agreements or guidelines which may be associated with your use of the Site.",Neutral,Suspension and Censorship,205,158,True,Neutral__as__Risky,True,False,True,False,False,False,True,True
+4455,Risky,primary,linear_svm,1.0,"Certain parts of non-personalized data can be shared with the partners of the Company in the amounts, necessary to ensure cooperation between the Company and its partners or service providers.",Neutral,Third Parties,207,635,True,Neutral__as__Risky,False,False,True,True,False,False,False,False
+5264,Risky,primary,linear_svm,1.0,"First party cookies are our own cookies set by Humble Bundle, controlled by us and used to provide information about the usage of the Service.",Neutral,Trackers,126,811,True,Neutral__as__Risky,False,False,False,False,False,False,False,False
+5456,Risky,primary,linear_svm,1.0,"Ryver may amend or modify these Terms at any time in its sole and absolute discretion, subject to notice to you.
+The modified Terms will be effective immediately upon your receipt of notice to you by email or a message in the Service, and you agree to be bound by the new terms and conditions of the posted Terms by continuing your use of any Service",Neutral,Notice of Changing Terms,122,1209,True,Neutral__as__Risky,False,True,True,False,False,False,True,False
+5458,Risky,primary,linear_svm,1.0,"Ryver does require that you grant us rights to your Content as necessary to, and for the sole purpose of, providing the Service.
+For example, we must be able to transmit and display our Content over computer networks for viewing on computers, mobile devices and in email notifications by you and other users in your account.
+We may also use third-party services such as Amazon Web Services in order to facilitate the administration and operation of the Service, thus extending the rights granted to us to the third parties only as necessary to provide the service.</p>",Neutral,Copyright License,136,1209,True,Neutral__as__Risky,False,False,True,True,False,False,False,False
+5464,Risky,primary,linear_svm,1.0,"We also reserve the right to access, read, preserve, and disclose any information (public or private) as we reasonably believe is necessary",Neutral,Personal Data,189,1209,True,Neutral__as__Risky,False,False,True,True,False,False,False,True
+5465,Risky,primary,linear_svm,1.0,"We may investigate and/or suspend your account if you violate any of the above rules.
+Furthermore, we reserve the right to immediately terminate your account without further notice in the event that, in our sole and absolute judgment, you violate these Terms, or abuse the use of our Service.",Neutral,Suspension and Censorship,205,1209,True,Neutral__as__Risky,True,False,True,False,False,False,True,True
+5739,Risky,primary,linear_svm,1.0,"The Agreement will be governed by the substantive laws of Finland, with the exception of any conflict of law principles.
+Any and all disputes, which the Parties fail to settle amicably, arising out of or relating to the Agreement will be finally settled by arbitration in English language in accordance with the Rules of the Arbitration Institute of the Finland Chamber of Commerce.",Neutral,Jurisdiction and governing laws,163,1377,True,Neutral__as__Risky,False,False,False,False,False,False,False,False
+5750,Risky,primary,linear_svm,1.0,"We may share personal data to authorized service providers who perform services for us (including data storage, sales, marketing and customer support services).",Neutral,Third Parties,207,1377,True,Neutral__as__Risky,False,False,True,True,True,False,False,False
+5837,Risky,primary,linear_svm,1.0,"Third-Party Service Providers:</b> We employ other companies and individuals to perform functions on our behalf.
+Examples include: delivering AWS hardware, sending communications, processing payments, assessing credit and compliance risks, analyzing data, providing marketing and sales assistance (including advertising and event management), conducting customer relationship management, and providing training.
+These third party service providers have access to personal information needed to perform their functions, but may not use it for other purposes.
+Further, they must process that information in accordance with this Privacy Notice and as permitted by applicable data protection law.",Neutral,Third Parties,207,1339,True,Neutral__as__Risky,True,False,True,False,False,False,False,True
+6129,Risky,primary,linear_svm,1.0,"Stack Overflow reserves the right to refuse, suspend or terminate your access to the public Network if it determines, in its sole discretion, that you have in any way violated these Public Network Terms or are otherwise ineligible to access or use the Network or Services.",Neutral,Suspension and Censorship,203,312,True,Neutral__as__Risky,False,False,False,False,False,False,True,True
+6205,Risky,primary,linear_svm,1.0,"Further we may operate user interaction tracking software that will generate additional records of user activity, for example Piwik",Neutral,Personal Data,190,232,True,Neutral__as__Risky,False,False,True,False,False,False,False,False
+6452,Risky,primary,linear_svm,1.0,"We reserve the right to update or change our Privacy Policy at any time and you should check this Privacy Policy periodically.
+",Neutral,Notice of Changing Terms,329,1540,True,Neutral__as__Risky,False,False,True,False,False,False,True,True
+7510,Risky,primary,linear_svm,1.0," we reserve the right to stop, suspend, or modify the Services at any time without prior notice to you,",Neutral,Suspension and Censorship,203,1727,True,Neutral__as__Risky,True,False,True,False,False,False,True,True
+7517,Risky,primary,linear_svm,1.0,"Other changes may be posted to our news or terms page, so please check those pages regularly.
+By continuing to access or use the Services after revisions become effective, you agree to be bound by the revised Terms.
+",Neutral,Notice of Changing Terms,329,1727,True,Neutral__as__Risky,False,False,True,False,False,False,False,True
+8717,Risky,primary,linear_svm,1.0,"If you are a U.S.
+resident that has acquired Products as a Consumer Purchaser, you and Yubico agree that any dispute, claim or controversy arising out of or relating to this Agreement or the breach, termination, enforcement, interpretation or validity thereof or the use of the Software (collectively, “Disputes”) will be settled by binding arbitration",Neutral,Governance,144,2061,True,Neutral__as__Risky,False,False,False,False,False,False,True,False
+9034,Risky,primary,linear_svm,1.0,"We share information with our vendors.</strong> We may share information with trusted third parties, including companies who serve as our vendors and help us deliver our services and social media partners if you elect to use social media integration features.",Neutral,Third Parties,207,2196,True,Neutral__as__Risky,False,False,True,True,False,False,False,False
+9307,Risky,primary,linear_svm,1.0,"Our website, services, apps, email communications and advertisements may use “cookies",Neutral,Trackers,126,2252,True,Neutral__as__Risky,False,False,True,False,False,False,False,False
+5756,Safe,primary,linear_svm,1.0,"All amendments to the Agreement must be made in writing.
+UpCloud may modify this Agreement by notifying the Customer in writing, such as by e-mail or by posting a revised document version on UpCloud’s website.
+If UpCloud considers that a revision will have a material effect on the Agreement, UpCloud will notify the Customer at least 30 days before the revision will be effected and reserve the Customer a possibility to terminate the Agreement",Neutral,Notice of Changing Terms,329,1377,True,Neutral__as__Safe,False,False,True,False,False,False,True,False
+7811,Safe,primary,linear_svm,1.0,We take the guesswork out of cookies and we simply show you what we're using the cookies for,Neutral,Trackers,126,1733,True,Neutral__as__Safe,False,False,False,False,False,False,False,False
+7970,Safe,primary,linear_svm,1.0,"You agree that any and all content, including without limitation any and all text, graphics, logos, tools, photographs, images, illustrations, software or source code, audio and video, animations, and product feedback (collectively, “Content”) that you provide to the public Network (collectively, “Subscriber Content”), is perpetually and irrevocably licensed to Stack Overflow on a worldwide, royalty-free, non-exclusive basis pursuant to Creative Commons licensing terms (CC BY-SA",Neutral,Ownership,180,312,True,Neutral__as__Safe,True,False,False,False,False,False,False,False
+8718,Safe,primary,linear_svm,1.0,"Without limiting the preceding sentence, you will also have the right to litigate any other Dispute if you provide Yubico with written notice of your desire to do so by email to legal@yubico.com within 30 days following the date you first purchase or obtain the Software (such notice, an “Arbitration Opt-out Notice”).
+If you don’t provide Yubico with an Arbitration Opt-out Notice within the 30-day period, you will be deemed to have knowingly and intentionally waived your right to litigate any Dispute except as expressly set forth in clauses (i) and (ii) above.",Neutral,Governance,144,2061,True,Neutral__as__Safe,True,True,False,False,False,False,False,True
+9040,Safe,primary,linear_svm,1.0,"By submitting, posting or displaying User Content on or through the Services, you grant us a worldwide, non-exclusive, royalty-free license (with the right to sublicense) to use, copy, reproduce, process, adapt, modify, publish, transmit, display and distribute such Content in any and all media or distribution methods (now known or later developed).",Neutral,Ownership,180,2196,True,Neutral__as__Safe,False,False,False,False,False,False,True,True
+9304,Safe,primary,linear_svm,1.0,"Minors and children should not use Taskade.
+By using the Website, you represent that you have the legal capacity to enter into a binding agreement",Neutral,Governance,152,2252,True,Neutral__as__Safe,True,False,False,False,False,False,False,False
+9703,Safe,primary,linear_svm,1.0,"If course instructors determine
+that participants are not abiding by community standards, they may
+choose to terminate their participation",Neutral,Suspension and Censorship,205,2265,True,Neutral__as__Safe,True,False,True,False,False,False,True,False
+9707,Safe,primary,linear_svm,1.0,"The user can opt-in to provide optional information about gender and geographic location in their user profile.
+This information will be used by Greenhost and Free Press Unlimited for reporting purposes",Neutral,Personal Data,190,2265,True,Neutral__as__Safe,False,False,True,False,False,False,False,False
+10478,Safe,primary,linear_svm,1.0,"We have the ability to remove objectionable messages and we will make every effort to do so, within a reasonable time frame, if we determine that removal is necessary.",Neutral,Suspension and Censorship,377,2359,True,Neutral__as__Safe,False,False,False,False,False,False,False,False
+11586,Safe,primary,linear_svm,1.0,"We do share it with others in these ways:</p>
+<p>
+<strong>a.
+When you make something public</strong>
+</p>
+<p>Like post a comment which the public can see.</p>
+<p>
+<strong>b.
+When we use other companies to power our services</strong>
+</p>
+<p>In order for us to give you quality experiences and to understand how you're using our services we often use other companies to process your personal information on our behalf.",Neutral,Third Parties,207,322,True,Neutral__as__Safe,False,False,True,True,False,False,False,False
+12960,Safe,primary,linear_svm,1.0,"to use, store, display, reproduce, save, modify, create derivative works, perform, and distribute your User Content on Pinterest solely for the purposes of operating, developing, providing, and using Pinterest.",Neutral,Copyright License,136,175,True,Neutral__as__Safe,False,False,False,False,False,False,True,False
+13079,Safe,primary,linear_svm,1.0,"Some cookies are always on when you visit us, and you can’t turn them off unless you change your browser settings.
+We call these “strictly necessary cookies”.
+We use them to make sure our digital services work correctly and are meeting audience needs and interests.</p>",Neutral,Trackers,126,322,True,Neutral__as__Safe,False,True,True,False,False,False,True,False
+13094,Safe,primary,linear_svm,1.0,"Your information is collected via two ways.
+Firstly, by browsing “phpBB.com” will cause the phpBB software to create a number of cookies, which are small text files that are downloaded on to your computer’s web browser temporary files.",Neutral,Trackers,126,169,True,Neutral__as__Safe,False,False,False,False,False,False,False,False
+13369,Safe,primary,linear_svm,1.0,"For further information on how Zendesk handles personal data and how Zendesk complies with the requirements of Art.
+44 of the Data Protection Act (especially after the EU-U.S.
+Privacy Shield has been removed), please click here.",Neutral,Transparency,299,2073,True,Neutral__as__Safe,False,False,False,False,False,False,False,False
+13621,Safe,primary,linear_svm,1.0,"<p>In any circumstances
+where the foregoing Arbitration Agreement permits the parties to litigate in court,
+the parties hereby agree to submit to the personal jurisdiction of the courts located
+within Netherlands County, California, for such purposes.",Neutral,Law and Government Requests,237,208,True,Neutral__as__Safe,False,False,False,False,False,False,False,False
+14164,Safe,primary,linear_svm,1.0,"<li>When you pay for a trip through the site, we will provide personal information to our service providers who assist us with processing and directing payments, refunding payments, and otherwise addressing inquiries relating to payments and refunds.",Neutral,Third Parties,207,1678,True,Neutral__as__Safe,False,False,False,False,False,False,False,False
+14212,Safe,primary,linear_svm,1.0,THE COMPANY DOES NOT HAVE THE POWER OR RESPONSIBILITY TO PROVIDE ANY REFUNDS.,Neutral,Payments,162,2391,True,Neutral__as__Safe,True,False,False,False,False,False,False,False
+14239,Safe,primary,linear_svm,1.0,"Your personal information is contained behind secured networks and is only accessible by a limited number of persons who have special access rights to such systems, and are required to keep the information confidential.
+",Neutral,Personal Data,189,2391,True,Neutral__as__Safe,False,False,False,False,False,False,False,True
+14348,Safe,primary,linear_svm,1.0,"If you provide your payment information, you authorize us and certain third party service providers, payment card networks and payment processors to receive, store and encrypt your payment information.",Neutral,Third Parties,207,1830,True,Neutral__as__Safe,False,False,False,False,False,False,False,False
+14386,Safe,primary,linear_svm,1.0,"The information stored in those files includes IP addresses,",Neutral,Types of Information Collected,399,1830,True,Neutral__as__Safe,False,False,False,False,False,False,False,False
+1463,Neutral,primary,linear_svm,1.0,"Uber may immediately terminate these Terms or any Services with respect to you, or generally cease offering or deny access to the Services or any portion thereof, at any time for any reason.</p>",Risky,Suspension and Censorship,201,252,True,Risky__as__Neutral,False,False,True,False,False,False,True,True
+4996,Neutral,primary,linear_svm,1.0,"p>We also collect from all visitors:</p>
+<ul>
+<li> Technical information about your use of the website, browser type and version, and operating system.
+</li>
+<li> Your IP Address",Risky,Trackers,323,829,True,Risky__as__Neutral,False,False,False,False,False,False,False,False
+6132,Neutral,primary,linear_svm,1.0,"Both you and Stack Overflow hereby irrevocably agree to the sole and exclusive personal jurisdiction of the Courts of the State of New York with respect to any action, suit, or proceeding brought by it or against it by the other party in connection with the Network or Services.",Risky,Jurisdiction and governing laws,242,312,True,Risky__as__Neutral,False,False,False,False,False,False,False,False
+6424,Neutral,primary,linear_svm,1.0,"For more information on our use of these technologies, see our Cookie Policy.</li>",Risky,Transparency,386,1537,True,Risky__as__Neutral,False,False,False,False,False,False,False,False
+7974,Neutral,primary,linear_svm,1.0," If you decide that you do not want cookies to be set on your device by our third-party Partners, you can adjust the settings on your internet browser and choose from the available Cookies setting to best meet your preferences.
+While setting options may vary from browser to browser, you can generally choose to reject some or all cookies, or instead to receive a notification when a cookie is being placed on your device.
+For more information, please refer to the user help information for your browser of choice.",Risky,Trackers,127,312,True,Risky__as__Neutral,True,False,True,True,False,False,False,False
+8719,Neutral,primary,linear_svm,1.0,"Further, unless both you and Yubico otherwise agree in writing, the arbitrator may not consolidate more than one person’s claims and may not otherwise preside over any form of any class or representative proceeding.",Risky,Dispute Resolution,117,2061,True,Risky__as__Neutral,True,True,True,False,False,False,False,False
+8839,Neutral,primary,linear_svm,1.0,"We may modify these Terms and other terms related to your use of the Services (like our Privacy Policy) from time to time, by posting the changed terms on the OSMF website.
+All changes will be effective immediately upon posting to the OSMF website unless they specify a later date.",Risky,Notice of Changing Terms,121,232,True,Risky__as__Neutral,False,True,True,False,False,False,True,False
+11676,Neutral,primary,linear_svm,1.0,"We may disclose de-identified and/or aggregated data for any purpose to third parties, including advertisers, promotional partners, and/or others.</li>
+",Risky,Advertising,220,2031,True,Risky__as__Neutral,False,False,True,True,False,False,False,False
+12961,Neutral,primary,linear_svm,1.0,"We reserve the right to remove or modify User Content, or change the way it’s used in Pinterest, for any reason.
+This includes User Content that we believe violates these Terms, our Community Guidelines, or any other policies.",Risky,Suspension and Censorship,202,175,True,Risky__as__Neutral,False,False,True,False,False,False,True,True
+12966,Neutral,primary,linear_svm,1.0,"Pinterest may terminate or suspend your right to access or use Pinterest for any reason on appropriate notice.
+We may terminate or suspend your access immediately and without notice if we have a good reason, including any violation of our Community Guidelines.",Risky,Suspension and Censorship,201,175,True,Risky__as__Neutral,True,False,True,False,False,False,True,True
+12990,Neutral,primary,linear_svm,1.0,"Review your messages on Pinterest to detect activity that poses a risk to the safety of you, our community and/or members of the public.",Risky,Personal Data,239,175,True,Risky__as__Neutral,False,False,False,False,False,False,False,False
+13084,Neutral,primary,linear_svm,1.0,"
+<p>We do not control these cookies.
+To disable or reject third-party cookies, please refer to the relevant third party’s website.
+For Extensions in particular, we encourage you to visit an Extension’s detail pages to review any privacy policy posted by the relevant developer, which may include additional information on their cookie practices.
+You can also learn more about controlling cookies in the “How do I control Cookies” section below.</p>",Risky,Trackers,127,200,True,Risky__as__Neutral,True,False,True,False,False,False,False,False
+13366,Neutral,primary,linear_svm,1.0,Please note that our translation service may not be used for texts containing personal data of any kind.,Risky,Personal Data,186,2073,True,Risky__as__Neutral,True,False,True,False,False,False,False,False
+13373,Neutral,primary,linear_svm,1.0,"The DeepL API is designed to translate up to 600 characters per minute and per customer.
+exceeding use may be limited and customers may encounter a 429 “Too Many Requests” error message, as described in the documentation.</p>",Risky,Guarantee,157,2073,True,Risky__as__Neutral,False,False,True,False,False,False,False,False
+13496,Neutral,primary,linear_svm,1.0,We also save the searches we receive to filter spam.,Risky,Types of Information Collected,395,591,True,Risky__as__Neutral,False,False,False,False,False,False,False,False
+13595,Neutral,primary,linear_svm,1.0,"or</li>
+<li>To assist us in analyzing how our Service is used.",Risky,Trackers,325,208,True,Risky__as__Neutral,False,False,False,False,False,False,False,False
+13766,Neutral,primary,linear_svm,1.0,Service <p>Twitch may amend any of the terms of these Terms of Service by posting the amended terms.,Risky,Notice of Changing Terms,121,200,True,Risky__as__Neutral,False,False,True,False,False,False,True,False
+14088,Neutral,primary,linear_svm,1.0,"You must also comply with the acceptable use and behavioral policies that we publish from time to time on our websites, apps and games and the behavioral rules listed below (collectively the “<strong>User Rules</strong>”).
+The User Rules posted to our websites, apps and games or set out in this section are not meant to be exhaustive, and we reserve the right to modify them, as well as take appropriate disciplinary measures including temporary bans, account suspension or termination and deletion to protect the integrity and spirit of the Riot Services, regardless of whether a specific behavior is listed in the User Rules as inappropriate.",Risky,Suspension and Censorship,201,369,True,Risky__as__Neutral,True,False,True,False,True,False,True,True
+14233,Neutral,primary,linear_svm,1.0,"We reserve the right to change these Terms from time to time upon notice to you.
+If we make changes to these Terms, we will provide notice of such changes by posting the revised Terms to the Services and updating the “Last Updated” date at the top of these Terms.
+In some cases, we may provide additional notice to you, such as via our Services or to an email address associated with your Account.
+",Risky,Notice of Changing Terms,121,2391,True,Risky__as__Neutral,False,False,True,False,False,False,True,True
+14237,Neutral,primary,linear_svm,1.0,"To send periodic emails regarding your order or other products and services.</li>
+",Risky,Advertising,336,2391,True,Risky__as__Neutral,False,False,False,False,False,False,False,False
+5934,Safe,primary,linear_svm,1.0,"Deleting an account terminates these Agreements, but grants us an indefinite license for content you collaborated to the service (e.g.
+event pages).
+This ensures that we can continue to provide this content beyond the termination of the Agreements.",Risky,Right to Leave The Service,174,328,True,Risky__as__Safe,False,False,True,False,False,False,True,False
+5977,Safe,primary,linear_svm,1.0,"You can also register via your accounts with the third-party providers Facebook, Twitter and Google.
+When you register via the login details of a third-party provider, the provider will also process your personal data.
+however, we will not have access to this information.
+Information collected by the commenting function is made available to us via Disqus.",Risky,Third Parties,208,591,True,Risky__as__Safe,True,True,True,False,False,False,False,True
+5981,Safe,primary,linear_svm,1.0,The anonymised data are saved for as long as is necessary,Risky,Right to Leave The Service,304,591,True,Risky__as__Safe,False,False,False,False,False,False,False,False
+6168,Safe,primary,linear_svm,1.0,"any content or information you share publicly is governed by the terms described below in the section titled “Content Permissions, Restrictions, and Creative Commons Licensing,” and you should be aware that once you place content in the public sphere, you willingly give up some rights and control over such content",Risky,Right to Leave The Service,173,312,True,Risky__as__Safe,False,False,False,True,False,False,False,False
+6170,Safe,primary,linear_svm,1.0,"Stack Overflow will not disclose your personal information to legal authorities except where such disclosure is by lawful request, including to meet legitimate national security or law enforcement demands (including a subpoena, court order, or other lawful legal demand by a legal authority with lawful jurisdiction).",Risky,Third Parties,188,312,True,Risky__as__Safe,True,True,False,True,False,False,False,True
+7167,Safe,primary,linear_svm,1.0,"In particular, we use Google Analytics – for information on how Google Analytics collects and processes data, please click here.</p>
+<p>If you would prefer not to accept cookies, please see “Managing Your Information,” below.",Risky,Trackers,127,1676,True,Risky__as__Safe,True,False,False,False,False,False,False,False
+9300,Safe,primary,linear_svm,1.0,"There are, however, cases where we are not allowed to delete your data in its entirety as a result of legal retention periods.
+We may also decline requests if they risk the privacy of others, would be extremely impractical, or for which access is not required by law",Risky,Right to Leave The Service,333,2252,True,Risky__as__Safe,True,True,True,False,True,False,False,True
+11717,Safe,primary,linear_svm,1.0,"At times Apple may provide third parties with certain personal information to provide or improve our products and services, including to deliver products at your request, or to help Apple market to consumers.
+When we do, we require those third parties to handle it in accordance with relevant laws.",Risky,Third Parties,188,158,True,Risky__as__Safe,False,False,True,True,False,False,False,True
+12879,Safe,primary,linear_svm,1.0,"Send you marketing materials by email, text, push notification or phone call depending on your account or operating system settings.
+",Risky,Advertising,336,175,True,Risky__as__Safe,False,False,False,False,False,False,False,False
+12881,Safe,primary,linear_svm,1.0," <p>Apple may share personal data with <strong>service providers</strong> who act on our behalf, our <strong>partners</strong>, or others <strong>at your direction</strong>.
+",Risky,Third Parties,188,291,True,Risky__as__Safe,False,False,True,True,False,False,False,False
+13076,Safe,primary,linear_svm,1.0,"We might also share your information if we have to by law, or when we need to protect you or other people from harm.",Risky,Law and Government Requests,164,322,True,Risky__as__Safe,False,False,True,True,False,False,False,False
+13077,Safe,primary,linear_svm,1.0,"Keep in mind:</p>
+<ul>
+<li>we keep a record of how you've used our services, but this information can't be linked back to you",Risky,Right to Leave The Service,304,322,True,Risky__as__Safe,True,False,True,False,False,False,False,False
+13499,Safe,primary,linear_svm,1.0,"<p>We will never share your searches with anyone except services that are directly involved in answering your search request, like Bing.",Risky,Third Parties,188,591,True,Risky__as__Safe,True,True,False,True,False,False,False,True
+13622,Safe,primary,linear_svm,1.0,"For contractual purposes, you (a) consent to receive communications
+from Company in an electronic form.
+and (b) agree that all terms and conditions,
+agreements, notices, disclosures, and other communications that Company provides
+to you electronically satisfy any legal obligation that such communications would
+satisfy if it were be in a hard copy writing.</p>",Risky,Advertising,336,208,True,Risky__as__Safe,False,False,False,False,False,False,False,True
+13625,Safe,primary,linear_svm,1.0,"<p>We want to inform our Service users that these third parties have access to your Personal Information.
+The reason is to perform the tasks assigned to them on our behalf.",Risky,Third Parties,188,208,True,Risky__as__Safe,False,False,False,True,False,False,False,True
+13674,Safe,primary,linear_svm,1.0,"Once you have asked us to close your account and delete your profile information, we will delete all information that we are not required or permitted to retain by law.</p>",Risky,Right to Leave The Service,333,200,True,Risky__as__Safe,True,False,False,False,True,False,False,False
+13679,Safe,primary,linear_svm,1.0,"We use your email address and/or telephone number to communicate with you, including to notify you of major Twitch Services updates, for customer service purposes, or to contact you regarding any content that you have posted to or downloaded from the Twitch Services.",Risky,Advertising,336,200,True,Risky__as__Safe,False,False,False,False,False,False,False,False
+13771,Safe,primary,linear_svm,1.0,"6.
+Subject to the above one-year retention requirement, we will only retain personal&nbsp;information for as long as necessary to fulfill the identified purposes above or as long as&nbsp;required for a legal or business purpose.",Risky,Right to Leave The Service,333,2359,True,Risky__as__Safe,False,True,False,False,True,False,False,False
+14094,Safe,primary,linear_svm,1.0,"You may not use a misspelling or an alternative spelling to circumvent this restriction on name choices, like user names.
+Riot Games may modify any name which Riot Games reasonably believes violates this provision, without notification to you, and may take further disciplinary measures, including account termination for repeated violations;</li>",Risky,Suspension and Censorship,328,369,True,Risky__as__Safe,True,False,True,False,False,False,True,False
+14246,Safe,primary,linear_svm,1.0,"
+<p> As part of LBRY Creator Verification, we will only use read-only access to verify the ownership of YouTube channels and will not transfer this data to others unless doing so is necessary to comply with applicable law, or as part of a merger, acquisition, or sale of assets.</p>
+",Risky,Business Transfers,243,2391,True,Risky__as__Safe,True,True,False,True,False,False,False,True
+788,Neutral,primary,linear_svm,1.0,"
+<p>If you violate these terms, Apheleia IT AG may seek to rectify the situation, including suspension and/or discontinuation of your account.
+We will aim to be fair and proportionate.",Safe,Suspension and Censorship,204,246,True,Safe__as__Neutral,False,False,True,False,False,False,False,False
+5477,Neutral,primary,linear_svm,1.0,"Ryver uses information we collect to operate, maintain, and provide you the features and functionality of the Service, to analyze how the Service is used, diagnose service or technical problems, maintain security, personalize content, remember information to help you efficiently access your account, monitor aggregate metrics such as total number of visitors, traffic, and demographic patterns, and track Content and users as necessary to comply with the Digital Millennium Copyright Act and other applicable laws.</p>
+",Safe,Transparency,227,1209,True,Safe__as__Neutral,False,False,False,False,False,False,False,True
+5743,Neutral,primary,linear_svm,1.0,"UpCloud will guarantee 100% virtual server and network availability to the Customer.
+The network will be deemed available if UpCloud’s routers and switches are available and responding properly.",Safe,Guarantee,158,1377,True,Safe__as__Neutral,False,False,False,False,False,False,False,False
+5749,Neutral,primary,linear_svm,1.0,"When possible, we will inform Users about such transfer and processing.</p>
+",Safe,Law and Government Requests,165,1377,True,Safe__as__Neutral,False,False,False,True,False,False,False,False
+5753,Neutral,primary,linear_svm,1.0,"For all unscheduled interruptions in the provision of the Services, which are due to hardware or telecommunications failures that last longer than 5 minutes, UpCloud shall offer compensation to the Customer.",Safe,Payments,161,1377,True,Safe__as__Neutral,False,False,False,False,False,False,False,False
+7584,Neutral,primary,linear_svm,1.0,You will find a link to prior versions of our Terms of Use below.,Safe,Transparency,197,276,True,Safe__as__Neutral,False,False,False,False,False,False,False,False
+7691,Neutral,primary,linear_svm,1.0,You can disable cookies by altering the settings of your browser and the website will still function.<br>,Safe,Trackers,385,713,True,Safe__as__Neutral,False,False,True,False,False,False,False,False
+7875,Neutral,primary,linear_svm,1.0,"Accordingly, CustomInk.com accepts returns and will refund payment if and when customers are disappointed by CustomInk.com merchandise for one of the following reasons:",Safe,Payments,161,1809,True,Safe__as__Neutral,False,False,False,False,False,False,False,False
+7976,Neutral,primary,linear_svm,1.0,"To prevent bad actors from creating a negative community experience, we have outlined what we believe to be common sense rules for community participation and reserve the right to pause or terminate your account if you engage in disruptive, abusive, or nefarious behavior outside of Stack Overflow’s Acceptable Use Policy, which is hereby incorporated into these Public Network Terms.</li>",Safe,Suspension and Censorship,313,312,True,Safe__as__Neutral,False,False,True,False,False,False,True,True
+10483,Neutral,primary,linear_svm,1.0,Use of a cookie is in no way linked to any personally identifiable&nbsp;information,Safe,Trackers,374,2359,True,Safe__as__Neutral,True,False,False,False,False,False,False,False
+11122,Neutral,primary,linear_svm,1.0,"Where possible, we use services that are hosted within the European Union.",Safe,Jurisdiction and governing laws,241,2396,True,Safe__as__Neutral,False,False,False,False,False,False,False,False
+11214,Neutral,primary,linear_svm,1.0,"Vivaldi’s headquarters are based in the beautiful city of Oslo, Norway.
+This EULA is therefore governed by the laws of Norway, except its conflict of laws rules and regulations",Safe,Jurisdiction and governing laws,241,2371,True,Safe__as__Neutral,False,True,False,False,False,False,False,False
+11603,Neutral,primary,linear_svm,1.0,"5.4 “Chilliapps” will maintain an information security program (including the adoption and enforcement of internal policies and procedures) against accidental or unlawful loss, access or disclosure.
+Accordingly, we are committed to identifying reasonably foreseeable and internal risks to security and unauthorized access to the “Chilliapps” services and minimize security risks, including through risk assessment and regular testing.
+</p>",Safe,Security,226,1601,True,Safe__as__Neutral,False,False,False,False,False,False,False,True
+13101,Neutral,primary,linear_svm,1.0,"While this information will not be disclosed to any third party without your consent, neither “phpBB.com” nor phpBB shall be held responsible for any hacking attempt that may lead to the data being compromised.
+</p>",Safe,Third Parties,296,169,True,Safe__as__Neutral,True,False,True,False,False,False,False,True
+13615,Neutral,primary,linear_svm,1.0,"These Terms
+are subject to occasional revision, and if we make any substantial changes, we may
+notify you by sending you an e-mail to the last e-mail address you provided to us
+and/or by prominently posting notice of the changes on our Site.
+You are responsible
+for providing us with your most current e-mail address.
+In the event that the last
+e-mail address that you have provided us is not valid our dispatch of the e-mail
+containing such notice will nonetheless constitute effective notice of the changes
+described in the notice.
+Any changes to these Terms will be effective upon the earliest
+of thirty (30) calendar days following our dispatch of an e-mail notice to you or
+thirty (30) calendar days following our posting of notice of the changes on our
+Site.
+These changes will be effective immediately for new users of our Site.",Safe,Notice of Changing Terms,124,208,True,Safe__as__Neutral,True,True,True,False,False,False,False,False
+14087,Neutral,primary,linear_svm,1.0,"We may freely use any Unsolicited Ideas you provide.
+This policy is aimed at avoiding potential misunderstandings or disputes when the Riot Services might seem similar to Unsolicited Ideas that people submit.</p>
+<p>You may not have any legal rights in the Unsolicited Ideas you insist on sending to us, but if you do, we will be allowed to use all or some of your Unsolicited Ideas for any reason we choose and without any payment to you.",Safe,Ownership,390,369,True,Safe__as__Neutral,True,False,True,False,False,False,False,False
+14373,Neutral,primary,linear_svm,1.0,"Any action related to the Terms, Content, the Services, and your relationship with the Strava shall be governed by, and construed and interpreted in accordance with, the laws of the State of California without regard to its conflict of laws principles",Safe,Jurisdiction and governing laws,241,1830,True,Safe__as__Neutral,True,False,False,False,False,False,False,False
+14699,Neutral,primary,linear_svm,1.0,"We agree to:
+<p>If you violate any of the above, your account will be suspended or terminated, and you may be exposed to civil and criminal sanctions.</p>
+<p>",Safe,Suspension and Censorship,313,2371,True,Safe__as__Neutral,False,False,True,False,False,False,False,False
+15096,Neutral,primary,linear_svm,1.0,"That
+violates the secrecy of private correspondence;",Safe,Content,317,2579,True,Safe__as__Neutral,False,False,False,False,False,False,False,False
+15100,Neutral,primary,linear_svm,1.0,"All the data linked to
+their accounts shall then be eliminated unless the User request the portability
+of its data.",Safe,Right to Leave The Service,175,2579,True,Safe__as__Neutral,False,True,False,False,False,False,False,True
+5469,Risky,primary,linear_svm,1.0,"As outlined in section 5 (Acceptable User of Ryver) in the Ryver Terms of Service, there may be certain cases where Ryver is required to access, remove, preserve, or disclose information as necessary to comply with legal obligations and/or protect our users.
+As long as we are legally permitted, we will provide notice of any situation where accessing content becomes necessary.",Safe,Law and Government Requests,165,1209,True,Safe__as__Risky,False,False,True,True,False,False,False,True
+5544,Risky,primary,linear_svm,1.0,or delete the data if Apple is not required to retain it by law or for legitimate business purposes.,Safe,User Choice,195,158,True,Safe__as__Risky,True,False,False,False,True,False,False,False
+5740,Risky,primary,linear_svm,1.0,Any disputes will be decided in English and by the Finland Chamber of Commerce.</small>,Safe,Jurisdiction and governing laws,241,1377,True,Safe__as__Risky,False,False,False,False,False,False,False,False
+7173,Risky,primary,linear_svm,1.0,"For example, your name and email address may be included within each of the “Identification and Contact Information,” “Travel Information,” “Billing Information,” and “User-Provided Information” categories described below.</p>
+<p>
+<strong>
+<em>Identification and Contact Information</em>
+</strong>
+</p>
+<ul>
+<li>This is information that identifies you as an individual (like your first and last name), information that allows us to confirm your identity (like your passport or other government-issued ID number), and information that enables us to contact you (like your email address, mailing address, or phone number)",Safe,Transparency,228,1678,True,Safe__as__Risky,False,False,True,False,False,False,False,False
+7175,Risky,primary,linear_svm,1.0,"This type of information is collected when you create an account on our site, when you submit a trip request and plan a trip through our site, when you opt in to receive newsletters and other promotional materials, and when you participate in any interactive services or features, such as review pages.
+We will also be provided with your name and email address when you reach out to us using our “Get in touch” or any similar contact features of the site",Safe,Transparency,297,1678,True,Safe__as__Risky,False,False,False,False,False,False,False,True
+7176,Risky,primary,linear_svm,1.0,"We collect and use this information for the purposes of (a) verifying your identity and confirming your eligibility when you create an account.
+(b) managing and personalizing your experience on the site.
+(c) transacting business with you, which includes administering your account and providing you with travel information, providing your information to our local agents so that they can assist with your travel arrangements, contacting you regarding your account or your planned trip, and seeking feedback on your trips and the services we provide.
+(d) responding to any inquiry you send to us.
+(e) subject to your right to opt out and subject to applicable law, sending you newsletters and other promotional materials about services you may be interested in.
+and (f) preventing and addressing fraud and breaches of our site requirements and policies",Safe,Transparency,227,1678,True,Safe__as__Risky,False,True,True,False,False,False,False,True
+7178,Risky,primary,linear_svm,1.0,"<li>We will retain this information for as long as we continue to have a business need to do so (which will be at least as long as you continue to maintain an active account on the site or have travel arrangements pending), unless a longer period is required by law.
+Business needs include legal, taxation, accounting, risk management, and other business purposes.",Safe,Right to Leave The Service,303,1678,True,Safe__as__Risky,False,True,False,False,True,False,False,False
+7546,Risky,primary,linear_svm,1.0,"Third Party Advertisers
+<p>We DO NOT permit advertisements to be delivered to you by third party Internet advertising companies (also called ad networks or network advertisers).
+",Safe,Third Parties,381,1733,True,Safe__as__Risky,True,False,False,False,False,False,False,False
+7968,Risky,primary,linear_svm,1.0,"Although the Network provides for anonymous and pseudonymous participation, in some instances in order to use certain Products or Services, we require account registration.
+",Safe,Anonymity,215,312,True,Safe__as__Risky,False,True,False,False,False,False,False,False
+8358,Risky,primary,linear_svm,1.0,"ARBITRATION AGREEMENT AND JURY TRIAL WAIVER, CLASS ACTION WAIVER, AND FORUM SELECTION CLAUSE",Safe,Dispute Resolution,335,1733,True,Safe__as__Risky,False,False,False,False,False,False,False,False
+8708,Risky,primary,linear_svm,1.0,We may process your personal data in relation to the performance of this Agreement.,Safe,Personal Data,196,2061,True,Safe__as__Risky,False,False,True,False,False,False,False,False
+9181,Risky,primary,linear_svm,1.0,Partners that participate in VirusTotal are bound by contract to only use the Samples for internal security purposes in compliance with our Terms of Service to detect malicious code and to improve their antivirus engines.,Safe,Third Parties,210,1886,True,Safe__as__Risky,False,False,False,True,False,False,False,False
+9299,Risky,primary,linear_svm,1.0,"Your personal information is retained for as long as it is necessary in order to fulfill the purposes outlined in this Privacy Policy, to enforce applicable Terms of Service, or to comply with our legal obligations",Safe,Right to Leave The Service,303,2252,True,Safe__as__Risky,False,False,False,False,False,False,False,False
+10378,Risky,primary,linear_svm,1.0,"As another example, chat logs/history data is retained for a period of two years from its creation.
+This is to enable Riot to properly investigate infringements of our rules and policies such as fraud, toxicity, cheating and harmful behaviour.",Safe,Logs,177,369,True,Safe__as__Risky,False,False,False,False,False,False,False,False
+10897,Risky,primary,linear_svm,1.0,"<p>Below is a detailed list of the cookies we use on our Website.
+Our Website is scanned with our cookie scanning tool regularly to maintain a list as accurate as possible.
+We classify cookies in the following categories:</p>
+<ul>
+<li>Strictly Necessary Cookies;</li>
+<li>Security Cookies;</li>
+<li>Anonymous Performance Cookies.</li>
+</ul>
+Strictly Necessary Cookies
+<p>These cookies are necessary for the website to function and cannot be switched off in our systems.",Safe,Trackers,306,2371,True,Safe__as__Risky,True,False,False,False,False,False,False,False
+11123,Risky,primary,linear_svm,1.0,Using your data <p>There are a number of ways that we may use or share your data in order to provide our services.,Safe,Transparency,227,2396,True,Safe__as__Risky,False,False,True,True,False,False,False,False
+13013,Risky,primary,linear_svm,1.0,"We also support settings such as Limit Ad Tracking in iOS, Ads Personalization in Android devices as well as Do Not Track in browsers.",Safe,Trackers,383,175,True,Safe__as__Risky,True,False,False,False,False,False,False,False
+13086,Risky,primary,linear_svm,1.0,"Given the social nature of some of the Twitch Services, that information may be collected, used, or disclosed by others who are part of that social interaction.
+In addition, some features of the Twitch Services are designed to provide others with information about user activity, such as identifying the user who created a particular Clip or the subscription status of users for a given channel.
+We encourage you to be mindful of this when considering your activity on the Twitch Services.",Safe,Transparency,231,200,True,Safe__as__Risky,False,False,True,False,False,False,False,False
+13089,Risky,primary,linear_svm,1.0,We obtain information about you through the means discussed below when we provide the Twitch Services.,Safe,Transparency,297,200,True,Safe__as__Risky,False,False,False,False,False,False,False,False
+13367,Risky,primary,linear_svm,1.0,Overview of the cookies and web storage objects used by DeepL,Safe,Trackers,306,2073,True,Safe__as__Risky,False,False,False,False,True,False,False,False
+627,Risky,clause,linear_svm,1.0,"We use cookies if you have a Facebook account, use the Facebook Products, including our website and apps, or visit other websites and apps that use the Facebook Products (including the Like button or other Facebook Technologies).",Neutral,Trackers,126,182,True,Neutral__as__Risky,False,False,False,False,False,False,False,False
+4459,Risky,clause,linear_svm,1.0,"You acknowledge that Y Combinator may establish general practices and limits concerning use of the Site, including without limitation the maximum period of time that data or other content will be retained by the Site and the maximum storage space that will be allotted on Y Combinator’s servers on your behalf.
+You agree that Y Combinator has no responsibility or liability for the deletion or failure to store any data or other content maintained or uploaded by the Site.",Neutral,Guarantee,160,636,True,Neutral__as__Risky,True,False,True,False,True,True,False,False
+5147,Risky,clause,linear_svm,1.0,"By posting Your Content on the Brainly Services you irrevocably grant
+Brainly worldwide, non-exclusive, irrevocable, assignable and transferable
+perpetual rights to use Your Content, including, for example, your name,
+grade, school name or biographical information, for any purpose whatsoever,
+including, for example, to create derivative works, use for advertising or
+marketing, or repurpose in another medium.
+</p",Neutral,Copyright License,139,1007,True,Neutral__as__Risky,False,False,False,False,False,False,False,False
+5349,Risky,clause,linear_svm,1.0,"We use cookies on our website for analytics purposes.
+Pages on our website include a small script that sends to us basic device information (like device screen resolution, country and duration of a visit).</p>",Neutral,Trackers,126,1039,True,Neutral__as__Risky,False,False,False,False,False,False,False,False
+5365,Risky,clause,linear_svm,1.0,"Cookies are pieces of information stored directly on the computer that you are using.
+Cookies allow us to collect information such as browser type, time spent on the Services, pages visited, language preferences, and other anonymous traffic data.
+",Neutral,Trackers,126,534,True,Neutral__as__Risky,False,False,False,False,False,False,False,False
+5392,Risky,clause,linear_svm,1.0,"To find out more about their cookies and the privacy choices they offer, please visit the following links:&nbsp;Google Analytics,&nbsp;Quantcast,&nbsp;and&nbsp;ScoreCard.</p",Neutral,Transparency,299,370,True,Neutral__as__Risky,False,False,False,False,False,False,False,False
+5398,Risky,clause,linear_svm,1.0,We can also block or respond to content that we determine is otherwise objectionable or as set forth in the TOU.,Neutral,Suspension and Censorship,377,370,True,Neutral__as__Risky,False,False,True,False,False,False,False,False
+5458,Risky,clause,linear_svm,1.0,"Ryver does require that you grant us rights to your Content as necessary to, and for the sole purpose of, providing the Service.
+For example, we must be able to transmit and display our Content over computer networks for viewing on computers, mobile devices and in email notifications by you and other users in your account.
+We may also use third-party services such as Amazon Web Services in order to facilitate the administration and operation of the Service, thus extending the rights granted to us to the third parties only as necessary to provide the service.</p>",Neutral,Copyright License,136,1209,True,Neutral__as__Risky,False,False,True,True,False,False,False,False
+5597,Risky,clause,linear_svm,1.0,Company may terminate this license at any time for any reason or no reason.,Neutral,Suspension and Censorship,203,421,True,Neutral__as__Risky,True,False,True,False,False,False,True,False
+6085,Risky,clause,linear_svm,1.0,"
+In such case, we reserve the right to refuse service",Neutral,Suspension and Censorship,205,1448,True,Neutral__as__Risky,False,False,True,False,False,False,False,True
+6205,Risky,clause,linear_svm,1.0,"Further we may operate user interaction tracking software that will generate additional records of user activity, for example Piwik",Neutral,Personal Data,190,232,True,Neutral__as__Risky,False,False,True,False,False,False,False,False
+6602,Risky,clause,linear_svm,1.0,"No Refunds.</strong> You may cancel your Goodreads Account at any time.
+however, there are no refunds for cancellation.
+As permitted under the terms of
+this Agreement, Goodreads has the right at any time for any reason or no reason
+to suspend or terminate your Account, terminate this Agreement, and/or refuse
+any and all current or future use of the Service without notice, refund,
+obligation, or liability to you.
+In the event that Goodreads suspends or
+terminates your Goodreads Account or this Agreement, you understand and agree
+that you shall receive no refund or exchange for any unused time on a subscription,
+any license or subscription fees for any portion of the Service, any content or
+data associated with your Goodreads Account, or for anything else.",Neutral,Payments,162,165,True,Neutral__as__Risky,True,True,True,False,False,True,True,True
+7057,Risky,clause,linear_svm,1.0,"
+We may suspend your account for clarification, investigation or request you to explain your actions and provide additional information.",Neutral,Suspension and Censorship,205,697,True,Neutral__as__Risky,False,False,True,False,False,False,True,True
+7502,Risky,clause,linear_svm,1.0,"<p>For any content that you submit, you grant LifeLock a perpetual, irrevocable, royalty-free, transferable right and nonexclusive license",Neutral,Ownership,180,435,True,Neutral__as__Risky,False,False,False,False,False,False,False,True
+7517,Risky,clause,linear_svm,1.0,"Other changes may be posted to our news or terms page, so please check those pages regularly.
+By continuing to access or use the Services after revisions become effective, you agree to be bound by the revised Terms.
+",Neutral,Notice of Changing Terms,329,1727,True,Neutral__as__Risky,False,False,True,False,False,False,False,True
+7773,Risky,clause,linear_svm,1.0,"We may change, add or remove portions of these Terms of Service at any time by notifying",Neutral,Notice of Changing Terms,122,727,True,Neutral__as__Risky,False,False,True,False,False,False,True,False
+7832,Risky,clause,linear_svm,1.0,"4.1 General.
+Upon opening an account, you accept the Terms in the form posted on our website.
+Khan Academy reserves the right, at our discretion, to change, modify, add, or remove portions of the Terms at any time.
+Please check the Terms and any Guidelines periodically for changes that are made after you open your account.
+Your continued use of the Services after the posting of changes constitutes your binding acceptance of such changes.
+For any material changes to the Terms, Khan Academy will make reasonable effort to provide notice to you of such amended Terms, such as by an email notification to the address associated with your account or by posting a notice on the Services, and such amended terms will be effective against you on the earlier of (i) your actual notice of such changes and (ii) thirty days after Khan Academy makes reasonable attempt to provide you such notice.
+However, changes addressing new functions for a service or changes made for legal reasons will be effective immediately.
+If you do not agree to the modified Terms, you must discontinue your use of the Services.
+Disputes arising under these Terms will be resolved in accordance with the version of the Terms in place at the time the dispute arose.",Neutral,Notice of Changing Terms,122,1815,True,Neutral__as__Risky,True,True,True,False,False,False,True,True
+8420,Risky,clause,linear_svm,1.0,You can learn more about Google’s practices by going to https://www.google.com/policies/privacy/partners/.</dd>,Neutral,Transparency,299,836,True,Neutral__as__Risky,False,False,True,True,False,False,False,False
+8503,Risky,clause,linear_svm,1.0,Where use of your information is necessary for our legitimate interests or the legitimate interests of others ,Neutral,Ownership,180,2030,True,Neutral__as__Risky,False,False,False,False,False,False,False,False
+8717,Risky,clause,linear_svm,1.0,"If you are a U.S.
+resident that has acquired Products as a Consumer Purchaser, you and Yubico agree that any dispute, claim or controversy arising out of or relating to this Agreement or the breach, termination, enforcement, interpretation or validity thereof or the use of the Software (collectively, “Disputes”) will be settled by binding arbitration",Neutral,Governance,144,2061,True,Neutral__as__Risky,False,False,False,False,False,False,True,False
+1376,Safe,clause,linear_svm,1.0,"If you seek to file a legal claim against us, you agree to file and resolve it exclusively in a state or federal court located in San Francisco County, California.
+You also agree that the laws of the State of California and, to the extent applicable, the laws of the United States of America will govern these Terms of Use, as well as any legal claim that might arise between you and us (without reference to conflict of laws principles).
+You agree to submit to the personal jurisdiction of, and agree that venue is proper in, the courts located in San Francisco County, California, in any legal action or proceeding relating to us or these Terms of Use.
+</p>
+",Neutral,Jurisdiction and governing laws,163,265,True,Neutral__as__Safe,True,False,True,False,False,False,False,False
+4414,Safe,clause,linear_svm,1.0,"You agree to resolve any Claim you have with us relating to or arising out of our Terms, us, or our Services exclusively in the United States District Court for the Northern District of California or a state court in San Mateo County, California.
+You also agree to submit to the personal jurisdiction of such courts for the purpose of litigating all such disputes.
+The laws of the State of California govern our Terms, as well as any disputes, whether in court or arbitration, which might arise between Signal and you, without regard to conflict of law provisions.</p>",Neutral,Jurisdiction and governing laws,163,528,True,Neutral__as__Safe,True,False,True,False,False,False,False,False
+4447,Safe,clause,linear_svm,1.0,"To the extent that you provide User Content, you grant Coursera a fully-transferable, royalty-free, perpetual, sublicensable, non-exclusive, worldwide license to copy, distribute, modify, create derivative works based on, publicly perform, publicly display, and otherwise use the User Content.",Neutral,Ownership,180,209,True,Neutral__as__Safe,False,False,False,False,False,False,True,False
+4885,Safe,clause,linear_svm,1.0,Personal information you provide to us is stored on a password protected server accessible only by administrator.,Neutral,Personal Data,189,798,True,Neutral__as__Safe,False,False,False,False,False,False,False,False
+5247,Safe,clause,linear_svm,1.0,"<p>You irrevocably agree that the exclusive venue for any action or proceeding arising out of relating to this Agreement or our relationship with you, regardless of theory, shall be the U.S.
+District Court for the Northern District of California, or the state courts located in Santa Clara County in California.
+You irrevocably consent to the personal jurisdiction of the aforementioned courts and hereby waive any objection to the exercise of jurisdiction by the aforementioned courts.</p>",Neutral,Jurisdiction and governing laws,163,1012,True,Neutral__as__Safe,False,False,False,False,False,False,False,True
+5355,Safe,clause,linear_svm,1.0,How does iStudiez Team respond to legal requests for my information?,Neutral,[Deprecated],169,1039,True,Neutral__as__Safe,False,False,False,False,False,False,False,False
+5358,Safe,clause,linear_svm,1.0,"<p>We may delete your Cloud Sync account including all your iStudiez Pro data stored on our servers if you do not log into it for more than six months.
+If that happens, we will try to notify you before taking any action.</p>",Neutral,Suspension and Censorship,205,1039,True,Neutral__as__Safe,True,False,True,False,True,False,False,False
+5547,Safe,clause,linear_svm,1.0,If your content does not comply with these guidelines it may be removed at any time.</p>,Neutral,Suspension and Censorship,377,1362,True,Neutral__as__Safe,True,False,True,False,False,False,False,False
+6309,Safe,clause,linear_svm,1.0,"When we receive requests like this, we'll only release your personal information if we have a good faith belief that the law requires us to do so.
+Nothing in this policy is intended to limit any legal defenses or objections that you may have to a third party's request to disclose your information.</li>",Neutral,[Deprecated],169,530,True,Neutral__as__Safe,False,False,True,True,False,False,False,True
+7970,Safe,clause,linear_svm,1.0,"You agree that any and all content, including without limitation any and all text, graphics, logos, tools, photographs, images, illustrations, software or source code, audio and video, animations, and product feedback (collectively, “Content”) that you provide to the public Network (collectively, “Subscriber Content”), is perpetually and irrevocably licensed to Stack Overflow on a worldwide, royalty-free, non-exclusive basis pursuant to Creative Commons licensing terms (CC BY-SA",Neutral,Ownership,180,312,True,Neutral__as__Safe,True,False,False,False,False,False,False,False
+8565,Safe,clause,linear_svm,1.0,"Cocoon and the Cocoon Rewards Platform are only available in the United States.
+Any rewards earned outside of the locations listed are not eligible for redemption.",Neutral,Governance,144,2039,True,Neutral__as__Safe,True,False,False,False,False,False,False,False
+8607,Safe,clause,linear_svm,1.0,"p>
+<strong>Major Religions, Religious Figures, Political Parties, or Political Figures</strong>
+<br>
+<em>Suggested Suspension Length: 3 days</em>
+<br>This category includes:</p>
+<ul>
+<li>Any discussion in forum posts, threads, or comments regarding major religions or religious figures</li>
+<li>Any discussion in forum posts, threads, or comments regarding major political parties or political figures</li>
+</ul>
+<p>
+<em>The main point behind this is, while we do encourage free speech and we have no problem with someone saying “thank God” or “Jesus blesses you”, we have to draw the line at an actual discussion, as it often leads to passionate and heated debate and a general distraction from what is ultimately a furry art archive.
+The same goes for politics, we know that people want to talk about it, and often do, but there are places for that and they are not here.</em>
+</p",Neutral,Content,316,2043,True,Neutral__as__Safe,True,False,False,False,False,False,False,False
+8732,Safe,clause,linear_svm,1.0,"Fur Affinity will post our updated Privacy Policy on our Site, along with notice that the Privacy Policy has been changed so you are always aware of what personally identifiable information we may collect and how we may use this information.
+Fur Affinity may also send users a notification notifying such users of any changes to the Privacy Policy.",Neutral,Notice of Changing Terms,122,403,True,Neutral__as__Safe,False,False,True,False,False,False,False,False
+9304,Safe,clause,linear_svm,1.0,"Minors and children should not use Taskade.
+By using the Website, you represent that you have the legal capacity to enter into a binding agreement",Neutral,Governance,152,2252,True,Neutral__as__Safe,True,False,False,False,False,False,False,False
+10311,Safe,clause,linear_svm,1.0,"It is your responsibility to protect your online accounts using strong and different passwords, security questions, two-factor authentication, password managers, and other safety measures.",Neutral,Security,148,188,True,Neutral__as__Safe,False,False,False,False,False,False,False,False
+10547,Safe,clause,linear_svm,1.0,"ii) you are not an individual specifically prohibited by Blizzard from using the Platform.</p>
+</li",Neutral,Suspension and Censorship,319,539,True,Neutral__as__Safe,True,False,False,False,False,False,False,False
+12225,Safe,clause,linear_svm,1.0,"<b>You can't impersonate others or provide inaccurate information.</b>
+<br> You don't have to disclose your identity on Instagram, but you must provide us with accurate and up to date information (including registration information).
+Also, you may not impersonate someone you aren't, and you can't create an account for someone else unless you have their express permission.",Neutral,Anonymity,213,219,True,Neutral__as__Safe,True,True,True,True,False,False,False,False
+12234,Safe,clause,linear_svm,1.0,"You can't attempt to buy, sell, or transfer any aspect of your account (including your username)",Neutral,Transparency,229,219,True,Neutral__as__Safe,True,False,True,True,False,False,False,False
+12296,Safe,clause,linear_svm,1.0,"Fivestars takes reasonable steps to protect the personal information provided via the Service from loss, misuse, and unauthorized access, disclosure, alteration, or destruction.
+However, no Internet, email, mobile or other electronic transmission is ever fully secure or error free, so you should take special care in deciding what information you provide.</p>",Neutral,Guarantee,287,2399,True,Neutral__as__Safe,True,True,False,False,False,False,False,True
+14203,Safe,clause,linear_svm,1.0,Strava may aggregate the information you and others make available in connection with the Services and post it publicly or share it with third parties,Neutral,Personal Data,190,1830,True,Neutral__as__Safe,False,False,True,True,False,False,False,False
+5155,Neutral,clause,linear_svm,1.0,"p>
+Brainly reserves the right, in its sole discretion, to immediately modify,
+suspend or terminate your account, the Brainly Services, your Brainly
+Subscription, and/or any products, services, functionality, information,
+content or other materials available on, through or in connection with the
+Brainly Services and/or your Brainly Subscription, including, but not
+limited to, the Mobile Software, and/or your access to some or all of them
+without cause and without notice.
+In the event that Brainly suspends or
+terminates your account, the Brainly Services or your Brainly Subscription,
+you acknowledge and agree that you shall receive no refund or exchange for
+any unused time on a Brainly Subscription or any subscription fees or
+anything else.
+</p",Risky,Suspension and Censorship,201,1007,True,Risky__as__Neutral,True,False,False,False,False,False,True,True
+6083,Neutral,clause,linear_svm,1.0,"To complete signup for Team Accounts, a company name, your real name, and valid payment information must also be provided.",Risky,Anonymity,214,1447,True,Risky__as__Neutral,False,False,False,False,False,False,False,False
+6594,Neutral,clause,linear_svm,1.0,The information collected by ShareThis may include user data (including IP address) and the geographical region as well as technical data.,Risky,Personal Data,373,1548,True,Risky__as__Neutral,False,False,True,False,False,False,False,False
+8912,Neutral,clause,linear_svm,1.0,"When you enable linking between or log in to Third-Party Services through the Service, we will collect relevant information necessary to enable the Service to access that Third-Party Service and your data and content contained within that Third-Party Service (""Login Credentials"").",Risky,Third Parties,208,2131,True,Risky__as__Neutral,False,False,False,False,False,False,False,True
+9330,Neutral,clause,linear_svm,1.0,"(g) not to harass, threaten, or otherwise annoy anyone",Risky,Content,285,1636,True,Risky__as__Neutral,True,False,False,False,False,False,False,False
+9645,Neutral,clause,linear_svm,1.0,"Exceptions:</b>
+</p>
+<ul>
+<li>Deletion will not apply to historical activity logs or archives unless and until these logs and data naturally ""age-off"" the edX system.</li",Risky,Right to Leave The Service,174,632,True,Risky__as__Neutral,True,True,False,False,True,False,False,False
+9843,Neutral,clause,linear_svm,1.0,"We take steps to ensure that your information is treated securely and in accordance with this Privacy Policy.
+Unfortunately, no system is 100% secure, and we cannot ensure or warrant the security of any information you provide to us.
+To the fullest extent permitted by applicable law, we do not accept liability for unauthorized disclosure.</p>",Risky,Personal Data,186,2256,True,Risky__as__Neutral,True,False,False,False,False,True,False,False
+10550,Neutral,clause,linear_svm,1.0,"intended to unreasonably undermine or disrupt the Game experiences of others, deliberate inactivity or disconnecting, and/or any other activity which violates Blizzard’s Code of Conduct or In-Game Policies.",Risky,Content,285,539,True,Risky__as__Neutral,False,False,False,False,False,False,False,False
+10723,Neutral,clause,linear_svm,1.0,"For this reason, you must: <ul>
+<li>Use the same name that you use in everyday life.</li>
+<li>Provide accurate information about yourself.</li>",Risky,Anonymity,214,182,True,Risky__as__Neutral,False,False,False,False,False,False,False,False
+11094,Neutral,clause,linear_svm,1.0,"We rely on your consent to use first and third party cookies (except “strictly necessary cookies”, as described below).
+You can refuse cookies at any time by changing your settings while entering a website or changing the cookie settings in your browser.",Risky,Trackers,127,693,True,Risky__as__Neutral,False,True,True,False,False,False,False,True
+11389,Neutral,clause,linear_svm,1.0,"Waze
+does not normally utilize its right to monitor Content and does so only in rare cases.</p>
+<p>Waze retains sole discretion in determining which Content will be published, the duration of its
+publication, its location, how and when it appears on the Service, its design and any other matter
+pertaining to the publication of Content within the Service.",Risky,Suspension and Censorship,202,221,True,Risky__as__Neutral,True,False,False,False,False,False,False,True
+11676,Neutral,clause,linear_svm,1.0,"We may disclose de-identified and/or aggregated data for any purpose to third parties, including advertisers, promotional partners, and/or others.</li>
+",Risky,Advertising,220,2031,True,Risky__as__Neutral,False,False,True,True,False,False,False,False
+12029,Neutral,clause,linear_svm,1.0,To notify users about promotions and targeted marketing campaigns.</li>,Risky,Advertising,336,382,True,Risky__as__Neutral,False,False,False,False,False,False,False,False
+12568,Neutral,clause,linear_svm,1.0,These Terms and your Account are governed by the laws of Canada,Risky,Jurisdiction and governing laws,242,2254,True,Risky__as__Neutral,False,False,False,False,False,False,False,False
+12733,Neutral,clause,linear_svm,1.0,"
+<p>Spotify may, but has no obligation to, monitor, review, or edit User Content.
+In all cases, Spotify reserves the right to remove or disable access to any User Content for any or no reason, including User Content that, in Spotify’s sole discretion, violates the Agreements.
+Spotify may take these actions without prior notification to you or any third party.
+Removal or disabling of access to User Content shall be at our sole discretion, and we do not promise to remove or disable access to any specific User Content.</p>",Risky,Suspension and Censorship,202,225,True,Risky__as__Neutral,True,False,True,False,False,False,False,True
+12815,Neutral,clause,linear_svm,1.0,"Your location can be determined with varying degrees of accuracy by:</p>
+<ul>
+<li>GPS</li>
+<li>IP address</li>
+<li>Sensor data from your device",Risky,Types of Information Collected,400,217,True,Risky__as__Neutral,False,False,True,False,False,False,False,False
+12961,Neutral,clause,linear_svm,1.0,"We reserve the right to remove or modify User Content, or change the way it’s used in Pinterest, for any reason.
+This includes User Content that we believe violates these Terms, our Community Guidelines, or any other policies.",Risky,Suspension and Censorship,202,175,True,Risky__as__Neutral,False,False,True,False,False,False,True,True
+13343,Neutral,clause,linear_svm,1.0,"Unless it results from Valve’s negligence or fault, Valve is not responsible for the use of your Account by a person who fraudulently used your login and password without your permission.",Risky,Personal Data,186,180,True,Risky__as__Neutral,True,True,False,False,False,False,False,False
+13639,Neutral,clause,linear_svm,1.0,"<p>social plugins and similar technologies allow you to share information.
+</p>
+</li>
+</ul>
+<p>Social plugins and social applications are operated by the social networks themselves, and are subject to their terms of use and privacy policies.",Risky,Trackers,307,185,True,Risky__as__Neutral,False,True,False,True,False,False,False,False
+13888,Neutral,clause,linear_svm,1.0,"Your use of the Service after the date such change(s) become effective will constitute consent to the changed terms.
+If you do not agree to the changes, you must immediately stop using the Service.
+Otherwise, the new terms will apply to you.",Risky,Notice of Changing Terms,403,2428,True,Risky__as__Neutral,True,False,False,False,False,False,True,True
+1248,Safe,clause,linear_svm,1.0,"The application is licensed, not sold.
+This agreement only gives you some rights to use the application.
+If Microsoft disables the ability to use the applications on your devices pursuant to your agreement with Microsoft, any associated license rights will terminate.
+The application publisher reserves all other rights.
+Unless applicable law gives you more rights despite this limitation, you may use the application only as expressly permitted in this agreement.",Risky,Ownership,330,244,True,Risky__as__Safe,True,True,True,False,False,False,True,False
+6587,Safe,clause,linear_svm,1.0,"We use the services of Cloudflare, Inc.
+(“Cloudflare”) in order to identify trusted web traffic (i.e.
+to identify individual clients behind a shared IP address and apply security settings on a per-client basis), in which we have a legitimate interest",Risky,Third Parties,208,1548,True,Risky__as__Safe,False,False,False,False,False,False,False,False
+9239,Safe,clause,linear_svm,1.0,"The information we receive from these third-party providers is de-identified, meaning we cannot track it back to you.",Risky,Third Parties,382,2230,True,Risky__as__Safe,True,False,False,False,False,False,False,False
+10045,Safe,clause,linear_svm,1.0,"<p>We collect information, including personal information, in a variety of ways which may vary according to your use of the Service and your account settings.",Risky,Personal Data,376,1815,True,Risky__as__Safe,False,False,True,False,False,False,False,False
+10432,Safe,clause,linear_svm,1.0,Should you so provide such Feedback you grant us sole ownership of the same,Risky,Ownership,182,2354,True,Risky__as__Safe,False,False,False,False,False,False,False,False
+10511,Safe,clause,linear_svm,1.0,"In addition, your web browser or client software may transmit certain geographic information or information regarding your computer (capabilities, game data processing, etc.) to Blizzard.
+",Risky,Trackers,323,539,True,Risky__as__Safe,False,False,True,False,False,False,False,False
+10755,Safe,clause,linear_svm,1.0,"However, Planio can not be held responsible if a breach in confidentiality is caused by misconfiguration from the customer or a user to which permissions have been granted by a customer or user.</p> ",Risky,Personal Data,186,2370,True,Risky__as__Safe,True,True,True,False,False,False,False,False
+12260,Safe,clause,linear_svm,1.0,"Furthermore, MetaCafe may transfer personally identifiable information in the event of a transfer of ownership of MetaCafe or any of its Web Sites or products, in which case the information could become subject to a different privacy policy.</p>",Risky,Business Transfers,243,1936,True,Risky__as__Safe,False,True,True,True,False,False,False,False
+12283,Safe,clause,linear_svm,1.0,"Fivestars and its Related Companies may use this information to contact you in the future to tell you about services we believe will be of interest to you.
+",Risky,Advertising,336,2399,True,Risky__as__Safe,False,False,True,False,False,False,False,False
+12449,Safe,clause,linear_svm,1.0,"
+When IP addresses are tied to personally identifiable information it is to offer customers the best user experience possible.
+",Risky,Personal Data,373,1892,True,Risky__as__Safe,False,False,False,False,False,False,False,False
+12879,Safe,clause,linear_svm,1.0,"Send you marketing materials by email, text, push notification or phone call depending on your account or operating system settings.
+",Risky,Advertising,336,175,True,Risky__as__Safe,False,False,False,False,False,False,False,False
+13222,Safe,clause,linear_svm,1.0,"<p>We keep your personal data only as long as necessary to provide you with the Spotify Service and for legitimate and essential business purposes, such as maintaining the performance of the Spotify Service, making data-driven business decisions about new features and offerings, complying with our legal obligations, and resolving disputes.",Risky,Right to Leave The Service,333,225,True,Risky__as__Safe,False,False,False,False,False,False,False,False
+13428,Safe,clause,linear_svm,1.0,"You understand and agree that you may need to separately manage your communication preferences for each communication method.
+For example, if you opt out of receiving marketing emails, you may still receive marketing text messages if you’ve opted in to receiving them.
+While we do our best to offer convenient methods for you to manage your communications preferences, you may need to separately adjust your preferences for each online service.
+Please note that for some account-related and transactional communications, the only way to stop receiving these communications may be to close your online services account.",Risky,User Choice,224,1748,True,Risky__as__Safe,False,False,True,False,False,False,False,False
+13443,Safe,clause,linear_svm,1.0,"You have the right to request that we delete Personal Information about you that we have collected from you.</li>
+</ul>
+<p>For requests made in connection with the Right of Access, Right to Know, and/or Right of Deletion, please note:</p>
+<ul>
+<li>as required under applicable law, we must take steps to verify your request before we can provide personal information to you, delete personal information, or otherwise process your request.&nbsp.
+To verify your request, you must provide your name, email address, and state of residence, and you may also have the option to provide you phone number.&nbsp.
+If we believe we need further information to verify your request as required by law, we may ask you to provide additional information to us.</li>
+<li>we will process your request within 45 days after receipt of a verifiable request, unless<br>
+we notify you that we require additional time to respond, in which case we will respond within such additional period of time required by law.",Risky,Right to Leave The Service,174,1748,True,Risky__as__Safe,False,True,True,False,True,False,False,True
+13588,Safe,clause,linear_svm,1.0,"In certain circumstances we have the right to retain information, even in the event of a request to remove the information.",Risky,Right to Leave The Service,174,1954,True,Risky__as__Safe,False,False,False,False,True,False,False,True
+13625,Safe,clause,linear_svm,1.0,"<p>We want to inform our Service users that these third parties have access to your Personal Information.
+The reason is to perform the tasks assigned to them on our behalf.",Risky,Third Parties,188,208,True,Risky__as__Safe,False,False,False,True,False,False,False,True
+13771,Safe,clause,linear_svm,1.0,"6.
+Subject to the above one-year retention requirement, we will only retain personal&nbsp;information for as long as necessary to fulfill the identified purposes above or as long as&nbsp;required for a legal or business purpose.",Risky,Right to Leave The Service,333,2359,True,Risky__as__Safe,False,True,False,False,True,False,False,False
+13966,Safe,clause,linear_svm,1.0,"sublicense these rights to:</li>
+<ul>
+<li>other users to allow the services to work as designed, such as enabling you to share photos with people you choose</li>
+<li>our contractors who’ve signed agreements with us that are consistent with these terms, only for the limited purposes described in the <em>Purpose</em> section below</li>
+</ul>
+</ul>Purpose<p>This license is for the limited purpose of:</p>
+<ul>
+<li>
+<b>operating and improving the services</b>, which means allowing the services to work as designed and creating new features and functionalities.",Risky,Copyright License,134,217,True,Risky__as__Safe,False,False,False,True,False,False,False,False
+14006,Safe,clause,linear_svm,1.0,"These logs contain the time of visit, page requested, possibly referral data, and located in a separate log browser information.",Risky,Trackers,387,2432,True,Risky__as__Safe,False,False,False,False,False,False,False,False
+14116,Safe,clause,linear_svm,1.0,"We use personal information to provide you with quality service and security, to operate the Site and to perform our obligations to you;&nbsp;to ensure marketplace integrity and security.
+to prevent fraud.
+to contact you and send you direct marketing communications.",Risky,Advertising,336,1013,True,Risky__as__Safe,False,False,False,False,False,False,False,False
+5743,Neutral,clause,linear_svm,1.0,"UpCloud will guarantee 100% virtual server and network availability to the Customer.
+The network will be deemed available if UpCloud’s routers and switches are available and responding properly.",Safe,Guarantee,158,1377,True,Safe__as__Neutral,False,False,False,False,False,False,False,False
+5753,Neutral,clause,linear_svm,1.0,"For all unscheduled interruptions in the provision of the Services, which are due to hardware or telecommunications failures that last longer than 5 minutes, UpCloud shall offer compensation to the Customer.",Safe,Payments,161,1377,True,Safe__as__Neutral,False,False,False,False,False,False,False,False
+6323,Neutral,clause,linear_svm,1.0,"To view a list of Coursera cookies, please view our Cookies Table.",Safe,Trackers,306,209,True,Safe__as__Neutral,False,False,False,False,False,False,False,False
+6883,Neutral,clause,linear_svm,1.0,"That said, if we get something wrong or you feel like we’re not addressing something <strong>please reach out immediately</strong>",Safe,User Involvement in Changing Terms,119,1605,True,Safe__as__Neutral,True,False,False,False,False,False,False,False
+7189,Neutral,clause,linear_svm,1.0,"We will, generally, provide you with the option to control the privacy of your contributions or remove your contributions from the Site",Safe,Right to Leave The Service,175,1680,True,Safe__as__Neutral,False,False,False,False,False,False,False,False
+7589,Neutral,clause,linear_svm,1.0,"
+</p>
+Updates <ul>
+<li>
+December 6, 2017: We have updated our terms of use agreement.
+Please
+read this Agreement carefully.
+</li>
+<li>
+April 7, 2010: We added
+Terms of Use for Writers,
+which apply to works submitted to the Service via the ""My Writing"" or
+""Ebook"" features.
+</li>
+<li>
+October 16, 2008: We replaced our
+former terms of use agreement
+with a new agreement.
+Please read this Agreement carefully.",Safe,Transparency,197,165,True,Safe__as__Neutral,False,False,False,False,False,False,False,False
+7768,Neutral,clause,linear_svm,1.0,"<p>National Geographic activities and services will be legally and ethically conducted&nbsp;by&nbsp;treating&nbsp;employees, environments, and cultures with respect.
+We will&nbsp;minimize negative environmental&nbsp;impacts and greenhouse gas emissions by seeking local, organic, and sustainably-sourced&nbsp;resources, using recycled and recyclable content when possible, and minimizing waste of energy,&nbsp;water, food, and other resources.",Safe,Governance,332,1742,True,Safe__as__Neutral,False,False,False,False,False,False,False,False
+7875,Neutral,clause,linear_svm,1.0,"Accordingly, CustomInk.com accepts returns and will refund payment if and when customers are disappointed by CustomInk.com merchandise for one of the following reasons:",Safe,Payments,161,1809,True,Safe__as__Neutral,False,False,False,False,False,False,False,False
+8488,Neutral,clause,linear_svm,1.0,"Change log.
+<p>June 10, 2014: Added three new paragraphs to Fees and Payments- Fans to clarify that in the event of an infringement claim, we may be required to revoke streaming access to prior purchases.</p>
+<p>August 8, 2014: Modified Fan Personal Information - Fans section to clarify use of e-mail addresses with respect to Fan Accounts, and Intellectual Property Rights section to cover music videos.</p>
+<p>July 20, 2015: Modified Acceptance of Terms section and changed defined term “Band” to “Artist” in connection with introduction of Label accounts.
+Modified Fees and Payments - Fans, Fees and Payments - Artists, and Limitation of Liability sections in connection with updated payment process for Digital Content.
+Modified Fan Personal Information - Fans and Fan Personal Information - Artists sections in connection with new Artist Subscription service.</p>
+<p>November 17, 2017: Added Fees and Payments –&nbsp;General and modified Fees and Payments –&nbsp;Fans and Fees and Payments –&nbsp;Artists sections in connection with updated payment system.",Safe,Transparency,197,609,True,Safe__as__Neutral,False,False,True,False,False,True,True,True
+8835,Neutral,clause,linear_svm,1.0,"Why do you collect information about me?
+<p>To provide the Service to you;</p>
+<p>To provide effective support to you during your use of the Service;</p>
+<p>To secure your account against unauthorised access;</p>
+<p>To aggregate subscription data to generate the charts displayed in the Discover section, for the benefit of the Pocket Casts community.</p>",Safe,Transparency,227,1958,True,Safe__as__Neutral,False,False,False,False,False,False,False,True
+9659,Neutral,clause,linear_svm,1.0,"Users can optionally register for an account.
+however, certain features are available for registered users only.",Safe,Personal Data,298,2262,True,Safe__as__Neutral,False,True,True,False,False,False,False,False
+9683,Neutral,clause,linear_svm,1.0,"
+LibraryThing will not cooperate with non-US law enforcement unless compelled, or if we are convinced the law is at least as just, and applied as justly, as US standards.",Safe,Law and Government Requests,393,247,True,Safe__as__Neutral,True,True,False,False,False,False,False,False
+9865,Neutral,clause,linear_svm,1.0,"Welcome! These terms of use are deliberately written in non-legalistic human-friendly language.
+Please take a spin through them! They're made to make your experience better, and to help you understand our philosophy and values.",Safe,Transparency,199,2309,True,Safe__as__Neutral,False,False,False,False,False,False,False,False
+10891,Neutral,clause,linear_svm,1.0,"If you violate these Terms, the Company reserves the right to issue you a warning regarding the violation or immediately terminate or suspend any or all Accounts you have created using the Service.
+You agree that the Company need not provide you notice before terminating or suspending your Account(s), but it may do so.</p>",Safe,Suspension and Censorship,313,536,True,Safe__as__Neutral,True,False,True,False,False,False,True,True
+11213,Neutral,clause,linear_svm,1.0,"If you believe in good faith that someone has wrongly filed a notice of copyright infringement against you, the DMCA permits you to send to Kahoot a counter-notice.",Safe,Copyright License,155,534,True,Safe__as__Neutral,False,False,False,False,False,False,False,False
+12104,Neutral,clause,linear_svm,1.0,"
+<strong>Last updated: January 1, 2020.</strong> To see prior version, click here.",Safe,Transparency,197,2444,True,Safe__as__Neutral,False,False,False,False,False,False,False,False
+12144,Neutral,clause,linear_svm,1.0,All servers used in connection with the provisioning of the Service are located in Switzerland and wholly owned and operated by the Company.,Safe,Personal Data,488,491,True,Safe__as__Neutral,False,False,False,False,False,False,False,False
+12948,Neutral,clause,linear_svm,1.0,We will do our best to inform you beforehand.,Safe,Guarantee,159,527,True,Safe__as__Neutral,False,False,False,False,False,False,False,False
+13141,Neutral,clause,linear_svm,1.0,"By sending or transmitting to us Content, or by posting such Content to any area of the Sites, you grant us and our designees a worldwide, non-exclusive,",Safe,Copyright License,402,356,True,Safe__as__Neutral,False,False,False,False,False,False,False,False
+13787,Neutral,clause,linear_svm,1.0,"When necessary, we use only secure, first-party session cookies, containing no identifiable data, that are deleted as soon as you close your browser window.
+Since these are strictly necessary for the operation of our site, we do not ask for consent (in accordance with PECR).",Safe,Trackers,125,2224,True,Safe__as__Neutral,True,False,False,False,False,False,False,True
+4545,Risky,clause,linear_svm,1.0,"<p>In some circumstances your information may be shared with us by third parties, but only where you have specifically consented.
+Examples include registering for a human rights education course with our external provider, or if you register your interest in joining Amnesty International or one of its campaigns through Facebook, Facebook will share information such as your name and email address with us.",Safe,Third Parties,296,614,True,Safe__as__Risky,False,False,True,True,False,False,False,False
+4561,Risky,clause,linear_svm,1.0,"We may also share your personal information with your permission, or if we are legally required to disclose your information in circumstances where this cannot be reasonably resisted.</p>
+",Safe,Law and Government Requests,305,614,True,Safe__as__Risky,True,False,True,True,False,False,False,False
+5971,Risky,clause,linear_svm,1.0,"Some browsers have incorporated ""Do Not Track"" (DNT) features that can send a signal to the websites you visit indicating you do not wish to be tracked.
+GitHub responds to browser DNT signals and follows the W3C standard for responding to DNT signals.
+If you have not enabled DNT on a browser that supports it, cookies on some parts of our Website will track your online browsing activity on other online services over time, though we do not permit third parties other than our analytics and service providers to track GitHub Users' activity over time on GitHub",Safe,Trackers,383,297,True,Safe__as__Risky,True,False,True,True,False,False,False,False
+6945,Risky,clause,linear_svm,1.0,"We may share information as discussed below, but we won’t sell it to advertisers or other third parties.",Safe,Personal Data,193,270,True,Safe__as__Risky,False,False,True,True,False,False,False,False
+7906,Risky,clause,linear_svm,1.0,"We use cookies to store login tokens and minimal information that helps us identify progress or preferences across the site.
+For example, the forums store a timestamp of when you last visited.
+When you return to the site at a later date, the cookie containing that timestamp is used to identify new posts that you might not have read.",Safe,Trackers,125,1524,True,Safe__as__Risky,True,False,True,False,False,False,False,False
+8017,Risky,clause,linear_svm,1.0,None of the software on our apps will ever access or track any location-based information from your device at any time.,Safe,Personal Data,392,491,True,Safe__as__Risky,False,False,False,False,False,False,False,True
+9017,Risky,clause,linear_svm,1.0,"<p>If you consent, your contact details may be shared with Pirate Party Australia coordinators in your area for the sole purpose of organising events, campaigns or other related party business such as sharing news with you relevant to our platform.",Safe,Third Parties,296,2193,True,Safe__as__Risky,False,False,True,False,False,False,False,True
+9139,Risky,clause,linear_svm,1.0,"<p>Opting out of cookies using the above methods likely won’t cause problems with our services per se, but it makes it harder for us to spend our advertising budget effectively because we won’t know how you discovered YNAB and sometimes won’t even know if you’re already a customer of ours.
+Among other things, that means we might embarrass ourselves by showing you the same advertisement even if you are already a fan.
+Depending on the services you block, it might also make it harder for us to know how you’re using our apps, or know if you’re running into problems.",Safe,Trackers,385,506,True,Safe__as__Risky,False,False,True,False,False,False,False,False
+9203,Risky,clause,linear_svm,1.0,"We will only collect
+and process information that we need to deliver the service to you,
+and to continue to maintain and develop the service.</p>
+<p>",Safe,Personal Data,196,2041,True,Safe__as__Risky,False,False,False,False,False,False,False,False
+9341,Risky,clause,linear_svm,1.0," The Archive may collect personally identifying information when a Researcher registers for access to the Collections, including the Researcher’s name, address, telephone number, and email address, and the Researcher’s proposal for using the Collections.
+</p>
+<p>",Safe,Transparency,228,1636,True,Safe__as__Risky,False,False,True,False,False,False,False,True
+9466,Risky,clause,linear_svm,1.0, you do not need to have cookies turned on to visit our marketing and help pages,Safe,Trackers,385,687,True,Safe__as__Risky,True,False,False,False,False,False,False,False
+9868,Risky,clause,linear_svm,1.0,"We may be required to respond to legal requests for user information (e.g., due to a subpoena).
+In those cases, we will notify you wherever reasonable,",Safe,Law and Government Requests,165,2309,True,Safe__as__Risky,False,False,True,False,False,False,False,False
+10053,Risky,clause,linear_svm,1.0,"
+You may also track changes in our Site Policy repository.",Safe,Transparency,197,297,True,Safe__as__Risky,False,False,True,False,False,False,False,False
+10631,Risky,clause,linear_svm,1.0,"If we use a third party to assist us, they will be bound to protect your information.",Safe,Third Parties,210,2361,True,Safe__as__Risky,False,False,False,False,False,False,False,False
+10693,Risky,clause,linear_svm,1.0,How do we use this information? We use the information we have (subject to choices you make) as described below and to provide and support the Facebook Products and related services described in the Facebook Terms and Instagram Terms.,Safe,Transparency,227,182,True,Safe__as__Risky,False,True,False,False,False,False,False,False
+11090,Risky,clause,linear_svm,1.0,"You can request copies of paper and electronic records (including recorded calls, where applicable) about you that we hold, share or use.",Safe,User Choice,140,693,True,Safe__as__Risky,False,False,True,True,False,False,False,True
+11382,Risky,clause,linear_svm,1.0,None of the software on our apps will ever access or track any location-based information from your device at any time.</p>,Safe,Personal Data,392,1745,True,Safe__as__Risky,False,False,False,False,False,False,False,True
+11400,Risky,clause,linear_svm,1.0,"With your consent, your Personal data may also be transferred to third-party service providers, acting as separate data controllers, who provide products and services complementary to JetBrains Products",Safe,User Choice,337,740,True,Safe__as__Risky,False,False,True,False,False,False,False,True
+11459,Risky,clause,linear_svm,1.0,"
+<strong>Consent</strong>: We may transfer your information with your consent.</p>
+",Safe,Third Parties,296,536,True,Safe__as__Risky,False,False,True,True,False,False,False,True
+11548,Risky,clause,linear_svm,1.0,"We may use your personally identifiable information to deliver requested goods, services or information.
+provide notices regarding the services.
+provide notices regarding goods or services you might want to purchase in the future and to improve the content and general administration of this Site and our services.",Safe,Transparency,227,2412,True,Safe__as__Risky,False,False,True,False,False,False,False,False

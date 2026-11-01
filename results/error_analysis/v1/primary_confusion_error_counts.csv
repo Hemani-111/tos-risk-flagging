@@ -1,0 +1,7 @@
+label,predicted_label,errors,protocol
+Neutral,Risky,107,primary
+Neutral,Safe,67,primary
+Risky,Neutral,67,primary
+Risky,Safe,83,primary
+Safe,Neutral,66,primary
+Safe,Risky,75,primary

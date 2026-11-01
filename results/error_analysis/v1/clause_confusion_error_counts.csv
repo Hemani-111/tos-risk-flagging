@@ -1,0 +1,7 @@
+label,predicted_label,errors,protocol
+Neutral,Risky,113,clause
+Neutral,Safe,62,clause
+Risky,Neutral,72,clause
+Risky,Safe,62,clause
+Safe,Neutral,67,clause
+Safe,Risky,84,clause

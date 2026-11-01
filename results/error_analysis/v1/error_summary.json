@@ -1,0 +1,121 @@
+{
+  "scope": "validation rows only; locked test excluded",
+  "candidate": "balanced LinearSVC C=1, word unigram/bigram TF-IDF",
+  "taxonomy_note": "keyword flags are navigation aids, not verified causal explanations",
+  "protocols": {
+    "primary": {
+      "validation_rows": 2658,
+      "errors": 465,
+      "error_rate": 0.17494356659142213,
+      "confusion_errors": [
+        {
+          "label": "Neutral",
+          "predicted_label": "Risky",
+          "errors": 107,
+          "protocol": "primary"
+        },
+        {
+          "label": "Neutral",
+          "predicted_label": "Safe",
+          "errors": 67,
+          "protocol": "primary"
+        },
+        {
+          "label": "Risky",
+          "predicted_label": "Neutral",
+          "errors": 67,
+          "protocol": "primary"
+        },
+        {
+          "label": "Risky",
+          "predicted_label": "Safe",
+          "errors": 83,
+          "protocol": "primary"
+        },
+        {
+          "label": "Safe",
+          "predicted_label": "Neutral",
+          "errors": 66,
+          "protocol": "primary"
+        },
+        {
+          "label": "Safe",
+          "predicted_label": "Risky",
+          "errors": 75,
+          "protocol": "primary"
+        }
+      ],
+      "error_taxonomy_tag_shares": {
+        "negation": 0.2817204301075269,
+        "exception_or_qualification": 0.09032258064516129,
+        "permission_or_discretion": 0.421505376344086,
+        "third_party_sharing": 0.13978494623655913,
+        "deletion_or_retention": 0.053763440860215055,
+        "liability_or_indemnity": 0.01935483870967742,
+        "termination_or_changes": 0.15483870967741936,
+        "user_rights_or_access": 0.25161290322580643
+      },
+      "taxonomy_is_heuristic": true,
+      "linear_svm_logistic_disagreements": 71
+    },
+    "clause": {
+      "validation_rows": 2607,
+      "errors": 460,
+      "error_rate": 0.17644802454929037,
+      "confusion_errors": [
+        {
+          "label": "Neutral",
+          "predicted_label": "Risky",
+          "errors": 113,
+          "protocol": "clause"
+        },
+        {
+          "label": "Neutral",
+          "predicted_label": "Safe",
+          "errors": 62,
+          "protocol": "clause"
+        },
+        {
+          "label": "Risky",
+          "predicted_label": "Neutral",
+          "errors": 72,
+          "protocol": "clause"
+        },
+        {
+          "label": "Risky",
+          "predicted_label": "Safe",
+          "errors": 62,
+          "protocol": "clause"
+        },
+        {
+          "label": "Safe",
+          "predicted_label": "Neutral",
+          "errors": 67,
+          "protocol": "clause"
+        },
+        {
+          "label": "Safe",
+          "predicted_label": "Risky",
+          "errors": 84,
+          "protocol": "clause"
+        }
+      ],
+      "error_taxonomy_tag_shares": {
+        "negation": 0.3108695652173913,
+        "exception_or_qualification": 0.0782608695652174,
+        "permission_or_discretion": 0.43043478260869567,
+        "third_party_sharing": 0.14565217391304347,
+        "deletion_or_retention": 0.04565217391304348,
+        "liability_or_indemnity": 0.043478260869565216,
+        "termination_or_changes": 0.15,
+        "user_rights_or_access": 0.2217391304347826
+      },
+      "taxonomy_is_heuristic": true,
+      "linear_svm_logistic_disagreements": 80
+    }
+  },
+  "source_script": "scripts/analyze_development_errors.py",
+  "source_script_sha256": "8bf4003bebda5cc5f8a2613b59a4eae59e3efa49542d088b6d54442a5bfd74ac",
+  "git_revision_before_phase5_changes": "506435ec8f37df269f9eddb6576c04eb2bb1ec82",
+  "working_tree_had_uncommitted_phase5_changes": true
+}

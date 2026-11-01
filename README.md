@@ -73,6 +73,16 @@ python scripts\evaluate_tuned_candidates.py
 
 See [docs/MODEL_EXPERIMENTS_v1.md](docs/MODEL_EXPERIMENTS_v1.md) for methods, results, and limitations. These commands do not evaluate the locked test partition.
 
+Development error and probability analyses use validation and grouped training folds only:
+
+```powershell
+python scripts\analyze_development_errors.py
+python scripts\analyze_uncertainty.py
+python scripts\verify_document_source_candidates.py
+```
+
+Independent full-document evaluation requires human annotations; see [docs/INDEPENDENT_DOCUMENT_EVALUATION.md](docs/INDEPENDENT_DOCUMENT_EVALUATION.md).
+
 ### Backend
 
 ```bash

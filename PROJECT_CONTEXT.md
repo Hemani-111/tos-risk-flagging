@@ -4,7 +4,7 @@ Last updated: 2 November 2026
 
 ## Current milestone
 
-Phases 0 through 4 are complete. Development-only model comparisons and grouped tuning are reproducible for both frozen protocols. Phase 5 error and uncertainty analysis is next; no replacement production model has been selected. The historical processed CSV, existing model artifacts, and notebooks remain unchanged.
+Phases 0 through 4 are complete. Phase 5 development error and uncertainty analysis is underway; independent complete-document evaluation awaits human annotations. No replacement production model has been selected. The historical processed CSV, existing model artifacts, and notebooks remain unchanged.
 
 ## Reproducible commands
 
@@ -19,6 +19,8 @@ Use the root `.venv` created with Python 3.11.9.
 - `python scripts/run_grouped_cv_tuning.py` tunes linear models and text representations on fixed training-only grouped folds.
 - `python scripts/run_lexical_feature_ablation.py` compares text-only, lexical-only, and combined features on grouped training folds.
 - `python scripts/evaluate_tuned_candidates.py` scores CV-selected linear candidates on validation.
+- `python scripts/analyze_development_errors.py` exports validation error counts and a deterministic human review queue.
+- `python scripts/analyze_uncertainty.py` evaluates raw Logistic Regression probabilities and CV-derived review thresholds.
 - `python scripts/baseline_smoke.py` records selected-model outputs, artifact hashes, and one local smoke timing.
 
 ## Data and evaluation decisions
@@ -41,4 +43,4 @@ Use the root `.venv` created with Python 3.11.9.
 
 ## Next
 
-Proceed to Phase 5 error analysis, uncertainty assessment, and independent document evaluation planning. Phase 4 results are in `docs/MODEL_EXPERIMENTS_v1.md` and `results/experiments/`; preserve the locked test partitions until the final selection procedure is frozen.
+Finish Phase 5 by obtaining independent complete-document annotations from two reviewers. The rubric and blank template are in `docs/INDEPENDENT_DOCUMENT_EVALUATION.md` and `data/review/document_annotations_template_v1.csv`. Keep the locked test partitions untouched.
