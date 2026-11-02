@@ -267,3 +267,35 @@ Reconstruction counts reconcile, label mapping and keys are verified, conflict t
 - Refreshed local ignored PDF text, regenerated the still-blank blind sheets, and made the coverage verifier enforce exact PDF/parser parity. The Terms pack is now 723 clauses; both sheets align, have no labels, all six snapshot hashes match, and coverage is 91.9%-98.7%. Raw PDFs were unchanged.
 - Hardened segment-sheet regeneration against overwriting annotations. Source fetching now preserves frozen snapshots and skips known 403 failures; PDF extraction uses the current application parser.
 - Verification: PDF API offset regression test passed (1 test); coverage verification passed; Ruff passed on changed Python scripts. Docker and screenshot-browser gates are unchanged.
+
+## 2026-11-03 - Demo run sheet and documentation reconciliation
+
+### Demo run sheet
+
+- Added `docs/DEMO_RUN_SHEET.md`: a provisional local course demonstration run sheet with pre-presentation checklist, live flow, and error-case instructions.
+- Three illustrative synthetic inputs are included and explicitly marked as illustrative: a normal expected-Risky excerpt, a difficult ambiguous/mixed-signal excerpt, and a short fragment. None are locked-test rows, none are ground truth, and none are evaluation evidence.
+- Error-case table covers empty paste, unsupported file type, scanned/image-only PDF, encrypted/corrupt PDF, and oversized upload, each with the expected graceful-handling result.
+- Evidence status lists recorded passes (backend suite, Ruff, frontend lint/build, split verification, API startup reporting `linear-svc-primary-v2`, registry generation) and unverified gates (Docker container verification, screenshot-driven browser/accessibility review, editable slide export).
+
+### Documentation reconciliation
+
+- Updated `docs/PROJECT_COMPLETION_PLAN.md`:
+  - Marked the demo rehearsal item complete (flow documented in `docs/DEMO_RUN_SHEET.md`; screenshots/rehearsal recording still pending).
+  - Marked the irrelevant/empty/gibberish/unsupported-language testing item as covered illustratively in the demo run sheet (not formal validation).
+  - Marked configurable CORS/readiness/content-free logging as implemented (host-level HTTPS/rate limits/monitoring await a hosting target).
+  - Marked concurrency/resource-limit testing as implemented and tested (deployment rollback procedure remains to be defined).
+- Verified `PROJECT_CONTEXT.md` and `README.md` are consistent with current status (API model identity `linear-svc-primary-v2`, 45 backend tests, Docker unavailable, human review pending).
+
+### Docker documentation
+
+- Updated `docs/DEPLOYMENT_GUIDE.md` with the exact `docker info` failure (`open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file specified.`), the installed client/Compose versions, and the resumption command sequence once the Docker Desktop Linux engine is available.
+- `docs/DEPLOYMENT_READINESS_v1.md` already records the Docker daemon blocker; no change needed there.
+
+### Verification
+
+- API health on `127.0.0.1:8000` returns `status: ok`, `modelVersion: linear-svc-primary-v2`.
+- Frontend listening on `127.0.0.1:3000`.
+- `docker info` confirmed daemon unreachable; exact error recorded above.
+- `results/document_review_coverage_v1.json` has an incidental timestamp-only working-tree change (content otherwise identical); preserved as an uncommitted modification per working-tree preservation policy.
+- Working tree: `project-completion` branch, one modified tracked file (`results/document_review_coverage_v1.json`) plus the new `docs/DEMO_RUN_SHEET.md` and two edited docs.
+
