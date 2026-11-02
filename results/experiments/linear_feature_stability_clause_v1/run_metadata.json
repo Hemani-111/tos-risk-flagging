@@ -1,0 +1,48 @@
+{
+  "run_id": "linear_feature_stability_clause_v1",
+  "created_at_utc": "2026-11-02T21:02:37.263220+00:00",
+  "git_revision": "6b310471ee97645b465570a174900669cfd6e9d1",
+  "protocol": "clause",
+  "split_id": "split_manifest_v1",
+  "dataset_sha256": "cee557cc927d754cf17675154ed5e1e32eee2fdb9af6700c526e62cd66969f8c",
+  "locked_test_used": false,
+  "folds": [
+    0,
+    1,
+    2
+  ],
+  "group_column": "text_component",
+  "method": "Top 200 absolute LinearSVC coefficients per class from independent fold-local word unigram/bigram TF-IDF fits; top-100 token-set Jaccard across folds.",
+  "classes": {
+    "Risky": {
+      "top_100_pairwise_jaccard_mean": 0.47121535181236673,
+      "top_100_pairwise_jaccard_sd": 0.036930720843686086,
+      "top_100_token_counts_per_fold": [
+        100,
+        100,
+        100
+      ],
+      "interpretation_limit": "Coefficient associations are not causal explanations; folds use different fitted vocabularies."
+    },
+    "Neutral": {
+      "top_100_pairwise_jaccard_mean": 0.4087797361178656,
+      "top_100_pairwise_jaccard_sd": 0.026489622773278945,
+      "top_100_token_counts_per_fold": [
+        100,
+        100,
+        100
+      ],
+      "interpretation_limit": "Coefficient associations are not causal explanations; folds use different fitted vocabularies."
+    },
+    "Safe": {
+      "top_100_pairwise_jaccard_mean": 0.3643225745194356,
+      "top_100_pairwise_jaccard_sd": 0.03735845268076479,
+      "top_100_token_counts_per_fold": [
+        100,
+        100,
+        100
+      ],
+      "interpretation_limit": "Coefficient associations are not causal explanations; folds use different fitted vocabularies."
+    }
+  }
+}

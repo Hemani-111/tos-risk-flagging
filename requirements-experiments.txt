@@ -1,0 +1,4 @@
+# Optional local sentence-embedding experiment runtime; keep separate from API dependencies.
+huggingface-hub==2.4.0
+onnxruntime==1.31.1
+tokenizers==0.23.3

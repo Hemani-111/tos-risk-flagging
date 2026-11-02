@@ -1,0 +1,10 @@
+{
+  "rows": 13434,
+  "prediction_disagreement_count": 882,
+  "prediction_disagreement_rate": 0.06565430995980348,
+  "both_correct_count": 10870,
+  "both_wrong_count": 1791,
+  "lr_only_correct_count": 309,
+  "svc_only_correct_count": 464,
+  "locked_test_used": false
+}

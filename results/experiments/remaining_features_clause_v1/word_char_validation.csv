@@ -1,0 +1,2 @@
+protocol,representation,C,macro_f1,risky_precision,risky_recall
+clause,word+char tfidf,1.0,0.8184139406361628,0.7856365614798694,0.8366164542294322

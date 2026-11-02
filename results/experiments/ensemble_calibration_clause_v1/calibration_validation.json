@@ -1,0 +1,22 @@
+{
+  "protocol": "clause",
+  "method": "CalibratedClassifierCV sigmoid; fixed group folds; ensemble=True",
+  "fit_seconds": 3.7160843000165187,
+  "validation_rows": 2607,
+  "classes": [
+    "Neutral",
+    "Risky",
+    "Safe"
+  ],
+  "validation_macro_f1": 0.8213178520031942,
+  "risky_precision": 0.7913907284768212,
+  "risky_recall": 0.8308227114716107,
+  "risky_predicted_positive_coverage": 0.3475258918296893,
+  "risky_true_positive_coverage": 0.8308227114716107,
+  "risky_missed_count": 146,
+  "risky_false_positive_count": 189,
+  "multiclass_brier_score": 0.25233782154690687,
+  "multiclass_log_loss": 0.4620183574067808,
+  "locked_test_used": false,
+  "probability_warning": "Calibration is a validation diagnostic; not a legal-risk probability or guarantee."
+}
