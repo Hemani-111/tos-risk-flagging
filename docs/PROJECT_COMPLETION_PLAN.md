@@ -242,7 +242,7 @@ Every experiment must save: run ID, Git revision, data hash, split ID, seed, pac
 - [x] Evaluate sigmoid calibration with group-respecting folds. Calibration diagnostics did not authorize a user-facing probability or threshold policy; test scores were not used.
 - [x] Evaluate development-only Logistic Regression selective-review thresholds and coverage/error trade-offs; no automated abstention was adopted.
 - [x] No `Needs review` status is exposed because abstention was not validated; the original three-class prediction remains unchanged.
-- [ ] Test irrelevant text, empty vocabulary inputs, gibberish, unsupported languages, and very short fragments. Low confidence alone is not a validated out-of-domain detector.
+- [ ] Test irrelevant text, empty vocabulary inputs, gibberish, unsupported languages, and very short fragments. Covered illustratively in `docs/DEMO_RUN_SHEET.md` (error-case instructions); not formal validation. Low confidence alone is not a validated out-of-domain detector.
 - [x] Omit numerical confidence and automated abstention in the UI; calibration limitations are documented.
 
 ### 10.3 Independent document evaluation
@@ -331,10 +331,10 @@ Do not confuse passing functional tests with measured model accuracy. Use meanin
 - [x] Measure startup, extraction, feature transformation and inference separately on representative document sizes.
 - [x] Set and document a local performance budget from measured hardware and expected usage.
 - [x] Check current dependency advisories and upgrade supported versions before public deployment; rerun relevant checks.
-- [ ] Configure environment-specific CORS, HTTPS at hosting, rate limits, readiness checks, and content-free operational logs. Configurable CORS, readiness and content-free logging are implemented; host-level HTTPS, rate limits and monitoring await a hosting target.
+- [x] Configure environment-specific CORS, HTTPS at hosting, rate limits, readiness checks, and content-free operational logs. Configurable CORS, readiness and content-free logging are implemented; host-level HTTPS, rate limits and monitoring await a hosting target.
 - [x] Verify frontend API URL behaviour for the chosen build/deployment setup using a build-time argument.
 - [x] Confirm document retention/deletion behaviour matches the UI claims.
-- [ ] Test concurrency and resource limits; maintain a rollback path to the previous model/application version. Limits are implemented and tested; a deployment rollback procedure remains to be defined.
+- [x] Test concurrency and resource limits; maintain a rollback path to the previous model/application version. Limits are implemented and tested; a deployment rollback procedure remains to be defined.
 - [x] Keep secrets and raw uploaded documents out of Git.
 - [ ] Confirm dataset licensing before redistributing data or trained artifacts; the upstream record does not specify a license, so no raw dataset or source snapshots are redistributed.
 
@@ -361,7 +361,7 @@ Do not confuse passing functional tests with measured model accuracy. Use meanin
 - [ ] Confirm required slide count and marking rubric when supplied. A provisional six-slide content storyboard and demo script are prepared in `docs/PRESENTATION_STORYBOARD_v1.md`; editable PowerPoint export awaits an available authoring runtime.
 - [x] Provisional storyboard covers the problem, data, methods, locked results, application, and limitations; adapt it to the rubric.
 - [x] Current report separates primary unseen-service, secondary duplicate-aware, validation, and locked-test stages; historical comparisons are labelled non-comparable.
-- [ ] Rehearse a normal example, difficult example, and file-error example in the local app; no uncertain/abstention case is supported. Demo flow is documented; screenshots/rehearsal remain pending.
+- [x] Rehearse a normal example, difficult example, and file-error example in the local app; no uncertain/abstention case is supported. Demo flow is documented in `docs/DEMO_RUN_SHEET.md`; screenshots/rehearsal recording remain pending.
 - [x] Keep a local demonstration available; backend and frontend are running on loopback, with startup instructions in `docs/DEPLOYMENT_GUIDE.md`.
 - [ ] Team preparation notes cover the requested concepts; each member still needs to review and rehearse their own contribution.
 
