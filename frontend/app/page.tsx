@@ -1,168 +1,80 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
-import { Upload, ShieldCheck, FileText, Search, ChevronRight } from "lucide-react";
+import { ArrowRight, FileText, SearchCheck, ShieldAlert, Upload } from "lucide-react";
+
+const steps = [
+  { number: "01", title: "Add a policy", detail: "Upload a PDF, DOCX, or TXT file, or paste policy text." },
+  { number: "02", title: "Review clauses", detail: "See extracted clauses with a model-assigned label." },
+  { number: "03", title: "Read in context", detail: "Search, filter, and inspect nearby clauses before drawing conclusions." },
+];
+
+const features = [
+  { icon: FileText, title: "Clause-by-clause view", detail: "Keep the original wording visible while reviewing each result." },
+  { icon: SearchCheck, title: "Useful review tools", detail: "Find text, filter by label, and inspect adjacent clauses." },
+  { icon: ShieldAlert, title: "Clear limitations", detail: "See what the labels mean and where the model can be wrong." },
+];
 
 export default function HomePage() {
   return (
-    <div className="flex flex-col">
-      {/* Hero */}
-      <section className="py-20 sm:py-32">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <h1 className="text-4xl font-semibold tracking-tight sm:text-5xl">
-              Read the fine print.
-              <br />
-              Know the risk.
-            </h1>
-            <p className="mt-6 text-lg text-muted-foreground">
-              Review extracted clauses from a Terms of Service or Privacy Policy
-              and find passages that may deserve a closer look.
-            </p>
-            <p className="mt-3 text-sm text-muted-foreground">English-language model · PDF, DOCX, or TXT · 10 MB maximum</p>
-            <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
-              <Link href="/analyze">
-                <Button size="lg" className="w-full sm:w-auto">
-                  <Upload className="mr-2 h-4 w-4" />
-                  Analyze a document
-                </Button>
-              </Link>
-              <Link href="#how-it-works">
-                <Button variant="outline" size="lg" className="w-full sm:w-auto">
-                  See how it works
-                  <ChevronRight className="ml-2 h-4 w-4" />
-                </Button>
-              </Link>
+    <div>
+      <section className="border-b border-border bg-gradient-to-b from-secondary/70 to-background">
+        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-24 lg:py-28">
+          <div className="mx-auto max-w-3xl text-center">
+            <span className="inline-flex items-center rounded-full border border-border bg-background px-3 py-1 text-xs font-medium text-muted-foreground">A clearer first pass through policy text</span>
+            <h1 className="mt-6 text-4xl font-semibold tracking-tight text-foreground sm:text-5xl lg:text-6xl">Make the fine print easier to review.</h1>
+            <p className="mx-auto mt-5 max-w-2xl text-base leading-7 text-muted-foreground sm:text-lg">TermsGuard organizes extracted clauses and flags passages that may deserve a closer read.</p>
+            <div className="mt-8 flex flex-col justify-center gap-3 sm:flex-row">
+              <Link href="/analyze"><Button size="lg" className="w-full sm:w-auto"><Upload className="mr-2 h-4 w-4" />Analyze a document</Button></Link>
+              <Link href="#how-it-works"><Button variant="outline" size="lg" className="w-full sm:w-auto">How it works<ArrowRight className="ml-2 h-4 w-4" /></Button></Link>
+            </div>
+            <p className="mt-5 text-xs text-muted-foreground">PDF, DOCX, or TXT · Up to 10 MB · English-language model</p>
+          </div>
+        </div>
+      </section>
+
+      <section id="how-it-works" className="mx-auto max-w-6xl scroll-mt-24 px-4 py-16 sm:px-6 sm:py-20">
+        <div className="max-w-2xl">
+          <p className="text-sm font-semibold text-muted-foreground">Simple workflow</p>
+          <h2 className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">From policy file to focused review</h2>
+        </div>
+        <ol className="mt-8 grid gap-4 md:grid-cols-3">
+          {steps.map((step) => <li key={step.number} className="rounded-xl border border-border bg-card p-6">
+            <span className="text-sm font-semibold tabular-nums text-muted-foreground">{step.number}</span>
+            <h3 className="mt-5 text-base font-semibold">{step.title}</h3>
+            <p className="mt-2 text-sm leading-6 text-muted-foreground">{step.detail}</p>
+          </li>)}
+        </ol>
+      </section>
+
+      <section className="border-y border-border bg-secondary/30">
+        <div className="mx-auto max-w-6xl px-4 py-16 sm:px-6 sm:py-20">
+          <div className="grid gap-8 md:grid-cols-[0.8fr_1.2fr] md:items-start">
+            <div>
+              <p className="text-sm font-semibold text-muted-foreground">Designed for review</p>
+              <h2 className="mt-2 text-2xl font-semibold tracking-tight sm:text-3xl">Keep the wording in view.</h2>
+              <p className="mt-4 text-sm leading-6 text-muted-foreground">Use the results page to browse extracted clauses, narrow the list, and keep nearby text close while you read.</p>
+              <Link href="/about" className="mt-5 inline-flex items-center text-sm font-medium hover:underline">Learn about the methodology<ArrowRight className="ml-2 h-4 w-4" /></Link>
+            </div>
+            <div className="grid gap-3 sm:grid-cols-3">
+              {features.map(({ icon: Icon, title, detail }) => <article key={title} className="rounded-xl border border-border bg-background p-5">
+                <span className="flex h-9 w-9 items-center justify-center rounded-lg bg-secondary"><Icon className="h-4 w-4" aria-hidden="true" /></span>
+                <h3 className="mt-4 text-sm font-semibold">{title}</h3>
+                <p className="mt-2 text-sm leading-5 text-muted-foreground">{detail}</p>
+              </article>)}
             </div>
           </div>
         </div>
       </section>
-      
-      {/* How it works */}
-      <section id="how-it-works" className="border-t border-border bg-secondary/30 py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-2xl font-semibold">How it works</h2>
-            <p className="mt-2 text-muted-foreground">
-              Three simple steps to understand what you&apos;re agreeing to.
-            </p>
+
+      <section className="mx-auto max-w-6xl px-4 py-14 sm:px-6 sm:py-16">
+        <div className="flex flex-col gap-5 rounded-xl border border-border bg-card p-6 sm:flex-row sm:items-center sm:justify-between sm:p-8">
+          <div className="max-w-2xl">
+            <h2 className="text-xl font-semibold tracking-tight">Ready to review a policy?</h2>
+            <p className="mt-2 text-sm leading-6 text-muted-foreground">Start with a document you are permitted to share. Your results remain in this browser tab.</p>
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-4xl mx-auto">
-            <div className="text-center">
-              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-primary text-primary-foreground mb-4">
-                <span className="text-lg font-semibold">01</span>
-              </div>
-              <h3 className="text-base font-medium mb-2">Upload</h3>
-              <p className="text-sm text-muted-foreground">
-                Drop your Terms of Service or Privacy Policy document.
-              </p>
-            </div>
-            
-            <div className="text-center">
-              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-primary text-primary-foreground mb-4">
-                <span className="text-lg font-semibold">02</span>
-              </div>
-              <h3 className="text-base font-medium mb-2">Analyze</h3>
-              <p className="text-sm text-muted-foreground">
-                We analyze each clause and classify it as Safe, Neutral, or Risky.
-              </p>
-            </div>
-            
-            <div className="text-center">
-              <div className="mx-auto flex h-12 w-12 items-center justify-center rounded-full bg-primary text-primary-foreground mb-4">
-                <span className="text-lg font-semibold">03</span>
-              </div>
-              <h3 className="text-base font-medium mb-2">Review</h3>
-              <p className="text-sm text-muted-foreground">
-                Review what deserves attention and make informed decisions.
-              </p>
-            </div>
-          </div>
+          <Link href="/analyze"><Button><Upload className="mr-2 h-4 w-4" />Get started</Button></Link>
         </div>
-      </section>
-      
-      {/* Features */}
-      <section className="py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center mb-16">
-            <h2 className="text-2xl font-semibold">Built for clarity, not legal jargon</h2>
-            <p className="mt-2 text-muted-foreground">
-              TermsGuard helps organize a first pass through extracted clauses.
-            </p>
-          </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 max-w-5xl mx-auto">
-            <div className="text-center">
-              <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-lg bg-muted mb-4">
-                <FileText className="h-5 w-5 text-muted-foreground" />
-              </div>
-              <h3 className="text-sm font-medium mb-1">Clause-level analysis</h3>
-              <p className="text-xs text-muted-foreground">
-                Analyzable clauses receive a Safe, Neutral, or Risky model label.
-              </p>
-            </div>
-            
-            <div className="text-center">
-              <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-lg bg-muted mb-4">
-                <Search className="h-5 w-5 text-muted-foreground" />
-              </div>
-              <h3 className="text-sm font-medium mb-1">Topic identification</h3>
-              <p className="text-xs text-muted-foreground">
-                Automatically identifies what each clause is about.
-              </p>
-            </div>
-            
-            <div className="text-center">
-              <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-lg bg-muted mb-4">
-                <ShieldCheck className="h-5 w-5 text-muted-foreground" />
-              </div>
-              <h3 className="text-sm font-medium mb-1">Document summary</h3>
-              <p className="text-xs text-muted-foreground">
-                Get an overall assessment of the document&apos;s risk profile.
-              </p>
-            </div>
-            
-            <div className="text-center">
-              <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-lg bg-muted mb-4">
-                <FileText className="h-5 w-5 text-muted-foreground" />
-              </div>
-              <h3 className="text-sm font-medium mb-1">Clause context</h3>
-              <p className="text-xs text-muted-foreground">
-                Search and filter the extracted clauses and their section names.
-              </p>
-            </div>
-          </div>
-        </div>
-      </section>
-      
-      {/* CTA */}
-      <section className="border-t border-border bg-secondary/30 py-20">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <div className="mx-auto max-w-2xl text-center">
-            <h2 className="text-2xl font-semibold">Ready to understand your terms?</h2>
-            <p className="mt-4 text-muted-foreground">
-              Upload a document to review its extracted clause classifications.
-            </p>
-            <div className="mt-8">
-              <Link href="/analyze">
-                <Button size="lg">
-                  <Upload className="mr-2 h-4 w-4" />
-                  Analyze a document
-                </Button>
-              </Link>
-            </div>
-          </div>
-        </div>
-      </section>
-      
-      {/* Disclaimer */}
-      <section className="border-t border-border py-8">
-        <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-          <p className="text-center text-xs text-muted-foreground">
-            TermsGuard is an educational screening tool and does not provide legal advice.
-            Always consult a qualified legal professional for legal matters.
-          </p>
-        </div>
+        <p className="mt-6 text-center text-xs leading-5 text-muted-foreground">TermsGuard is an educational screening tool, not legal advice. Model labels can be wrong or miss important context.</p>
       </section>
     </div>
   );

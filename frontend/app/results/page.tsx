@@ -88,8 +88,8 @@ export default function ResultsPage() {
   };
 
   return (
-    <div className="py-10 sm:py-14">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
+    <div className="py-8 sm:py-12">
+      <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="mb-7 flex flex-wrap items-center justify-between gap-4">
           <div>
             <h1 className="text-3xl font-semibold">Clause review</h1>
@@ -123,7 +123,7 @@ export default function ResultsPage() {
           <p className="mt-2 text-xs text-muted-foreground">Results stay in this tab’s session storage. Clear them here or close the tab to remove them.</p>
         </section>
 
-        <section className="rounded-lg border border-border bg-card">
+        <section className="overflow-hidden rounded-xl border border-border bg-card shadow-sm">
           <div className="border-b border-border p-4 sm:p-5">
             <h2 className="text-xl font-semibold">Review clauses</h2>
             <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">

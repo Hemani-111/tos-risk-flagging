@@ -96,17 +96,18 @@ export default function AnalyzePage() {
   };
 
   return (
-    <div className="py-16 sm:py-24">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="mx-auto max-w-2xl text-center mb-12">
-          <h1 className="text-3xl font-semibold">Upload a document</h1>
-          <p className="mt-4 text-muted-foreground">
-            Select a Terms of Service or Privacy Policy file for clause-level analysis.
+    <div className="py-12 sm:py-16">
+      <div className="mx-auto max-w-5xl px-4 sm:px-6">
+        <div className="mx-auto mb-9 max-w-2xl text-center">
+          <p className="text-sm font-medium text-muted-foreground">Document review</p>
+          <h1 className="mt-2 text-3xl font-semibold tracking-tight sm:text-4xl">Analyze a policy</h1>
+          <p className="mt-3 leading-6 text-muted-foreground">
+            Upload a Terms of Service or Privacy Policy to review its extracted clauses.
           </p>
-          <p className="mt-2 text-sm text-muted-foreground">PDF, DOCX, or TXT · 10 MB maximum · English-language benchmark coverage</p>
+          <p className="mt-3 text-sm text-muted-foreground">PDF, DOCX, or TXT · 10 MB maximum · English-language model</p>
         </div>
 
-        <p className="mx-auto mt-8 max-w-2xl text-center text-xs leading-relaxed text-muted-foreground">
+        <p className="mx-auto mb-6 max-w-2xl text-center text-xs leading-relaxed text-muted-foreground">
           Files are sent to the configured backend for analysis and removed from its temporary storage afterward. Results stay in this browser tab only. Do not upload documents you are not permitted to share.
         </p>
 
@@ -129,7 +130,7 @@ export default function AnalyzePage() {
 
         {error && (
           <div className="mt-6 mx-auto max-w-2xl">
-            <div className="rounded-md border border-destructive bg-destructive/10 p-4">
+            <div className="rounded-lg border border-destructive/30 bg-destructive/5 p-4" role="alert">
               <p className="text-sm text-destructive">{error}</p>
             </div>
           </div>

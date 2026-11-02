@@ -194,3 +194,9 @@ Reconstruction counts reconcile, label mapping and keys are verified, conflict t
 
 - Phase 8 readiness/dependency changes were committed as `1c55e69`. Local checks passed (45 backend tests, Ruff, frontend clean install/lint/build, npm and Python dependency audits, and Compose config). Docker startup remains unverified because the Docker Desktop Linux engine pipe was unavailable; production hosting checks remain open.
 - Added `docs/FINAL_REPORT_v1.md`, `docs/MODEL_CARD.md`, and `docs/PRESENTATION_STORYBOARD_v1.md`. The report uses training-CV and validation evidence only and explicitly leaves locked-test and human-annotated document evaluation pending. The storyboard gives a demo path without choosing final slides before the course slide count and rubric are known.
+
+## 2026-11-03 — Phase 7 progress: standardize website UI
+
+- Refined the shared navigation, responsive mobile menu, brand treatment, content widths, page spacing, focus treatment, footer, and homepage into a familiar website layout.
+- Tightened the analyze page hierarchy and results-page content width. Reworded homepage feature copy to describe the existing clause-review and filter/context behavior without implying legal interpretation.
+- Verification: `npm run lint` passed and `npm run build` passed.

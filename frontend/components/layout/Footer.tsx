@@ -1,12 +1,13 @@
+import Link from "next/link";
+
 export function Footer() {
   return (
     <footer className="border-t border-border bg-background">
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
-        <div className="flex flex-col items-center justify-between gap-4 py-8 sm:flex-row">
-          <div className="flex items-center space-x-2">
-            <span className="text-sm text-muted-foreground">TermsGuard · Educational screening, not legal advice</span>
-          </div>
-          <a href="/about" className="text-sm text-muted-foreground hover:text-foreground transition-colors">Methodology and limitations</a>
+      <div className="mx-auto flex max-w-6xl flex-col gap-3 px-4 py-6 text-sm sm:flex-row sm:items-center sm:justify-between sm:px-6">
+        <p className="text-muted-foreground">TermsGuard <span aria-hidden="true">·</span> Educational screening, not legal advice.</p>
+        <div className="flex gap-5">
+          <Link href="/about" className="text-muted-foreground transition-colors hover:text-foreground">Methodology</Link>
+          <Link href="/research" className="text-muted-foreground transition-colors hover:text-foreground">Research</Link>
         </div>
       </div>
     </footer>
