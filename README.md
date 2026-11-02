@@ -122,3 +122,6 @@ See [docs/DEPLOYMENT_READINESS_v1.md](docs/DEPLOYMENT_READINESS_v1.md) for clean
 - No virtual environment required
 - The ML model is integrated. Upload a document on the Analyze page to get clause-level risk predictions.
 - This is an educational screening tool and does not provide legal advice.
+# Academic deliverables
+
+[Final Report Draft](docs/FINAL_REPORT_v1.md), [Model Card](docs/MODEL_CARD.md), and [Presentation/Demo Storyboard](docs/PRESENTATION_STORYBOARD_v1.md). The report distinguishes development results from locked-test and independent document evaluation, which remain pending.

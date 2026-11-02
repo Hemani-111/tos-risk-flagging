@@ -3,7 +3,7 @@
 Date: 2 November 2026  
 Repository: https://github.com/kiran-8287/tos-risk-flagging  
 Course: DS3010 Introduction to Machine Learning, IIT Palakkad  
-Status: Phases 0–4 complete; Phase 5 development analyses and annotation workflow are prepared, with human-annotated document evaluation pending; Phase 6 backend reliability is implemented, with container startup unverified; Phase 7 review experience is implemented; Phase 8 local verification is complete, with deployment checks pending; Phase 9 deliverables remain pending.
+Status: Phases 0–4 complete; Phase 5 development analyses and annotation workflow are prepared, with human-annotated document evaluation pending; Phase 6 backend reliability is implemented, with container startup unverified; Phase 7 review experience is implemented; Phase 8 local verification is complete, with deployment checks pending; Phase 9 report/model-card/storyboard drafts are prepared, while final slides and final report evidence remain pending course constraints and evaluation gates.
 
 ## 1. Purpose and intended outcome
 
@@ -358,7 +358,7 @@ Do not confuse passing functional tests with measured model accuracy. Use meanin
 
 ### Presentation and demonstration
 
-- [ ] Confirm required slide count and marking rubric before creating final slides.
+- [ ] Confirm required slide count and marking rubric before creating final slides. A content storyboard is drafted in `docs/PRESENTATION_STORYBOARD_v1.md`.
 - [ ] Explain the problem, dataset, approach, strongest experimental evidence, application, and limitations.
 - [ ] Replace historical mixed-protocol comparisons with correctly labelled results.
 - [ ] Prepare a normal example, a difficult example, an uncertain case if supported, and a file-error example.
@@ -459,7 +459,7 @@ If time is short, reduce tuning budgets, optional embeddings/ensembles, and opti
 - [ ] Upload, paste, parsing, segmentation, prediction, context review and export work.
 - [ ] Observed segmentation regressions and URL-result handling are fixed.
 - [ ] Tests/builds and a clean-environment demonstration pass, or material limitations are disclosed.
-- [ ] Dataset/model cards, reproducibility instructions, report and presentation are complete.
+- [ ] Dataset/model cards and reproducibility instructions are drafted; evidence-based report draft is in `docs/FINAL_REPORT_v1.md`; final report conclusions and presentation remain pending.
 - [ ] Production artifacts are versioned, and no previous work was silently overwritten.
 - [ ] No claim of universal accuracy, legal safety, or expert-reviewed labels exceeds the evidence.
 

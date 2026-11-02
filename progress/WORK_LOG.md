@@ -189,3 +189,8 @@ Reconstruction counts reconcile, label mapping and keys are verified, conflict t
 - Regenerated the ignored blind review sheets after the segmentation improvements so they match current backend offsets; the current ToS review pack contains 719 clauses. No human annotations were present or inferred.
 - `docker compose config --quiet` passed. Docker image build/start remains unverified because the Docker Desktop Linux engine pipe is unavailable. HTTPS, rate limiting, monitoring, host-specific CORS/secrets, and rollback procedures remain deployment tasks because no host was selected. Dataset licensing remains unspecified; snapshots and source datasets remain out of Git.
 - Phase 8 local verification is complete, but its deployment gate remains open. Phase 6 implementation is complete locally, while the Phase 6 container-start gate is unverified. Phase 5 still awaits independent reviewer labels; no locked-test evaluation or model promotion occurred.
+
+## 2026-11-03 — Phase 9 progress: draft academic report and demo materials
+
+- Phase 8 readiness/dependency changes were committed as `1c55e69`. Local checks passed (45 backend tests, Ruff, frontend clean install/lint/build, npm and Python dependency audits, and Compose config). Docker startup remains unverified because the Docker Desktop Linux engine pipe was unavailable; production hosting checks remain open.
+- Added `docs/FINAL_REPORT_v1.md`, `docs/MODEL_CARD.md`, and `docs/PRESENTATION_STORYBOARD_v1.md`. The report uses training-CV and validation evidence only and explicitly leaves locked-test and human-annotated document evaluation pending. The storyboard gives a demo path without choosing final slides before the course slide count and rubric are known.

@@ -4,7 +4,7 @@ Last updated: 3 November 2026
 
 ## Current milestone
 
-Phases 0 through 4 are complete. Phase 5 development analysis is complete; its independent document evaluation awaits two human reviewers and adjudication. Phase 6 backend reliability is implemented; Docker startup remains unverified because Docker Desktop is unavailable. Phase 7 provides tab-scoped results, all-class filters/search and export, with manual UX review pending. Phase 8 local verification is complete; production hosting checks remain open. Phase 9 report and presentation work remains. Six official source snapshots are frozen locally; the current blind review round covers 719 clauses from three consumer ToS documents. No replacement production model has been selected; existing model artifacts remain unchanged.
+Phases 0 through 4 are complete. Phase 5 development analysis is complete; its independent document evaluation awaits two human reviewers and adjudication. Phase 6 backend reliability is implemented; Docker startup remains unverified because Docker Desktop is unavailable. Phase 7 provides tab-scoped results, all-class filters/search and export, with manual UX review pending. Phase 8 local verification is complete; production hosting checks remain open. Phase 9 has an evidence-based report draft, model card, and presentation/demo storyboard; final slides await the course slide count/rubric, and final report conclusions await document annotations and locked-test evaluation. Six official source snapshots are frozen locally; the current blind review round covers 719 clauses from three consumer ToS documents. No replacement production model has been selected; existing model artifacts remain unchanged.
 
 ## Reproducible commands
 
@@ -46,4 +46,4 @@ Use the root `.venv` created with Python 3.11.9.
 
 ## Next
 
-Verify backend startup and model loading inside Docker when Docker Desktop is available; PDF page mapping, encrypted-PDF rejection, timeout handling and resource limits are implemented. Complete Phase 7 manual UX review and Phase 9 deliverables. Before public deployment, configure HTTPS, production CORS, rate limiting, monitoring and secret injection for a selected host. Obtain two Phase 5 reviewer sheets and adjudicate disagreements. Keep the locked test partitions untouched.
+Obtain two Phase 5 reviewer sheets and adjudicate disagreements, then follow the frozen protocol before evaluating a frozen candidate on the locked test partitions. Verify backend startup and model loading inside Docker when Docker Desktop is available; PDF page mapping, encrypted-PDF rejection, timeout handling and resource limits are implemented. Complete Phase 7 manual UX review. Adapt the Phase 9 storyboard to the course slide count/rubric and rehearse the demo. Before public deployment, configure HTTPS, production CORS, rate limiting, monitoring and secret injection for a selected host. Keep the locked test partitions untouched until the protocol's freeze gate is met.
