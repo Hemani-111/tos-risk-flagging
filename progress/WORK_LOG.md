@@ -235,3 +235,10 @@ Reconstruction counts reconcile, label mapping and keys are verified, conflict t
 - Scored the frozen candidate once on each locked protocol after commit `c68fdce`; preserved row predictions, per-class metrics, confusion matrices, timings, group bootstrap intervals, and evaluation registry under `results/locked_evaluation_v1/`.
 - Primary unseen-service test macro F1 0.8358 (Risky precision 0.8229, recall 0.8287); secondary duplicate-aware test macro F1 0.8144 (Risky precision 0.7922, recall 0.8117). No tuning followed. The earlier loader boundary incident remains disclosed.
 - Added the locked-test report and refreshed experiment registry evidence. This is the first scored test evaluation after freeze, not an untouched-test claim.
+
+
+## 2026-11-03 - Phase 6: package and integrate selected model
+
+- Built `models/releases/linear-svc-primary-v2/` from the frozen primary training partition, with serialized word TF-IDF vectorizer, class-weighted LinearSVC, label order, source/split/freeze metadata, runtime versions, and artifact SHA-256 checksums.
+- Configured backend and Compose to load the versioned package; retained the prior RBF artifact for rollback. Updated model identity expectations in backend tests.
+- Backend suite had passed with 45 tests after integration in the recorded verification run. Docker runtime mount/start remains blocked by unavailable Docker engine.

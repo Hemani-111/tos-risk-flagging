@@ -23,7 +23,7 @@ class TestModelLoading:
         assert model is not None
         assert vectorizer is not None
         from app.ml.model_loader import model_loader
-        assert model_loader.metadata["model_version"] == "legacy-selected-model-v1"
+        assert model_loader.metadata["model_version"] == "linear-svc-primary-v2"
         assert model_loader.package_info()["schemaVersion"] == "1.1"
 
     def test_vectorizer_transform_shape(self):
@@ -64,7 +64,9 @@ class TestAnalysisEndpoint:
         response = client.post("/api/v1/documents/analyze-text", json={"text": text})
         assert response.status_code == 200
         data = response.json()
+        assert data["extractedText"] == text
         assert len(seen["texts"]) == len(data["clauses"]) == 6
+        assert all(text[c["startOffset"]:c["endOffset"]] == c["text"] for c in data["clauses"])
         assert all(c["label"] in {"Safe", "Neutral", "Risky"} for c in data["clauses"])
         assert data["riskyCount"] == sum(c["label"] == "Risky" for c in data["clauses"]) == 2
         assert data["riskyClauses"] == [c for c in data["clauses"] if c["label"] == "Risky"]

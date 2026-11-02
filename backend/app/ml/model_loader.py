@@ -11,7 +11,7 @@ import sklearn
 logger = logging.getLogger(__name__)
 
 PROJECT_ROOT = Path(__file__).resolve().parents[3]
-MODEL_DIR = Path(os.environ.get("MODEL_DIR", PROJECT_ROOT / "models" / "selected_model"))
+MODEL_DIR = Path(os.environ.get("MODEL_DIR", PROJECT_ROOT / "models" / "releases" / "linear-svc-primary-v2"))
 MODEL_PATH = MODEL_DIR / "model.joblib"
 VECTORIZER_PATH = MODEL_DIR / "vectorizer.joblib"
 METADATA_PATH = MODEL_DIR / "metadata.json"

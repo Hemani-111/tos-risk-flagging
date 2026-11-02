@@ -9,7 +9,7 @@ services:
       - BACKEND_PORT=8000
       - FRONTEND_PORT=3000
       - UPLOAD_MAX_SIZE=10485760
-      - MODEL_DIR=/app/models/selected_model
+      - MODEL_DIR=/app/models/releases/linear-svc-primary-v2
       - CORS_ORIGINS_STR=http://localhost:3000,http://127.0.0.1:3000
     volumes:
       - ./models:/app/models:ro
