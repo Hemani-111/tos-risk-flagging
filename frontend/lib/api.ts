@@ -28,6 +28,9 @@ export interface AnalysisResult {
   neutralPercentage: number;
   riskyPercentage: number;
   overallAssessment: string;
+  modelVersion: string;
+  schemaVersion: string;
+  warnings: string[];
   clauses: ClauseResult[];
   riskyClauses: ClauseResult[];
 }

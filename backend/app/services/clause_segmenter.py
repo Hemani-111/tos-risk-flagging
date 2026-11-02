@@ -1,6 +1,6 @@
 import re
-from typing import List, Dict, Optional
 from dataclasses import dataclass
+from typing import Dict, List, Optional
 
 
 @dataclass
@@ -13,11 +13,10 @@ class Clause:
 
 
 class ClauseSegmenter:
-    """Split document text at structural and sentence boundaries."""
+    """Split extracted document text into clauses while retaining source offsets."""
 
     _numbered = re.compile(r"^\s*(?:\d+\.)+\s+")
-    _bullet = re.compile(r"^\s*[-*•‣]\s+")
-    # Common abbreviations and initials should not create sentence boundaries.
+    _bullet = re.compile(r"^\s*[-*•▪]\s+")
     _sentence_end = re.compile(r"(?<=[.!?])(?:[\"'’”\)\]]*)\s+(?=[\"'“‘(\[]*[A-Z0-9])")
 
     def segment(self, text: str, min_clause_length: int = 20) -> List[Clause]:
@@ -26,37 +25,19 @@ class ClauseSegmenter:
 
         clauses: List[Clause] = []
         section: Optional[str] = None
+        run_start: Optional[int] = None
+        run_end = 0
         offset = 0
-        for line in text.splitlines(keepends=True):
-            raw = line.rstrip("\r\n")
-            stripped = raw.strip()
-            line_start = offset
-            offset += len(line)
-            if not stripped:
-                continue
-            if self._is_heading(stripped):
-                section = stripped
-                continue
 
-            content_start = line_start + len(raw) - len(raw.lstrip())
-            content_end = line_start + len(raw.rstrip())
-            content = text[content_start:content_end]
-            # A list item is an individual unit. Strip only the list marker;
-            # the returned text otherwise remains a direct slice of source.
-            marker = self._numbered.match(content) or self._bullet.match(content)
-            if marker:
-                content_start += marker.end()
-                content = text[content_start:content_end]
-
-            # Sentence boundaries are within a paragraph, so a long single-line
-            # ToS paragraph is analyzed sentence by sentence. Keep semicolon-
-            # joined legal clauses intact.
+        def flush() -> None:
+            nonlocal run_start, run_end
+            if run_start is None:
+                return
+            content = text[run_start:run_end]
             starts = [0]
-            for match in self._sentence_end.finditer(content):
-                boundary = match.end()
-                starts.append(boundary)
+            starts.extend(match.end() for match in self._sentence_end.finditer(content))
             starts.append(len(content))
-            spans = []
+            spans: list[tuple[int, int]] = []
             for left, right in zip(starts, starts[1:]):
                 a, b = left, right
                 while a < b and content[a].isspace():
@@ -66,9 +47,7 @@ class ClauseSegmenter:
                 if a < b:
                     spans.append((a, b))
 
-            # Merge very short sentence fragments with the next sentence (or
-            # previous at the end), avoiding meaningless standalone samples.
-            merged: List[tuple[int, int]] = []
+            merged: list[tuple[int, int]] = []
             for a, b in spans:
                 if merged and b - a < min_clause_length:
                     merged[-1] = (merged[-1][0], b)
@@ -76,26 +55,62 @@ class ClauseSegmenter:
                     merged.append((a, b))
             for a, b in merged:
                 clause_text = content[a:b]
-                if len(clause_text.strip()) < min_clause_length:
-                    continue
-                clauses.append(Clause(
-                    clause_id=f"clause_{len(clauses) + 1}",
-                    text=clause_text,
-                    section=section,
-                    start_offset=content_start + a,
-                    end_offset=content_start + b,
-                ))
+                if len(clause_text.strip()) >= min_clause_length:
+                    clauses.append(Clause(
+                        clause_id=f"clause_{len(clauses) + 1}",
+                        text=clause_text,
+                        section=section,
+                        start_offset=run_start + a,
+                        end_offset=run_start + b,
+                    ))
+            run_start = None
+
+        for line in text.splitlines(keepends=True):
+            raw = line.rstrip("\r\n")
+            stripped = raw.strip()
+            line_start = offset
+            offset += len(line)
+
+            if not stripped:
+                flush()
+                continue
+
+            if self._is_heading(stripped):
+                flush()
+                section = stripped
+                continue
+
+            content_start = line_start + len(raw) - len(raw.lstrip())
+            marker = self._numbered.match(text[content_start:line_start + len(raw)])
+            if marker is None:
+                marker = self._bullet.match(text[content_start:line_start + len(raw)])
+            if marker:
+                flush()
+                content_start += marker.end()
+
+            if run_start is None:
+                run_start = content_start
+            run_end = line_start + len(raw.rstrip())
+
+        flush()
         return clauses
 
     def _is_heading(self, line: str) -> bool:
         if line.startswith("#"):
             return True
         numbered_heading = self._numbered.match(line)
-        if numbered_heading and not re.search(r"[.!?]", line):
+        if numbered_heading:
             title = line[numbered_heading.end():]
-            if len(title) < 80 and len(title.split()) <= 7:
+            if not re.search(r"[.!?]", title) and len(title) < 80 and len(title.split()) <= 7:
                 return True
-        return line.isupper() and len(line) > 3 and len(line) < 120
+        # Uppercase sentences are content. Only treat short, punctuation-free
+        # all-caps lines as headings.
+        return (
+            line.isupper()
+            and len(line) < 120
+            and len(line.split()) <= 12
+            and not re.search(r"[.!?;:]", line)
+        )
 
     def to_json(self, clauses: List[Clause]) -> List[Dict]:
         return [{

@@ -53,6 +53,33 @@ class TestTxtParser:
         with pytest.raises(Exception):
             self.parser.parse("/nonexistent/path.txt")
 
+    def test_parse_oversized_text_rejects_early(self, tmp_path):
+        from app.services.document_parser import DocumentLimitError, TxtParser
+        path = tmp_path / "large.txt"
+        path.write_text("x" * 101, encoding="utf-8")
+        with pytest.raises(DocumentLimitError):
+            TxtParser(max_chars=100).parse(str(path))
+
+
+class TestPdfParser:
+    def test_blank_pdf_is_reported_as_unsupported_scanned_content(self, tmp_path):
+        from PyPDF2 import PdfWriter
+        from app.services.document_parser import PdfParser, UnsupportedScannedPDFError
+        path = tmp_path / "blank.pdf"
+        writer = PdfWriter()
+        writer.add_blank_page(width=612, height=792)
+        with path.open("wb") as stream:
+            writer.write(stream)
+        with pytest.raises(UnsupportedScannedPDFError, match="OCR is not enabled"):
+            PdfParser().parse(str(path))
+
+    def test_corrupt_pdf_has_actionable_parse_error(self, tmp_path):
+        from app.services.document_parser import DocumentParsingError, PdfParser
+        path = tmp_path / "corrupt.pdf"
+        path.write_bytes(b"not a pdf")
+        with pytest.raises(DocumentParsingError, match="corrupt"):
+            PdfParser().parse(str(path))
+
 
 class TestClauseSegmenterEdgeCases:
     def setup_method(self):

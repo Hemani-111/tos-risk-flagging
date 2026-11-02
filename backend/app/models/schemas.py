@@ -7,6 +7,7 @@ from datetime import datetime
 class HealthResponse(BaseModel):
     status: str
     version: str
+    modelVersion: Optional[str] = None
 
 
 class DocumentInfo(BaseModel):

@@ -20,6 +20,9 @@ class TestModelLoading:
         model, vectorizer = model_loader.load()
         assert model is not None
         assert vectorizer is not None
+        from app.ml.model_loader import model_loader
+        assert model_loader.metadata["model_version"] == "legacy-selected-model-v1"
+        assert model_loader.package_info()["schemaVersion"] == "1.1"
 
     def test_vectorizer_transform_shape(self):
         from app.ml.model_loader import model_loader
@@ -64,6 +67,9 @@ class TestAnalysisEndpoint:
         assert data["riskyCount"] == sum(c["label"] == "Risky" for c in data["clauses"]) == 2
         assert data["riskyClauses"] == [c for c in data["clauses"] if c["label"] == "Risky"]
         assert data["totalClauses"] == data["safeCount"] + data["neutralCount"] + data["riskyCount"]
+        assert data["modelVersion"]
+        assert data["schemaVersion"] == "1.1"
+        assert isinstance(data["warnings"], list)
 
     def test_analyze_txt_file(self):
         content = b"This is the first clause.\n\nThis is the second clause."
@@ -84,7 +90,16 @@ class TestAnalysisEndpoint:
             "/api/v1/documents/analyze",
             files={"file": ("empty.txt", b"", "text/plain")},
         )
-        assert response.status_code == 400
+        assert response.status_code == 422
+
+    def test_upload_size_limit_is_enforced(self, monkeypatch):
+        from app.api.routes import analysis
+        monkeypatch.setattr(analysis.settings, "UPLOAD_MAX_SIZE", 8)
+        response = client.post(
+            "/api/v1/documents/analyze",
+            files={"file": ("large.txt", b"x" * 9, "text/plain")},
+        )
+        assert response.status_code == 413
 
     def test_analyze_unsupported_extension(self):
         response = client.post(

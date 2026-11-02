@@ -13,6 +13,7 @@ class TestHealthEndpoint:
         data = response.json()
         assert data["status"] == "ok"
         assert data["version"] == "1.0.0"
+        assert data["modelVersion"] == "legacy-selected-model-v1"
 
 
 class TestDocumentParser:
@@ -68,3 +69,37 @@ class TestClauseSegmenter:
         clauses = self.segmenter.segment(text)
         assert len(clauses) == 6
         assert all(text[c.start_offset:c.end_offset] == c.text for c in clauses)
+
+    def test_all_caps_substantive_sentence_is_not_discarded(self):
+        text = "WE MAY TERMINATE YOUR ACCOUNT AT ANY TIME WITHOUT NOTICE."
+        clauses = self.segmenter.segment(text)
+        assert len(clauses) == 1
+        assert clauses[0].text == text
+
+    def test_numbered_heading_and_bullet_content_keep_section(self):
+        text = "1. DATA USE\n\n- We may share personal data with service providers.\n"
+        clauses = self.segmenter.segment(text)
+        assert len(clauses) == 1
+        assert clauses[0].section == "1. DATA USE"
+        assert clauses[0].text == "We may share personal data with service providers."
+        assert text[clauses[0].start_offset:clauses[0].end_offset] == clauses[0].text
+
+    def test_wrapped_lines_are_joined_and_abbreviation_is_preserved(self):
+        text = "We may collect data, e.g. account details and usage records,\n"
+        text += "to provide and improve our service. You may delete your account."
+        clauses = self.segmenter.segment(text)
+        assert len(clauses) == 2
+        assert clauses[0].text.startswith("We may collect data, e.g. account details")
+        assert text[clauses[0].start_offset:clauses[0].end_offset] == clauses[0].text
+
+    def test_quoted_sentence_boundaries_and_short_fragment(self):
+        text = '"We may retain account records for legal reasons." You may request deletion.'
+        clauses = self.segmenter.segment(text)
+        assert len(clauses) == 2
+        assert clauses[0].text.startswith('"We may retain')
+
+    def test_unpunctuated_all_caps_heading_is_section(self):
+        text = "DATA SHARING\n\nWe share data with processors to operate the service."
+        clauses = self.segmenter.segment(text)
+        assert len(clauses) == 1
+        assert clauses[0].section == "DATA SHARING"

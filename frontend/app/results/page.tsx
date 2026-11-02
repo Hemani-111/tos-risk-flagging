@@ -97,6 +97,14 @@ export default function ResultsPage({
         <div className="rounded-lg border border-border bg-card p-6 mb-8">
           <h2 className="text-lg font-semibold mb-2">Overall assessment</h2>
           <p className="text-sm text-muted-foreground leading-relaxed">{result.overallAssessment}</p>
+          <p className="mt-3 text-xs text-muted-foreground">
+            Model {result.modelVersion} · Results are clause classifications, not a legal compliance assessment.
+          </p>
+          {result.warnings?.length > 0 && (
+            <ul className="mt-3 list-disc space-y-1 pl-5 text-xs text-muted-foreground">
+              {result.warnings.map((warning) => <li key={warning}>{warning}</li>)}
+            </ul>
+          )}
         </div>
 
         <div className="rounded-lg border border-border bg-card">

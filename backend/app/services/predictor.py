@@ -5,9 +5,14 @@ from app.services.clause_segmenter import Clause
 
 class Predictor:
     def __init__(self):
-        self._model, self._vectorizer = model_loader.load()
+        # Keep app import/startup alive when packaging is broken so readiness
+        # can report the failure and operators receive a useful response.
+        self._model = None
+        self._vectorizer = None
 
     def predict(self, clauses: List[Clause]) -> List[Dict]:
+        if self._model is None or self._vectorizer is None:
+            self._model, self._vectorizer = model_loader.load()
         texts = [c.text for c in clauses]
         tfidf = self._vectorizer.transform(texts)
         predictions = self._model.predict(tfidf)

@@ -1,0 +1,33 @@
+{
+  "model_version": "legacy-selected-model-v1",
+  "schema_version": "1.1",
+  "status": "existing serving artifact; retained pending evidence-based replacement selection",
+  "classifier": {
+    "class": "sklearn.svm.SVC",
+    "kernel": "rbf",
+    "C": 10,
+    "gamma": 0.1,
+    "class_order": ["Neutral", "Risky", "Safe"],
+    "artifact": "model.joblib",
+    "sha256": "db0e6c6f1f6295911cc66fa552a910258ce2d8bb5f28bee62aeaa2c6ef681af2"
+  },
+  "vectorizer": {
+    "class": "sklearn.feature_extraction.text.TfidfVectorizer",
+    "analyzer": "word",
+    "ngram_range": [1, 2],
+    "min_df": 2,
+    "max_df": 0.95,
+    "sublinear_tf": true,
+    "lowercase": true,
+    "artifact": "vectorizer.joblib",
+    "sha256": "40f91145fe1638ecb902d488f77420c4be88bdbbb3b55871fa926fc5f22ff5aa"
+  },
+  "runtime": {
+    "python": "3.11",
+    "scikit_learn": "1.9.0"
+  },
+  "limitations": [
+    "This is the pre-existing RBF SVC; Phase 4 development comparisons did not authorize a production replacement.",
+    "No calibrated probabilities or confidence scores are exposed."
+  ]
+}

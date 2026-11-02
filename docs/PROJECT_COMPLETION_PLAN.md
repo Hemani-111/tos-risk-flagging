@@ -3,7 +3,7 @@
 Date: 2 November 2026  
 Repository: https://github.com/kiran-8287/tos-risk-flagging  
 Course: DS3010 Introduction to Machine Learning, IIT Palakkad  
-Status: Phases 0–4 implemented and recorded in `progress/WORK_LOG.md`; Phase 5 development analyses are underway, with human-annotated document evaluation pending. Later phases remain pending.
+Status: Phases 0–4 complete; Phase 5 development analyses and annotation workflow are prepared, with human-annotated document evaluation pending; Phase 6 backend reliability work is in progress. Later phases remain pending.
 
 ## 1. Purpose and intended outcome
 
@@ -258,19 +258,19 @@ Every experiment must save: run ID, Git revision, data hash, split ID, seed, pac
 
 ## 11. Phase 6: Backend reliability and model packaging
 
-- [ ] Repair segmentation with tests for all-caps substantive clauses, numbered headings, bullets, abbreviations, quotations, wrapped lines, short fragments, and punctuation.
-- [ ] Preserve extraction text, clause offsets, and section/page metadata where reliable. If text is normalised, define which text offsets refer to and maintain a mapping when required.
-- [ ] Distinguish headings from content; do not discard substantive language solely because it is uppercase.
-- [ ] Report scanned/image-only PDFs as unsupported without OCR; never present an empty extraction as a safe document.
-- [ ] Handle corrupt, encrypted, empty, oversized, and unsupported documents with useful errors.
-- [ ] Enforce upload limits during reading, plus limits for pasted text, extracted length, pages/clauses, and processing time.
-- [ ] Move expensive inference off the async event loop and bound concurrency; add a job queue only if measured workload needs it.
-- [ ] Use temporary files safely and clean them on success and failure. Do not log document contents by default.
-- [ ] Load a versioned model package once, validate class order and metadata, and expose readiness failures clearly.
-- [ ] Package preprocessing and classifier together where practical to prevent mismatched artifacts.
-- [ ] Add model version, schema version, warnings, and supported uncertainty fields to API responses.
-- [ ] Keep document summaries as counts/shares of analysed clauses. Do not label them legal compliance or a calibrated document risk probability.
-- [ ] Verify Docker model mounts and `MODEL_DIR` explicitly; the inspected loader's relative root calculation needs checking against the container layout.
+- [x] Repair segmentation with tests for all-caps substantive clauses, numbered headings, bullets, abbreviations, quotations, wrapped lines, short fragments, and punctuation.
+- [ ] Preserve extraction text, clause offsets, and section/page metadata where reliable. Clause offsets and text are preserved; PDF page mapping remains to be added.
+- [x] Distinguish headings from content; do not discard substantive language solely because it is uppercase.
+- [x] Report scanned/image-only PDFs as unsupported without OCR; never present an empty extraction as a safe document.
+- [ ] Handle corrupt, encrypted, empty, oversized, and unsupported documents with useful errors. Corrupt, empty, oversized, unsupported and scanned cases are covered; encrypted-file regression coverage remains.
+- [ ] Enforce upload limits during reading, plus limits for pasted text, extracted length, pages/clauses, and processing time. Byte, character, page, and clause limits are implemented; a hard processing timeout remains.
+- [x] Move expensive inference off the async event loop and bound concurrency; add a job queue only if measured workload needs it.
+- [x] Use temporary files safely and clean them on success and failure. Do not log document contents by default.
+- [x] Load a versioned model package once, validate class order and metadata, and expose readiness failures clearly.
+- [x] Package preprocessing and classifier together where practical to prevent mismatched artifacts. Existing paired artifacts are versioned and checksum validated; they remain two files pending a replacement pipeline package.
+- [x] Add model version, schema version, warnings, and supported uncertainty fields to API responses. No numerical uncertainty field is exposed because it is not calibrated.
+- [x] Keep document summaries as counts/shares of analysed clauses. Do not label them legal compliance or a calibrated document risk probability.
+- [x] Verify Docker model mounts and `MODEL_DIR` explicitly; the inspected loader's relative root calculation needs checking against the container layout.
 
 **Completion gate:** backend tests cover observed regressions and representative error paths; local and container startup load the intended model.
 
