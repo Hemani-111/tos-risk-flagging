@@ -200,3 +200,8 @@ Reconstruction counts reconcile, label mapping and keys are verified, conflict t
 - Refined the shared navigation, responsive mobile menu, brand treatment, content widths, page spacing, focus treatment, footer, and homepage into a familiar website layout.
 - Tightened the analyze page hierarchy and results-page content width. Reworded homepage feature copy to describe the existing clause-review and filter/context behavior without implying legal interpretation.
 - Verification: `npm run lint` passed and `npm run build` passed.
+
+## 2026-11-03 — Phase 7 progress: disable development indicator
+
+- Set `devIndicators: false` in the frontend Next.js config to hide the development-only floating indicator for this project while retaining build/runtime error reporting.
+- Verification: `npm run build` passed.
