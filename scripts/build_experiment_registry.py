@@ -127,9 +127,27 @@ def main() -> None:
 
     # Explicit gates are included so an absent metric cannot be mistaken for a run.
     rows.extend([
-        {"run_id": "locked_test_evaluation_pending_freeze", "protocol": "primary+clause", "model": "frozen finalist", "representation": "to be set by FINAL_CANDIDATE_FREEZE.md", "status": "pending candidate freeze", "locked_test_used": "no test metric opened"},
         {"run_id": "independent_document_evaluation_pending_labels", "protocol": "six local policy snapshots", "model": "selected frozen candidate", "representation": "full-document extraction and clause mapping", "status": "pending authentic reviewer labels", "locked_test_used": "not applicable"},
     ])
+    locked_registry = read_json(ROOT / "results/locked_evaluation_v1/evaluation_registry.json")
+    for evaluation in locked_registry.get("evaluations", []):
+        protocol = str(evaluation["protocol"])
+        group_interval = evaluation.get("group_bootstrap", {}).get("macro_f1_percentile_95", [])
+        rows.append({
+            "run_id": "locked_evaluation_v1", "protocol": protocol,
+            "model": "frozen_linear_svc_C1_balanced", "representation": "word unigram/bigram TF-IDF",
+            "split_id": evaluation.get("split_id"), "dataset_sha256": evaluation.get("dataset_sha256"),
+            "selection_metric": "macro F1", "selection_partition": "frozen before scoring; locked test scored once",
+            "locked_test_used": True, "status": "completed once after freeze",
+            "artifact_directory": f"results/locked_evaluation_v1/{protocol}",
+            "test_rows": evaluation.get("test_rows"), "test_macro_f1": evaluation.get("macro_f1"),
+            "test_accuracy": evaluation.get("accuracy"), "test_risky_precision": evaluation.get("risky_precision"),
+            "test_risky_recall": evaluation.get("risky_recall"), "test_risky_false_positives": evaluation.get("risky_false_positives"),
+            "test_risky_false_negatives": evaluation.get("risky_false_negatives"),
+            "group_bootstrap_macro_f1_low": group_interval[0] if len(group_interval) == 2 else None,
+            "group_bootstrap_macro_f1_high": group_interval[1] if len(group_interval) == 2 else None,
+            "freeze_commit": evaluation.get("freeze_commit"), "evaluation_commit": evaluation.get("evaluation_commit"),
+        })
     frame = pd.DataFrame(rows)
     if not frame.empty:
         # Add fold-based scores beside validation rows where the same run saved
@@ -168,7 +186,7 @@ def main() -> None:
         "git_revision": subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=ROOT, text=True).strip(),
         "dataset_sha256": DATASET_SHA, "primary_selection_metric": "macro F1",
         "report_alongside": ["Risky precision", "Risky recall"],
-        "locked_test_access_incident": "See docs/REMAINING_WORK_STATUS.md; no test metric was calculated or reviewed.",
+        "locked_test_access_incident": "See docs/REMAINING_WORK_STATUS.md and docs/LOCKED_TEST_EVALUATION_v1.md; the final test evaluation occurred once after the freeze and was not used for selection. Earlier dev attempts materialized test text/labels through the former shared loader without computing or reviewing test metrics.",
         "experiment_count": len(rows),
         "records": frame.astype(object).where(pd.notna(frame), None).to_dict(orient="records"),
     }
@@ -235,10 +253,21 @@ def main() -> None:
         "",
         "- The CSV and JSON contain model-family configurations, fold/validation results, runtime fields, stability metrics, cluster summaries, artifact directories, split and dataset hashes when present.",
         "- `results/experiments/` run folders contain fold-level predictions/confusions and raw outputs. The registry does not replace those artifacts.",
-        "- The locked test has no recorded score. Its prior in-memory loader incident is disclosed in the status report; scoring remains gated on a written candidate freeze.",
+        "- Locked-test scores are recorded separately after the committed candidate freeze in `results/locked_evaluation_v1/` and `docs/LOCKED_TEST_EVALUATION_v1.md`; the prior loader boundary incident is disclosed.",
         "- Independent full-document evaluation remains pending two authentic human review sheets and adjudication.",
         "",
     ]
+    locked = frame.loc[frame["run_id"].eq("locked_evaluation_v1")]
+    if not locked.empty:
+        lines += [
+            "## One-time locked-test evaluation after freeze",
+            "",
+            "| Protocol | Test macro F1 | Accuracy | Risky precision | Risky recall | Group-bootstrap macro F1 interval |",
+            "|---|---:|---:|---:|---:|---:|",
+        ]
+        for row in locked.to_dict(orient="records"):
+            lines.append(f"| {row.get('protocol')} | {fmt(row.get('test_macro_f1'))} | {fmt(row.get('test_accuracy'))} | {fmt(row.get('test_risky_precision'))} | {fmt(row.get('test_risky_recall'))} | {fmt(row.get('group_bootstrap_macro_f1_low'))}–{fmt(row.get('group_bootstrap_macro_f1_high'))} |")
+        lines += ["", "These are the first scored locked-test results after the documented in-memory loader boundary incident. No test metrics were used for model selection. See the freeze and locked-evaluation report for details.", ""]
     (OUTPUT / "README.md").write_text("\n".join(lines), encoding="utf-8")
     print(f"Wrote {len(rows)} registry records to {OUTPUT}")
 

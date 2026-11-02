@@ -228,3 +228,10 @@ Reconstruction counts reconcile, label mapping and keys are verified, conflict t
 - The freeze discloses the earlier in-memory loader boundary incident and states no test metric was computed or viewed. Human document review remains separate and pending.
 - Added `scripts/evaluate_frozen_candidate.py`. It refuses to run without a committed, clean freeze; trains using the development-only loader; scores the requested test protocol once; writes predictions/confusion/metrics and a 2,000-replicate group bootstrap; and refuses repeats recorded in the evaluation registry.
 - Verified Python compilation and Ruff. Evaluation script is ready to run after its phase commit. This will be reported as the first scored test evaluation after the boundary incident, not as an untouched test score.
+
+
+## 2026-11-03 - Phase 5: frozen evaluation evidence
+
+- Scored the frozen candidate once on each locked protocol after commit `c68fdce`; preserved row predictions, per-class metrics, confusion matrices, timings, group bootstrap intervals, and evaluation registry under `results/locked_evaluation_v1/`.
+- Primary unseen-service test macro F1 0.8358 (Risky precision 0.8229, recall 0.8287); secondary duplicate-aware test macro F1 0.8144 (Risky precision 0.7922, recall 0.8117). No tuning followed. The earlier loader boundary incident remains disclosed.
+- Added the locked-test report and refreshed experiment registry evidence. This is the first scored test evaluation after freeze, not an untouched-test claim.

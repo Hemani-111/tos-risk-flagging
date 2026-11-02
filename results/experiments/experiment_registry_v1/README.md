@@ -2,7 +2,7 @@
 
 Generated from saved run metadata and result files. Macro F1 is the registered primary metric; Risky precision and recall are reported alongside it. Entries are development-only unless a future freeze record explicitly states otherwise.
 
-Generated 2026-11-02T21:19:54.539871+00:00 UTC; data SHA-256 `cee557cc927d754cf17675154ed5e1e32eee2fdb9af6700c526e62cd66969f8c`.
+Generated 2026-11-02T21:25:50.757797+00:00 UTC; data SHA-256 `cee557cc927d754cf17675154ed5e1e32eee2fdb9af6700c526e62cd66969f8c`.
 
 ## Development classification results
 
@@ -76,5 +76,14 @@ Generated 2026-11-02T21:19:54.539871+00:00 UTC; data SHA-256 `cee557cc927d754cf1
 
 - The CSV and JSON contain model-family configurations, fold/validation results, runtime fields, stability metrics, cluster summaries, artifact directories, split and dataset hashes when present.
 - `results/experiments/` run folders contain fold-level predictions/confusions and raw outputs. The registry does not replace those artifacts.
-- The locked test has no recorded score. Its prior in-memory loader incident is disclosed in the status report; scoring remains gated on a written candidate freeze.
+- Locked-test scores are recorded separately after the committed candidate freeze in `results/locked_evaluation_v1/` and `docs/LOCKED_TEST_EVALUATION_v1.md`; the prior loader boundary incident is disclosed.
 - Independent full-document evaluation remains pending two authentic human review sheets and adjudication.
+
+## One-time locked-test evaluation after freeze
+
+| Protocol | Test macro F1 | Accuracy | Risky precision | Risky recall | Group-bootstrap macro F1 interval |
+|---|---:|---:|---:|---:|---:|
+| clause | 0.8144 | 0.8190 | 0.7922 | 0.8117 | 0.7989–0.8301 |
+| primary | 0.8358 | 0.8395 | 0.8229 | 0.8287 | 0.8205–0.8496 |
+
+These are the first scored locked-test results after the documented in-memory loader boundary incident. No test metrics were used for model selection. See the freeze and locked-evaluation report for details.

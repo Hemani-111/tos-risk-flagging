@@ -1,0 +1,56 @@
+{
+  "protocol": "clause",
+  "evaluated_at_utc": "2026-11-02T21:21:30.912503+00:00",
+  "freeze_commit": "c68fdcef9310007477d8245508ee2e623bc364af",
+  "evaluation_commit": "1f4a5c1ac05666073e3c9105958ec07511b09302",
+  "dataset_sha256": "cee557cc927d754cf17675154ed5e1e32eee2fdb9af6700c526e62cd66969f8c",
+  "split_id": "split_manifest_v1",
+  "test_rows": 2602,
+  "train_rows": 13434,
+  "training_fit_seconds_including_vectorizer": 1.4558706000098027,
+  "prediction_seconds": 0.18712399998912588,
+  "prediction_ms_per_clause": 0.07191544964993309,
+  "accuracy": 0.8189853958493467,
+  "macro_f1": 0.814439935814205,
+  "risky_precision": 0.7922374429223744,
+  "risky_recall": 0.8116959064327486,
+  "risky_false_positives": 182,
+  "risky_false_negatives": 161,
+  "per_class": {
+    "Risky": {
+      "precision": 0.7922374429223744,
+      "recall": 0.8116959064327486,
+      "f1-score": 0.8018486424032352,
+      "support": 855.0
+    },
+    "Neutral": {
+      "precision": 0.8603988603988604,
+      "recall": 0.841225626740947,
+      "f1-score": 0.8507042253521127,
+      "support": 1077.0
+    },
+    "Safe": {
+      "precision": 0.7890044576523031,
+      "recall": 0.7925373134328358,
+      "f1-score": 0.7907669396872673,
+      "support": 670.0
+    }
+  },
+  "group_column": "text_component",
+  "test_group_count": 2552,
+  "group_bootstrap": {
+    "method": "non-stratified cluster bootstrap; resample unique test groups with replacement and include all their clauses",
+    "seed": 20261103,
+    "groups": 2552,
+    "replicates": 2000,
+    "macro_f1_percentile_95": [
+      0.7988752171989063,
+      0.8301212223201134
+    ],
+    "interpretation": "Uncertainty over sampled test groups; not a confidence guarantee for legal risk or future deployment."
+  },
+  "train_test_groups_disjoint": true,
+  "freeze_recipe": "word 1-2gram TF-IDF; LinearSVC C=1 class_weight=balanced",
+  "locked_test_used": true,
+  "evaluation_run_once": true
+}

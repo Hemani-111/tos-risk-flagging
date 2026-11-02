@@ -1,0 +1,124 @@
+{
+  "evaluations": [
+    {
+      "protocol": "primary",
+      "evaluated_at_utc": "2026-11-02T21:21:13.104108+00:00",
+      "freeze_commit": "c68fdcef9310007477d8245508ee2e623bc364af",
+      "evaluation_commit": "1f4a5c1ac05666073e3c9105958ec07511b09302",
+      "dataset_sha256": "cee557cc927d754cf17675154ed5e1e32eee2fdb9af6700c526e62cd66969f8c",
+      "split_id": "split_manifest_v1",
+      "test_rows": 2585,
+      "train_rows": 13439,
+      "training_fit_seconds_including_vectorizer": 1.3271686999942176,
+      "prediction_seconds": 0.2068184000090696,
+      "prediction_ms_per_clause": 0.08000711799190313,
+      "accuracy": 0.839458413926499,
+      "macro_f1": 0.8358442060053727,
+      "risky_precision": 0.8229166666666666,
+      "risky_recall": 0.8286713286713286,
+      "risky_false_positives": 153,
+      "risky_false_negatives": 147,
+      "per_class": {
+        "Risky": {
+          "precision": 0.8229166666666666,
+          "recall": 0.8286713286713286,
+          "f1-score": 0.8257839721254355,
+          "support": 858.0
+        },
+        "Neutral": {
+          "precision": 0.8735521235521235,
+          "recall": 0.8594491927825261,
+          "f1-score": 0.8664432742939205,
+          "support": 1053.0
+        },
+        "Safe": {
+          "precision": 0.8087591240875912,
+          "recall": 0.8219584569732937,
+          "f1-score": 0.8153053715967623,
+          "support": 674.0
+        }
+      },
+      "group_column": "service_component",
+      "test_group_count": 211,
+      "group_bootstrap": {
+        "method": "non-stratified cluster bootstrap; resample unique test groups with replacement and include all their clauses",
+        "seed": 20261103,
+        "groups": 211,
+        "replicates": 2000,
+        "macro_f1_percentile_95": [
+          0.8204923859236323,
+          0.8495702740398712
+        ],
+        "interpretation": "Uncertainty over sampled test groups; not a confidence guarantee for legal risk or future deployment."
+      },
+      "train_test_groups_disjoint": true,
+      "freeze_recipe": "word 1-2gram TF-IDF; LinearSVC C=1 class_weight=balanced",
+      "locked_test_used": true,
+      "evaluation_run_once": true,
+      "freeze_sha256": "f3d870c46ebcaebbc20371603f70b9607a60152cb897d641da078b1fd801dc14"
+    },
+    {
+      "protocol": "clause",
+      "evaluated_at_utc": "2026-11-02T21:21:30.912503+00:00",
+      "freeze_commit": "c68fdcef9310007477d8245508ee2e623bc364af",
+      "evaluation_commit": "1f4a5c1ac05666073e3c9105958ec07511b09302",
+      "dataset_sha256": "cee557cc927d754cf17675154ed5e1e32eee2fdb9af6700c526e62cd66969f8c",
+      "split_id": "split_manifest_v1",
+      "test_rows": 2602,
+      "train_rows": 13434,
+      "training_fit_seconds_including_vectorizer": 1.4558706000098027,
+      "prediction_seconds": 0.18712399998912588,
+      "prediction_ms_per_clause": 0.07191544964993309,
+      "accuracy": 0.8189853958493467,
+      "macro_f1": 0.814439935814205,
+      "risky_precision": 0.7922374429223744,
+      "risky_recall": 0.8116959064327486,
+      "risky_false_positives": 182,
+      "risky_false_negatives": 161,
+      "per_class": {
+        "Risky": {
+          "precision": 0.7922374429223744,
+          "recall": 0.8116959064327486,
+          "f1-score": 0.8018486424032352,
+          "support": 855.0
+        },
+        "Neutral": {
+          "precision": 0.8603988603988604,
+          "recall": 0.841225626740947,
+          "f1-score": 0.8507042253521127,
+          "support": 1077.0
+        },
+        "Safe": {
+          "precision": 0.7890044576523031,
+          "recall": 0.7925373134328358,
+          "f1-score": 0.7907669396872673,
+          "support": 670.0
+        }
+      },
+      "group_column": "text_component",
+      "test_group_count": 2552,
+      "group_bootstrap": {
+        "method": "non-stratified cluster bootstrap; resample unique test groups with replacement and include all their clauses",
+        "seed": 20261103,
+        "groups": 2552,
+        "replicates": 2000,
+        "macro_f1_percentile_95": [
+          0.7988752171989063,
+          0.8301212223201134
+        ],
+        "interpretation": "Uncertainty over sampled test groups; not a confidence guarantee for legal risk or future deployment."
+      },
+      "train_test_groups_disjoint": true,
+      "freeze_recipe": "word 1-2gram TF-IDF; LinearSVC C=1 class_weight=balanced",
+      "locked_test_used": true,
+      "evaluation_run_once": true,
+      "freeze_sha256": "f3d870c46ebcaebbc20371603f70b9607a60152cb897d641da078b1fd801dc14"
+    }
+  ],
+  "evaluation_registry": "locked_evaluation_v1",
+  "updated_at_utc": "2026-11-02T21:21:46.460755+00:00",
+  "freeze_document": "docs\\FINAL_CANDIDATE_FREEZE.md",
+  "freeze_commit": "c68fdcef9310007477d8245508ee2e623bc364af",
+  "dataset_sha256": "cee557cc927d754cf17675154ed5e1e32eee2fdb9af6700c526e62cd66969f8c",
+  "incident_disclosure": "Locked test text/labels were previously materialized by the old shared loader during development-only runs; no test metrics were computed or viewed. This is not an untouched test claim."
+}
