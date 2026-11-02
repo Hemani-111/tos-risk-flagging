@@ -3,11 +3,11 @@
 **Evidence-based project report draft — 3 November 2026**  
 Course: DS3010 Introduction to Machine Learning, IIT Palakkad
 
-> **Draft status:** This report summarizes completed work and development-set evidence. Independent full-document evaluation, Docker runtime verification, manual UX review, and deployment checks remain open. The locked test partitions have not been evaluated. Do not present this as a final-test report.
+> **Draft status:** This report includes the frozen candidate's one-time test results. Independent full-document evaluation, Docker runtime verification, screenshot-based browser UX review, and public deployment checks remain open. The prior loader boundary incident is disclosed; do not describe the test as untouched.
 
 ## Abstract
 
-This project studies whether text classifiers can help readers find Terms of Service (ToS) clauses that deserve attention. It builds a reproducible English-language benchmark from ToS;DR case annotations, compares conventional text-classification methods under service-aware and duplicate-aware splits, inspects errors and uncertainty, and implements a web application for reviewing predictions in uploaded documents. The audited source contains 22,497 annotated excerpts; the scoped benchmark contains 19,189 conflict-free excerpts. In grouped training-fold tuning, a word unigram/bigram TF-IDF Linear SVM achieved mean macro F1 of 0.832 (SD 0.003) on the primary unseen-service protocol; its validation macro F1 was 0.820. A duplicate-aware clause protocol produced 0.839 (SD 0.002) grouped-CV macro F1 and 0.819 validation macro F1. These are development results, not locked-test estimates. Labels are case-derived annotations, not independent legal judgments. Complete-document performance remains unmeasured pending human review. The application is an educational screening aid, not legal advice or a safety guarantee.
+This project studies whether text classifiers can help readers find Terms of Service (ToS) clauses that deserve attention. It builds a reproducible English-language benchmark from ToS;DR case annotations, compares conventional text-classification methods under service-aware and duplicate-aware splits, evaluates additional representations and ensembles, and implements a web application for reviewing predictions in uploaded documents. The audited source contains 22,497 annotated excerpts; the scoped benchmark contains 19,189 conflict-free excerpts. The frozen word unigram/bigram TF-IDF LinearSVC achieved primary grouped-CV macro F1 0.832 (SD 0.003), validation macro F1 0.820, and test macro F1 0.836. The secondary protocol scored 0.839 (SD 0.002), 0.819, and 0.814 respectively. The locked-test scores followed the documented freeze and were not used for selection. A loader boundary incident is disclosed: earlier development runs materialized test text and labels in memory but did not calculate or review test metrics. Labels are case-derived annotations, not independent legal judgments. Complete-document performance remains unmeasured pending human review. The application is an educational screening aid, not legal advice or a safety guarantee.
 
 ## 1. Problem and scope
 
@@ -30,7 +30,7 @@ Two protocols are reported separately:
 1. **Primary unseen-service:** service components linked by exact text, document metadata, or reviewed near-duplicate evidence stay within a partition. The included split contains 13,439 training, 2,658 validation, and 2,585 locked-test rows.
 2. **Secondary duplicate-aware clause:** normalized repeated-text components stay together, while services may appear in multiple partitions. The included split contains 13,434 training, 2,607 validation, and 2,602 locked-test rows.
 
-Both use a fixed seed and pre-generated split manifest. Detected cross-partition duplicate candidates are removed from lower-priority holdouts under a documented rule. Near-duplicate detection is approximate and may miss overlap. The test rows remain locked; all results below come from training CV or validation.
+Both use a fixed seed and pre-generated split manifest. Detected cross-partition duplicate candidates are removed from lower-priority holdouts under a documented rule. Near-duplicate detection is approximate and may miss overlap. Candidate selection used training CV and validation only. The first scored locked-test results were produced after the freeze; the in-memory loader incident is documented in [Candidate Freeze](FINAL_CANDIDATE_FREEZE.md).
 
 Macro F1 is the principal comparison metric. Risky-class precision and recall are reported as trade-offs. TF-IDF, scaling, and dimensionality reduction are fit only on training data within each fold. Three fixed grouped CV folds within training guide model and representation selection; validation supports development review. The protocol and commands are in [Experiment Protocol](EXPERIMENT_PROTOCOL.md).
 
@@ -49,6 +49,23 @@ The balanced Logistic Regression validation macro F1 was 0.816 in both protocols
 
 These metrics are not directly comparable to the historical ~85% RBF SVM figure in an earlier presentation: that figure's protocol is not reproduced here. Full first-pass comparisons, tuning, and ablation details are in [Model Experiments](MODEL_EXPERIMENTS_v1.md).
 
+### Expanded representations and ensembles
+
+The requested finite tuning searches compared Decision Tree, Random Forest, HistGradientBoosting, and KNN over 100-component SVD features under both protocols. HistGradientBoosting led these additional families, with grouped-CV/validation macro F1 of 0.793/0.787 primary and 0.805/0.797 secondary; its train-fold macro F1 was near 1.00, indicating overfit. It did not exceed the selected sparse linear model.
+
+A pinned local `sentence-transformers/all-MiniLM-L6-v2` encoder (revision `b9db1e8a0d3a51769172ba8546f282a73f066e47`, Apache-2.0, 384 dimensions, 256 wordpieces) embedded 18,635 unique train/validation clauses on CPU in 636 seconds (29.3 clauses/second); none were truncated. The best embedding LinearSVC grouped-CV macro F1 was 0.728 primary and 0.735 secondary. PCA-reduced embeddings were lower. Word+character TF-IDF validation macro F1 was 0.818 primary and 0.818 secondary, slightly below word-only. Five group-aware learning-curve fractions, three random whole-group samples, and fold-wise coefficient stability were recorded.
+
+Group-OOF hard voting and logistic stacking did not improve primary validation macro F1 over LinearSVC. Hard voting increased Risky recall at the expense of precision. Group-fold sigmoid calibration and a soft-vote diagnostic include Brier/log loss and Risky probability reliability bins; these remain research diagnostics and are not legal-risk likelihoods. Train-only MiniLM PCA/K-means tested k=3/5/8/12. Cosine silhouettes were weak (0.075-0.098), so clusters are exploratory. The complete registry is in `results/experiments/experiment_registry_v1/`.
+
+### One-time frozen test evaluation
+
+| Protocol | Test macro F1 | Accuracy | Risky precision | Risky recall | Group-bootstrap interval for macro F1 |
+|---|---:|---:|---:|---:|---:|
+| Primary unseen-service (2,585 clauses; 211 services) | 0.8358 | 0.8395 | 0.8229 | 0.8287 | 0.8205-0.8496 |
+| Secondary duplicate-aware (2,602 clauses; 2,552 text groups) | 0.8144 | 0.8190 | 0.7922 | 0.8117 | 0.7989-0.8301 |
+
+Intervals use 2,000 group-bootstrap resamples with replacement and seed 20261103. They describe sampled group variation and are not guarantees. The primary test had 153 Risky false positives and 147 false negatives; the secondary test had 182 and 161. Full per-class results and the boundary disclosure are in [Locked Test Evaluation](LOCKED_TEST_EVALUATION_v1.md). No score was used to select or modify the model.
+
 ## 5. Error and uncertainty analysis
 
 On validation, the selected Linear SVM made 465 errors among 2,658 primary rows (17.5%) and 460 among 2,607 secondary rows (17.6%). Primary errors included 182 Risky false positives and 150 Risky false negatives; secondary errors included 197 and 134 respectively. Review examples suggest that Neutral legal disclosures can share vocabulary with Risky examples, while broad discretion, unilateral changes, jurisdiction provisions, and collection disclosures require wider context. Some apparent errors may reflect source segmentation or the case-derived target rather than ordinary model failure. These observations are navigational review cues, not causal explanations.
@@ -57,13 +74,13 @@ Balanced Logistic Regression (C=10) produced raw probabilities. On primary valid
 
 ## 6. Independent document evaluation
 
-Six policy snapshots from three services absent from the benchmark are frozen locally. Two additional Perplexity pages could not be retrieved (HTTP 403) and are not in the frozen set. Blind review sheets currently cover 719 segmented clauses from three consumer Terms documents. No human annotations have been supplied, so inter-reviewer agreement, adjudicated labels, document-level model metrics, and conclusions about full-policy generalization are unavailable. The existing ToS;DR excerpt labels are not used as document truth, and no synthetic labels were created. This evaluation gate must remain open until two independent reviewers complete their sheets and disagreements are adjudicated. See [Independent Document Evaluation](INDEPENDENT_DOCUMENT_EVALUATION.md).
+Six policy snapshots from three services absent from the benchmark are frozen locally. Two additional Perplexity pages could not be retrieved (HTTP 403) and are not in the frozen set. Blind review sheets currently cover 719 segmented clauses from three consumer Terms documents. Coverage verification checks all six frozen snapshots: emitted clauses cover 90.9%-98.5% of extracted-text characters. The two Anthropic PDF extracts differ between the frozen review text and current API parser (29,319 vs 28,946 characters for Terms; 40,423 API-extracted characters for Privacy), so the review-sheet offsets are not claimed to match a fresh upload. No human annotations have been supplied, so inter-reviewer agreement, adjudicated labels, document-level model metrics, and conclusions about full-policy generalization are unavailable. The existing ToS;DR excerpt labels are not used as document truth, and no synthetic labels were created. This evaluation gate must remain open until two independent reviewers complete their sheets and disagreements are adjudicated. See [Independent Document Evaluation](INDEPENDENT_DOCUMENT_EVALUATION.md) and the coverage output at `results/document_review_coverage_v1.json`.
 
 ## 7. Application and verification
 
-The application accepts PDF, DOCX, and TXT uploads or pasted text and presents clause predictions for review. It provides class filters, search, source context, PDF page ranges where available, and exports. The backend uses bounded analysis concurrency and a request timeout; timeout cleanup waits for any active worker to finish reading its temporary upload. Selectable PDF text includes page mapping; scanned-image OCR is not claimed.
+The application accepts PDF, DOCX, and TXT uploads or pasted text and presents clause predictions for review. It provides class filters, search, source context, PDF page ranges where available, JSON/CSV exports, full extracted text with clause-offset highlights and unclassified spans, and print/Save as PDF. Results are kept tab-scoped with repeated clause text omitted from storage and reconstructed from source offsets. The backend uses bounded analysis concurrency and a request timeout; timeout cleanup waits for any active worker to finish reading its temporary upload. Selectable PDF text includes page mapping; scanned-image OCR is not claimed.
 
-Local verification on 3 November 2026: 45 backend tests passed; Ruff passed; frontend clean install, lint, and production build passed; npm audit found zero known vulnerabilities and pip-audit found none for root requirements. Compose configuration parsed successfully. Docker image build/start could not be verified because the Docker Desktop Linux engine pipe was unavailable. Manual browser UX review and production-host configuration remain open. Performance samples and deployment limitations are recorded in [Deployment Readiness](DEPLOYMENT_READINESS_v1.md).
+Local verification on 3 November 2026: all 45 backend tests passed; Ruff passed for changed Python files; frontend lint and production build passed. Compose configuration parsed previously. A current `docker info` check could not open `//./pipe/dockerDesktopLinuxEngine`; Docker image build/start could not be verified. The local app and API start successfully, but screenshot-based browser review was blocked because the Windows browser helper could not resolve the active URL with enough confidence. Public-host configuration remains open. Performance samples and deployment limitations are recorded in [Deployment Readiness](DEPLOYMENT_READINESS_v1.md).
 
 ## 8. Ethical and product limitations
 
@@ -77,7 +94,7 @@ Local verification on 3 November 2026: 45 backend tests passed; Ruff passed; fro
 
 ## 9. Conclusion and next work
 
-Grouped evaluation supports sparse word TF-IDF with a Linear SVM as a strong development candidate for the current benchmark. The modest lexical-feature gains do not justify added complexity. A web application now makes predictions reviewable, but its output should be treated as triage assistance only. The most important next steps are obtaining and adjudicating two independent document-review sheets, then evaluating a frozen candidate on the locked test partitions under the predeclared procedure. Container startup, manual UI review, deployment controls, and final course deliverables also remain outstanding. No current evidence supports a claim of legal safety or complete-document performance.
+Grouped evaluation and one-time test scoring support sparse word TF-IDF with a LinearSVC for this benchmark. Added embeddings, word+character features, and ensembles did not improve the selected development comparison. A web application makes predictions reviewable, including the extracted source and offset highlights, but output remains triage assistance only. Next steps are authentic dual document review and adjudication, screenshot-based browser review, Docker verification when the engine is available, and host-specific deployment controls. No current evidence supports legal safety or complete-document performance.
 
 ## Reproduction and companion materials
 

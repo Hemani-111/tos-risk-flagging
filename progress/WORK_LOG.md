@@ -249,3 +249,12 @@ Reconstruction counts reconcile, label mapping and keys are verified, conflict t
 - Analysis API returns extracted source text; browser session storage stores source plus offsets and reconstructs clause text to avoid duplicate storage.
 - Results page displays the complete extracted text, highlights exact clause spans, preserves unclassified content, exposes analysed coverage, and links clause selection with source navigation. Added print/Save PDF styling.
 - Regression assertions cover exact source text and clause offsets. The earlier integration run passed 45 backend tests and frontend lint/build. Screenshot-driven browser review remains incomplete because the Windows browser helper could not safely resolve the current URL.
+
+
+## 2026-11-03 - Phase 9: reconcile report and complete local course materials
+
+- Updated the final report draft, model card, project context, README, deployment readiness, and remaining-work status to match the actual locked results, model release, application behavior, and open environment/human gates.
+- Added the midsemester-to-endsemester progress narrative, team preparation notes, six-slide provisional storyboard with the live demo run sheet, and local deployment guide. The rubric is still unavailable; the presentation authoring runtime was unavailable, so an editable PowerPoint export remains open.
+- Added `scripts/verify_document_review_coverage.py` and `results/document_review_coverage_v1.json`. It verified all six available snapshot hashes, 1,547 segmented clauses across six snapshots, exact clause offsets, and two aligned blind sheets with 719 clause rows and no labels. Character coverage ranged from 90.9% to 98.5%.
+- Found that current API PDF extraction differs from both frozen Anthropic review text files; the terms review has 29,319 frozen characters vs 28,946 API-extracted, and privacy API extraction has 40,423 characters. Documented that review offsets do not establish fresh-upload parity. Two Perplexity snapshots remain unavailable (HTTP 403).
+- Verification: coverage script passed, changed-file Ruff passed, `git diff --check` passed, and live API readiness returned `linear-svc-primary-v2`. Current Docker check failed because `//./pipe/dockerDesktopLinuxEngine` is absent; both local demo ports were listening.

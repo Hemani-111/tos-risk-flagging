@@ -1,0 +1,152 @@
+{
+  "generated_at_utc": "2026-11-02T21:32:02.765936+00:00",
+  "purpose": "source extraction and clause segmentation coverage; no model predictions or reviewer labels",
+  "review_pack_clause_count": 719,
+  "all_available_snapshot_clause_count": 1547,
+  "documents": [
+    {
+      "document_id": "anthropic_consumer_terms",
+      "review_pack_member": true,
+      "binary_sha256_matches_registry": true,
+      "text_sha256_matches_registry": true,
+      "text_file_byte_sha256": "516c1952a4eb2af25e922ce215d0a8b16e4fd71df973ac7a2476dbdf78c40842",
+      "pdf_text_parity": {
+        "pdf_parser_character_count": 28946,
+        "pdf_parser_matches_review_text_exactly": false
+      },
+      "source_characters": 29319,
+      "source_words": 4716,
+      "clause_count": 188,
+      "covered_clause_characters": 26663,
+      "covered_character_fraction": 0.90941,
+      "unsegmented_gap_characters": 2656,
+      "unsegmented_gap_words": 347,
+      "unsegmented_gap_count": 187,
+      "overlap_characters": 0
+    },
+    {
+      "document_id": "anthropic_privacy",
+      "review_pack_member": false,
+      "binary_sha256_matches_registry": true,
+      "text_sha256_matches_registry": true,
+      "text_file_byte_sha256": "9ec159021f588278fe9f22b97ef368cf518dc8c03cd7bf8b2b5d38d5f618c80f",
+      "pdf_text_parity": {
+        "pdf_parser_character_count": 40423,
+        "pdf_parser_matches_review_text_exactly": false
+      },
+      "source_characters": 41030,
+      "source_words": 6177,
+      "clause_count": 176,
+      "covered_clause_characters": 40418,
+      "covered_character_fraction": 0.985084,
+      "unsegmented_gap_characters": 612,
+      "unsegmented_gap_words": 48,
+      "unsegmented_gap_count": 175,
+      "overlap_characters": 0
+    },
+    {
+      "document_id": "mistral_consumer_terms_row",
+      "review_pack_member": true,
+      "binary_sha256_matches_registry": true,
+      "text_sha256_matches_registry": true,
+      "text_file_byte_sha256": "ce85ca17a4b7d90867c0e5f436c5cb6d95e3bc97d59566b5366f6d93aa379338",
+      "pdf_text_parity": null,
+      "source_characters": 42572,
+      "source_words": 6810,
+      "clause_count": 263,
+      "covered_clause_characters": 41082,
+      "covered_character_fraction": 0.965,
+      "unsegmented_gap_characters": 1490,
+      "unsegmented_gap_words": 126,
+      "unsegmented_gap_count": 263,
+      "overlap_characters": 0
+    },
+    {
+      "document_id": "mistral_privacy",
+      "review_pack_member": false,
+      "binary_sha256_matches_registry": true,
+      "text_sha256_matches_registry": true,
+      "text_file_byte_sha256": "d3c28134b5674322d894c7586ce008870cd630d1955d5240a0a9e488983e24d3",
+      "pdf_text_parity": null,
+      "source_characters": 23703,
+      "source_words": 3710,
+      "clause_count": 236,
+      "covered_clause_characters": 21790,
+      "covered_character_fraction": 0.919293,
+      "unsegmented_gap_characters": 1913,
+      "unsegmented_gap_words": 155,
+      "unsegmented_gap_count": 236,
+      "overlap_characters": 0
+    },
+    {
+      "document_id": "you_com_privacy",
+      "review_pack_member": false,
+      "binary_sha256_matches_registry": true,
+      "text_sha256_matches_registry": true,
+      "text_file_byte_sha256": "b07f7198ca307e1a7780046fe9d3c76a9cedbb1e59e7c7db65d98540eb29540d",
+      "pdf_text_parity": null,
+      "source_characters": 54898,
+      "source_words": 8474,
+      "clause_count": 416,
+      "covered_clause_characters": 53227,
+      "covered_character_fraction": 0.969562,
+      "unsegmented_gap_characters": 1671,
+      "unsegmented_gap_words": 86,
+      "unsegmented_gap_count": 415,
+      "overlap_characters": 0
+    },
+    {
+      "document_id": "you_com_terms",
+      "review_pack_member": true,
+      "binary_sha256_matches_registry": true,
+      "text_sha256_matches_registry": true,
+      "text_file_byte_sha256": "14af72c2205ea5bb77967c370777f712e07656a00b64276ee15b20ef57003f30",
+      "pdf_text_parity": null,
+      "source_characters": 43099,
+      "source_words": 6925,
+      "clause_count": 268,
+      "covered_clause_characters": 42279,
+      "covered_character_fraction": 0.980974,
+      "unsegmented_gap_characters": 820,
+      "unsegmented_gap_words": 38,
+      "unsegmented_gap_count": 267,
+      "overlap_characters": 0
+    }
+  ],
+  "reviewer_sheets": {
+    "reviewer_a": {
+      "row_count_including_added_span_slots": 722,
+      "clause_row_count": 719,
+      "reviewer_added_span_slots": 3,
+      "sha256": "820548ea9df05960425d04875a0bcc037669355bfca8e92688c593aa9e741ace",
+      "errors": []
+    },
+    "reviewer_b": {
+      "row_count_including_added_span_slots": 722,
+      "clause_row_count": 719,
+      "reviewer_added_span_slots": 3,
+      "sha256": "b90b63fb158d529aa4de463c1d6190b0e6bf9fc82be90f6e36de32f2b3f36f08",
+      "errors": []
+    }
+  },
+  "reviewer_sheets_identical_segment_id_order": true,
+  "snapshot_registry_document_count": 8,
+  "snapshot_registry_failed_fetches": [
+    {
+      "document_id": "perplexity_consumer_terms",
+      "status": "snapshot_fetch_failed:403",
+      "error": "HTTP Error 403: Forbidden"
+    },
+    {
+      "document_id": "perplexity_privacy",
+      "status": "snapshot_fetch_failed:403",
+      "error": "HTTP Error 403: Forbidden"
+    }
+  ],
+  "limitations": [
+    "Character coverage counts only text inside emitted clauses; gaps include headings, short fragments, and whitespace.",
+    "PDF parser extraction may differ from frozen review text; parity is reported explicitly rather than assumed.",
+    "The pack has three terms documents; privacy snapshots in the registry are not included in reviewer sheets.",
+    "Coverage is an extraction/segmentation diagnostic and does not establish legal accuracy or reviewer agreement."
+  ]
+}

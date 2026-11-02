@@ -2,7 +2,7 @@
 
 ## Model identity
 
-The application currently loads the pre-existing serialized classifier and vectorizer from the repository's model artifacts. Phase 4 experiments did not select or promote a replacement. The tuned Linear SVM described in [Model Experiments](MODEL_EXPERIMENTS_v1.md) is an offline development candidate, not the model currently served by the application.
+The application loads `linear-svc-primary-v2` from `models/releases/linear-svc-primary-v2/`. It is word unigram/bigram TF-IDF followed by `sklearn.svm.LinearSVC(C=1, class_weight="balanced")`. The prior RBF SVC remains at `models/selected_model/` as a rollback artifact and can be selected with `MODEL_DIR`.
 
 ## Intended use
 
@@ -14,7 +14,9 @@ The project benchmark derives Safe, Neutral, and Risky labels from ToS;DR case-a
 
 ## Evaluation status
 
-Development experiments use fixed service-aware and duplicate-aware splits. The locked test partitions remain unevaluated. Validation metrics in [Model Experiments](MODEL_EXPERIMENTS_v1.md) refer to the offline tuned candidate and must not be attributed to this existing serving artifact. Independent complete-document evaluation has no human labels yet.
+The model was selected on fixed grouped training folds and validation under the primary unseen-service protocol, then frozen before test scoring. The one-time locked-test results are macro F1 0.8358 / Risky precision 0.8229 / Risky recall 0.8287 on the 2,585-row primary test; the secondary duplicate-aware test reports 0.8144 / 0.7922 / 0.8117 on 2,602 rows. Group-bootstrap intervals, per-class metrics and the loader boundary disclosure are in [Locked Test Evaluation](LOCKED_TEST_EVALUATION_v1.md). The test is not described as untouched: earlier development runs materialized its text/labels in memory via the old shared loader, without calculating or reviewing test metrics. The test scores were not used for selection.
+
+Independent complete-document evaluation still awaits two authentic reviewer sheets and adjudication; clause-level test results do not establish whole-policy performance.
 
 ## Limitations and risks
 
@@ -26,4 +28,4 @@ Development experiments use fixed service-aware and duplicate-aware splits. The 
 
 ## Versioning and reproducibility
 
-The serving artifact files remain unchanged. Record their hashes and the runtime package versions with each future release. Reproduction scripts and split provenance are listed in [Project Context](../PROJECT_CONTEXT.md). The dataset source license is unspecified; confirm rights before redistribution.
+The package metadata pins artifact SHA-256 values, Python/scikit-learn/NumPy/joblib versions, training data/split hashes, freeze commit, and training point-ID/text hashes. Training used 13,439 included primary training rows and 44,489 TF-IDF features. Prediction is deterministic and emits a class label only. The package is built with `python scripts/build_frozen_model_package.py`; see [Project Context](../PROJECT_CONTEXT.md). The dataset source license is unspecified; confirm rights before redistribution.

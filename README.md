@@ -99,7 +99,7 @@ cd backend
 python -m uvicorn app.main:app --reload --port 8000
 ```
 
-Backend runs at `http://localhost:8000`
+Backend runs at `http://127.0.0.1:8000`. Check model readiness at `http://127.0.0.1:8000/api/v1/health`.
 
 ### Frontend
 
@@ -109,19 +109,46 @@ npm ci
 npm run dev
 ```
 
-Frontend runs at `http://localhost:3000`
+Frontend runs at `http://127.0.0.1:3000`
 
-Results are scoped to the current browser tab, with search, label filters, adjacent-clause context, and JSON/CSV export. The Methodology and Research Results pages describe the deployed model, development evidence, data limits, and intended use. This is educational screening, not legal advice.
+Results are scoped to the current browser tab, with search, label filters, adjacent-clause context, full extracted-text highlights, unclassified source text, and JSON/CSV export. Use **Print / Save PDF** to print the review report. The Methodology and Research Results pages describe the deployed model, development evidence, data limits, and intended use. This is educational screening, not legal advice.
 
 See [docs/DEPLOYMENT_READINESS_v1.md](docs/DEPLOYMENT_READINESS_v1.md) for clean-environment verification, dependency audit status, local performance samples, and deployment items that require a hosting target.
+See [docs/DEPLOYMENT_GUIDE.md](docs/DEPLOYMENT_GUIDE.md) for the local course demonstration, model rollback, and container resumption steps.
 
 ---
 
 ## Notes
 
-- No virtual environment required
+- Use the Python environment above; Python 3.11 is required for the pinned project dependencies.
 - The ML model is integrated. Upload a document on the Analyze page to get clause-level risk predictions.
 - This is an educational screening tool and does not provide legal advice.
+# Reproduce expanded experiments and frozen package
+
+Install optional local encoder dependencies when reproducing the embedding experiment:
+
+```powershell
+python -m pip install -r requirements-experiments.txt
+python scripts\embed_sentence_clauses.py --batch-size 16
+python scripts\run_expanded_classical_tuning.py --protocol both
+python scripts\run_remaining_feature_experiments.py
+python scripts\run_ensemble_calibration_clusters.py
+python scripts\analyze_linear_feature_stability.py
+python scripts\build_experiment_registry.py
+```
+
+These experiment scripts use only included train/validation records through `load_development_bundle`. The checked-in registry records the completed one-time locked evaluation. Do not rerun the locked evaluation for model selection; see [Candidate Freeze](docs/FINAL_CANDIDATE_FREEZE.md) and [Locked Test Evaluation](docs/LOCKED_TEST_EVALUATION_v1.md).
+
+To rebuild the serving package after a source or environment change, follow the committed freeze and inspect the new hashes before switching runtime configuration:
+
+```powershell
+python scripts\build_frozen_model_package.py
+```
+
 # Academic deliverables
 
-[Final Report Draft](docs/FINAL_REPORT_v1.md), [Model Card](docs/MODEL_CARD.md), and [Presentation/Demo Storyboard](docs/PRESENTATION_STORYBOARD_v1.md). The report distinguishes development results from locked-test and independent document evaluation, which remain pending.
+[Final Report Draft](docs/FINAL_REPORT_v1.md), [Model Card](docs/MODEL_CARD.md), [Candidate Freeze](docs/FINAL_CANDIDATE_FREEZE.md), [Locked Test Evaluation](docs/LOCKED_TEST_EVALUATION_v1.md), and [Presentation/Demo Storyboard](docs/PRESENTATION_STORYBOARD_v1.md). Independent complete-document evaluation remains pending authentic reviewer labels and adjudication.
+
+Blind review setup and source coverage are described in [Independent Document Evaluation](docs/INDEPENDENT_DOCUMENT_EVALUATION.md). Run `python scripts\verify_document_review_coverage.py` to verify available snapshot hashes, clause offsets, segmentation coverage, and reviewer-sheet alignment. It writes non-source-text metrics to `results/document_review_coverage_v1.json`; policy snapshots and reviewer content remain ignored.
+
+For the provisional course narrative, see [Midsemester to Endsemester Progress](docs/MIDSEM_TO_ENDSEM_PROGRESS.md) and [Team Preparation Notes](docs/TEAM_PREPARATION_NOTES.md). Local startup and demonstration instructions are in [Deployment Guide](docs/DEPLOYMENT_GUIDE.md).
