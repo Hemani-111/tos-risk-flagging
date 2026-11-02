@@ -3,7 +3,7 @@
 Date: 2 November 2026  
 Repository: https://github.com/kiran-8287/tos-risk-flagging  
 Course: DS3010 Introduction to Machine Learning, IIT Palakkad  
-Status: Phases 0–4 complete; Phase 5 development analyses and annotation workflow are prepared, with human-annotated document evaluation pending; Phase 6 backend reliability is implemented, with container startup unverified; Phase 7 review experience is implemented; Phase 8 local verification is complete, with deployment checks pending; Phase 9 report/model-card/storyboard drafts are prepared, while final slides and final report evidence remain pending course constraints and evaluation gates.
+Status: Phases 0–4 core work is evidenced; Phase 5 development analysis is complete but independent document annotation remains pending; Phase 6 backend reliability is implemented but Docker startup is unverified; Phase 7 review experience is implemented with manual UX pending; Phase 8 local verification is complete with deployment checks pending; Phase 9 report/model-card/storyboard drafts exist. The expanded continuation scope, evidence and gates are tracked in `docs/REMAINING_WORK_STATUS.md`; it adds experiments and a complete extracted-text viewer beyond the original phase checklist.
 
 ## 1. Purpose and intended outcome
 
@@ -92,14 +92,14 @@ The presentation reports approximately 85% RBF SVM accuracy. Preserve this as a 
 
 ## 5. Phase 0: Establish a reproducible baseline
 
-- [ ] Inspect local `data/raw`, file sizes, schemas, and notebook outputs.
-- [ ] Confirm which raw snapshot produced the current processed CSV. Record source URL, retrieval date if known, license, and SHA-256 checksums.
-- [ ] Inspect local modifications, including the Naive Bayes notebook and presentation, before editing.
-- [ ] Create an isolated Python environment and record Python/package versions. Resolve dependencies required for training as well as serving.
-- [ ] Install frontend dependencies using its lockfile when present; retain or generate a suitable lockfile.
-- [ ] Run existing backend tests, frontend checks/build, and a representative end-to-end request. Record genuine failures separately from environment problems.
+- [x] Inspect local `data/raw`, file sizes, schemas, and notebook outputs.
+- [x] Confirm which raw snapshot produced the current processed CSV. Record source URL, retrieval date if known, license, and SHA-256 checksums. The source record match and checksums are recorded; local retrieval date and upstream license remain unknown.
+- [x] Inspect local modifications, including the Naive Bayes notebook and presentation, before editing.
+- [x] Create an isolated Python environment and record Python/package versions. Resolve dependencies required for training as well as serving.
+- [x] Install frontend dependencies using its lockfile when present; retain or generate a suitable lockfile.
+- [x] Run existing backend tests, frontend checks/build, and a representative end-to-end request. Record genuine failures separately from environment problems.
 - [ ] Inspect artifact compatibility and model paths in local and Docker execution.
-- [ ] Record current model outputs and timings on a fixed small regression set without calling them an accuracy benchmark.
+- [x] Record current model outputs and timings on a fixed small regression set without calling them an accuracy benchmark.
 
 **Completion gate:** a new contributor can reproduce baseline startup, and known failures have a recorded cause and next action.
 
@@ -107,23 +107,23 @@ The presentation reports approximately 85% RBF SVM accuracy. Preserve this as a 
 
 ### 6.1 Audit original data
 
-- [ ] Validate uniqueness of primary keys in cases, topics, services, and documents.
-- [ ] Join approved points to cases and topics with explicit cardinality validation.
-- [ ] Report rows before and after every filtering or joining operation.
-- [ ] Check blank quotes, markup, encoding issues, missing IDs, unexpected classifications, language distribution, and unusually short or long quotes.
-- [ ] Verify mapping: `good -> Safe`, `neutral -> Neutral`, `bad/blocker -> Risky`.
-- [ ] Preserve original classification, case IDs, source IDs, and original quote text for traceability.
-- [ ] Determine whether one quote can legitimately have multiple case annotations. Explain the limitation of mapping several issues to a single three-class target.
+- [x] Validate uniqueness of primary keys in cases, topics, services, and documents.
+- [x] Join approved points to cases and topics with explicit cardinality validation.
+- [x] Report rows before and after every filtering or joining operation.
+- [x] Check blank quotes, markup, encoding issues, missing IDs, unexpected classifications, language distribution, and unusually short or long quotes.
+- [x] Verify mapping: `good -> Safe`, `neutral -> Neutral`, `bad/blocker -> Risky`.
+- [x] Preserve original classification, case IDs, source IDs, and original quote text for traceability.
+- [x] Determine whether one quote can legitimately have multiple case annotations. Explain the limitation of mapping several issues to a single three-class target.
 
 ### 6.2 Duplicate and conflict policy
 
-- [ ] Create a normalised text key for auditing while retaining the original text.
-- [ ] Separate repeated annotations, duplicate source text, and near-duplicate boilerplate.
-- [ ] Review all identified conflicting texts with their annotations and context.
-- [ ] Do not silently assign majority labels or delete difficult examples to improve scores. Record the resolution policy and each manual decision.
-- [ ] Unresolved conflicts may be quarantined from the single-label benchmark; report their count and retain them in an audit export.
-- [ ] Prevent exact duplicates from crossing evaluation partitions. Group or exclude cross-partition duplicates with an explicit logged rule.
-- [ ] Audit near duplicates using an affordable similarity method, review candidate matches, and document residual overlap.
+- [x] Create a normalised text key for auditing while retaining the original text.
+- [x] Separate repeated annotations, duplicate source text, and near-duplicate boilerplate.
+- [x] Review all identified conflicting texts with their annotations and context; the conflict register records per-group review decisions.
+- [x] Do not silently assign majority labels or delete difficult examples to improve scores. Record the resolution policy and each manual decision.
+- [x] Unresolved conflicts may be quarantined from the single-label benchmark; report their count and retain them in an audit export.
+- [x] Prevent exact duplicates from crossing evaluation partitions. Group or exclude cross-partition duplicates with an explicit logged rule.
+- [x] Audit near duplicates using an affordable similarity method, review candidate matches, and document residual overlap.
 
 ### 6.3 Outputs
 
@@ -143,14 +143,14 @@ Use two clearly named evaluation settings:
 
 Actions:
 
-- [ ] Save row/group split manifests with a fixed seed and dataset checksum.
-- [ ] Aim for roughly 70/15/15 train/validation/test, allowing group constraints to change exact sizes. Report achieved distributions.
-- [ ] Keep labels represented where feasible; do not repeatedly search seeds to obtain attractive scores.
-- [ ] Fit TF-IDF, feature selection, scaling, and dimensionality reduction only within training folds.
-- [ ] Use grouped cross-validation within development data for the primary protocol. Start with three folds for expensive experiments; increase to five for finalists if feasible.
-- [ ] Use common splits and comparable search budgets across model families.
-- [ ] Register selection criteria before comparing results: macro F1 as primary, risky recall and precision as key operating trade-offs, plus latency and resource cost.
-- [ ] Choose operational thresholds on development data. Do not adjust them after seeing test results.
+- [x] Save row/group split manifests with a fixed seed and dataset checksum.
+- [x] Aim for roughly 70/15/15 train/validation/test, allowing group constraints to change exact sizes. Report achieved distributions.
+- [x] Keep labels represented where feasible; do not repeatedly search seeds to obtain attractive scores.
+- [x] Fit TF-IDF, feature selection, scaling, and dimensionality reduction only within training folds.
+- [x] Use grouped cross-validation within development data for the primary protocol. Start with three folds for expensive experiments; increase to five for finalists if feasible.
+- [x] Use common splits and comparable search budgets across model families.
+- [x] Register selection criteria before comparing results: macro F1 as primary, risky recall and precision as key operating trade-offs, plus latency and resource cost.
+- [x] Choose operational thresholds on development data. Do not adjust them after seeing test results. The explored thresholds remain development-only and are not deployed.
 - [ ] Evaluate the frozen selected system on the locked test set. If publishing frozen finalist comparisons, declare that set in advance and do not use test outcomes for another tuning cycle.
 
 Required metrics: accuracy, macro/weighted F1, per-class precision/recall/F1/support, confusion matrix, risky false-negative/false-positive counts, training time, inference latency, artifact size, and peak memory where measurable.
@@ -173,11 +173,11 @@ Answer research questions with plots, tables, and a short interpretation:
 | What is hard to classify? | Errors by topic, length, language, ambiguity | Separate annotation issues from model errors |
 | Do semantic groups emerge? | Optional embedding/SVD visualisation and clustering | Plot separation is not proof of predictive performance |
 
-- [ ] Preserve negation and meaningful legal wording during preprocessing.
-- [ ] Distinguish dataset topics available for retrospective analysis from features actually available at inference.
-- [ ] Exclude classification, case-derived labels/titles, severity scores, annotation analysis, and service ratings from predictive features that would leak the target.
-- [ ] Use development data for exploratory decisions; avoid inspecting locked test errors before freezing the model.
-- [ ] Export readable plots and summary tables, with captions stating sample sizes and methods.
+- [x] Preserve negation and meaningful legal wording during preprocessing.
+- [x] Distinguish dataset topics available for retrospective analysis from features actually available at inference.
+- [x] Exclude classification, case-derived labels/titles, severity scores, annotation analysis, and service ratings from predictive features that would leak the target.
+- [x] Use development data for exploratory decisions; avoid inspecting locked test errors before freezing the model.
+- [x] Export readable plots and summary tables, with captions stating sample sizes and methods.
 
 **Completion gate:** each retained analysis answers a stated question and includes its practical implication or limitation.
 
@@ -204,10 +204,10 @@ Treat solver and iteration settings as optimisation/convergence controls. Do not
 
 ### 9.2 Representation experiments
 
-- [ ] Word TF-IDF unigrams versus unigrams + bigrams.
-- [ ] Character n-grams with a controlled vocabulary budget.
-- [ ] Text length, readability, negation and selected phrase features, alone and added to text features.
-- [ ] Truncated SVD for sparse TF-IDF where reduction is useful. Do not call uncentred truncated SVD “PCA”.
+- [x] Word TF-IDF unigrams versus unigrams + bigrams.
+- [x] Character n-grams with a controlled vocabulary budget.
+- [x] Text length, readability, negation and selected phrase features, alone and added to text features.
+- [x] Truncated SVD for sparse TF-IDF where reduction is useful. Do not call uncentred truncated SVD “PCA”.
 - [ ] Optional frozen sentence embeddings + Logistic Regression/SVM; record encoder revision, license, language, maximum length, and truncation strategy.
 - [ ] Optional PCA on appropriate dense features, with fitting restricted to training data.
 - [ ] Optional clustering on reduced features to inspect patterns and annotation inconsistencies, not to replace supervised evaluation.

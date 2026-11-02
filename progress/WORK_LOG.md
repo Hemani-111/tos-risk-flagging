@@ -205,3 +205,11 @@ Reconstruction counts reconcile, label mapping and keys are verified, conflict t
 
 - Set `devIndicators: false` in the frontend Next.js config to hide the development-only floating indicator for this project while retaining build/runtime error reporting.
 - Verification: `npm run build` passed.
+
+## 2026-11-03 — Continuation prompt audit and evidence reconciliation
+
+- Read `docs/REMAINING_WORK_AI_IDE_PROMPT.md` and audited its reported state against saved runs, model metadata, split artifacts, environment, and current Docker availability.
+- `python scripts/verify_split_manifest.py` passed with the frozen dataset checksum and expected partition counts. Existing grouped-CV `±` values are sample standard deviations across three fixed folds (metadata shows `ddof=1`), not confidence intervals. The existing run metadata records that the locked test was not used.
+- Added `docs/REMAINING_WORK_STATUS.md` with verified evidence, next action, blocker and gate by work area. Updated context and corrected original Phase 0–3 and core Phase 4 checklist marks only where saved evidence supports them. Container and expanded-scope tasks remain open.
+- Environment audit: root `.venv` is Python 3.11.9 / scikit-learn 1.9.0; global Python is 3.14.5. Machine has 16 GiB RAM, i5-12450HX (8C/12T), CPU-only; available memory was about 1.5 GiB. Docker daemon unavailable. New continuation prompt remains untracked and was preserved.
+- Selected candidate encoder for feasibility investigation: `sentence-transformers/all-MiniLM-L6-v2`, English, Apache-2.0, 384 dimensions, documented truncation after 256 word pieces. A CPU ONNX artifact is available on the official model repository; its exact revision and inference setup will be pinned before execution.
