@@ -86,6 +86,12 @@ python scripts\prepare_document_review_segments.py
 
 The fetch step stores raw snapshots and extracted review text under ignored `data/review/snapshots_v1/`; it records HTTP failures in the source registry. The segment preparation step creates blind reviewer copies for the initial three-service Terms of Service round. Independent full-document evaluation requires two human annotations and adjudication; see [docs/INDEPENDENT_DOCUMENT_EVALUATION.md](docs/INDEPENDENT_DOCUMENT_EVALUATION.md).
 
+After both reviewers complete their separate sheets, compare agreement and create an adjudication queue with:
+
+```powershell
+python scripts\analyze_document_annotation_agreement.py
+```
+
 ### Backend
 
 ```bash

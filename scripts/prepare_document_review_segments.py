@@ -20,6 +20,7 @@ FIELDS = [
     "document_version_or_effective_date", "source_sha256", "local_snapshot_path", "text_snapshot_path",
     "reviewer_id", "annotation_type", "segment_id", "section", "start_offset", "end_offset",
     "exact_text", "reference_label", "risk_type", "uncertainty_note", "rationale",
+    "adjudicated_label", "adjudication_note",
 ]
 
 

@@ -23,6 +23,7 @@ Use the root `.venv` created with Python 3.11.9.
 - `python scripts/analyze_uncertainty.py` evaluates raw Logistic Regression probabilities and CV-derived review thresholds.
 - `python scripts/verify_document_source_candidates.py` checks source candidates against the benchmark; `python scripts/fetch_document_source_candidates.py` freezes local snapshots where accessible.
 - `python scripts/prepare_document_review_sheets.py` writes tracked metadata stubs; `python scripts/prepare_document_review_segments.py` creates blind clause annotation copies in the ignored snapshot folder. See `docs/INDEPENDENT_DOCUMENT_EVALUATION.md` for rubric and limitations.
+- `python scripts/analyze_document_annotation_agreement.py` validates completed blind sheets, reports reviewer agreement, and creates a local adjudication queue; it does not create labels.
 - `python scripts/baseline_smoke.py` records selected-model outputs, artifact hashes, and one local smoke timing.
 
 ## Data and evaluation decisions
