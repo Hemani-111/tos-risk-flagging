@@ -8,15 +8,11 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "project name — Understand what you're agreeing to",
-  description: "Upload a Terms of Service or Privacy Policy and instantly identify clauses that deserve a closer look.",
+  title: "TermsGuard | Understand what you’re agreeing to",
+  description: "Review clause classifications in Terms of Service and Privacy Policies. Educational screening, not legal advice.",
 };
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
   return (
     <html lang="en" suppressHydrationWarning>
       <body className={inter.className}>

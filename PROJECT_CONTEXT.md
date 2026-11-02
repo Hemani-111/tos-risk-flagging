@@ -4,7 +4,7 @@ Last updated: 2 November 2026
 
 ## Current milestone
 
-Phases 0 through 4 are complete. Phase 5 development error and uncertainty analysis is complete; its independent complete-document evaluation is prepared and awaits two human reviewers and adjudication. Phase 6 backend reliability is implemented and under verification. Six official source snapshots are frozen locally (three consumer Terms of Service and three privacy policies); the first blind review round covers 951 clauses from the three terms documents. No replacement production model has been selected. The historical processed CSV, existing model artifacts, and notebooks remain unchanged.
+Phases 0 through 4 are complete. Phase 5 development error and uncertainty analysis is complete; its independent complete-document evaluation is prepared and awaits two human reviewers and adjudication. Phase 6 backend reliability is implemented and under verification. Phase 7 now provides tab-scoped result storage, all-class filtering/search and exports, plus a methodology page; manual UX review remains. Six official source snapshots are frozen locally (three consumer Terms of Service and three privacy policies); the first blind review round covers 951 clauses from the three terms documents. No replacement production model has been selected. The historical processed CSV, existing model artifacts, and notebooks remain unchanged.
 
 ## Reproducible commands
 
@@ -46,4 +46,4 @@ Use the root `.venv` created with Python 3.11.9.
 
 ## Next
 
-Continue Phase 6 with PDF page-offset mapping, encrypted-PDF regression coverage, and a hard request processing timeout. The Docker Compose configuration resolves the model mount, but container startup could not be verified because Docker Desktop is not running. In parallel, obtain the two independent Phase 5 review sheets and adjudicate disagreements. Keep the locked test partitions untouched.
+Continue Phase 6 with PDF page-offset mapping, encrypted-PDF regression coverage, and a hard request processing timeout. Docker Compose resolves the model mount, but container startup could not be verified because Docker Desktop is not running. Complete Phase 7 manual UX review. In parallel, obtain the two independent Phase 5 review sheets and adjudicate disagreements. Keep the locked test partitions untouched.

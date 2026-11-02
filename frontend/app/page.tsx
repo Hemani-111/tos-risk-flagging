@@ -15,9 +15,10 @@ export default function HomePage() {
               Know the risk.
             </h1>
             <p className="mt-6 text-lg text-muted-foreground">
-              Upload a Terms of Service or Privacy Policy and instantly identify
-              clauses that deserve a closer look.
+              Review extracted clauses from a Terms of Service or Privacy Policy
+              and find passages that may deserve a closer look.
             </p>
+            <p className="mt-3 text-sm text-muted-foreground">English-language model · PDF, DOCX, or TXT · 10 MB maximum</p>
             <div className="mt-10 flex flex-col sm:flex-row items-center justify-center gap-4">
               <Link href="/analyze">
                 <Button size="lg" className="w-full sm:w-auto">
@@ -86,7 +87,7 @@ export default function HomePage() {
           <div className="mx-auto max-w-2xl text-center mb-16">
             <h2 className="text-2xl font-semibold">Built for clarity, not legal jargon</h2>
             <p className="mt-2 text-muted-foreground">
-              project name makes complex legal documents understandable.
+              TermsGuard helps organize a first pass through extracted clauses.
             </p>
           </div>
           
@@ -97,7 +98,7 @@ export default function HomePage() {
               </div>
               <h3 className="text-sm font-medium mb-1">Clause-level analysis</h3>
               <p className="text-xs text-muted-foreground">
-                Every clause is analyzed individually for precise risk assessment.
+                Analyzable clauses receive a Safe, Neutral, or Risky model label.
               </p>
             </div>
             
@@ -125,9 +126,9 @@ export default function HomePage() {
               <div className="mx-auto flex h-10 w-10 items-center justify-center rounded-lg bg-muted mb-4">
                 <FileText className="h-5 w-5 text-muted-foreground" />
               </div>
-              <h3 className="text-sm font-medium mb-1">Full document view</h3>
+              <h3 className="text-sm font-medium mb-1">Clause context</h3>
               <p className="text-xs text-muted-foreground">
-                Read the complete document with clause-level detail.
+                Search and filter the extracted clauses and their section names.
               </p>
             </div>
           </div>
@@ -140,7 +141,7 @@ export default function HomePage() {
           <div className="mx-auto max-w-2xl text-center">
             <h2 className="text-2xl font-semibold">Ready to understand your terms?</h2>
             <p className="mt-4 text-muted-foreground">
-              Upload a document and see what project name finds in seconds.
+              Upload a document to review its extracted clause classifications.
             </p>
             <div className="mt-8">
               <Link href="/analyze">
@@ -158,7 +159,7 @@ export default function HomePage() {
       <section className="border-t border-border py-8">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <p className="text-center text-xs text-muted-foreground">
-            project name is an educational screening tool and does not provide legal advice.
+            TermsGuard is an educational screening tool and does not provide legal advice.
             Always consult a qualified legal professional for legal matters.
           </p>
         </div>

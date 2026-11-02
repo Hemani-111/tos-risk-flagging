@@ -14,6 +14,7 @@ import {
 } from "@/components/ui/Dialog";
 import { analyzeDocument, analyzeText, AnalysisResult } from "@/lib/api";
 import { useRouter } from "next/navigation";
+import { saveAnalysisResult } from "@/lib/resultStorage";
 
 export default function AnalyzePage() {
   const [selectedFile, setSelectedFile] = React.useState<File | null>(null);
@@ -24,6 +25,15 @@ export default function AnalyzePage() {
   const router = useRouter();
 
   const handleFileSelect = (file: File) => {
+    const extension = file.name.split(".").pop()?.toLowerCase();
+    if (!["pdf", "docx", "txt"].includes(extension ?? "")) {
+      setError("Choose a PDF, DOCX, or TXT file.");
+      return;
+    }
+    if (file.size > 10 * 1024 * 1024) {
+      setError("File is larger than the 10 MB upload limit.");
+      return;
+    }
     setSelectedFile(file);
     setError(null);
   };
@@ -38,13 +48,17 @@ export default function AnalyzePage() {
       setError("Text is too short. Please provide at least 50 characters.");
       return;
     }
+    if (pastedText.length > 2_000_000) {
+      setError("Pasted text is larger than the 2,000,000 character limit.");
+      return;
+    }
     setLoading(true);
     setError(null);
     setIsPasteModalOpen(false);
     try {
       const result = await analyzeText(pastedText.trim());
-      const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(result))));
-      router.push(`/results?data=${encoded}`);
+      saveAnalysisResult(result);
+      router.push("/results");
     } catch (err: any) {
       setError(err.message || "Analysis failed.");
     } finally {
@@ -68,8 +82,8 @@ export default function AnalyzePage() {
     setError(null);
     try {
       const result = await analyzeDocument(selectedFile);
-      const encoded = btoa(unescape(encodeURIComponent(JSON.stringify(result))));
-      router.push(`/results?data=${encoded}`);
+      saveAnalysisResult(result);
+      router.push("/results");
     } catch (err: any) {
       setError(err.message || "Analysis failed.");
     } finally {
@@ -85,7 +99,12 @@ export default function AnalyzePage() {
           <p className="mt-4 text-muted-foreground">
             Select a Terms of Service or Privacy Policy file for clause-level analysis.
           </p>
+          <p className="mt-2 text-sm text-muted-foreground">PDF, DOCX, or TXT · 10 MB maximum · English-language benchmark coverage</p>
         </div>
+
+        <p className="mx-auto mt-8 max-w-2xl text-center text-xs leading-relaxed text-muted-foreground">
+          Files are sent to the configured backend for analysis and removed from its temporary storage afterward. Results stay in this browser tab only. Do not upload documents you are not permitted to share.
+        </p>
 
         {selectedFile ? (
           <FilePreview
@@ -123,13 +142,14 @@ export default function AnalyzePage() {
 
             <div className="mt-4">
               <textarea
+                aria-label="Document text to analyze"
                 value={pastedText}
-                onChange={(e) => setPastedText(e.target.value)}
+                onChange={(e) => setPastedText(e.target.value.slice(0, 2_000_000))}
                 placeholder="Paste your document text here..."
                 className="w-full h-64 rounded-md border border-input bg-background p-3 text-sm focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring resize-y"
               />
               <p className="mt-2 text-xs text-muted-foreground">
-                {pastedText.length} characters. Minimum 50 characters required.
+                {pastedText.length.toLocaleString()} / 2,000,000 characters. Minimum 50 characters required.
               </p>
             </div>
 

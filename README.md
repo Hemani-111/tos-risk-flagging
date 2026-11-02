@@ -1,6 +1,6 @@
-# project name
+# TermsGuard
 
-Understand what you're agreeing to.
+Review clause classifications in Terms of Service and Privacy Policies.
 
 ---
 
@@ -110,6 +110,8 @@ npm run dev
 ```
 
 Frontend runs at `http://localhost:3000`
+
+Results are scoped to the current browser tab, with search, label filters, adjacent-clause context, and JSON/CSV export. The Methodology and Research Results pages describe the deployed model, development evidence, data limits, and intended use. This is educational screening, not legal advice.
 
 ---
 

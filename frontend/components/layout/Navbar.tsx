@@ -13,8 +13,9 @@ function NavbarContent() {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   
   const navLinks = [
-    { href: "/", label: "Analyze" },
-    // { href: "/about", label: "How it works" },
+    { href: "/", label: "Home" },
+    { href: "/about", label: "Methodology" },
+    { href: "/research", label: "Research results" },
   ];
   
   return (
@@ -23,7 +24,7 @@ function NavbarContent() {
         <div className="flex h-16 items-center justify-between">
           {/* Logo */}
           <Link href="/" className="flex items-center space-x-2">
-            <span className="text-lg font-semibold">project name</span>
+            <span className="text-lg font-semibold">TermsGuard</span>
           </Link>
           
           {/* Desktop Navigation */}
@@ -64,6 +65,8 @@ function NavbarContent() {
               variant="ghost"
               size="icon"
               onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+              aria-label={mobileMenuOpen ? "Close navigation menu" : "Open navigation menu"}
+              aria-expanded={mobileMenuOpen}
             >
               {mobileMenuOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>

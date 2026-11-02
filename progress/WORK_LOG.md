@@ -170,3 +170,11 @@ Reconstruction counts reconcile, label mapping and keys are verified, conflict t
 - Added checksum-validated, versioned metadata for the existing SVC/vectorizer pair, class-order and scikit-learn checks, lazy loading, readiness health reporting, model/schema/warning response fields, and explicit `MODEL_DIR` in Compose. The production model artifacts themselves were not replaced.
 - Verified: backend suite 39 passed; frontend lint passed; Next.js production build passed; `docker compose config --quiet` passed. Docker image/container startup could not be run because the Docker Desktop Linux engine pipe was unavailable.
 - Phase 6 remains in progress: page-number mapping for PDF offsets, encrypted-PDF regression coverage, and hard processing-time timeout remain. The current metadata keeps the deployed two-file artifact pair integrity-checked rather than repackaging it as a single pipeline. Phase 5 independent reviewer labels are also still pending.
+
+## 2026-11-03 — Phase 7 progress: clause review experience
+
+- Replaced base64-encoded query-string results with tab-scoped `sessionStorage`, explicit clear control, storage error handling, and an explanation of refresh/tab lifetime behavior. No server-side result history was added.
+- Redesigned Results to show all three labels, per-label counts, searchable/filterable clauses, adjacent analyzable clause context, model/version limitations, and JSON/CSV exports containing model identifiers and text offsets. Empty result lists show an explicit no-match state.
+- Added upload/paste size and extension validation plus backend/privacy notes; added an evidence-focused methodology page and a separate research-results page with the development Linear SVM metrics clearly separated from the existing deployed RBF SVC.
+- Replaced placeholder branding/copy with TermsGuard and corrected overclaims. Added keyboard-accessible controls, focus states, labels, responsive list/context layout, and methodology navigation.
+- Verified `npm run lint` and `npm run build` successfully. Original full-document pane/highlighting is still unavailable because the API returns clause text rather than retaining the complete extracted document; manual browser/user review is also pending.

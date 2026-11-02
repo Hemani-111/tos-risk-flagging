@@ -3,7 +3,7 @@
 Date: 2 November 2026  
 Repository: https://github.com/kiran-8287/tos-risk-flagging  
 Course: DS3010 Introduction to Machine Learning, IIT Palakkad  
-Status: Phases 0–4 complete; Phase 5 development analyses and annotation workflow are prepared, with human-annotated document evaluation pending; Phase 6 backend reliability work is in progress. Later phases remain pending.
+Status: Phases 0–4 complete; Phase 5 development analyses and annotation workflow are prepared, with human-annotated document evaluation pending; Phase 6 backend reliability is in progress; Phase 7 review experience is implemented and under verification. Later phases remain pending.
 
 ## 1. Purpose and intended outcome
 
@@ -295,20 +295,20 @@ Every experiment must save: run ID, Git revision, data hash, split ID, seed, pac
 | Methodology | Dataset provenance, selected model, evaluation protocol, actual metrics and limitations |
 | Research results | Versioned experiment comparisons and pattern analysis; separate from individual document results |
 
-Desktop results should use a document pane and a clause review pane. On mobile, use a readable single-column layout or switchable views. Display all classes, not just Risky. Provide an explicit zero-detection message without implying guaranteed safety.
+Desktop results should use a document pane and a clause review pane. On mobile, use a readable single-column layout or switchable views. Display all classes, not just Risky. Provide an explicit zero-detection message without implying guaranteed safety. The current implementation uses the analyzed clauses as a review list and shows adjacent analyzable clauses as context; it does not retain or render the original full document.
 
 Design requirements:
 
-- [ ] Consistent typography, spacing, restrained colour palette, and responsive layouts.
-- [ ] Colour plus text/icons for labels; keyboard navigation, visible focus, sufficient contrast, and screen-reader labels.
-- [ ] Search and filters with counts; selecting a clause scrolls to its matching context.
+- [x] Consistent typography, spacing, restrained colour palette, and responsive layouts.
+- [x] Colour plus text/icons for labels; keyboard navigation, visible focus, sufficient contrast, and screen-reader labels.
+- [x] Search and filters with counts; selecting a clause updates its adjacent-clause context panel. Original-document scroll/highlight is unavailable because the app does not retain the complete extracted source in the result.
 - [ ] Separate uncertainty status from risk category if abstention is supported.
 - [ ] Explain model evidence honestly. Linear feature contributions may explain a linear model; do not present a surrogate model's coefficients as an RBF explanation.
 - [ ] Topic grouping only if a topic predictor or clearly labelled heuristic is implemented and evaluated. Ground-truth dataset topics are unavailable for arbitrary uploads.
-- [ ] Avoid invented plain-language legal interpretations. Generative explanations remain a separate future feature unless grounded and evaluated.
-- [ ] Replace base64 results in query strings. For a simple MVP, use session-scoped browser storage with size/error handling and a clear-data control; if server storage is chosen, specify retention and isolation explicitly.
-- [ ] Explain refresh/session-expiry behaviour. Do not promise persistent history unless implemented.
-- [ ] Export JSON/CSV first; add a readable printable/PDF report if time permits. Include model version, counts, clauses, warnings, and method limitations.
+- [x] Avoid invented plain-language legal interpretations. Generative explanations remain a separate future feature unless grounded and evaluated.
+- [x] Replace base64 results in query strings. For a simple MVP, use session-scoped browser storage with size/error handling and a clear-data control; if server storage is chosen, specify retention and isolation explicitly.
+- [x] Explain refresh/session-expiry behaviour. Do not promise persistent history unless implemented.
+- [x] Export JSON/CSV first; add a readable printable/PDF report if time permits. Include model version, counts, clauses, warnings, and method limitations.
 
 **Completion gate:** representative users can upload, locate a flagged clause, understand its context, and export findings without guidance.
 
