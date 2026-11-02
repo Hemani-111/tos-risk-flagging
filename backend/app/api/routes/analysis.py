@@ -61,6 +61,7 @@ class AnalysisResponse(BaseModel):
     modelVersion: str
     schemaVersion: str
     warnings: List[str]
+    extractedText: str
     clauses: List[ClauseResponse]
     riskyClauses: List[ClauseResponse]
 
@@ -111,6 +112,7 @@ def _run_analysis(
         modelVersion=package["modelVersion"],
         schemaVersion=package["schemaVersion"],
         warnings=package["warnings"],
+        extractedText=text,
         clauses=[ClauseResponse(**item) for item in clause_results],
         riskyClauses=[ClauseResponse(**item) for item in clause_results if item["label"] == "Risky"],
     )

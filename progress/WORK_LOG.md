@@ -242,3 +242,10 @@ Reconstruction counts reconcile, label mapping and keys are verified, conflict t
 - Built `models/releases/linear-svc-primary-v2/` from the frozen primary training partition, with serialized word TF-IDF vectorizer, class-weighted LinearSVC, label order, source/split/freeze metadata, runtime versions, and artifact SHA-256 checksums.
 - Configured backend and Compose to load the versioned package; retained the prior RBF artifact for rollback. Updated model identity expectations in backend tests.
 - Backend suite had passed with 45 tests after integration in the recorded verification run. Docker runtime mount/start remains blocked by unavailable Docker engine.
+
+
+## 2026-11-03 - Phase 7: full extracted-source viewer
+
+- Analysis API returns extracted source text; browser session storage stores source plus offsets and reconstructs clause text to avoid duplicate storage.
+- Results page displays the complete extracted text, highlights exact clause spans, preserves unclassified content, exposes analysed coverage, and links clause selection with source navigation. Added print/Save PDF styling.
+- Regression assertions cover exact source text and clause offsets. The earlier integration run passed 45 backend tests and frontend lint/build. Screenshot-driven browser review remains incomplete because the Windows browser helper could not safely resolve the current URL.

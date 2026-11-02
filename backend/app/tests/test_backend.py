@@ -13,7 +13,7 @@ class TestHealthEndpoint:
         data = response.json()
         assert data["status"] == "ok"
         assert data["version"] == "1.0.0"
-        assert data["modelVersion"] == "legacy-selected-model-v1"
+        assert data["modelVersion"] == "linear-svc-primary-v2"
 
     def test_cors_allows_configured_local_frontend(self):
         response = client.get(

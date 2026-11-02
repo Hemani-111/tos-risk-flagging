@@ -33,6 +33,7 @@ export interface AnalysisResult {
   modelVersion: string;
   schemaVersion: string;
   warnings: string[];
+  extractedText: string;
   clauses: ClauseResult[];
   riskyClauses: ClauseResult[];
 }

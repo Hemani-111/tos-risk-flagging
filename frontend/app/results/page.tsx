@@ -2,7 +2,7 @@
 
 import * as React from "react";
 import Link from "next/link";
-import { ArrowLeft, Download, Search, Trash2 } from "lucide-react";
+import { ArrowLeft, Download, Printer, Search, Trash2 } from "lucide-react";
 import { Button } from "@/components/ui/Button";
 import { Badge } from "@/components/ui/Badge";
 import { Progress } from "@/components/ui/Progress";
@@ -36,6 +36,7 @@ export default function ResultsPage() {
   const [filter, setFilter] = React.useState<LabelFilter>("All");
   const [query, setQuery] = React.useState("");
   const [selectedId, setSelectedId] = React.useState<string | null>(null);
+  const sourcePaneRef = React.useRef<HTMLDivElement>(null);
 
   React.useEffect(() => {
     const frame = window.requestAnimationFrame(() => setResult(readAnalysisResult()));
@@ -55,6 +56,37 @@ export default function ResultsPage() {
   const nearbyClauses = selectedIndex < 0 || !result
     ? []
     : result.clauses.slice(Math.max(0, selectedIndex - 1), Math.min(result.clauses.length, selectedIndex + 2));
+  const sourceCoverage = result?.extractedText?.length
+    ? Math.min(100, result.clauses.reduce((total, clause) => total + Math.max(0, clause.endOffset - clause.startOffset), 0) / result.extractedText.length * 100)
+    : 0;
+
+  const sourceSegments = React.useMemo(() => {
+    if (!result?.extractedText) return [];
+    const ordered = [...result.clauses]
+      .filter((clause) => Number.isInteger(clause.startOffset) && Number.isInteger(clause.endOffset)
+        && clause.startOffset >= 0 && clause.endOffset > clause.startOffset
+        && clause.endOffset <= result.extractedText.length)
+      .sort((left, right) => left.startOffset - right.startOffset || left.endOffset - right.endOffset);
+    const segments: Array<{ start: number; end: number; clause: ClauseResult | null }> = [];
+    let cursor = 0;
+    for (const clause of ordered) {
+      if (clause.startOffset < cursor) continue;
+      if (clause.startOffset > cursor) segments.push({ start: cursor, end: clause.startOffset, clause: null });
+      segments.push({ start: clause.startOffset, end: clause.endOffset, clause });
+      cursor = clause.endOffset;
+    }
+    if (cursor < result.extractedText.length) segments.push({ start: cursor, end: result.extractedText.length, clause: null });
+    return segments;
+  }, [result]);
+
+  const selectSourceClause = (clause: ClauseResult) => {
+    setFilter("All");
+    setQuery("");
+    setSelectedId(clause.id);
+    requestAnimationFrame(() => {
+      document.querySelector(`[data-source-clause="${CSS.escape(clause.id)}"]`)?.scrollIntoView({ block: "center", behavior: "smooth" });
+    });
+  };
 
   if (!result) {
     return (
@@ -86,9 +118,10 @@ export default function ResultsPage() {
     ].map(csvCell).join(","));
     downloadFile("tos-risk-clauses.csv", [columns.join(","), ...rows].join("\r\n"), "text/csv;charset=utf-8");
   };
+  const printReport = () => window.print();
 
   return (
-    <div className="py-8 sm:py-12">
+    <div className="results-page py-8 sm:py-12">
       <div className="mx-auto max-w-6xl px-4 sm:px-6">
         <div className="mb-7 flex flex-wrap items-center justify-between gap-4">
           <div>
@@ -98,6 +131,7 @@ export default function ResultsPage() {
           <div className="flex flex-wrap gap-2">
             <Button variant="outline" onClick={exportCsv}><Download className="mr-2 h-4 w-4" />Export CSV</Button>
             <Button variant="outline" onClick={exportJson}><Download className="mr-2 h-4 w-4" />Export JSON</Button>
+            <Button variant="outline" onClick={printReport}><Printer className="mr-2 h-4 w-4" />Print / Save PDF</Button>
             <Button variant="ghost" onClick={clear}><Trash2 className="mr-2 h-4 w-4" />Clear results</Button>
             <Link href="/analyze"><Button variant="outline"><ArrowLeft className="mr-2 h-4 w-4" />New document</Button></Link>
           </div>
@@ -123,7 +157,43 @@ export default function ResultsPage() {
           <p className="mt-2 text-xs text-muted-foreground">Results stay in this tab’s session storage. Clear them here or close the tab to remove them.</p>
         </section>
 
-        <section className="overflow-hidden rounded-xl border border-border bg-card shadow-sm">
+        <section className="mb-6 overflow-hidden rounded-xl border border-border bg-card shadow-sm" aria-label="Extracted document text">
+          <div className="flex flex-wrap items-center justify-between gap-2 border-b border-border p-4 sm:p-5">
+            <div>
+              <h2 className="text-xl font-semibold">Full extracted document</h2>
+              <p className="mt-1 text-sm text-muted-foreground">Clause spans are highlighted in place. Plain text between highlights is retained from the extraction.</p>
+            </div>
+            <span className="rounded-full border border-border px-3 py-1 text-xs text-muted-foreground">{sourceCoverage.toFixed(1)}% of extracted characters in clause spans</span>
+          </div>
+          {result.extractedText ? (
+            <div ref={sourcePaneRef} className="max-h-[70vh] overflow-auto bg-background p-4 sm:p-6">
+              <div className="whitespace-pre-wrap break-words font-mono text-sm leading-7" aria-label={`Extracted text from ${result.filename}`}>
+                {sourceSegments.map((segment, index) => segment.clause ? (
+                  <mark
+                    key={`${segment.start}-${segment.end}-${segment.clause.id}`}
+                    data-source-clause={segment.clause.id}
+                    title={`${segment.clause.label}${segment.clause.section ? ` · ${segment.clause.section}` : ""}`}
+                    role="button"
+                    tabIndex={0}
+                    aria-label={`Select ${segment.clause.label} clause ${segment.clause.id}`}
+                    onClick={() => selectSourceClause(segment.clause!)}
+                    onKeyDown={(event) => {
+                      if (event.key === "Enter" || event.key === " ") {
+                        event.preventDefault();
+                        selectSourceClause(segment.clause!);
+                      }
+                    }}
+                    className={`cursor-pointer rounded-sm px-0.5 text-inherit ${LABEL_STYLES[segment.clause.label]} ${selectedClause?.id === segment.clause.id ? "outline outline-2 outline-offset-1 outline-primary" : ""}`}
+                  >{result.extractedText.slice(segment.start, segment.end)}</mark>
+                ) : <span key={`plain-${segment.start}-${index}`}>{result.extractedText.slice(segment.start, segment.end)}</span>)}
+              </div>
+            </div>
+          ) : (
+            <p className="p-5 text-sm text-muted-foreground">This result does not contain the extracted source text. Analyze the document again to view in-place highlights.</p>
+          )}
+        </section>
+
+        <section className="review-clauses overflow-hidden rounded-xl border border-border bg-card shadow-sm">
           <div className="border-b border-border p-4 sm:p-5">
             <h2 className="text-xl font-semibold">Review clauses</h2>
             <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
@@ -150,7 +220,7 @@ export default function ResultsPage() {
           <div className="grid gap-0 lg:grid-cols-[minmax(0,1.3fr)_minmax(18rem,0.7fr)]">
             <div className="max-h-[70vh] divide-y divide-border overflow-y-auto">
               {visibleClauses.map((clause: ClauseResult) => (
-                <article key={clause.id} className={`p-4 sm:p-5 ${selectedClause?.id === clause.id ? "bg-secondary/50" : ""}`}>
+                <article key={clause.id} data-review-clause={clause.id} className={`p-4 sm:p-5 ${selectedClause?.id === clause.id ? "bg-secondary/50" : ""}`}>
                   <button className="w-full rounded text-left focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring" aria-pressed={selectedClause?.id === clause.id} onClick={() => setSelectedId(clause.id)}>
                     <div className="flex items-start justify-between gap-4">
                       <p className="whitespace-pre-wrap text-sm leading-relaxed">{clause.text}</p>

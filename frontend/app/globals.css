@@ -60,6 +60,56 @@
   }
 }
 
+@media print {
+  body * {
+    visibility: hidden !important;
+  }
+
+  .results-page,
+  .results-page * {
+    visibility: visible !important;
+  }
+
+  .results-page {
+    position: absolute;
+    inset: 0;
+    width: 100%;
+    padding: 0;
+    color: #111 !important;
+    background: #fff !important;
+  }
+
+  .results-page > div > div:first-child,
+  .results-page button,
+  .results-page input,
+  .review-clauses {
+    display: none !important;
+  }
+
+  .results-page section {
+    break-inside: avoid;
+    box-shadow: none !important;
+  }
+
+  .results-page section[aria-label="Extracted document text"] > div:last-child {
+    max-height: none !important;
+    overflow: visible !important;
+  }
+
+  .results-page mark {
+    color: #111 !important;
+    background: #fff4bf !important;
+    box-decoration-break: clone;
+    -webkit-box-decoration-break: clone;
+    outline: 1px solid #c69b18;
+  }
+
+  @page {
+    size: auto;
+    margin: 16mm;
+  }
+}
+
 @layer base {
   * {
     @apply border-border;
