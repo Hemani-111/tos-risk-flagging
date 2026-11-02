@@ -98,7 +98,7 @@ The presentation reports approximately 85% RBF SVM accuracy. Preserve this as a 
 - [x] Create an isolated Python environment and record Python/package versions. Resolve dependencies required for training as well as serving.
 - [x] Install frontend dependencies using its lockfile when present; retain or generate a suitable lockfile.
 - [x] Run existing backend tests, frontend checks/build, and a representative end-to-end request. Record genuine failures separately from environment problems.
-- [ ] Inspect artifact compatibility and model paths in local and Docker execution.
+- [ ] Inspect artifact compatibility and model paths in local and Docker execution. Local/offline package hashes and API readiness pass; Docker image/start and mounted-model loading remain unverified because the Docker engine is unavailable.
 - [x] Record current model outputs and timings on a fixed small regression set without calling them an accuracy benchmark.
 
 **Completion gate:** a new contributor can reproduce baseline startup, and known failures have a recorded cause and next action.
@@ -151,7 +151,7 @@ Actions:
 - [x] Use common splits and comparable search budgets across model families.
 - [x] Register selection criteria before comparing results: macro F1 as primary, risky recall and precision as key operating trade-offs, plus latency and resource cost.
 - [x] Choose operational thresholds on development data. Do not adjust them after seeing test results. The explored thresholds remain development-only and are not deployed.
-- [ ] Evaluate the frozen selected system on the locked test set. If publishing frozen finalist comparisons, declare that set in advance and do not use test outcomes for another tuning cycle.
+- [x] Evaluate the frozen selected system on both locked protocols after the written freeze. Results and group-bootstrap intervals are in `docs/LOCKED_TEST_EVALUATION_v1.md`; do not repeat or tune from them.
 
 Required metrics: accuracy, macro/weighted F1, per-class precision/recall/F1/support, confusion matrix, risky false-negative/false-positive counts, training time, inference latency, artifact size, and peak memory where measurable.
 
@@ -208,9 +208,9 @@ Treat solver and iteration settings as optimisation/convergence controls. Do not
 - [x] Character n-grams with a controlled vocabulary budget.
 - [x] Text length, readability, negation and selected phrase features, alone and added to text features.
 - [x] Truncated SVD for sparse TF-IDF where reduction is useful. Do not call uncentred truncated SVD “PCA”.
-- [ ] Optional frozen sentence embeddings + Logistic Regression/SVM; record encoder revision, license, language, maximum length, and truncation strategy.
-- [ ] Optional PCA on appropriate dense features, with fitting restricted to training data.
-- [ ] Optional clustering on reduced features to inspect patterns and annotation inconsistencies, not to replace supervised evaluation.
+- [x] Frozen sentence embeddings + Logistic Regression/Linear SVM: local MiniLM revision, Apache-2.0 license, English scope, 256-wordpiece limit, and truncation policy are recorded; the embedding model trailed lexical TF-IDF.
+- [x] PCA on dense embeddings was fitted within development training folds; reduced dimensions lowered performance.
+- [x] Training-only PCA/K-means exploration completed for k=3/5/8/12; weak silhouettes are reported and clusters are not treated as labels.
 
 ### 9.3 Experiment execution
 
@@ -230,29 +230,29 @@ Every experiment must save: run ID, Git revision, data hash, split ID, seed, pac
 
 ### 10.1 Structured error review
 
-- [ ] Review representative risky false negatives, false alarms, and Safe/Neutral confusions.
-- [ ] Categorise causes: negation, exceptions, missing context, ambiguous labels, rare terms, boilerplate, segmentation, or unfamiliar language/domain.
-- [ ] Check clauses mentioning examples such as data sharing, deletion, unilateral changes, liability, termination, and user rights, without treating keyword presence as ground truth.
-- [ ] Compare models on the same examples to identify genuine complementarity.
-- [ ] Preserve difficult cases; do not optimise only for hand-picked examples.
+- [x] Review representative risky false negatives, false alarms, and Safe/Neutral confusions on validation predictions; see `docs/ERROR_ANALYSIS_v1.md`.
+- [x] Categorise observed validation errors as context, ambiguous case-derived targets, boilerplate/segmentation, and lexical overlap; see `docs/ERROR_ANALYSIS_v1.md`.
+- [x] Review representative data-sharing, deletion, unilateral-change, liability, jurisdiction, and user-rights examples as qualitative cues only; no keyword is treated as ground truth.
+- [x] Compare LinearSVC and Logistic Regression on shared validation disagreements and group-OOF ensemble errors; no clear macro-F1 complementarity displaced LinearSVC.
+- [x] Preserve the deterministic validation review queues; no difficult case was removed or used as a hand-picked tuning target.
 
 ### 10.2 Uncertainty, when supported
 
-- [ ] Evaluate probability calibration using held-out development predictions, reliability plots, log loss and an appropriate multiclass Brier calculation.
-- [ ] Calibrate a selected model if needed using a disjoint calibration set or group-respecting folds. Never calibrate on the final test set.
-- [ ] Tune an abstention threshold on development data and report the trade-off between coverage and error rate.
-- [ ] Represent `Needs review` as a review status while preserving the original three-class prediction, rather than inventing a fourth training label.
+- [x] Evaluate calibration on group-respecting development folds and validation using reliability plots, log loss, and multiclass Brier score; numerical confidence is not deployed.
+- [x] Evaluate sigmoid calibration with group-respecting folds. Calibration diagnostics did not authorize a user-facing probability or threshold policy; test scores were not used.
+- [x] Evaluate development-only Logistic Regression selective-review thresholds and coverage/error trade-offs; no automated abstention was adopted.
+- [x] No `Needs review` status is exposed because abstention was not validated; the original three-class prediction remains unchanged.
 - [ ] Test irrelevant text, empty vocabulary inputs, gibberish, unsupported languages, and very short fragments. Low confidence alone is not a validated out-of-domain detector.
-- [ ] If calibration/abstention is not validated, omit numerical confidence claims and document that limitation.
+- [x] Omit numerical confidence and automated abstention in the UI; calibration limitations are documented.
 
 ### 10.3 Independent document evaluation
 
-- [ ] Assemble a small review set from services not used for training, with permission/source records and a fixed selection rule.
-- [ ] Write a clear annotation rubric aligned with the training label meaning.
-- [ ] Have two team members independently annotate where practical, reconcile disagreements, and report agreement. This is a student-reviewed reference set, not expert legal ground truth.
-- [ ] Evaluate parser extraction, segmentation coverage, clause predictions, and end-to-end missed risky content separately.
-- [ ] Keep document development cases separate from a final frozen document evaluation set.
-- [ ] Report performance on annotated ToSDR quotes separately from complete-document performance.
+- [x] Freeze six local policy snapshots from services absent from the clause benchmark and record provenance, dates, and hashes; two additional Perplexity fetches failed with HTTP 403 and were not retried.
+- [x] Prepare the three-class student-review rubric and disagreement/adjudication guidance in `docs/INDEPENDENT_DOCUMENT_EVALUATION.md`.
+- [ ] Obtain two authentic blind annotations, reconcile disagreements, and report agreement. Sheets are prepared but blank; no labels may be simulated.
+- [x] Verify extraction hashes, exact PDF/API text parity, and clause-character segmentation coverage. Clause prediction and missed-risky-content metrics still await authentic reviewer labels.
+- [x] Keep the frozen six-document review set out of model training and tuning; the first annotation round covers three consumer Terms, with privacy snapshots reserved for a later round.
+- [x] Report ToS;DR clause-test metrics separately from pending full-document human-review metrics; see the report and evaluation protocol.
 
 **Completion gate:** the report explains where the system fails and how those limitations affect the application.
 
@@ -270,7 +270,7 @@ Every experiment must save: run ID, Git revision, data hash, split ID, seed, pac
 - [x] Package preprocessing and classifier together where practical to prevent mismatched artifacts. Existing paired artifacts are versioned and checksum validated; they remain two files pending a replacement pipeline package.
 - [x] Add model version, schema version, warnings, and supported uncertainty fields to API responses. No numerical uncertainty field is exposed because it is not calibrated.
 - [x] Keep document summaries as counts/shares of analysed clauses. Do not label them legal compliance or a calibrated document risk probability.
-- [x] Verify Docker model mounts and `MODEL_DIR` explicitly; the inspected loader's relative root calculation needs checking against the container layout.
+- [ ] Verify Docker model mounts, `MODEL_DIR`, startup, and served model identity. Compose paths/configuration are documented, but the Docker Linux engine pipe is unavailable, so runtime verification is still open.
 
 **Completion gate:** backend tests cover observed regressions and representative error paths; local and container startup load the intended model.
 
@@ -295,15 +295,15 @@ Every experiment must save: run ID, Git revision, data hash, split ID, seed, pac
 | Methodology | Dataset provenance, selected model, evaluation protocol, actual metrics and limitations |
 | Research results | Versioned experiment comparisons and pattern analysis; separate from individual document results |
 
-Desktop results should use a document pane and a clause review pane. On mobile, use a readable single-column layout or switchable views. Display all classes, not just Risky. Provide an explicit zero-detection message without implying guaranteed safety. The current implementation uses the analyzed clauses as a review list and shows adjacent analyzable clauses as context; it does not retain or render the original full document.
+Desktop results should use a document pane and a clause review pane. On mobile, use a readable single-column layout or switchable views. Display all classes, not just Risky. Provide an explicit zero-detection message without implying guaranteed safety. The current implementation retains the exact extracted source in tab-scoped storage, renders source-offset clause highlights, preserves unclassified spans, and supports clause-to-source navigation. A local review-coverage check verifies the six frozen snapshot texts; PDF text is aligned with the current pypdf 6.21.4 application parser.
 
 Design requirements:
 
 - [x] Consistent typography, spacing, restrained colour palette, and responsive layouts.
 - [x] Colour plus text/icons for labels; keyboard navigation, visible focus, sufficient contrast, and screen-reader labels.
-- [x] Search and filters with counts; selecting a clause updates its adjacent-clause context panel. Original-document scroll/highlight is unavailable because the app does not retain the complete extracted source in the result.
-- [ ] Separate uncertainty status from risk category if abstention is supported.
-- [ ] Explain model evidence honestly. Linear feature contributions may explain a linear model; do not present a surrogate model's coefficients as an RBF explanation.
+- [x] Search and filters with counts; selecting a clause updates its adjacent-clause context panel. The complete extracted source is retained and highlighted by exact clause offsets; PDF upload offset parity is covered by the local frozen-source verification.
+- [x] No abstention is supported or exposed; the UI retains the three-class prediction without an uncertainty status.
+- [x] Explain model evidence and coefficient limits in methodology/reporting; do not expose SVM margins as confidence or legal explanations.
 - [ ] Topic grouping only if a topic predictor or clearly labelled heuristic is implemented and evaluated. Ground-truth dataset topics are unavailable for arbitrary uploads.
 - [x] Avoid invented plain-language legal interpretations. Generative explanations remain a separate future feature unless grounded and evaluated.
 - [x] Replace base64 results in query strings. For a simple MVP, use session-scoped browser storage with size/error handling and a clear-data control; if server storage is chosen, specify retention and isolation explicitly.
@@ -358,12 +358,12 @@ Do not confuse passing functional tests with measured model accuracy. Use meanin
 
 ### Presentation and demonstration
 
-- [ ] Confirm required slide count and marking rubric before creating final slides. A content storyboard is drafted in `docs/PRESENTATION_STORYBOARD_v1.md`.
-- [ ] Explain the problem, dataset, approach, strongest experimental evidence, application, and limitations.
-- [ ] Replace historical mixed-protocol comparisons with correctly labelled results.
-- [ ] Prepare a normal example, a difficult example, an uncertain case if supported, and a file-error example.
-- [ ] Keep a local demonstration available even if public hosting is unavailable.
-- [ ] Ensure each team member can explain preprocessing, the split policy, TF-IDF, chosen models, metrics, and major errors.
+- [ ] Confirm required slide count and marking rubric when supplied. A provisional six-slide content storyboard and demo script are prepared in `docs/PRESENTATION_STORYBOARD_v1.md`; editable PowerPoint export awaits an available authoring runtime.
+- [x] Provisional storyboard covers the problem, data, methods, locked results, application, and limitations; adapt it to the rubric.
+- [x] Current report separates primary unseen-service, secondary duplicate-aware, validation, and locked-test stages; historical comparisons are labelled non-comparable.
+- [ ] Rehearse a normal example, difficult example, and file-error example in the local app; no uncertain/abstention case is supported. Demo flow is documented; screenshots/rehearsal remain pending.
+- [x] Keep a local demonstration available; backend and frontend are running on loopback, with startup instructions in `docs/DEPLOYMENT_GUIDE.md`.
+- [ ] Team preparation notes cover the requested concepts; each member still needs to review and rehearse their own contribution.
 
 **Completion gate:** every displayed metric is traceable to a saved run and every claimed feature works in the delivered version.
 
@@ -450,18 +450,18 @@ If time is short, reduce tuning budgets, optional embeddings/ensembles, and opti
 
 ## 18. Definition of complete
 
-- [ ] Raw-to-clean preprocessing is reproducible with an audit trail.
-- [ ] Duplicate/conflict decisions and evaluation splits are documented and checked.
-- [ ] Existing and additional essential model families were compared fairly.
-- [ ] Feature experiments and useful pattern/error analyses are complete.
-- [ ] Final model selection and uncertainty behaviour are supported by saved evidence.
-- [ ] Unseen-service and complete-document evaluation are reported separately.
-- [ ] Upload, paste, parsing, segmentation, prediction, context review and export work.
-- [ ] Observed segmentation regressions and URL-result handling are fixed.
-- [ ] Tests/builds and a clean-environment demonstration pass, or material limitations are disclosed.
-- [ ] Dataset/model cards and reproducibility instructions are drafted; evidence-based report draft is in `docs/FINAL_REPORT_v1.md`; final report conclusions and presentation remain pending.
-- [ ] Production artifacts are versioned, and no previous work was silently overwritten.
-- [ ] No claim of universal accuracy, legal safety, or expert-reviewed labels exceeds the evidence.
+- [x] Raw-to-clean preprocessing is reproducible with an audit trail.
+- [x] Duplicate/conflict decisions and evaluation splits are documented and checked.
+- [x] Existing and additional essential model families were compared on common grouped protocols and declared budgets.
+- [x] Feature experiments, learning curves, calibration diagnostics, clustering, stability analysis, and development error analysis are complete.
+- [x] Final model selection and the decision not to expose confidence/abstention are supported by saved evidence.
+- [x] Unseen-service clause-test results and the pending independent complete-document evaluation are reported separately.
+- [x] Upload, paste, parsing, segmentation, prediction, complete extracted-text review, and export are implemented and locally verified.
+- [x] Observed segmentation regressions and URL-result handling are fixed.
+- [x] Tests/builds and clean-environment checks pass; Docker and screenshot-based browser limitations are explicitly disclosed.
+- [x] Dataset/model cards and reproduction instructions are drafted; the evidence-based report is in `docs/FINAL_REPORT_v1.md`. Human-review conclusions and rubric-specific slides remain pending.
+- [x] Production artifacts are versioned, and previous model artifacts are retained for rollback.
+- [x] No claim of universal accuracy, legal safety, or expert-reviewed labels exceeds the evidence.
 
 ## 19. First task for Codex in VS Code
 

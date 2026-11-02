@@ -49,7 +49,7 @@
 
 **Message:** Results support a clause-triage aid with clear limits, not automated legal conclusions.
 
-**Evidence/caveats:** sigmoid calibration was evaluated as an internal diagnostic; no automated abstention or confidence percentage is deployed. Three frozen Terms snapshots have 719 blind clause rows and no reviewer labels yet. Segment coverage ranges from 90.9% to 98.1% of extracted-text characters; gaps remain visible and unclassified.
+**Evidence/caveats:** sigmoid calibration was evaluated as an internal diagnostic; no automated abstention or confidence percentage is deployed. Three frozen Terms snapshots have 723 blind clause rows and no reviewer labels yet. Segment coverage ranges from 93.3% to 98.1% of extracted-text characters; gaps remain visible and unclassified.
 
 **Required disclosure:** early development code loaded the full source table before filtering development partitions in memory. It produced no test metric or summary and did not inform selection. This loader boundary incident means the test is not described as untouched. The candidate was frozen before its one-time test scoring, and no tuning followed.
 

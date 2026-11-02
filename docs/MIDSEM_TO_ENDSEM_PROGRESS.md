@@ -22,7 +22,7 @@ The midsemester presentation framed the task as classifying short Terms of Servi
 - Packaged the frozen LinearSVC model with metadata and checksums and switched the local API to that version while retaining the previous RBF package for rollback.
 - Added a full extracted-text view that preserves unclassified spans and highlights classified clauses by source offsets; added source export/print support and regression coverage for offset parity.
 - Updated the experiment registry, model/data cards, report, deployment readiness notes, and local run instructions with actual outputs and limitations.
-- Prepared a blind independent document-review pack. Three terms snapshots produce 719 clause rows per reviewer. Source-to-segment coverage is measured separately because clause sheets alone cannot reveal omitted content.
+- Prepared a blind independent document-review pack. Three terms snapshots produce 723 clause rows per reviewer. Source-to-segment coverage is measured separately because clause sheets alone cannot reveal omitted content.
 
 ## Findings to explain in the presentation
 

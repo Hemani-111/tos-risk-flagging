@@ -258,3 +258,12 @@ Reconstruction counts reconcile, label mapping and keys are verified, conflict t
 - Added `scripts/verify_document_review_coverage.py` and `results/document_review_coverage_v1.json`. It verified all six available snapshot hashes, 1,547 segmented clauses across six snapshots, exact clause offsets, and two aligned blind sheets with 719 clause rows and no labels. Character coverage ranged from 90.9% to 98.5%.
 - Found that current API PDF extraction differs from both frozen Anthropic review text files; the terms review has 29,319 frozen characters vs 28,946 API-extracted, and privacy API extraction has 40,423 characters. Documented that review offsets do not establish fresh-upload parity. Two Perplexity snapshots remain unavailable (HTTP 403).
 - Verification: coverage script passed, changed-file Ruff passed, `git diff --check` passed, and live API readiness returned `linear-svc-primary-v2`. Current Docker check failed because `//./pipe/dockerDesktopLinuxEngine` is absent; both local demo ports were listening.
+
+
+## 2026-11-03 - Phase 7/9 follow-up: restore PDF review offset parity
+
+- Traced the 37-character Terms and 76-character Privacy discrepancies to the snapshot text having been extracted by PyPDF2 3.0.1 before the dependency migration; PyPDF2 exactly reproduced the old review text, while pypdf 6.21.4 matched the current application parser.
+- Added `scripts/refresh_pdf_review_text.py` to verify raw PDF hashes, extract with the serving parser, preserve LF offsets, and record text hashes plus extraction engine/version. It refuses to proceed when either blind sheet contains reviewer labels.
+- Refreshed local ignored PDF text, regenerated the still-blank blind sheets, and made the coverage verifier enforce exact PDF/parser parity. The Terms pack is now 723 clauses; both sheets align, have no labels, all six snapshot hashes match, and coverage is 91.9%-98.7%. Raw PDFs were unchanged.
+- Hardened segment-sheet regeneration against overwriting annotations. Source fetching now preserves frozen snapshots and skips known 403 failures; PDF extraction uses the current application parser.
+- Verification: PDF API offset regression test passed (1 test); coverage verification passed; Ruff passed on changed Python scripts. Docker and screenshot-browser gates are unchanged.

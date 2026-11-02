@@ -1,52 +1,58 @@
 {
-  "generated_at_utc": "2026-11-02T21:32:02.765936+00:00",
+  "generated_at_utc": "2026-11-02T21:43:08.271247+00:00",
   "purpose": "source extraction and clause segmentation coverage; no model predictions or reviewer labels",
-  "review_pack_clause_count": 719,
-  "all_available_snapshot_clause_count": 1547,
+  "review_pack_clause_count": 723,
+  "all_available_snapshot_clause_count": 1557,
   "documents": [
     {
       "document_id": "anthropic_consumer_terms",
       "review_pack_member": true,
+      "text_extraction_engine": "pypdf",
+      "text_extraction_version": "6.21.4",
       "binary_sha256_matches_registry": true,
       "text_sha256_matches_registry": true,
-      "text_file_byte_sha256": "516c1952a4eb2af25e922ce215d0a8b16e4fd71df973ac7a2476dbdf78c40842",
+      "text_file_byte_sha256": "fa723159345cc1be989620b87f08718f43da72a389a0b0439572215e9a5e6991",
       "pdf_text_parity": {
         "pdf_parser_character_count": 28946,
-        "pdf_parser_matches_review_text_exactly": false
+        "pdf_parser_matches_review_text_exactly": true
       },
-      "source_characters": 29319,
-      "source_words": 4716,
-      "clause_count": 188,
-      "covered_clause_characters": 26663,
-      "covered_character_fraction": 0.90941,
-      "unsegmented_gap_characters": 2656,
-      "unsegmented_gap_words": 347,
-      "unsegmented_gap_count": 187,
+      "source_characters": 28946,
+      "source_words": 4788,
+      "clause_count": 192,
+      "covered_clause_characters": 27009,
+      "covered_character_fraction": 0.933082,
+      "unsegmented_gap_characters": 1937,
+      "unsegmented_gap_words": 270,
+      "unsegmented_gap_count": 191,
       "overlap_characters": 0
     },
     {
       "document_id": "anthropic_privacy",
       "review_pack_member": false,
+      "text_extraction_engine": "pypdf",
+      "text_extraction_version": "6.21.4",
       "binary_sha256_matches_registry": true,
       "text_sha256_matches_registry": true,
-      "text_file_byte_sha256": "9ec159021f588278fe9f22b97ef368cf518dc8c03cd7bf8b2b5d38d5f618c80f",
+      "text_file_byte_sha256": "13a91a2ed029a45d36a380ab285f755004a923bd5c856e9e26528163ff65c05f",
       "pdf_text_parity": {
         "pdf_parser_character_count": 40423,
-        "pdf_parser_matches_review_text_exactly": false
+        "pdf_parser_matches_review_text_exactly": true
       },
-      "source_characters": 41030,
-      "source_words": 6177,
-      "clause_count": 176,
-      "covered_clause_characters": 40418,
-      "covered_character_fraction": 0.985084,
-      "unsegmented_gap_characters": 612,
+      "source_characters": 40423,
+      "source_words": 6278,
+      "clause_count": 182,
+      "covered_clause_characters": 39903,
+      "covered_character_fraction": 0.987136,
+      "unsegmented_gap_characters": 520,
       "unsegmented_gap_words": 48,
-      "unsegmented_gap_count": 175,
+      "unsegmented_gap_count": 181,
       "overlap_characters": 0
     },
     {
       "document_id": "mistral_consumer_terms_row",
       "review_pack_member": true,
+      "text_extraction_engine": "stdlib.html.parser (VisibleText)",
+      "text_extraction_version": "3.11.9",
       "binary_sha256_matches_registry": true,
       "text_sha256_matches_registry": true,
       "text_file_byte_sha256": "ce85ca17a4b7d90867c0e5f436c5cb6d95e3bc97d59566b5366f6d93aa379338",
@@ -64,6 +70,8 @@
     {
       "document_id": "mistral_privacy",
       "review_pack_member": false,
+      "text_extraction_engine": "stdlib.html.parser (VisibleText)",
+      "text_extraction_version": "3.11.9",
       "binary_sha256_matches_registry": true,
       "text_sha256_matches_registry": true,
       "text_file_byte_sha256": "d3c28134b5674322d894c7586ce008870cd630d1955d5240a0a9e488983e24d3",
@@ -81,6 +89,8 @@
     {
       "document_id": "you_com_privacy",
       "review_pack_member": false,
+      "text_extraction_engine": "stdlib.html.parser (VisibleText)",
+      "text_extraction_version": "3.11.9",
       "binary_sha256_matches_registry": true,
       "text_sha256_matches_registry": true,
       "text_file_byte_sha256": "b07f7198ca307e1a7780046fe9d3c76a9cedbb1e59e7c7db65d98540eb29540d",
@@ -98,6 +108,8 @@
     {
       "document_id": "you_com_terms",
       "review_pack_member": true,
+      "text_extraction_engine": "stdlib.html.parser (VisibleText)",
+      "text_extraction_version": "3.11.9",
       "binary_sha256_matches_registry": true,
       "text_sha256_matches_registry": true,
       "text_file_byte_sha256": "14af72c2205ea5bb77967c370777f712e07656a00b64276ee15b20ef57003f30",
@@ -115,17 +127,17 @@
   ],
   "reviewer_sheets": {
     "reviewer_a": {
-      "row_count_including_added_span_slots": 722,
-      "clause_row_count": 719,
+      "row_count_including_added_span_slots": 726,
+      "clause_row_count": 723,
       "reviewer_added_span_slots": 3,
-      "sha256": "820548ea9df05960425d04875a0bcc037669355bfca8e92688c593aa9e741ace",
+      "sha256": "3d2f5fab111de2626174dce36ba3afaa82e6552400bf2b7651ae1a1fbdec2e93",
       "errors": []
     },
     "reviewer_b": {
-      "row_count_including_added_span_slots": 722,
-      "clause_row_count": 719,
+      "row_count_including_added_span_slots": 726,
+      "clause_row_count": 723,
       "reviewer_added_span_slots": 3,
-      "sha256": "b90b63fb158d529aa4de463c1d6190b0e6bf9fc82be90f6e36de32f2b3f36f08",
+      "sha256": "f9544bad067cd9891de613611217023e328293336d94d7967dd5fe6b7b3f4906",
       "errors": []
     }
   },
@@ -145,7 +157,7 @@
   ],
   "limitations": [
     "Character coverage counts only text inside emitted clauses; gaps include headings, short fragments, and whitespace.",
-    "PDF parser extraction may differ from frozen review text; parity is reported explicitly rather than assumed.",
+    "Parser text changes can invalidate review offsets; regenerate and revalidate both blind sheets before labels are added.",
     "The pack has three terms documents; privacy snapshots in the registry are not included in reviewer sheets.",
     "Coverage is an extraction/segmentation diagnostic and does not establish legal accuracy or reviewer agreement."
   ]

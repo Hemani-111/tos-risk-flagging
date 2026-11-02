@@ -94,9 +94,13 @@ def main() -> None:
                 "pdf_parser_character_count": len(parsed_source),
                 "pdf_parser_matches_review_text_exactly": parsed_source == text,
             }
+            if parsed_source != text:
+                raise ValueError(f"PDF text snapshot differs from the current application parser for {document_id}")
         document_reports.append({
             "document_id": document_id,
             "review_pack_member": document_id in SELECTED,
+            "text_extraction_engine": row.get("text_extraction_engine", ""),
+            "text_extraction_version": row.get("text_extraction_version", ""),
             "binary_sha256_matches_registry": sha256(binary_path) == row["snapshot_sha256"],
             "text_sha256_matches_registry": hashlib.sha256(text.replace("\r\n", "\n").encode("utf-8")).hexdigest() == row["text_sha256"],
             "text_file_byte_sha256": sha256(text_path),
@@ -106,6 +110,9 @@ def main() -> None:
 
     sheets = {}
     canonical_ids = None
+    expected_review_clause_count = sum(
+        len(clauses) for doc_id, (_text, clauses) in expected.items() if doc_id in SELECTED
+    )
     for reviewer in ("reviewer_a", "reviewer_b"):
         path = SNAPSHOTS / f"{reviewer}_segments_v1.csv"
         rows = read_csv(path)
@@ -116,8 +123,10 @@ def main() -> None:
         sheet_errors = []
         if ids != canonical_ids:
             sheet_errors.append("segment_id_order_differs_from_other_reviewer")
-        if len(ids) != 719:
-            sheet_errors.append(f"expected_719_clause_rows_got_{len(ids)}")
+        if len(ids) != expected_review_clause_count:
+            sheet_errors.append(
+                f"expected_{expected_review_clause_count}_clause_rows_got_{len(ids)}"
+            )
         if len(set(ids)) != len(ids):
             sheet_errors.append("duplicate_segment_id")
         if any(row["reviewer_id"] != reviewer for row in rows):
@@ -162,7 +171,7 @@ def main() -> None:
         ],
         "limitations": [
             "Character coverage counts only text inside emitted clauses; gaps include headings, short fragments, and whitespace.",
-            "PDF parser extraction may differ from frozen review text; parity is reported explicitly rather than assumed.",
+            "Parser text changes can invalidate review offsets; regenerate and revalidate both blind sheets before labels are added.",
             "The pack has three terms documents; privacy snapshots in the registry are not included in reviewer sheets.",
             "Coverage is an extraction/segmentation diagnostic and does not establish legal accuracy or reviewer agreement.",
         ],

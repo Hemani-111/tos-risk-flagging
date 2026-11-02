@@ -112,6 +112,10 @@ class TestAnalysisEndpoint:
         assert response.json()["totalClauses"] == 1
         assert response.json()["clauses"][0]["pageStart"] == 1
         assert response.json()["clauses"][0]["pageEnd"] == 1
+        result = response.json()
+        assert result["extractedText"]
+        clause = result["clauses"][0]
+        assert result["extractedText"][clause["startOffset"]:clause["endOffset"]] == clause["text"]
 
     def test_analyze_empty_file(self):
         response = client.post(

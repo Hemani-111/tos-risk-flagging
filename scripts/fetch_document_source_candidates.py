@@ -8,6 +8,7 @@ from __future__ import annotations
 
 import csv
 import hashlib
+import importlib.metadata
 import re
 import sys
 from urllib.error import HTTPError, URLError
@@ -22,6 +23,9 @@ from pypdf import PdfReader
 ROOT = Path(__file__).resolve().parents[1]
 REGISTRY = ROOT / "data" / "review" / "document_sources_candidates_v1.csv"
 OUT = ROOT / "data" / "review" / "snapshots_v1"
+sys.path.insert(0, str(ROOT / "backend"))
+from app.services.document_parser import PdfParser  # noqa: E402
+
 DOWNLOADS = {
     "anthropic_consumer_terms": ("https://assets.claude.com/43c13f51a6d9755341433f79cf63c966ed9200ea.pdf", "pdf"),
     "anthropic_privacy": ("https://assets.claude.com/693a25036936f7e7bf4dd0c299a2e654f14fac01.pdf", "pdf"),
@@ -84,14 +88,22 @@ def main() -> None:
     with REGISTRY.open("r", encoding="utf-8-sig", newline="") as stream:
         rows = list(csv.DictReader(stream))
         fields = list(rows[0])
-    additions = ["snapshot_download_url", "snapshot_final_url", "content_type", "snapshot_path", "local_snapshot_path", "text_snapshot_path", "text_sha256", "snapshot_timestamp_utc", "pdf_page_count", "fetch_error"]
+    additions = ["snapshot_download_url", "snapshot_final_url", "content_type", "snapshot_path", "local_snapshot_path", "text_snapshot_path", "text_sha256", "text_extraction_engine", "text_extraction_version", "snapshot_timestamp_utc", "pdf_page_count", "fetch_error"]
     for field in additions:
         if field not in fields:
             fields.append(field)
     seen = set()
+    fetched_count = 0
     for row in rows:
         doc_id = row["document_id"]
         if doc_id not in DOWNLOADS:
+            continue
+        if row.get("review_status", "").startswith("snapshot_frozen"):
+            print(f"{doc_id}: existing frozen snapshot preserved; skipping")
+            seen.add(doc_id)
+            continue
+        if row.get("review_status", "").startswith("snapshot_fetch_failed:403"):
+            print(f"{doc_id}: previously blocked with HTTP 403; skipping without retry")
             continue
         url, kind = DOWNLOADS[doc_id]
         request = Request(url, headers={
@@ -115,18 +127,24 @@ def main() -> None:
         raw_path = OUT / f"{doc_id}.{suffix}"
         raw_path.write_bytes(raw)
         if kind == "pdf":
-            reader = PdfReader(str(raw_path), strict=False)
-            text = "\n\n".join((page.extract_text() or "") for page in reader.pages).strip()
+            reader = PdfReader(str(raw_path), strict=True)
+            text = PdfParser().parse(str(raw_path))
             text_path = OUT / f"{doc_id}.txt"
-            text_path.write_text(text, encoding="utf-8")
+            with text_path.open("w", encoding="utf-8", newline="") as stream:
+                stream.write(text)
             page_count = len(reader.pages)
+            extraction_engine = "pypdf"
+            extraction_version = importlib.metadata.version("pypdf")
         else:
             parser = VisibleText()
             parser.feed(raw.decode("utf-8", errors="replace"))
             text = repair_common_mojibake(re.sub(r"\n{3,}", "\n\n", "\n".join(parser.parts)).strip())
             text_path = OUT / f"{doc_id}.txt"
-            text_path.write_text(text, encoding="utf-8")
+            with text_path.open("w", encoding="utf-8", newline="") as stream:
+                stream.write(text)
             page_count = ""
+            extraction_engine = "stdlib.html.parser (VisibleText)"
+            extraction_version = sys.version.split()[0]
         if len(text) < 1000:
             raise RuntimeError(f"Visible text extraction looks incomplete for {doc_id}: {len(text)} characters")
         rel_raw = str(raw_path.relative_to(ROOT)).replace("\\", "/")
@@ -135,10 +153,12 @@ def main() -> None:
             "snapshot_sha256": sha256(raw), "review_status": "snapshot_frozen_review_pending",
             "snapshot_download_url": url, "snapshot_final_url": final_url, "content_type": content_type,
             "snapshot_path": rel_raw, "local_snapshot_path": rel_raw, "text_snapshot_path": rel_text,
-            "text_sha256": sha256(text.encode("utf-8")), "snapshot_timestamp_utc": datetime.now(timezone.utc).isoformat(),
+            "text_sha256": sha256(text.encode("utf-8")), "text_extraction_engine": extraction_engine,
+            "text_extraction_version": extraction_version, "snapshot_timestamp_utc": datetime.now(timezone.utc).isoformat(),
             "retrieved_date": datetime.now(ZoneInfo("Asia/Kolkata")).date().isoformat(), "pdf_page_count": page_count,
         })
         seen.add(doc_id)
+        fetched_count += 1
         print(f"{doc_id}: {len(raw):,} bytes, {len(text):,} extracted characters, {page_count or 'HTML'} pages, sha256={row['snapshot_sha256']}")
     temporary_registry = REGISTRY.with_suffix(".csv.tmp")
     with temporary_registry.open("w", encoding="utf-8", newline="") as stream:
@@ -146,7 +166,10 @@ def main() -> None:
         writer.writeheader()
         writer.writerows(rows)
     temporary_registry.replace(REGISTRY)
-    print(f"Fetched {len(seen)} of {len(DOWNLOADS)} candidates; missing snapshots: {sorted(set(DOWNLOADS) - seen)}")
+    print(
+        f"Fetched {fetched_count} new snapshots; preserved {len(seen) - fetched_count} frozen snapshots; "
+        f"missing or blocked: {sorted(set(DOWNLOADS) - seen)}"
+    )
 
 
 if __name__ == "__main__":

@@ -22,7 +22,7 @@ One local run on the Phase 0 machine (Windows 11, Intel i5-12450HX, 16 GB RAM, P
 | Mistral AI ROW consumer terms | 42,572 | 263 | 0.0025 | 0.0017 | 0.0071 | 0.9300 | 0.9412 |
 | You.com terms | 43,099 | 268 | 0.0021 | 0.0013 | 0.0077 | 0.9998 | 1.0109 |
 
-A cold subprocess import plus model integrity checks and load took 1.80 seconds (1.99 seconds measured wall time). The current request budget is 45 seconds with at most two active analyses, 10 MB upload size, 2,000,000 extracted characters, 200 PDF pages, and 5,000 clauses. The CPU-heavy classifier prediction dominates these short samples. Measure representative PDF/DOCX extraction and concurrent load before revising these limits.
+The Anthropic timing row above was measured against the earlier 29,319-character/188-clause PyPDF2 3.0.1 extraction. The local text was later refreshed to match pypdf 6.21.4 (28,946 characters/192 clauses); timings remain a historical one-run sample and were not regenerated for that revised text. A cold subprocess import plus model integrity checks and load took 1.80 seconds (1.99 seconds measured wall time). The current request budget is 45 seconds with at most two active analyses, 10 MB upload size, 2,000,000 extracted characters, 200 PDF pages, and 5,000 clauses. The CPU-heavy classifier prediction dominates these short samples. Measure representative PDF/DOCX extraction and concurrent load before revising these limits.
 
 The frozen primary package contains 44,489 TF-IDF features and 13,439 training rows. Frozen-candidate inference averaged about 0.08 ms per clause in the one-time test evaluation (excluding API parsing and source segmentation); this is a local benchmark, not a production SLA.
 

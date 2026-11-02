@@ -16,6 +16,10 @@ from app.services.document_parser import TxtParser  # noqa: E402
 REGISTRY = ROOT / "data" / "review" / "document_sources_candidates_v1.csv"
 OUT = ROOT / "data" / "review" / "snapshots_v1"
 SELECTED = {"anthropic_consumer_terms", "mistral_consumer_terms_row", "you_com_terms"}
+ANNOTATION_FIELDS = (
+    "reference_label", "risk_type", "uncertainty_note", "rationale",
+    "adjudicated_label", "adjudication_note",
+)
 FIELDS = [
     "document_id", "service_name", "document_type", "official_source_url", "retrieved_date",
     "document_version_or_effective_date", "source_sha256", "local_snapshot_path", "text_snapshot_path",
@@ -26,6 +30,14 @@ FIELDS = [
 
 
 def main() -> None:
+    for reviewer in ("reviewer_a", "reviewer_b"):
+        existing = OUT / f"{reviewer}_segments_v1.csv"
+        if existing.is_file():
+            prior = pd.read_csv(existing, dtype=str).fillna("")
+            if any(prior[field].str.strip().ne("").any() for field in ANNOTATION_FIELDS):
+                raise SystemExit(
+                    f"Refusing to overwrite annotations in {existing.name}; preserve the completed review sheet."
+                )
     source_rows = pd.read_csv(REGISTRY, dtype=str).fillna("")
     chosen = source_rows.loc[
         source_rows["document_id"].isin(SELECTED)
