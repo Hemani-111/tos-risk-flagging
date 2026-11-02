@@ -11,6 +11,8 @@ export interface ClauseResult {
   section?: string;
   startOffset: number;
   endOffset: number;
+  pageStart?: number;
+  pageEnd?: number;
 }
 
 export interface AnalysisResult {

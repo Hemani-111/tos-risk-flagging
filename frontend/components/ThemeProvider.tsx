@@ -21,12 +21,15 @@ export function ThemeProvider({ children }: { children: React.ReactNode }) {
   const [mounted, setMounted] = React.useState(false);
   
   React.useEffect(() => {
-    setMounted(true);
-    const stored = localStorage.getItem("theme") as "light" | "dark" | null;
-    if (stored) {
-      setTheme(stored);
-      document.documentElement.classList.toggle("dark", stored === "dark");
-    }
+    const frame = window.requestAnimationFrame(() => {
+      setMounted(true);
+      const stored = localStorage.getItem("theme") as "light" | "dark" | null;
+      if (stored) {
+        setTheme(stored);
+        document.documentElement.classList.toggle("dark", stored === "dark");
+      }
+    });
+    return () => window.cancelAnimationFrame(frame);
   }, []);
   
   const toggleTheme = React.useCallback(() => {

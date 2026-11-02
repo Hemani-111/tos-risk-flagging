@@ -1,4 +1,4 @@
-from typing import List, Dict, Optional
+from typing import List, Dict
 from app.ml.model_loader import model_loader
 from app.services.clause_segmenter import Clause
 

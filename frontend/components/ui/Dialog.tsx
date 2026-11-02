@@ -22,7 +22,7 @@ export function Dialog({ open, onOpenChange, children }: DialogProps) {
   );
 }
 
-interface DialogContentProps extends React.HTMLAttributes<HTMLDivElement> {}
+type DialogContentProps = React.HTMLAttributes<HTMLDivElement>;
 
 export function DialogContent({ className = "", children, ...props }: DialogContentProps) {
   return (
@@ -38,7 +38,7 @@ export function DialogContent({ className = "", children, ...props }: DialogCont
   );
 }
 
-interface DialogHeaderProps extends React.HTMLAttributes<HTMLDivElement> {}
+type DialogHeaderProps = React.HTMLAttributes<HTMLDivElement>;
 
 export function DialogHeader({ className = "", children, ...props }: DialogHeaderProps) {
   return (
@@ -48,7 +48,7 @@ export function DialogHeader({ className = "", children, ...props }: DialogHeade
   );
 }
 
-interface DialogTitleProps extends React.HTMLAttributes<HTMLHeadingElement> {}
+type DialogTitleProps = React.HTMLAttributes<HTMLHeadingElement>;
 
 export function DialogTitle({ className = "", children, ...props }: DialogTitleProps) {
   return (
@@ -58,7 +58,7 @@ export function DialogTitle({ className = "", children, ...props }: DialogTitleP
   );
 }
 
-interface DialogDescriptionProps extends React.HTMLAttributes<HTMLParagraphElement> {}
+type DialogDescriptionProps = React.HTMLAttributes<HTMLParagraphElement>;
 
 export function DialogDescription({ className = "", children, ...props }: DialogDescriptionProps) {
   return (
@@ -68,7 +68,7 @@ export function DialogDescription({ className = "", children, ...props }: Dialog
   );
 }
 
-interface DialogFooterProps extends React.HTMLAttributes<HTMLDivElement> {}
+type DialogFooterProps = React.HTMLAttributes<HTMLDivElement>;
 
 export function DialogFooter({ className = "", children, ...props }: DialogFooterProps) {
   return (

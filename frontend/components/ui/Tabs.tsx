@@ -6,7 +6,7 @@ interface TabsProps extends React.HTMLAttributes<HTMLDivElement> {
   onValueChange?: (value: string) => void;
 }
 
-interface TabsListProps extends React.HTMLAttributes<HTMLDivElement> {}
+type TabsListProps = React.HTMLAttributes<HTMLDivElement>;
 interface TabsTriggerProps extends React.ButtonHTMLAttributes<HTMLButtonElement> {
   value: string;
   active?: boolean;
@@ -15,6 +15,7 @@ interface TabsContentProps extends React.HTMLAttributes<HTMLDivElement> {
   value: string;
   active?: boolean;
 }
+type TabsChildProps = { activeValue?: string; onValueChange?: (value: string) => void };
 
 export function Tabs({ defaultValue, value, onValueChange, children, className = "" }: TabsProps) {
   const [internalValue, setInternalValue] = React.useState(defaultValue);
@@ -32,7 +33,7 @@ export function Tabs({ defaultValue, value, onValueChange, children, className =
     <div className={className}>
       {React.Children.map(children, (child) => {
         if (React.isValidElement(child)) {
-          return React.cloneElement(child as React.ReactElement<any>, {
+          return React.cloneElement(child as React.ReactElement<TabsChildProps>, {
             activeValue,
             onValueChange: handleValueChange,
           });

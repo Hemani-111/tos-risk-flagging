@@ -2,9 +2,9 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { ThemeProvider, useTheme } from "@/components/ThemeProvider";
+import { useTheme } from "@/components/ThemeProvider";
 import { Button } from "@/components/ui/Button";
-import { Upload, FileText, Search, Settings, Moon, Sun, Menu, X } from "lucide-react";
+import { Upload, Moon, Sun, Menu, X } from "lucide-react";
 import { useState } from "react";
 
 function NavbarContent() {
@@ -107,9 +107,5 @@ function NavbarContent() {
 }
 
 export function Navbar() {
-  return (
-    <ThemeProvider>
-      <NavbarContent />
-    </ThemeProvider>
-  );
+  return <NavbarContent />;
 }

@@ -11,6 +11,7 @@ import pandas as pd
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / "backend"))
 from app.services.clause_segmenter import ClauseSegmenter  # noqa: E402
+from app.services.document_parser import TxtParser  # noqa: E402
 
 REGISTRY = ROOT / "data" / "review" / "document_sources_candidates_v1.csv"
 OUT = ROOT / "data" / "review" / "snapshots_v1"
@@ -37,7 +38,9 @@ def main() -> None:
     counts: dict[str, int] = {}
     for source in chosen.to_dict("records"):
         text_path = ROOT / Path(source["text_snapshot_path"])
-        text = text_path.read_text(encoding="utf-8")
+        # Match the application's TXT extraction behavior (including BOM handling)
+        # so review offsets refer to the exact string the backend segments.
+        text = TxtParser().parse(str(text_path))
         clauses = segmenter.segment(text)
         counts[source["document_id"]] = len(clauses)
         for ordinal, clause in enumerate(clauses, start=1):

@@ -3,7 +3,7 @@
 Date: 2 November 2026  
 Repository: https://github.com/kiran-8287/tos-risk-flagging  
 Course: DS3010 Introduction to Machine Learning, IIT Palakkad  
-Status: Phases 0–4 complete; Phase 5 development analyses and annotation workflow are prepared, with human-annotated document evaluation pending; Phase 6 backend reliability is in progress; Phase 7 review experience is implemented and under verification. Later phases remain pending.
+Status: Phases 0–4 complete; Phase 5 development analyses and annotation workflow are prepared, with human-annotated document evaluation pending; Phase 6 backend reliability is implemented, with container startup unverified; Phase 7 review experience is implemented; Phase 8 local verification is complete, with deployment checks pending; Phase 9 deliverables remain pending.
 
 ## 1. Purpose and intended outcome
 
@@ -259,11 +259,11 @@ Every experiment must save: run ID, Git revision, data hash, split ID, seed, pac
 ## 11. Phase 6: Backend reliability and model packaging
 
 - [x] Repair segmentation with tests for all-caps substantive clauses, numbered headings, bullets, abbreviations, quotations, wrapped lines, short fragments, and punctuation.
-- [ ] Preserve extraction text, clause offsets, and section/page metadata where reliable. Clause offsets and text are preserved; PDF page mapping remains to be added.
+- [x] Preserve extraction text, clause offsets, and section/page metadata where reliable. Clause offsets refer to extracted text; PDF clauses carry page ranges where selectable page text exists.
 - [x] Distinguish headings from content; do not discard substantive language solely because it is uppercase.
 - [x] Report scanned/image-only PDFs as unsupported without OCR; never present an empty extraction as a safe document.
-- [ ] Handle corrupt, encrypted, empty, oversized, and unsupported documents with useful errors. Corrupt, empty, oversized, unsupported and scanned cases are covered; encrypted-file regression coverage remains.
-- [ ] Enforce upload limits during reading, plus limits for pasted text, extracted length, pages/clauses, and processing time. Byte, character, page, and clause limits are implemented; a hard processing timeout remains.
+- [x] Handle corrupt, encrypted, empty, oversized, and unsupported documents with useful errors.
+- [x] Enforce upload limits during reading, plus limits for pasted text, extracted length, pages/clauses, and processing time.
 - [x] Move expensive inference off the async event loop and bound concurrency; add a job queue only if measured workload needs it.
 - [x] Use temporary files safely and clean them on success and failure. Do not log document contents by default.
 - [x] Load a versioned model package once, validate class order and metadata, and expose readiness failures clearly.
@@ -327,15 +327,16 @@ Do not confuse passing functional tests with measured model accuracy. Use meanin
 
 ### Manual and operational checks
 
-- [ ] Run the documented setup on a clean environment.
-- [ ] Measure startup, extraction, feature transformation and inference separately on representative document sizes.
-- [ ] Set and document a performance budget from measured hardware and expected usage.
-- [ ] Check current dependency advisories and upgrade supported versions before public deployment; rerun relevant checks.
-- [ ] Configure environment-specific CORS, HTTPS at hosting, rate limits, readiness checks, and content-free operational logs.
-- [ ] Verify frontend API URL behaviour for the chosen build/deployment setup.
-- [ ] Confirm document retention/deletion behaviour matches the UI claims.
-- [ ] Test concurrency and resource limits; maintain a rollback path to the previous model/application version.
-- [ ] Keep secrets and raw uploaded documents out of Git. Confirm dataset licensing before redistributing data or trained artifacts.
+- [x] Run the documented setup on a clean environment.
+- [x] Measure startup, extraction, feature transformation and inference separately on representative document sizes.
+- [x] Set and document a local performance budget from measured hardware and expected usage.
+- [x] Check current dependency advisories and upgrade supported versions before public deployment; rerun relevant checks.
+- [ ] Configure environment-specific CORS, HTTPS at hosting, rate limits, readiness checks, and content-free operational logs. Configurable CORS, readiness and content-free logging are implemented; host-level HTTPS, rate limits and monitoring await a hosting target.
+- [x] Verify frontend API URL behaviour for the chosen build/deployment setup using a build-time argument.
+- [x] Confirm document retention/deletion behaviour matches the UI claims.
+- [ ] Test concurrency and resource limits; maintain a rollback path to the previous model/application version. Limits are implemented and tested; a deployment rollback procedure remains to be defined.
+- [x] Keep secrets and raw uploaded documents out of Git.
+- [ ] Confirm dataset licensing before redistributing data or trained artifacts; the upstream record does not specify a license, so no raw dataset or source snapshots are redistributed.
 
 **Completion gate:** local demonstration is reproducible. Public launch is a separate explicit release step after these checks, not assumed to be completed by local success.
 

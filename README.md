@@ -113,6 +113,8 @@ Frontend runs at `http://localhost:3000`
 
 Results are scoped to the current browser tab, with search, label filters, adjacent-clause context, and JSON/CSV export. The Methodology and Research Results pages describe the deployed model, development evidence, data limits, and intended use. This is educational screening, not legal advice.
 
+See [docs/DEPLOYMENT_READINESS_v1.md](docs/DEPLOYMENT_READINESS_v1.md) for clean-environment verification, dependency audit status, local performance samples, and deployment items that require a hosting target.
+
 ---
 
 ## Notes

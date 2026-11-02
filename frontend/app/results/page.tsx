@@ -37,7 +37,10 @@ export default function ResultsPage() {
   const [query, setQuery] = React.useState("");
   const [selectedId, setSelectedId] = React.useState<string | null>(null);
 
-  React.useEffect(() => setResult(readAnalysisResult()), []);
+  React.useEffect(() => {
+    const frame = window.requestAnimationFrame(() => setResult(readAnalysisResult()));
+    return () => window.cancelAnimationFrame(frame);
+  }, []);
 
   const visibleClauses = React.useMemo(() => {
     if (!result) return [];
@@ -76,10 +79,10 @@ export default function ResultsPage() {
   };
   const exportJson = () => downloadFile("tos-risk-analysis.json", JSON.stringify(result, null, 2), "application/json");
   const exportCsv = () => {
-    const columns = ["filename", "modelVersion", "clauseId", "label", "section", "startOffset", "endOffset", "text"];
+    const columns = ["filename", "modelVersion", "clauseId", "label", "section", "startOffset", "endOffset", "pageStart", "pageEnd", "text"];
     const rows = result.clauses.map((clause) => [
       result.filename, result.modelVersion, clause.id, clause.label, clause.section,
-      clause.startOffset, clause.endOffset, clause.text,
+      clause.startOffset, clause.endOffset, clause.pageStart, clause.pageEnd, clause.text,
     ].map(csvCell).join(","));
     downloadFile("tos-risk-clauses.csv", [columns.join(","), ...rows].join("\r\n"), "text/csv;charset=utf-8");
   };
@@ -155,6 +158,7 @@ export default function ResultsPage() {
                     </div>
                     <div className="mt-2 flex flex-wrap gap-x-4 text-xs text-muted-foreground">
                       {clause.section && <span>Section: {clause.section}</span>}
+                    {clause.pageStart && <span>PDF page{clause.pageEnd !== clause.pageStart ? "s" : ""}: {clause.pageStart}{clause.pageEnd !== clause.pageStart ? `–${clause.pageEnd}` : ""}</span>}
                       <span>Text offsets: {clause.startOffset}–{clause.endOffset}</span>
                     </div>
                   </button>
@@ -175,6 +179,7 @@ export default function ResultsPage() {
                       </div>
                       <p className="whitespace-pre-wrap text-sm leading-relaxed">{clause.text}</p>
                       {clause.section && <p className="mt-2 text-xs text-muted-foreground">{clause.section}</p>}
+                      {clause.pageStart && <p className="mt-1 text-xs text-muted-foreground">PDF page {clause.pageStart}{clause.pageEnd !== clause.pageStart ? `–${clause.pageEnd}` : ""}</p>}
                     </div>
                   ))}
                 </div>

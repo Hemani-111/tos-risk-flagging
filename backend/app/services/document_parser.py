@@ -28,8 +28,12 @@ class PdfParser(DocumentParser):
         self.max_chars = max_chars
 
     def parse(self, file_path: str) -> str:
+        text, _page_ranges = self.parse_with_metadata(file_path)
+        return text
+
+    def parse_with_metadata(self, file_path: str) -> tuple[str, list[tuple[int, int, int]]]:
         try:
-            from PyPDF2 import PdfReader
+            from pypdf import PdfReader
             reader = PdfReader(file_path, strict=True)
             if reader.is_encrypted:
                 try:
@@ -43,12 +47,17 @@ class PdfParser(DocumentParser):
                 raise DocumentLimitError(f"PDF exceeds the {self.max_pages}-page limit.")
             text_parts = []
             char_count = 0
-            for page in reader.pages:
+            page_ranges: list[tuple[int, int, int]] = []
+            for page_number, page in enumerate(reader.pages, start=1):
                 page_text = page.extract_text() or ""
                 char_count += len(page_text)
                 if char_count > self.max_chars:
                     raise DocumentLimitError("Extracted text exceeds the 2,000,000-character limit.")
                 if page_text:
+                    page_start = char_count - len(page_text)
+                    if text_parts:
+                        page_start += 2  # account for the separator between extracted pages
+                    page_ranges.append((page_number, page_start, page_start + len(page_text)))
                     text_parts.append(page_text)
         except DocumentParsingError:
             raise
@@ -60,7 +69,7 @@ class PdfParser(DocumentParser):
             raise UnsupportedScannedPDFError(
                 "No selectable text was found. Scanned or image-only PDFs are unsupported; OCR is not enabled."
             )
-        return text
+        return text, page_ranges
 
 
 class DocxParser(DocumentParser):

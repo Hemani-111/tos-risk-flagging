@@ -12,9 +12,13 @@ import {
   DialogDescription,
   DialogFooter,
 } from "@/components/ui/Dialog";
-import { analyzeDocument, analyzeText, AnalysisResult } from "@/lib/api";
+import { analyzeDocument, analyzeText } from "@/lib/api";
 import { useRouter } from "next/navigation";
 import { saveAnalysisResult } from "@/lib/resultStorage";
+
+function errorMessage(error: unknown): string {
+  return error instanceof Error ? error.message : "Analysis failed.";
+}
 
 export default function AnalyzePage() {
   const [selectedFile, setSelectedFile] = React.useState<File | null>(null);
@@ -59,8 +63,8 @@ export default function AnalyzePage() {
       const result = await analyzeText(pastedText.trim());
       saveAnalysisResult(result);
       router.push("/results");
-    } catch (err: any) {
-      setError(err.message || "Analysis failed.");
+    } catch (err: unknown) {
+      setError(errorMessage(err));
     } finally {
       setLoading(false);
     }
@@ -84,8 +88,8 @@ export default function AnalyzePage() {
       const result = await analyzeDocument(selectedFile);
       saveAnalysisResult(result);
       router.push("/results");
-    } catch (err: any) {
-      setError(err.message || "Analysis failed.");
+    } catch (err: unknown) {
+      setError(errorMessage(err));
     } finally {
       setLoading(false);
     }

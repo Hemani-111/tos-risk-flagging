@@ -1,13 +1,14 @@
 import asyncio
+from concurrent.futures import Future, ThreadPoolExecutor
 import logging
 import os
 import tempfile
+import threading
 import uuid
 from pathlib import Path
 from typing import List, Optional
 
 from fastapi import APIRouter, File, HTTPException, UploadFile
-from fastapi.concurrency import run_in_threadpool
 from pydantic import BaseModel, Field
 
 from app.core.config import settings
@@ -28,7 +29,11 @@ router = APIRouter()
 segmenter = ClauseSegmenter()
 predictor = Predictor()
 aggregator = RiskAggregator()
-analysis_semaphore = asyncio.Semaphore(settings.MAX_CONCURRENT_ANALYSES)
+analysis_executor = ThreadPoolExecutor(
+    max_workers=settings.MAX_CONCURRENT_ANALYSES,
+    thread_name_prefix="document-analysis",
+)
+analysis_slots = threading.BoundedSemaphore(settings.MAX_CONCURRENT_ANALYSES)
 
 
 class ClauseResponse(BaseModel):
@@ -38,6 +43,8 @@ class ClauseResponse(BaseModel):
     section: str | None = None
     startOffset: int
     endOffset: int
+    pageStart: int | None = None
+    pageEnd: int | None = None
 
 
 class AnalysisResponse(BaseModel):
@@ -63,7 +70,11 @@ class TextAnalysisRequest(BaseModel):
     filename: Optional[str] = Field(default="pasted-text.txt", max_length=255)
 
 
-def _run_analysis(text: str, filename: str) -> AnalysisResponse:
+def _run_analysis(
+    text: str,
+    filename: str,
+    page_ranges: list[tuple[int, int, int]] | None = None,
+) -> AnalysisResponse:
     if not text.strip():
         raise HTTPException(status_code=422, detail="The document contains no extractable text.")
     if len(text) > settings.MAX_EXTRACTED_CHARS:
@@ -75,6 +86,15 @@ def _run_analysis(text: str, filename: str) -> AnalysisResponse:
         raise HTTPException(status_code=413, detail="Document exceeds the configured clause limit.")
 
     clause_results = predictor.predict(clauses)
+    if page_ranges:
+        for result in clause_results:
+            pages = [
+                page_number for page_number, start, end in page_ranges
+                if result["startOffset"] < end and result["endOffset"] > start
+            ]
+            if pages:
+                result["pageStart"] = min(pages)
+                result["pageEnd"] = max(pages)
     summary = aggregator.aggregate(clause_results)
     package = model_loader.package_info()
     return AnalysisResponse(
@@ -96,6 +116,44 @@ def _run_analysis(text: str, filename: str) -> AnalysisResponse:
     )
 
 
+def _submit_analysis(worker, *args) -> Future:
+    if not analysis_slots.acquire(blocking=False):
+        raise HTTPException(status_code=503, detail="Analysis capacity is busy. Try again shortly.")
+    try:
+        future = analysis_executor.submit(worker, *args)
+    except Exception:
+        analysis_slots.release()
+        raise
+    future.add_done_callback(lambda _completed: analysis_slots.release())
+    return future
+
+
+def _process_upload(temp_path: str, extension: str, filename: str) -> AnalysisResponse:
+    parser = get_parser(extension)
+    try:
+        if hasattr(parser, "parse_with_metadata"):
+            extracted_text, page_ranges = parser.parse_with_metadata(temp_path)
+        else:
+            extracted_text = parser.parse(temp_path)
+            page_ranges = None
+    except UnsupportedScannedPDFError as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
+    except DocumentLimitError as exc:
+        raise HTTPException(status_code=413, detail=str(exc)) from exc
+    except DocumentParsingError as exc:
+        raise HTTPException(status_code=422, detail=str(exc)) from exc
+    return _run_analysis(extracted_text, filename, page_ranges)
+
+
+def _remove_temp_file(path: str) -> None:
+    try:
+        os.unlink(path)
+    except FileNotFoundError:
+        pass
+    except OSError:
+        logger.warning("Temporary upload cleanup failed")
+
+
 @router.post("/documents/analyze", response_model=AnalysisResponse)
 async def analyze_document(file: UploadFile = File(...)):
     if not file.filename:
@@ -109,6 +167,7 @@ async def analyze_document(file: UploadFile = File(...)):
         )
 
     temp_path = None
+    cleanup_deferred = False
     total_bytes = 0
     try:
         with tempfile.NamedTemporaryFile(prefix="tos-review-", suffix=ext, delete=False) as temp_file:
@@ -119,17 +178,13 @@ async def analyze_document(file: UploadFile = File(...)):
                     raise HTTPException(status_code=413, detail="File exceeds the upload size limit.")
                 temp_file.write(chunk)
 
-        async with analysis_semaphore:
-            try:
-                parser = get_parser(ext)
-                extracted_text = await run_in_threadpool(parser.parse, temp_path)
-            except UnsupportedScannedPDFError as exc:
-                raise HTTPException(status_code=422, detail=str(exc)) from exc
-            except DocumentLimitError as exc:
-                raise HTTPException(status_code=413, detail=str(exc)) from exc
-            except DocumentParsingError as exc:
-                raise HTTPException(status_code=422, detail=str(exc)) from exc
-            return await run_in_threadpool(_run_analysis, extracted_text, Path(file.filename).name)
+        worker_future = _submit_analysis(_process_upload, temp_path, ext, Path(file.filename).name)
+        try:
+            return await asyncio.wait_for(asyncio.wrap_future(worker_future), timeout=settings.ANALYSIS_TIMEOUT_SECONDS)
+        except asyncio.TimeoutError as exc:
+            cleanup_deferred = True
+            worker_future.add_done_callback(lambda _completed: _remove_temp_file(temp_path))
+            raise HTTPException(status_code=504, detail="Analysis exceeded the processing time limit. Try a smaller document.") from exc
     except HTTPException:
         raise
     except Exception as exc:
@@ -138,17 +193,15 @@ async def analyze_document(file: UploadFile = File(...)):
         raise HTTPException(status_code=500, detail="Document analysis failed. Please try another file.") from exc
     finally:
         await file.close()
-        if temp_path:
-            try:
-                os.unlink(temp_path)
-            except FileNotFoundError:
-                pass
-            except OSError:
-                logger.warning("Temporary upload cleanup failed")
+        if temp_path and not cleanup_deferred:
+            _remove_temp_file(temp_path)
 
 
 @router.post("/documents/analyze-text", response_model=AnalysisResponse)
 async def analyze_text(request: TextAnalysisRequest):
     cleaned = request.text.replace("\r\n", "\n").replace("\r", "\n")
-    async with analysis_semaphore:
-        return await run_in_threadpool(_run_analysis, cleaned, request.filename or "pasted-text.txt")
+    worker_future = _submit_analysis(_run_analysis, cleaned, request.filename or "pasted-text.txt")
+    try:
+        return await asyncio.wait_for(asyncio.wrap_future(worker_future), timeout=settings.ANALYSIS_TIMEOUT_SECONDS)
+    except asyncio.TimeoutError as exc:
+        raise HTTPException(status_code=504, detail="Analysis exceeded the processing time limit. Try a smaller document.") from exc

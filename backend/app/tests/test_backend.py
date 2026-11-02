@@ -15,6 +15,14 @@ class TestHealthEndpoint:
         assert data["version"] == "1.0.0"
         assert data["modelVersion"] == "legacy-selected-model-v1"
 
+    def test_cors_allows_configured_local_frontend(self):
+        response = client.get(
+            "/api/v1/health",
+            headers={"Origin": "http://localhost:3000"},
+        )
+        assert response.headers["access-control-allow-origin"] == "http://localhost:3000"
+        assert "access-control-allow-credentials" not in response.headers
+
 
 class TestDocumentParser:
     def test_pdf_parser_import(self):

@@ -3,6 +3,31 @@ import os
 import tempfile
 
 
+def make_text_pdf(text):
+    """Build a minimal one-page PDF with selectable text for API integration tests."""
+    escaped = text.replace("\\", "\\\\").replace("(", "\\(").replace(")", "\\)")
+    stream = f"BT /F1 12 Tf 72 720 Td ({escaped}) Tj ET".encode("latin-1")
+    objects = [
+        b"<< /Type /Catalog /Pages 2 0 R >>",
+        b"<< /Type /Pages /Kids [3 0 R] /Count 1 >>",
+        b"<< /Type /Page /Parent 2 0 R /MediaBox [0 0 612 792] /Resources << /Font << /F1 4 0 R >> >> /Contents 5 0 R >>",
+        b"<< /Type /Font /Subtype /Type1 /BaseFont /Helvetica >>",
+        b"<< /Length " + str(len(stream)).encode("ascii") + b" >>\nstream\n" + stream + b"\nendstream",
+    ]
+    pdf = bytearray(b"%PDF-1.4\n")
+    offsets = [0]
+    for index, obj in enumerate(objects, start=1):
+        offsets.append(len(pdf))
+        pdf.extend(f"{index} 0 obj\n".encode("ascii") + obj + b"\nendobj\n")
+    xref_offset = len(pdf)
+    pdf.extend(f"xref\n0 {len(offsets)}\n".encode("ascii"))
+    pdf.extend(b"0000000000 65535 f \n")
+    for offset in offsets[1:]:
+        pdf.extend(f"{offset:010d} 00000 n \n".encode("ascii"))
+    pdf.extend(f"trailer\n<< /Size {len(offsets)} /Root 1 0 R >>\nstartxref\n{xref_offset}\n%%EOF\n".encode("ascii"))
+    return bytes(pdf)
+
+
 class TestTextUtils:
     def test_normalize_whitespace(self):
         from app.utils.text import normalize_whitespace
@@ -63,7 +88,7 @@ class TestTxtParser:
 
 class TestPdfParser:
     def test_blank_pdf_is_reported_as_unsupported_scanned_content(self, tmp_path):
-        from PyPDF2 import PdfWriter
+        from pypdf import PdfWriter
         from app.services.document_parser import PdfParser, UnsupportedScannedPDFError
         path = tmp_path / "blank.pdf"
         writer = PdfWriter()
@@ -78,6 +103,18 @@ class TestPdfParser:
         path = tmp_path / "corrupt.pdf"
         path.write_bytes(b"not a pdf")
         with pytest.raises(DocumentParsingError, match="corrupt"):
+            PdfParser().parse(str(path))
+
+    def test_encrypted_pdf_is_rejected_with_clear_message(self, tmp_path):
+        from pypdf import PdfWriter
+        from app.services.document_parser import DocumentParsingError, PdfParser
+        path = tmp_path / "encrypted.pdf"
+        writer = PdfWriter()
+        writer.add_blank_page(width=612, height=792)
+        writer.encrypt("not-empty-password")
+        with path.open("wb") as stream:
+            writer.write(stream)
+        with pytest.raises(DocumentParsingError, match="Encrypted PDFs are not supported"):
             PdfParser().parse(str(path))
 
 

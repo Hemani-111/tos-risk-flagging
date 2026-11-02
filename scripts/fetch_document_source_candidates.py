@@ -17,7 +17,7 @@ from pathlib import Path
 from urllib.request import Request, urlopen
 from zoneinfo import ZoneInfo
 
-from PyPDF2 import PdfReader
+from pypdf import PdfReader
 
 ROOT = Path(__file__).resolve().parents[1]
 REGISTRY = ROOT / "data" / "review" / "document_sources_candidates_v1.csv"

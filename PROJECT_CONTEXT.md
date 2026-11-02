@@ -1,10 +1,10 @@
 # Project context
 
-Last updated: 2 November 2026
+Last updated: 3 November 2026
 
 ## Current milestone
 
-Phases 0 through 4 are complete. Phase 5 development error and uncertainty analysis is complete; its independent complete-document evaluation is prepared and awaits two human reviewers and adjudication. Phase 6 backend reliability is implemented and under verification. Phase 7 now provides tab-scoped result storage, all-class filtering/search and exports, plus a methodology page; manual UX review remains. Six official source snapshots are frozen locally (three consumer Terms of Service and three privacy policies); the first blind review round covers 951 clauses from the three terms documents. No replacement production model has been selected. The historical processed CSV, existing model artifacts, and notebooks remain unchanged.
+Phases 0 through 4 are complete. Phase 5 development analysis is complete; its independent document evaluation awaits two human reviewers and adjudication. Phase 6 backend reliability is implemented; Docker startup remains unverified because Docker Desktop is unavailable. Phase 7 provides tab-scoped results, all-class filters/search and export, with manual UX review pending. Phase 8 local verification is complete; production hosting checks remain open. Phase 9 report and presentation work remains. Six official source snapshots are frozen locally; the current blind review round covers 719 clauses from three consumer ToS documents. No replacement production model has been selected; existing model artifacts remain unchanged.
 
 ## Reproducible commands
 
@@ -41,9 +41,9 @@ Use the root `.venv` created with Python 3.11.9.
 
 - Windows 11, Intel i5-12450HX (8 cores/12 logical processors), 16 GB RAM; Python 3.11.9; Node 24.15.0; npm 11.6.1; Docker 29.7.2 / Compose 5.3.1.
 - Root dependencies include the backend requirements plus pandas 2.2.3, matplotlib 3.9.4, ipykernel 6.29.5, and langid 1.1.6. Backend pins match the model artifact's scikit-learn 1.9.0. The nonexistent aiofiles 23.3.1 pin was corrected to 23.2.1.
-- Backend tests pass (30); frontend lockfile install, lint, TypeScript/build, Docker Compose configuration, and a fixed local API smoke request pass. Details and warnings are in `progress/WORK_LOG.md`.
-- `npm ci` reported 19 advisories (14 moderate, 4 high, 1 critical), including a Next.js 14.0.3 security warning. Resolve in the planned deployment/security phase before public release.
+- Current verification: backend suite 45 passed, Ruff passed, frontend clean install/lint/build passed, `npm audit` reports 0, and `pip-audit` reports no known vulnerabilities for root requirements. Details are in `docs/DEPLOYMENT_READINESS_v1.md` and `progress/WORK_LOG.md`.
+- The old frontend audit had 19 advisories including a critical Next.js 14.0.3 issue; the supported Next.js 16.4.4 upgrade resolved the reported frontend advisories. The backend framework and parser dependencies were also updated.
 
 ## Next
 
-Continue Phase 6 with PDF page-offset mapping, encrypted-PDF regression coverage, and a hard request processing timeout. Docker Compose resolves the model mount, but container startup could not be verified because Docker Desktop is not running. Complete Phase 7 manual UX review. In parallel, obtain the two independent Phase 5 review sheets and adjudicate disagreements. Keep the locked test partitions untouched.
+Verify backend startup and model loading inside Docker when Docker Desktop is available; PDF page mapping, encrypted-PDF rejection, timeout handling and resource limits are implemented. Complete Phase 7 manual UX review and Phase 9 deliverables. Before public deployment, configure HTTPS, production CORS, rate limiting, monitoring and secret injection for a selected host. Obtain two Phase 5 reviewer sheets and adjudicate disagreements. Keep the locked test partitions untouched.

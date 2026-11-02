@@ -1,6 +1,8 @@
-import pytest
 import os
 import sys
+import time
+from io import BytesIO
+from threading import Event
 
 sys.path.insert(0, os.path.join(os.path.dirname(__file__), "..", ".."))
 
@@ -85,6 +87,30 @@ class TestAnalysisEndpoint:
         assert "clauses" in data
         assert data["filename"] == "test.txt"
 
+    def test_analyze_docx_file(self):
+        from docx import Document
+        document = Document()
+        document.add_paragraph("We may change these terms after providing notice to account holders.")
+        buffer = BytesIO()
+        document.save(buffer)
+        response = client.post(
+            "/api/v1/documents/analyze",
+            files={"file": ("terms.docx", buffer.getvalue(), "application/vnd.openxmlformats-officedocument.wordprocessingml.document")},
+        )
+        assert response.status_code == 200
+        assert response.json()["totalClauses"] == 1
+
+    def test_analyze_text_pdf_file(self):
+        from app.tests.test_utils import make_text_pdf
+        response = client.post(
+            "/api/v1/documents/analyze",
+            files={"file": ("terms.pdf", make_text_pdf("We may retain your account information to meet legal obligations."), "application/pdf")},
+        )
+        assert response.status_code == 200
+        assert response.json()["totalClauses"] == 1
+        assert response.json()["clauses"][0]["pageStart"] == 1
+        assert response.json()["clauses"][0]["pageEnd"] == 1
+
     def test_analyze_empty_file(self):
         response = client.post(
             "/api/v1/documents/analyze",
@@ -100,6 +126,55 @@ class TestAnalysisEndpoint:
             files={"file": ("large.txt", b"x" * 9, "text/plain")},
         )
         assert response.status_code == 413
+
+    def test_clause_count_limit_is_enforced(self, monkeypatch):
+        from app.api.routes import analysis
+        monkeypatch.setattr(analysis.settings, "MAX_CLAUSES", 1)
+        text = "We collect personal information for service delivery. We may share data with processors."
+        response = client.post("/api/v1/documents/analyze-text", json={"text": text})
+        assert response.status_code == 413
+
+    def test_analysis_timeout_returns_gateway_timeout_and_cleans_upload(self, monkeypatch, tmp_path):
+        from app.api.routes import analysis
+        real_named_temp = analysis.tempfile.NamedTemporaryFile
+        created_paths = []
+        finished = Event()
+        cleaned = Event()
+
+        def tracked_temp_file(*args, **kwargs):
+            kwargs["dir"] = tmp_path
+            temp_file = real_named_temp(*args, **kwargs)
+            created_paths.append(temp_file.name)
+            return temp_file
+
+        original_predict = analysis.predictor.predict
+
+        def slow_predict(clauses):
+            try:
+                time.sleep(0.5)
+                return original_predict(clauses)
+            finally:
+                finished.set()
+
+        original_remove = analysis._remove_temp_file
+
+        def tracked_remove(path):
+            original_remove(path)
+            cleaned.set()
+
+        monkeypatch.setattr(analysis.tempfile, "NamedTemporaryFile", tracked_temp_file)
+        monkeypatch.setattr(analysis, "_remove_temp_file", tracked_remove)
+        monkeypatch.setattr(analysis.predictor, "predict", slow_predict)
+        monkeypatch.setattr(analysis.settings, "ANALYSIS_TIMEOUT_SECONDS", 0.2)
+        response = client.post(
+            "/api/v1/documents/analyze",
+            files={"file": ("slow.txt", b"This is a sufficiently long clause for timeout verification.", "text/plain")},
+        )
+        assert response.status_code == 504
+        assert finished.wait(timeout=2)
+        assert cleaned.wait(timeout=2)
+        assert len(created_paths) == 1
+        assert not os.path.exists(created_paths[0])
 
     def test_analyze_unsupported_extension(self):
         response = client.post(

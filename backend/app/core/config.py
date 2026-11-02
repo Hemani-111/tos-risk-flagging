@@ -1,5 +1,3 @@
-import os
-from typing import Optional
 from pydantic_settings import BaseSettings
 
 
@@ -16,7 +14,9 @@ class Settings(BaseSettings):
     MAX_EXTRACTED_CHARS: int = 2_000_000
     MAX_CLAUSES: int = 5_000
     MAX_CONCURRENT_ANALYSES: int = 2
+    ANALYSIS_TIMEOUT_SECONDS: int = 45
     PDF_MAX_PAGES: int = 200
+    CORS_ORIGINS_STR: str = "http://localhost:3000,http://127.0.0.1:3000"
     
     # Document retention in seconds (default: 1 hour)
     DOCUMENT_RETENTION_SECONDS: int = 3600
