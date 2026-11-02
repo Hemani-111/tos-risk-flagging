@@ -56,6 +56,17 @@ Policy snapshots under `data/review/snapshots_v1/`, embedding caches, and source
 
 Compose syntax has passed `docker compose config --quiet`; Docker image build, startup, mounted model loading, and real container analysis have not been verified because the Docker Desktop Linux engine was unavailable in the recorded environment.
 
+**Exact failure observed** (`docker info`):
+
+```
+Server:
+docker : failed to connect to the docker API at npipe:////./pipe/dockerDesktopLinuxEngine; check if the path is
+correct and if the daemon is running: open //./pipe/dockerDesktopLinuxEngine: The system cannot find the file
+specified.
+```
+
+The Docker client (29.7.2) and Compose plugin (5.3.1) are installed, but the server daemon is not reachable at the expected named pipe. Until Docker Desktop is running and the Linux engine is available, container verification cannot proceed.
+
 When Docker is available, resume with:
 
 ```powershell
