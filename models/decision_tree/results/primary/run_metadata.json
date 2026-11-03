@@ -1,0 +1,344 @@
+{
+  "run_id": "expanded_classical_primary_v1",
+  "created_at_utc": "2026-11-02T20:41:22.202689+00:00",
+  "git_revision": "470f59cb11227a28f9910095b9584a8330e5f502",
+  "protocol": "primary",
+  "split_id": "split_manifest_v1",
+  "dataset_sha256": "cee557cc927d754cf17675154ed5e1e32eee2fdb9af6700c526e62cd66969f8c",
+  "locked_test_used": false,
+  "selection_partition": "three fixed group folds within training; per-family max mean macro F1",
+  "folds": [
+    0,
+    1,
+    2
+  ],
+  "group_column": "service_component",
+  "train_rows": 13439,
+  "validation_rows": 2658,
+  "svd_components": 100,
+  "features": "word unigram/bigram TF-IDF max_features=60000, then training-fold TruncatedSVD",
+  "parameter_grid": {
+    "decision_tree": [
+      {
+        "max_depth": 15,
+        "min_samples_leaf": 2,
+        "ccp_alpha": 0.0,
+        "class_weight": "balanced"
+      },
+      {
+        "max_depth": 15,
+        "min_samples_leaf": 2,
+        "ccp_alpha": 0.001,
+        "class_weight": "balanced"
+      },
+      {
+        "max_depth": 15,
+        "min_samples_leaf": 10,
+        "ccp_alpha": 0.0,
+        "class_weight": "balanced"
+      },
+      {
+        "max_depth": 15,
+        "min_samples_leaf": 10,
+        "ccp_alpha": 0.001,
+        "class_weight": "balanced"
+      },
+      {
+        "max_depth": 30,
+        "min_samples_leaf": 2,
+        "ccp_alpha": 0.0,
+        "class_weight": "balanced"
+      },
+      {
+        "max_depth": 30,
+        "min_samples_leaf": 2,
+        "ccp_alpha": 0.001,
+        "class_weight": "balanced"
+      },
+      {
+        "max_depth": 30,
+        "min_samples_leaf": 10,
+        "ccp_alpha": 0.0,
+        "class_weight": "balanced"
+      },
+      {
+        "max_depth": 30,
+        "min_samples_leaf": 10,
+        "ccp_alpha": 0.001,
+        "class_weight": "balanced"
+      },
+      {
+        "max_depth": null,
+        "min_samples_leaf": 2,
+        "ccp_alpha": 0.0,
+        "class_weight": "balanced"
+      },
+      {
+        "max_depth": null,
+        "min_samples_leaf": 2,
+        "ccp_alpha": 0.001,
+        "class_weight": "balanced"
+      },
+      {
+        "max_depth": null,
+        "min_samples_leaf": 10,
+        "ccp_alpha": 0.0,
+        "class_weight": "balanced"
+      },
+      {
+        "max_depth": null,
+        "min_samples_leaf": 10,
+        "ccp_alpha": 0.001,
+        "class_weight": "balanced"
+      }
+    ],
+    "random_forest": [
+      {
+        "n_estimators": 100,
+        "max_depth": 25,
+        "min_samples_leaf": 2,
+        "max_features": "sqrt",
+        "class_weight": "balanced_subsample",
+        "n_jobs": 4
+      },
+      {
+        "n_estimators": 100,
+        "max_depth": 25,
+        "min_samples_leaf": 5,
+        "max_features": "sqrt",
+        "class_weight": "balanced_subsample",
+        "n_jobs": 4
+      },
+      {
+        "n_estimators": 100,
+        "max_depth": null,
+        "min_samples_leaf": 2,
+        "max_features": "sqrt",
+        "class_weight": "balanced_subsample",
+        "n_jobs": 4
+      },
+      {
+        "n_estimators": 100,
+        "max_depth": null,
+        "min_samples_leaf": 5,
+        "max_features": "sqrt",
+        "class_weight": "balanced_subsample",
+        "n_jobs": 4
+      },
+      {
+        "n_estimators": 200,
+        "max_depth": 25,
+        "min_samples_leaf": 2,
+        "max_features": "sqrt",
+        "class_weight": "balanced_subsample",
+        "n_jobs": 4
+      },
+      {
+        "n_estimators": 200,
+        "max_depth": 25,
+        "min_samples_leaf": 5,
+        "max_features": "sqrt",
+        "class_weight": "balanced_subsample",
+        "n_jobs": 4
+      },
+      {
+        "n_estimators": 200,
+        "max_depth": null,
+        "min_samples_leaf": 2,
+        "max_features": "sqrt",
+        "class_weight": "balanced_subsample",
+        "n_jobs": 4
+      },
+      {
+        "n_estimators": 200,
+        "max_depth": null,
+        "min_samples_leaf": 5,
+        "max_features": "sqrt",
+        "class_weight": "balanced_subsample",
+        "n_jobs": 4
+      }
+    ],
+    "hist_gradient_boosting": [
+      {
+        "max_iter": 100,
+        "learning_rate": 0.05,
+        "max_leaf_nodes": 15,
+        "l2_regularization": 1.0,
+        "early_stopping": false
+      },
+      {
+        "max_iter": 100,
+        "learning_rate": 0.05,
+        "max_leaf_nodes": 31,
+        "l2_regularization": 1.0,
+        "early_stopping": false
+      },
+      {
+        "max_iter": 100,
+        "learning_rate": 0.1,
+        "max_leaf_nodes": 15,
+        "l2_regularization": 1.0,
+        "early_stopping": false
+      },
+      {
+        "max_iter": 100,
+        "learning_rate": 0.1,
+        "max_leaf_nodes": 31,
+        "l2_regularization": 1.0,
+        "early_stopping": false
+      },
+      {
+        "max_iter": 200,
+        "learning_rate": 0.05,
+        "max_leaf_nodes": 15,
+        "l2_regularization": 1.0,
+        "early_stopping": false
+      },
+      {
+        "max_iter": 200,
+        "learning_rate": 0.05,
+        "max_leaf_nodes": 31,
+        "l2_regularization": 1.0,
+        "early_stopping": false
+      },
+      {
+        "max_iter": 200,
+        "learning_rate": 0.1,
+        "max_leaf_nodes": 15,
+        "l2_regularization": 1.0,
+        "early_stopping": false
+      },
+      {
+        "max_iter": 200,
+        "learning_rate": 0.1,
+        "max_leaf_nodes": 31,
+        "l2_regularization": 1.0,
+        "early_stopping": false
+      }
+    ],
+    "knn": [
+      {
+        "n_neighbors": 5,
+        "weights": "uniform",
+        "metric": "euclidean",
+        "n_jobs": 4
+      },
+      {
+        "n_neighbors": 5,
+        "weights": "uniform",
+        "metric": "manhattan",
+        "n_jobs": 4
+      },
+      {
+        "n_neighbors": 5,
+        "weights": "distance",
+        "metric": "euclidean",
+        "n_jobs": 4
+      },
+      {
+        "n_neighbors": 5,
+        "weights": "distance",
+        "metric": "manhattan",
+        "n_jobs": 4
+      },
+      {
+        "n_neighbors": 15,
+        "weights": "uniform",
+        "metric": "euclidean",
+        "n_jobs": 4
+      },
+      {
+        "n_neighbors": 15,
+        "weights": "uniform",
+        "metric": "manhattan",
+        "n_jobs": 4
+      },
+      {
+        "n_neighbors": 15,
+        "weights": "distance",
+        "metric": "euclidean",
+        "n_jobs": 4
+      },
+      {
+        "n_neighbors": 15,
+        "weights": "distance",
+        "metric": "manhattan",
+        "n_jobs": 4
+      },
+      {
+        "n_neighbors": 31,
+        "weights": "uniform",
+        "metric": "euclidean",
+        "n_jobs": 4
+      },
+      {
+        "n_neighbors": 31,
+        "weights": "uniform",
+        "metric": "manhattan",
+        "n_jobs": 4
+      },
+      {
+        "n_neighbors": 31,
+        "weights": "distance",
+        "metric": "euclidean",
+        "n_jobs": 4
+      },
+      {
+        "n_neighbors": 31,
+        "weights": "distance",
+        "metric": "manhattan",
+        "n_jobs": 4
+      }
+    ]
+  },
+  "selected_per_family": {
+    "decision_tree": {
+      "parameters": {
+        "ccp_alpha": 0.001,
+        "class_weight": "balanced",
+        "max_depth": 30,
+        "min_samples_leaf": 2
+      },
+      "cv_macro_f1_mean": 0.6681165887068629,
+      "cv_macro_f1_sd": 0.00698143846566459
+    },
+    "hist_gradient_boosting": {
+      "parameters": {
+        "early_stopping": false,
+        "l2_regularization": 1.0,
+        "learning_rate": 0.1,
+        "max_iter": 200,
+        "max_leaf_nodes": 31
+      },
+      "cv_macro_f1_mean": 0.7930588012157432,
+      "cv_macro_f1_sd": 0.00248048603169094
+    },
+    "knn": {
+      "parameters": {
+        "metric": "euclidean",
+        "n_jobs": 4,
+        "n_neighbors": 15,
+        "weights": "distance"
+      },
+      "cv_macro_f1_mean": 0.7847889379604265,
+      "cv_macro_f1_sd": 0.005461445448320014
+    },
+    "random_forest": {
+      "parameters": {
+        "class_weight": "balanced_subsample",
+        "max_depth": null,
+        "max_features": "sqrt",
+        "min_samples_leaf": 2,
+        "n_estimators": 200,
+        "n_jobs": 4
+      },
+      "cv_macro_f1_mean": 0.7796934052703896,
+      "cv_macro_f1_sd": 0.0018586277516220477
+    }
+  },
+  "environment": {
+    "python": "3.11.9",
+    "sklearn": "1.9.0",
+    "numpy": "2.4.6"
+  }
+}

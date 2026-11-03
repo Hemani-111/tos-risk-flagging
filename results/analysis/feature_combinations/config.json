@@ -1,0 +1,42 @@
+{
+  "analysis": "feature_combinations",
+  "description": "Word + character TF-IDF combinations and lexical feature ablations. Tests whether adding character n-grams or hand-crafted lexical indicators improves over word-only TF-IDF.",
+  "shared_script": "scripts/run_remaining_feature_experiments.py",
+  "entry_point": "results/analysis/feature_combinations/run.py",
+  "protocols": ["primary", "clause"],
+  "feature_representations": [
+    "word unigram/bigram TF-IDF only",
+    "word 1-2gram + character 3-5gram TF-IDF (independently learned, horizontally concatenated)",
+    "lexical-only indicators (log_chars, log_words, mean_word_length, log_sentences, readability_heuristic, contains_negation)",
+    "word TF-IDF + lexical indicators combined"
+  ],
+  "canonical_outputs": {
+    "primary": {
+      "word_char_validation": "results/experiments/remaining_features_primary_v1/word_char_validation.csv",
+      "word_char_group_cv": "results/experiments/remaining_features_primary_v1/word_char_group_cv.csv",
+      "lexical_ablation_cv": "results/experiments/lexical_ablation_primary_v1/cv_summary.csv",
+      "lexical_ablation_fold_metrics": "results/experiments/lexical_ablation_primary_v1/cv_fold_metrics.csv"
+    },
+    "clause": {
+      "word_char_validation": "results/experiments/remaining_features_clause_v1/word_char_validation.csv",
+      "word_char_group_cv": "results/experiments/remaining_features_clause_v1/word_char_group_cv.csv",
+      "lexical_ablation_cv": "results/experiments/lexical_ablation_clause_v1/cv_summary.csv",
+      "lexical_ablation_fold_metrics": "results/experiments/lexical_ablation_clause_v1/cv_fold_metrics.csv"
+    }
+  },
+  "key_findings": {
+    "primary": {
+      "word_only_linear_svm_macro_f1": 0.820063,
+      "word_char_linear_svm_macro_f1": 0.818029,
+      "lexical_only_linear_svm_macro_f1": 0.4449,
+      "word_plus_lexical_linear_svm_macro_f1": 0.8319
+    },
+    "clause": {
+      "word_only_linear_svm_macro_f1": 0.819472,
+      "word_char_linear_svm_macro_f1": 0.818414,
+      "lexical_only_linear_svm_macro_f1": 0.4437,
+      "word_plus_lexical_linear_svm_macro_f1": 0.8395
+    }
+  },
+  "conclusion": "Word+character slightly trails word-only; lexical indicators alone are weak (~0.44); combined word+lexical gives marginal gains at much higher cost. Word-only TF-IDF remains the best practical choice."
+}

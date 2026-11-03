@@ -1,0 +1,42 @@
+{
+  "method": "sentence_embeddings_logistic_regression",
+  "family": "sentence_embedding",
+  "description": "Frozen sentence-embedding encoder (sentence-transformers/all-MiniLM-L6-v2, revision b9db1e8a0d3a51769172ba8546f282a73f066e47, Apache-2.0, English, 384 dims, 256 wordpieces) + Logistic Regression classifier. Local CPU inference only; no remote API calls.",
+  "implementation_script": "scripts/run_remaining_feature_experiments.py",
+  "entry_point": "models/sentence_embeddings_logistic_regression/run.py",
+  "protocol": ["primary", "clause"],
+  "feature_representation": "MiniLM-L6-v2 frozen embeddings (384-dimensional), optionally PCA-reduced to 64 or 128 components (training-fold fitted)",
+  "encoder": "sentence-transformers/all-MiniLM-L6-v2",
+  "encoder_revision": "b9db1e8a0d3a51769172ba8546f282a73f066e47",
+  "encoder_license": "Apache-2.0",
+  "encoder_dimensions": 384,
+  "encoder_max_input": "256 wordpieces",
+  "encoder_language": "English",
+  "encoder_inference": "Local CPU; cached embeddings keyed by text checksum and encoder revision",
+  "classifier": "LogisticRegression (C in {0.1, 1.0, 10.0}, class_weight=balanced, max_iter=3000)",
+  "pca_options": [null, 64, 128],
+  "seed": 20261102,
+  "locked_test_used": false,
+  "development_results": {
+    "primary": {
+      "run_id": "remaining_features_primary_v1",
+      "metrics": "results/experiments/remaining_features_primary_v1/embedding_selected_validation.csv",
+      "cv_summary": "results/experiments/remaining_features_primary_v1/embedding_group_cv_summary.csv",
+      "cv_fold_metrics": "results/experiments/remaining_features_primary_v1/embedding_group_cv.csv",
+      "predictions": "results/experiments/remaining_features_primary_v1/embedding_selected_validation_predictions.csv",
+      "run_metadata": "results/experiments/remaining_features_primary_v1/run_metadata.json"
+    },
+    "clause": {
+      "run_id": "remaining_features_clause_v1",
+      "metrics": "results/experiments/remaining_features_clause_v1/embedding_selected_validation.csv",
+      "cv_summary": "results/experiments/remaining_features_clause_v1/embedding_group_cv_summary.csv",
+      "cv_fold_metrics": "results/experiments/remaining_features_clause_v1/embedding_group_cv.csv",
+      "predictions": "results/experiments/remaining_features_clause_v1/embedding_selected_validation_predictions.csv",
+      "run_metadata": "results/experiments/remaining_features_clause_v1/run_metadata.json"
+    }
+  },
+  "embedding_cache": "data/cache/embeddings/ (local, ignored by Git; keyed by text checksum + encoder revision)",
+  "artifact_note": "Embedding weights are NOT duplicated across folders. The encoder is loaded once locally. Development-only fitted classifier can be saved with models/sentence_embeddings_logistic_regression/run.py --save-artifact. Production release is models/releases/linear-svc-primary-v2/ (lexical TF-IDF LinearSVC, not embeddings).",
+  "smoke_command": "python models/sentence_embeddings_logistic_regression/run.py --protocol primary --smoke",
+  "full_command": "python scripts/run_remaining_feature_experiments.py"
+}

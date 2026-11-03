@@ -43,7 +43,27 @@ Use the root `.venv` created with Python 3.11.9.
 - Split artifacts are `data/splits/split_manifest_v1.csv` and `.json`, based on dataset SHA-256 `cee557cc927d754cf17675154ed5e1e32eee2fdb9af6700c526e62cd66969f8c`, fixed seed 20261102. Primary unseen-service included rows: 13,439/2,658/2,585. Secondary duplicate-aware clause rows: 13,434/2,607/2,602. Exact text/document/service isolation is asserted; detected near-pair crossings after exclusion are zero.
 - Development experiment code must use `src.splitting.py::load_development_bundle` so locked-test text and labels are not materialized while selecting development rows. `load_split_bundle` loads all partitions and is reserved for explicitly authorized final evaluation workflows. The two locked protocols have already been scored once after freeze; do not repeat or tune from those scores.
 
-## Baseline environment
+## Model experiment folders (end-semester navigation)
+
+Each classifier and analysis experiment has a clearly named folder under `models/` or `results/analysis/` with `README.md`, `run.py`, `config.json`, `code.ipynb`, `results/{primary,clause}/`, and `artifacts/`:
+
+| Method | Folder | Entry point |
+|--------|--------|-------------|
+| Decision Tree | `models/decision_tree/` | `python models/decision_tree/run.py --protocol both` |
+| Random Forest | `models/random_forest/` | `python models/random_forest/run.py --protocol both` |
+| Gradient Boosting | `models/gradient_boosting/` | `python models/gradient_boosting/run.py --protocol both` |
+| KNN | `models/knn/` | `python models/knn/run.py --protocol both` |
+| Complement Naive Bayes | `models/complement_naive_bayes/` | `python models/complement_naive_bayes/run.py --protocol both` |
+| Voting Ensemble | `models/voting_ensemble/` | `python models/voting_ensemble/run.py --protocol both` |
+| Stacking Ensemble | `models/stacking_ensemble/` | `python models/stacking_ensemble/run.py --protocol both` |
+| Sentence Embeddings + Logistic Regression | `models/sentence_embeddings_logistic_regression/` | `python models/sentence_embeddings_logistic_regression/run.py --protocol both` |
+| Sentence Embeddings + Linear SVM | `models/sentence_embeddings_linear_svm/` | `python models/sentence_embeddings_linear_svm/run.py --protocol both` |
+
+Analysis experiments under `results/analysis/{feature_combinations,dimensionality_reduction,clustering,learning_curves,calibration}/`.
+
+Consolidated inventory: `docs/EXPERIMENT_INVENTORY.md`. Production release: `models/releases/linear-svc-primary-v2/`. Rollback: `models/selected_model/`.
+
+## Reproducible commands (continued)
 
 - Windows 11, Intel i5-12450HX (8 cores/12 logical processors), 16 GB RAM; Python 3.11.9; Node 24.15.0; npm 11.6.1; Docker 29.7.2 / Compose 5.3.1.
 - Root dependencies include the backend requirements plus pandas 2.2.3, matplotlib 3.9.4, ipykernel 6.29.5, and langid 1.1.6. Backend pins match the model artifact's scikit-learn 1.9.0. The nonexistent aiofiles 23.3.1 pin was corrected to 23.2.1.

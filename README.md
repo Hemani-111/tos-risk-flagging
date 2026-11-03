@@ -139,6 +139,33 @@ python scripts\build_experiment_registry.py
 
 These experiment scripts use only included train/validation records through `load_development_bundle`. The checked-in registry records the completed one-time locked evaluation. Do not rerun the locked evaluation for model selection; see [Candidate Freeze](docs/FINAL_CANDIDATE_FREEZE.md) and [Locked Test Evaluation](docs/LOCKED_TEST_EVALUATION_v1.md).
 
+## Find each model
+
+Each classifier and analysis experiment has a clearly named folder with a runnable entry point, configuration, notebook, results, and (where practical) a saved artifact:
+
+| Method | Folder | Entry point |
+|--------|--------|-------------|
+| Decision Tree | `models/decision_tree/` | `python models/decision_tree/run.py --protocol both` |
+| Random Forest | `models/random_forest/` | `python models/random_forest/run.py --protocol both` |
+| Gradient Boosting | `models/gradient_boosting/` | `python models/gradient_boosting/run.py --protocol both` |
+| KNN | `models/knn/` | `python models/knn/run.py --protocol both` |
+| Complement Naive Bayes | `models/complement_naive_bayes/` | `python models/complement_naive_bayes/run.py --protocol both` |
+| Voting Ensemble | `models/voting_ensemble/` | `python models/voting_ensemble/run.py --protocol both` |
+| Stacking Ensemble | `models/stacking_ensemble/` | `python models/stacking_ensemble/run.py --protocol both` |
+| Sentence Embeddings + Logistic Regression | `models/sentence_embeddings_logistic_regression/` | `python models/sentence_embeddings_logistic_regression/run.py --protocol both` |
+| Sentence Embeddings + Linear SVM | `models/sentence_embeddings_linear_svm/` | `python models/sentence_embeddings_linear_svm/run.py --protocol both` |
+
+Each folder contains `README.md` (what/why/results/limitations), `run.py` (thin entry point calling shared code), `config.json` (reproducible settings), `code.ipynb` (educational notebook), `results/{primary,clause}/` (metrics, predictions, confusion matrices), and `artifacts/` (fitted development pipeline after `--save-artifact`).
+
+Analysis experiments are under `results/analysis/{feature_combinations,dimensionality_reduction,clustering,learning_curves,calibration}/` with the same structure.
+
+The consolidated experiment inventory is in `docs/EXPERIMENT_INVENTORY.md` with exact paths, scores, and status for every method.
+
+To rebuild the serving package:
+```powershell
+python scripts\build_frozen_model_package.py
+```
+
 To rebuild the serving package after a source or environment change, follow the committed freeze and inspect the new hashes before switching runtime configuration:
 
 ```powershell

@@ -1,0 +1,76 @@
+{
+  "run_id": "remaining_features_primary_v1",
+  "created_at_utc": "2026-11-02T20:58:38.486064+00:00",
+  "git_revision": "6b310471ee97645b465570a174900669cfd6e9d1",
+  "protocol": "primary",
+  "split_id": "split_manifest_v1",
+  "dataset_sha256": "cee557cc927d754cf17675154ed5e1e32eee2fdb9af6700c526e62cd66969f8c",
+  "locked_test_used": false,
+  "selection_metric": "macro F1",
+  "group_column": "service_component",
+  "folds": [
+    0,
+    1,
+    2
+  ],
+  "train_rows": 13439,
+  "validation_rows": 2658,
+  "embedding_cache": {
+    "repository": "sentence-transformers/all-MiniLM-L6-v2",
+    "revision": "b9db1e8a0d3a51769172ba8546f282a73f066e47",
+    "license": "Apache-2.0 (model repository card)",
+    "language_scope": "English",
+    "dimension": 384,
+    "maximum_wordpieces": 256,
+    "long_input_policy": "truncate to 256 wordpieces; no chunking",
+    "truncated_rows": 0,
+    "truncated_fraction": 0.0,
+    "model_file": "data\\cache\\encoders\\all-MiniLM-L6-v2_b9db1e8a\\onnx\\model.onnx",
+    "model_sha256": "6fd5d72fe4589f189f8ebc006442dbb529bb7ce38f8082112682524616046452",
+    "tokenizer_file": "data\\cache\\encoders\\all-MiniLM-L6-v2_b9db1e8a\\tokenizer.json",
+    "tokenizer_sha256": "be50c3628f2bf5bb5e3a7f17b1f74611b2561a3a27eeab05e5aa30f411572037",
+    "onnxruntime_version": "1.31.1",
+    "provider": [
+      "CPUExecutionProvider"
+    ],
+    "batch_size": 16,
+    "inference_seconds": 636.2278406000114,
+    "rows_per_second": 29.289821681531215,
+    "dataset_sha256": "cee557cc927d754cf17675154ed5e1e32eee2fdb9af6700c526e62cd66969f8c",
+    "development_point_ids_sha256": "0cc81441a1dcd3a51aa4be2966db5176ca1cc37d444f574342a86f4fbdb846b7",
+    "development_text_sha256": "17fd2a5ce66deb68e0fd8ac4f9fa22c64b112a406798f0f43b6e623b1817698d",
+    "protocols_included": [
+      "primary",
+      "clause"
+    ],
+    "locked_test_used": false,
+    "capped_run": false,
+    "git_revision": "6b310471ee97645b465570a174900669cfd6e9d1",
+    "created_at_utc": "2026-11-02T20:56:21.844295+00:00",
+    "cache_file": "data\\cache\\embeddings\\all-MiniLM-L6-v2_b9db1e8a_0cc81441a1dc.npz",
+    "cache_sha256": "9e2106239dff6efebda039acb8deb5e343fee77898e15bf29d1a56408bc28c83"
+  },
+  "embedding_search": {
+    "families": [
+      "logistic_regression",
+      "linear_svc"
+    ],
+    "C": [
+      0.1,
+      1.0,
+      10.0
+    ],
+    "PCA dimensions": [
+      null,
+      64,
+      128
+    ]
+  },
+  "word_char": "word 1-2gram plus character 3-5gram TF-IDF; independently learned and horizontally concatenated",
+  "learning_curve": "five group fractions, three random group samples each; fixed validation partition",
+  "environment": {
+    "python": "3.11.9",
+    "sklearn": "1.9.0",
+    "numpy": "2.4.6"
+  }
+}

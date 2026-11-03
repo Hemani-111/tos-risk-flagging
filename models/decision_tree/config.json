@@ -1,0 +1,41 @@
+{
+  "method": "decision_tree",
+  "family": "tree",
+  "description": "Decision tree classifier on word unigram/bigram TF-IDF reduced with training-fold TruncatedSVD (100 components). Bounded group-CV tuning over max_depth, min_samples_leaf, and ccp_alpha.",
+  "implementation_script": "scripts/run_expanded_classical_tuning.py",
+  "entry_point": "models/decision_tree/run.py",
+  "protocol": ["primary", "clause"],
+  "feature_representation": "word unigram/bigram TF-IDF (max_features=60000, min_df=2, max_df=0.99, sublinear_tf=True) -> training-fold TruncatedSVD (100 components)",
+  "tuning_grid": {
+    "max_depth": [15, 30, null],
+    "min_samples_leaf": [2, 10],
+    "ccp_alpha": [0.0, 0.001],
+    "class_weight": ["balanced"],
+    "random_state": 20261102
+  },
+  "seed": 20261102,
+  "locked_test_used": false,
+  "development_results": {
+    "primary": {
+      "run_id": "expanded_classical_primary_v1",
+      "metrics": "results/experiments/expanded_classical_primary_v1/validation_selected_family_metrics.csv",
+      "confusion_matrix": "results/experiments/expanded_classical_primary_v1/decision_tree_validation_confusion.csv",
+      "predictions": "results/experiments/expanded_classical_primary_v1/validation_selected_family_predictions.csv",
+      "cv_summary": "results/experiments/expanded_classical_primary_v1/cv_summary.csv",
+      "cv_fold_metrics": "results/experiments/expanded_classical_primary_v1/cv_fold_metrics.csv",
+      "run_metadata": "results/experiments/expanded_classical_primary_v1/run_metadata.json"
+    },
+    "clause": {
+      "run_id": "expanded_classical_clause_v1",
+      "metrics": "results/experiments/expanded_classical_clause_v1/validation_selected_family_metrics.csv",
+      "confusion_matrix": "results/experiments/expanded_classical_clause_v1/decision_tree_validation_confusion.csv",
+      "predictions": "results/experiments/expanded_classical_clause_v1/validation_selected_family_predictions.csv",
+      "cv_summary": "results/experiments/expanded_classical_clause_v1/cv_summary.csv",
+      "cv_fold_metrics": "results/experiments/expanded_classical_clause_v1/cv_fold_metrics.csv",
+      "run_metadata": "results/experiments/expanded_classical_clause_v1/run_metadata.json"
+    }
+  },
+  "artifact_note": "Development-only fitted model not serialized by the shared tuning script. Run models/decision_tree/run.py --save-artifact to persist a fitted development model/pipeline to models/decision_tree/artifacts/. The production release is models/releases/linear-svc-primary-v2/ (LinearSVC, not Decision Tree).",
+  "smoke_command": "python models/decision_tree/run.py --protocol primary --smoke",
+  "full_command": "python scripts/run_expanded_classical_tuning.py --protocol both"
+}

@@ -1,0 +1,20 @@
+{
+  "analysis": "dimensionality_reduction",
+  "description": "PCA on dense embeddings and Truncated SVD on sparse TF-IDF. PCA/SVD are feature transforms, not supervised classifiers. Tests whether reducing dimensionality improves or harms downstream classification.",
+  "shared_script": "scripts/run_remaining_feature_experiments.py",
+  "entry_point": "results/analysis/dimensionality_reduction/run.py",
+  "protocols": ["primary", "clause"],
+  "methods": {
+    "pca_on_embeddings": {
+      "description": "PCA (64 or 128 components) fitted within training folds on MiniLM embeddings; compared against raw 384-d embeddings",
+      "canonical_output": "results/experiments/remaining_features_{protocol}_v1/embedding_group_cv.csv",
+      "finding": "PCA reduces embedding scores; raw 384-d embeddings are best among embedding configs, but still below lexical TF-IDF"
+    },
+    "truncated_svd": {
+      "description": "TruncatedSVD (100 components) fitted within training folds on sparse TF-IDF; used as dense representation for tree, forest, boosting, KNN, and RBF SVM",
+      "canonical_output": "results/experiments/benchmark_{protocol}_wordtfidf_v1/run_metadata.json (dense_reduction section)",
+      "finding": "Required for dense models on sparse text; explains representation gap between sparse linear models and dense tree/boosting models"
+    }
+  },
+  "key_finding": "PCA/SVD are dimensionality-reduction transforms, not classifiers. They do not produce classification scores on their own; downstream model performance reflects the classifier + transform combination."
+}

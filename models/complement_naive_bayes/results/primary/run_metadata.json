@@ -1,0 +1,271 @@
+{
+  "run_id": "benchmark_primary_wordtfidf_v1",
+  "created_at_utc": "2026-11-01T20:46:26.639167+00:00",
+  "git_revision": "dabd342ab24e2d0cec34eaa3f173144d04e0185d",
+  "protocol": "primary",
+  "split_id": "split_manifest_v1",
+  "seed": 20261102,
+  "selection_partition": "validation",
+  "locked_test_used": false,
+  "train_rows": 13439,
+  "validation_rows": 2658,
+  "train_ids_sha256": "77bdf9bc0b6e83ace73429e4fd5fef4b24475bdd691fdca2a7a122d63192a665",
+  "validation_ids_sha256": "3c49edd25381737c96654502252610f2448b69a6271ae476ce04f9f28316f27c",
+  "dataset_sha256": "cee557cc927d754cf17675154ed5e1e32eee2fdb9af6700c526e62cd66969f8c",
+  "sparse_feature_settings": {
+    "analyzer": "word",
+    "binary": false,
+    "decode_error": "strict",
+    "dtype": "<class 'numpy.float32'>",
+    "encoding": "utf-8",
+    "input": "content",
+    "lowercase": true,
+    "max_df": 0.99,
+    "max_features": 60000,
+    "min_df": 2,
+    "ngram_range": [
+      1,
+      2
+    ],
+    "norm": "l2",
+    "preprocessor": null,
+    "smooth_idf": true,
+    "stop_words": null,
+    "strip_accents": "unicode",
+    "sublinear_tf": true,
+    "token_pattern": "(?u)\\b\\w\\w+\\b",
+    "tokenizer": null,
+    "use_idf": true,
+    "vocabulary": null
+  },
+  "dense_reduction": {
+    "method": "TruncatedSVD",
+    "components": 100,
+    "train_fit_seconds": 1.3676695000031032,
+    "explained_variance_ratio_sum": 0.16452307999134064
+  },
+  "vectorizer_fit_seconds": 0.8012645000126213,
+  "feature_shape": {
+    "train": [
+      13439,
+      44489
+    ],
+    "validation": [
+      2658,
+      44489
+    ]
+  },
+  "dense_shape": {
+    "train": [
+      13439,
+      100
+    ],
+    "validation": [
+      2658,
+      100
+    ]
+  },
+  "environment": {
+    "python": "3.11.9",
+    "platform": "Windows-10-10.0.26200-SP0",
+    "sklearn": "1.9.0",
+    "numpy": "2.4.6",
+    "pandas": "2.2.3",
+    "scipy": "1.17.1"
+  },
+  "warnings": {
+    "dummy_prior": [],
+    "multinomial_nb": [],
+    "complement_nb": [],
+    "logistic_regression": [],
+    "linear_svm": [],
+    "rbf_svm_svd": [],
+    "decision_tree_svd": [],
+    "random_forest_svd": [],
+    "hist_gradient_boosting_svd": [
+      "UserWarning: Could not find the number of physical cores for the following reason:\n[WinError 2] The system cannot find the file specified\nReturning the number of logical cores instead. You can silence this warning by setting LOKY_MAX_CPU_COUNT to the number of cores you want to use."
+    ],
+    "knn_svd": []
+  },
+  "models": [
+    {
+      "name": "dummy_prior",
+      "representation": "sparse_word_tfidf_uni_bi",
+      "parameters": {
+        "constant": null,
+        "random_state": null,
+        "strategy": "prior"
+      }
+    },
+    {
+      "name": "multinomial_nb",
+      "representation": "sparse_word_tfidf_uni_bi",
+      "parameters": {
+        "alpha": 0.1,
+        "class_prior": null,
+        "fit_prior": true,
+        "force_alpha": true
+      }
+    },
+    {
+      "name": "complement_nb",
+      "representation": "sparse_word_tfidf_uni_bi",
+      "parameters": {
+        "alpha": 0.1,
+        "class_prior": null,
+        "fit_prior": true,
+        "force_alpha": true,
+        "norm": false
+      }
+    },
+    {
+      "name": "logistic_regression",
+      "representation": "sparse_word_tfidf_uni_bi",
+      "parameters": {
+        "C": 1.0,
+        "class_weight": null,
+        "dual": false,
+        "fit_intercept": true,
+        "intercept_scaling": 1,
+        "l1_ratio": 0.0,
+        "max_iter": 1500,
+        "n_jobs": null,
+        "penalty": "deprecated",
+        "random_state": 20261102,
+        "solver": "lbfgs",
+        "tol": 0.0001,
+        "verbose": 0,
+        "warm_start": false
+      }
+    },
+    {
+      "name": "linear_svm",
+      "representation": "sparse_word_tfidf_uni_bi",
+      "parameters": {
+        "C": 1.0,
+        "class_weight": null,
+        "dual": "auto",
+        "fit_intercept": true,
+        "intercept_scaling": 1,
+        "loss": "squared_hinge",
+        "max_iter": 5000,
+        "multi_class": "ovr",
+        "penalty": "l2",
+        "random_state": 20261102,
+        "tol": 0.0001,
+        "verbose": 0
+      }
+    },
+    {
+      "name": "rbf_svm_svd",
+      "representation": "dense_svd100",
+      "parameters": {
+        "C": 1.0,
+        "break_ties": false,
+        "cache_size": 512,
+        "class_weight": null,
+        "coef0": 0.0,
+        "decision_function_shape": "ovr",
+        "degree": 3,
+        "gamma": "scale",
+        "kernel": "rbf",
+        "max_iter": -1,
+        "probability": "deprecated",
+        "random_state": null,
+        "shrinking": true,
+        "tol": 0.001,
+        "verbose": false
+      }
+    },
+    {
+      "name": "decision_tree_svd",
+      "representation": "dense_svd100",
+      "parameters": {
+        "ccp_alpha": 0.0,
+        "class_weight": null,
+        "criterion": "gini",
+        "max_depth": 30,
+        "max_features": null,
+        "max_leaf_nodes": null,
+        "min_impurity_decrease": 0.0,
+        "min_samples_leaf": 5,
+        "min_samples_split": 2,
+        "min_weight_fraction_leaf": 0.0,
+        "monotonic_cst": null,
+        "random_state": 20261102,
+        "splitter": "best"
+      }
+    },
+    {
+      "name": "random_forest_svd",
+      "representation": "dense_svd100",
+      "parameters": {
+        "bootstrap": true,
+        "ccp_alpha": 0.0,
+        "class_weight": null,
+        "criterion": "gini",
+        "max_depth": null,
+        "max_features": "sqrt",
+        "max_leaf_nodes": null,
+        "max_samples": null,
+        "min_impurity_decrease": 0.0,
+        "min_samples_leaf": 2,
+        "min_samples_split": 2,
+        "min_weight_fraction_leaf": 0.0,
+        "monotonic_cst": null,
+        "n_estimators": 200,
+        "n_jobs": 1,
+        "oob_score": false,
+        "random_state": 20261102,
+        "verbose": 0,
+        "warm_start": false
+      }
+    },
+    {
+      "name": "hist_gradient_boosting_svd",
+      "representation": "dense_svd100",
+      "parameters": {
+        "categorical_features": "from_dtype",
+        "class_weight": null,
+        "early_stopping": "auto",
+        "interaction_cst": null,
+        "l2_regularization": 1.0,
+        "learning_rate": 0.1,
+        "loss": "log_loss",
+        "max_bins": 255,
+        "max_depth": null,
+        "max_features": 1.0,
+        "max_iter": 150,
+        "max_leaf_nodes": 15,
+        "min_samples_leaf": 20,
+        "monotonic_cst": null,
+        "n_iter_no_change": 10,
+        "random_state": 20261102,
+        "scoring": "loss",
+        "tol": 1e-07,
+        "validation_fraction": 0.1,
+        "verbose": 0,
+        "warm_start": false
+      }
+    },
+    {
+      "name": "knn_svd",
+      "representation": "dense_svd100",
+      "parameters": {
+        "algorithm": "auto",
+        "leaf_size": 30,
+        "metric": "euclidean",
+        "metric_params": null,
+        "n_jobs": 1,
+        "n_neighbors": 15,
+        "p": 2,
+        "weights": "distance"
+      }
+    }
+  ],
+  "metrics_sha256": "33ca0e67f3f920f5f81dff6575d1ececc1317587eda36996a7aa4cf42225e88b",
+  "source_script": "scripts/run_model_benchmarks.py",
+  "source_script_sha256": "5300da925b441b9e6787b1efcdd94c78e33cc2075cf5a0bc1065d8aa1da099fa",
+  "git_revision_before_experiment_changes": "dabd342ab24e2d0cec34eaa3f173144d04e0185d",
+  "working_tree_had_uncommitted_phase4_changes": true
+}

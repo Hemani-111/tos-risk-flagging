@@ -1,0 +1,2 @@
+protocol,family,C,pca_components,pca_explained_variance,cv_macro_f1_mean,cv_macro_f1_sd,macro_f1,risky_precision,risky_recall
+primary,linear_svc,1.0,,,0.7275942103015057,0.0013612073241852168,0.7192296727098296,0.710955710955711,0.7060185185185185

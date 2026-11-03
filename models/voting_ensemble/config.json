@@ -1,0 +1,34 @@
+{
+  "method": "voting_ensemble",
+  "family": "ensemble",
+  "description": "Hard voting ensemble combining Logistic Regression and LinearSVC predictions. Base models are trained fold-local on group-respecting out-of-fold training splits; final prediction is majority vote (ties resolved by stable label order). Soft voting (probability-averaged) is also computed as a diagnostic.",
+  "implementation_script": "scripts/run_ensemble_calibration_clusters.py",
+  "entry_point": "models/voting_ensemble/run.py",
+  "protocol": ["primary", "clause"],
+  "feature_representation": "fold-local word unigram/bigram TF-IDF (max_features=60000, min_df=2, max_df=0.99, sublinear_tf=True)",
+  "base_models": ["LogisticRegression (C=1.0, class_weight=balanced)", "LinearSVC (C=1.0, class_weight=balanced)"],
+  "ensemble_rule": "Hard majority vote; ties resolved by stable LABELS order [Risky, Neutral, Safe]",
+  "seed": 20261102,
+  "locked_test_used": false,
+  "development_results": {
+    "primary": {
+      "run_id": "ensemble_calibration_primary_v1",
+      "metrics": "results/experiments/ensemble_calibration_primary_v1/validation_ensemble_metrics.csv",
+      "predictions": "results/experiments/ensemble_calibration_primary_v1/validation_ensemble_predictions.csv",
+      "oof_metrics": "results/experiments/ensemble_calibration_primary_v1/oof_ensemble_metrics.csv",
+      "complementarity": "results/experiments/ensemble_calibration_primary_v1/oof_error_complementarity.json",
+      "run_metadata": "results/experiments/ensemble_calibration_primary_v1/run_metadata.json"
+    },
+    "clause": {
+      "run_id": "ensemble_calibration_clause_v1",
+      "metrics": "results/experiments/ensemble_calibration_clause_v1/validation_ensemble_metrics.csv",
+      "predictions": "results/experiments/ensemble_calibration_clause_v1/validation_ensemble_predictions.csv",
+      "oof_metrics": "results/experiments/ensemble_calibration_clause_v1/oof_ensemble_metrics.csv",
+      "complementarity": "results/experiments/ensemble_calibration_clause_v1/oof_error_complementarity.json",
+      "run_metadata": "results/experiments/ensemble_calibration_clause_v1/run_metadata.json"
+    }
+  },
+  "artifact_note": "Voting is a deterministic combination of base predictions; no separate fitted artifact is saved. Base model artifacts can be saved via the Linear SVM / Logistic Regression entry points. Production release is models/releases/linear-svc-primary-v2/.",
+  "smoke_command": "python models/voting_ensemble/run.py --protocol primary --smoke",
+  "full_command": "python scripts/run_ensemble_calibration_clusters.py"
+}

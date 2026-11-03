@@ -12,7 +12,38 @@ Registered primary selection metric: macro F1. Risky precision and recall report
 
 ---
 
-## 1. Existing classifiers — first-pass benchmark (validation only)
+## Navigation index: find each model
+
+| Method | Code path | Notebook path | Command / config | Metrics path | Actual scores (validation macro F1) | Artifact path | Status |
+|--------|-----------|---------------|------------------|--------------|-------------------------------------|---------------|--------|
+| Decision Tree | `models/decision_tree/run.py` | `models/decision_tree/code.ipynb` | `python models/decision_tree/run.py --protocol both` | `models/decision_tree/results/{primary,clause}/validation_selected_family_metrics.csv` | Primary: 0.6344 / Clause: 0.6920 | `models/decision_tree/artifacts/{primary,clause}/` (after `--save-artifact`) | Executed, validated |
+| Random Forest | `models/random_forest/run.py` | `models/random_forest/code.ipynb` | `python models/random_forest/run.py --protocol both` | `models/random_forest/results/{primary,clause}/validation_selected_family_metrics.csv` | Primary: 0.7828 / Clause: 0.7771 | `models/random_forest/artifacts/{primary,clause}/` (after `--save-artifact`) | Executed, validated |
+| Gradient Boosting (HistGradientBoosting) | `models/gradient_boosting/run.py` | `models/gradient_boosting/code.ipynb` | `python models/gradient_boosting/run.py --protocol both` | `models/gradient_boosting/results/{primary,clause}/validation_selected_family_metrics.csv` | Primary: 0.7867 / Clause: 0.7969 | `models/gradient_boosting/artifacts/{primary,clause}/` (after `--save-artifact`) | Executed, validated |
+| KNN | `models/knn/run.py` | `models/knn/code.ipynb` | `python models/knn/run.py --protocol both` | `models/knn/results/{primary,clause}/validation_selected_family_metrics.csv` | Primary: 0.7837 / Clause: 0.7787 | `models/knn/artifacts/{primary,clause}/` (after `--save-artifact`) | Executed, validated |
+| Complement Naive Bayes | `models/complement_naive_bayes/run.py` | `models/complement_naive_bayes/code.ipynb` | `python models/complement_naive_bayes/run.py --protocol both` | `models/complement_naive_bayes/results/{primary,clause}/validation_metrics.csv` | Primary: 0.7936 / Clause: 0.8037 | `models/complement_naive_bayes/artifacts/{primary,clause}/` (after `--save-artifact`) | Executed, validated (first-pass, no tuning) |
+| Voting Ensemble (hard + soft) | `models/voting_ensemble/run.py` | `models/voting_ensemble/code.ipynb` | `python models/voting_ensemble/run.py --protocol both` | `models/voting_ensemble/results/{primary,clause}/validation_ensemble_metrics.csv` | Primary: 0.8170 / Clause: 0.8175 | None (deterministic combination) | Executed, validated |
+| Stacking Ensemble (LR meta on OOF margins) | `models/stacking_ensemble/run.py` | `models/stacking_ensemble/code.ipynb` | `python models/stacking_ensemble/run.py --protocol both` | `models/stacking_ensemble/results/{primary,clause}/validation_ensemble_metrics.csv` | Primary: 0.8191 / Clause: 0.8215 | None (OOF features only) | Executed, validated |
+| Sentence Embeddings + Logistic Regression | `models/sentence_embeddings_logistic_regression/run.py` | `models/sentence_embeddings_logistic_regression/code.ipynb` | `python models/sentence_embeddings_logistic_regression/run.py --protocol both` | `models/sentence_embeddings_logistic_regression/results/{primary,clause}/embedding_selected_validation.csv` | Primary: ~0.7208 / Clause: ~0.7244 | `models/sentence_embeddings_logistic_regression/artifacts/{primary,clarge}/` (after `--save-artifact`) | Executed, validated |
+| Sentence Embeddings + Linear SVM | `models/sentence_embeddings_linear_svm/run.py` | `models/sentence_embeddings_linear_svm/code.ipynb` | `python models/sentence_embeddings_linear_svm/run.py --protocol both` | `models/sentence_embeddings_linear_svm/results/{primary,clause}/embedding_selected_validation.csv` | Primary: ~0.7192 / Clause: ~0.7254 | `models/sentence_embeddings_linear_svm/artifacts/{primary,clarge}/` (after `--save-artifact`) | Executed, validated |
+
+**Analysis experiments:**
+
+| Analysis | Code path | Canonical output | Status |
+|----------|-----------|------------------|--------|
+| Word + character TF-IDF | `results/analysis/feature_combinations/run.py` | `results/experiments/remaining_features_{protocol}_v1/word_char_validation.csv` | Executed, validated |
+| Truncated SVD (dense transform for tree models) | `scripts/run_model_benchmarks.py` | `results/experiments/benchmark_{protocol}_wordtfidf_v1/run_metadata.json` | Executed, validated |
+| PCA on embeddings | `results/analysis/dimensionality_reduction/run.py` | `results/experiments/remaining_features_{protocol}_v1/embedding_group_cv.csv` | Executed, validated |
+| K-means clustering | `results/analysis/clustering/run.py` | `results/experiments/ensemble_calibration_{protocol}_v1/kmeans_cluster_summary.csv` | Executed, validated |
+| Group-aware learning curves | `results/analysis/learning_curves/run.py` | `results/experiments/remaining_features_{protocol}_v1/group_learning_curves.csv` | Executed, validated |
+| Calibration (sigmoid, diagnostic only) | `results/analysis/calibration/run.py` | `results/experiments/ensemble_calibration_{protocol}_v1/calibration_validation.json` | Executed, validated |
+
+**Production release (do not modify):**
+
+| Artifact | Path | Description |
+|----------|------|-------------|
+| Selected model | `models/releases/linear-svc-primary-v2/` | Word unigram/bigram TF-IDF + LinearSVC C=1 class_weight=balanced; macro F1 0.8358 primary / 0.8144 clause on locked test |
+| Rollback model | `models/selected_model/` | Historical RBF SVC artifacts |
+
 
 Run IDs: `benchmark_primary_wordtfidf_v1` (primary), `benchmark_clause_wordtfidf_v1` (clause)  
 Representation: word unigram/bigram TF-IDF (sparse) for NB/LR/Linear SVM; dense TruncatedSVD 100 components for tree/forest/HistGradientBoosting/KNN/RBF SVM  

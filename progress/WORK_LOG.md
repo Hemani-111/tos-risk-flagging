@@ -299,3 +299,43 @@ Reconstruction counts reconcile, label mapping and keys are verified, conflict t
 - `results/document_review_coverage_v1.json` has an incidental timestamp-only working-tree change (content otherwise identical); preserved as an uncommitted modification per working-tree preservation policy.
 - Working tree: `project-completion` branch, one modified tracked file (`results/document_review_coverage_v1.json`) plus the new `docs/DEMO_RUN_SHEET.md` and two edited docs.
 
+## 2026-11-03 - Model experiment reorganization and navigation index
+
+### Model folders created (each with README.md, run.py, config.json, code.ipynb, results/{primary,clause}/, artifacts/)
+
+- `models/decision_tree/` — shared script: scripts/run_expanded_classical_tuning.py; validation macro F1: primary 0.6344, clause 0.6920
+- `models/random_forest/` — shared script: scripts/run_expanded_classical_tuning.py; validation macro F1: primary 0.7828, clause 0.7771
+- `models/gradient_boosting/` — shared script: scripts/run_expanded_classical_tuning.py; validation macro F1: primary 0.7867, clause 0.7969
+- `models/knn/` — shared script: scripts/run_expanded_classical_tuning.py; validation macro F1: primary 0.7837, clause 0.7787
+- `models/complement_naive_bayes/` — shared script: scripts/run_model_benchmarks.py; validation macro F1: primary 0.7936, clause 0.8037 (first-pass, no tuning)
+- `models/voting_ensemble/` — shared script: scripts/run_ensemble_calibration_clusters.py; validation macro F1: primary 0.8170, clause 0.8175 (hard vote)
+- `models/stacking_ensemble/` — shared script: scripts/run_ensemble_calibration_clusters.py; validation macro F1: primary 0.8191, clause 0.8215
+- `models/sentence_embeddings_logistic_regression/` — shared script: scripts/run_remaining_feature_experiments.py; encoder: all-MiniLM-L6-v2 rev b9db1e8a; validation macro F1: primary ~0.7208, clause ~0.7244
+- `models/sentence_embeddings_linear_svm/` — shared script: scripts/run_remaining_feature_experiments.py; encoder: all-MiniLM-L6-v2 rev b9db1e8a; validation macro F1: primary ~0.7192, clause ~0.7254
+
+### Analysis experiment folders created
+
+- `results/analysis/feature_combinations/` — word+char TF-IDF and lexical ablation
+- `results/analysis/dimensionality_reduction/` — PCA on embeddings, Truncated SVD context
+- `results/analysis/clustering/` — K-means k=3/5/8/12, cosine silhouette ~0.075-0.098
+- `results/analysis/learning_curves/` — group fractions 0.1-1.0, word vs embedding
+- `results/analysis/calibration/` — sigmoid calibration, Brier ~0.249-0.252, not deployed
+
+### Navigation index
+
+- Updated `docs/EXPERIMENT_INVENTORY.md` with navigation table: one row per method with code path, notebook path, command/config, metrics path, actual scores, artifact path, and status.
+- Added "Find each model" section to `README.md` with table linking all 9 model folders plus analysis experiments.
+
+### Smoke verification
+
+All 9 model entry points executed successfully with `--protocol primary --smoke`:
+- decision_tree: 0.6681, random_forest: 0.7797, gradient_boosting: 0.7931, knn: 0.7848
+- complement_naive_bayes: 0.7936, voting_ensemble (hard): 0.8170, stacking: 0.8191
+- sentence_embeddings_linear_svm: 0.7192, sentence_embeddings_logistic_regression: results exported
+
+All 5 analysis entry points executed successfully with `--protocol primary --smoke`:
+- feature_combinations, dimensionality_reduction, clustering, learning_curves, calibration
+
+No model artifacts were retrained solely for folder layout; all results reuse canonical outputs from `results/experiments/`. The deployed production model (`models/releases/linear-svc-primary-v2/`) was not modified.
+
+
