@@ -1,0 +1,33 @@
+{
+  "method": "rbf_svm",
+  "full_name": "SVM — RBF (SVC with RBF kernel)",
+  "family": "svm",
+  "description": "RBF SVM applies the kernel trick to map TF-IDF-derived dense features into a higher-dimensional space where a linear separator may exist. C controls the margin/loss trade-off; gamma controls kernel width. Variant of the SVM family (see models/svm/config.json).",
+  "input_features": "Dense TruncatedSVD (100 components, training-fold fitted) of word unigram/bigram TF-IDF. SVD is a feature transform, not a classifier, and is fitted on training data only.",
+  "classifier": "sklearn.svm.SVC (kernel=rbf, cache_size=512)",
+  "tuning_grid": {"C": [0.1, 1.0, 10.0], "gamma": ["scale", "auto"], "class_weight": [None, "balanced"]},
+  "selection_rule": "Max mean macro F1 on fixed group-respecting CV folds (development data only)",
+  "seed": 20261102,
+  "protocols": ["primary", "clause"],
+  "locked_test_used": false,
+  "representation": "dense_svd100",
+  "results": {
+    "primary": {
+      "metrics": "models/svm/rbf/results/primary/metrics.csv",
+      "confusion_matrix": "models/svm/rbf/results/primary/confusion_matrix.csv",
+      "artifact": "models/svm/rbf/artifacts/primary/model.joblib"
+    },
+    "clause": {
+      "metrics": "models/svm/rbf/results/clause/metrics.csv",
+      "confusion_matrix": "models/svm/rbf/results/clause/confusion_matrix.csv",
+      "artifact": "models/svm/rbf/artifacts/clause/model.joblib"
+    }
+  },
+  "canonical_comparison": {
+    "primary": "results/comparison/primary/comparison.csv (row: rbf_svm)",
+    "clause": "results/comparison/clause/comparison.csv (row: rbf_svm)"
+  },
+  "artifact_note": "Fitted development pipeline saved to models/svm/rbf/artifacts/{protocol}/ (model.joblib + svd.joblib + metadata.json).",
+  "smoke_command": "python scripts/run_comparison.py --protocol primary",
+  "full_command": "python scripts/run_comparison.py --protocol both"
+}

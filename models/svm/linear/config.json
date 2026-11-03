@@ -1,0 +1,33 @@
+{
+  "method": "linear_svm",
+  "full_name": "SVM — Linear (LinearSVC)",
+  "family": "svm",
+  "description": "Linear SVM finds a maximum-margin hyperplane separating classes in sparse TF-IDF space. It uses the squared-hinge loss with one-vs-rest multi-class decoding. C controls the margin/loss trade-off. Variant of the SVM family (see models/svm/config.json).",
+  "input_features": "Sparse word unigram/bigram TF-IDF (max_features=60000, min_df=2, max_df=0.99, sublinear_tf=True). Kept sparse throughout — no dense conversion.",
+  "classifier": "sklearn.svm.LinearSVC (loss=squared_hinge, multi-class ovr)",
+  "tuning_grid": {"C": [0.1, 1.0, 10.0], "class_weight": [None, "balanced"], "max_iter": [5000]},
+  "selection_rule": "Max mean macro F1 on fixed group-respecting CV folds (development data only)",
+  "seed": 20261102,
+  "protocols": ["primary", "clause"],
+  "locked_test_used": false,
+  "representation": "sparse_word_tfidf_uni_bi",
+  "results": {
+    "primary": {
+      "metrics": "models/svm/linear/results/primary/metrics.csv",
+      "confusion_matrix": "models/svm/linear/results/primary/confusion_matrix.csv",
+      "artifact": "models/svm/linear/artifacts/primary/model.joblib"
+    },
+    "clause": {
+      "metrics": "models/svm/linear/results/clause/metrics.csv",
+      "confusion_matrix": "models/svm/linear/results/clause/confusion_matrix.csv",
+      "artifact": "models/svm/linear/artifacts/clause/model.joblib"
+    }
+  },
+  "canonical_comparison": {
+    "primary": "results/comparison/primary/comparison.csv (row: linear_svm)",
+    "clause": "results/comparison/clause/comparison.csv (row: linear_svm)"
+  },
+  "artifact_note": "Fitted development pipeline saved to models/svm/linear/artifacts/{protocol}/ (model.joblib + vectorizer.joblib + metadata.json).",
+  "smoke_command": "python scripts/run_comparison.py --protocol primary",
+  "full_command": "python scripts/run_comparison.py --protocol both"
+}

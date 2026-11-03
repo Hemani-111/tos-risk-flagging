@@ -1,4 +1,4 @@
-,pred_Risky,pred_Neutral,pred_Safe
-true_Risky,716,74,73
-true_Neutral,112,883,70
-true_Safe,79,62,538
+,pred_Safe,pred_Neutral,pred_Risky
+true_Safe,538,62,79
+true_Neutral,70,883,112
+true_Risky,73,74,716

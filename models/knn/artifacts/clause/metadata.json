@@ -3,18 +3,31 @@
   "protocol": "clause",
   "seed": 20261102,
   "parameters": {
-    "n_neighbors": 15,
+    "n_neighbors": 31,
     "weights": "distance",
     "metric": "euclidean",
     "n_jobs": 4
   },
   "representation": "dense_svd100",
   "svd_components": 100,
+  "cv_macro_f1_mean": 0.7878147383243022,
+  "cv_macro_f1_std": 0.0022480291914939456,
+  "cv_fold_scores": [
+    0.788150890486902,
+    0.7854175623039028,
+    0.7898757621821019
+  ],
   "train_rows": 13434,
   "validation_rows": 2607,
   "dataset_sha256": "cee557cc927d754cf17675154ed5e1e32eee2fdb9af6700c526e62cd66969f8c",
   "split_id": "split_manifest_v1",
   "locked_test_used": false,
   "development_only": true,
-  "created_at_utc": "2026-11-03T13:35:17.289034+00:00"
+  "vectorizer_fit_seconds": 1.39743420004379,
+  "svd_fit_seconds": 1.6850315000046976,
+  "svd_transform_seconds": 0.015978499955963343,
+  "grid_fit_seconds": 0.4042929998249747,
+  "final_fit_seconds": 0.016757299948949367,
+  "final_predict_seconds": 0.09934559999965131,
+  "created_at_utc": "2026-11-03T14:18:21.213634+00:00"
 }

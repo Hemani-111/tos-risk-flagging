@@ -1,7 +1,7 @@
 {
-  "run_id": "comparison_primary_v1",
-  "created_at_utc": "2026-11-03T13:28:24.980890+00:00",
-  "git_revision": "f17441f54642531e796f506fbe328fa9c530e345",
+  "run_id": "comparison_primary_v2",
+  "created_at_utc": "2026-11-03T14:10:53.044359+00:00",
+  "git_revision": "429da4964db0d0ff4326086f278437f48a538487",
   "protocol": "primary",
   "split_id": "split_manifest_v1",
   "dataset_sha256": "cee557cc927d754cf17675154ed5e1e32eee2fdb9af6700c526e62cd66969f8c",
@@ -9,6 +9,7 @@
   "locked_test_used": false,
   "train_rows": 13439,
   "validation_rows": 2658,
+  "n_cv_folds": 3,
   "sparse_feature_settings": {
     "analyzer": "word",
     "binary": false,
@@ -36,8 +37,9 @@
     "vocabulary": null
   },
   "svd_components": 100,
-  "vectorizer_fit_seconds": 1.3537795000011101,
-  "svd_fit_seconds": 1.6374966999865137,
+  "vectorizer_fit_seconds": 0.9744658999843523,
+  "svd_fit_seconds": 1.6122315999818966,
+  "svd_transform_seconds": 0.0114929000264965,
   "feature_shape": {
     "train": [
       13439,
@@ -74,5 +76,6 @@
     "random_forest",
     "knn",
     "gradient_boosting"
-  ]
+  ],
+  "cv_protocol": "fixed group-respecting folds from split_manifest_v1"
 }
