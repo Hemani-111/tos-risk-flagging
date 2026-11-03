@@ -9,11 +9,24 @@
   },
   "representation": "sparse_word_tfidf_uni_bi",
   "svd_components": null,
+  "cv_macro_f1_mean": 0.8410468611170071,
+  "cv_macro_f1_std": 0.0020880762096487115,
+  "cv_fold_scores": [
+    0.8397831051400062,
+    0.8399004666628693,
+    0.8434570115481459
+  ],
   "train_rows": 13434,
   "validation_rows": 2607,
   "dataset_sha256": "cee557cc927d754cf17675154ed5e1e32eee2fdb9af6700c526e62cd66969f8c",
   "split_id": "split_manifest_v1",
   "locked_test_used": false,
   "development_only": true,
-  "created_at_utc": "2026-11-03T13:28:59.646128+00:00"
+  "vectorizer_fit_seconds": 1.031841199961491,
+  "svd_fit_seconds": 1.6594514999887906,
+  "svd_transform_seconds": 0.018703399982769042,
+  "grid_fit_seconds": 6.136604499886744,
+  "final_fit_seconds": 0.2575222000014037,
+  "final_predict_seconds": 0.0011298999888822436,
+  "created_at_utc": "2026-11-03T17:52:06.432545+00:00"
 }

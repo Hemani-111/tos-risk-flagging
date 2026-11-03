@@ -23,11 +23,11 @@
   "split_id": "split_manifest_v1",
   "locked_test_used": false,
   "development_only": true,
-  "vectorizer_fit_seconds": 0.9744658999843523,
-  "svd_fit_seconds": 1.6122315999818966,
-  "svd_transform_seconds": 0.0114929000264965,
-  "grid_fit_seconds": 0.5103365001850761,
-  "final_fit_seconds": 0.018429099989589304,
-  "final_predict_seconds": 0.09211939998203889,
-  "created_at_utc": "2026-11-03T14:09:54.794757+00:00"
+  "vectorizer_fit_seconds": 0.9277554999571294,
+  "svd_fit_seconds": 1.2900709999958053,
+  "svd_transform_seconds": 0.012990100018214434,
+  "grid_fit_seconds": 0.44730460009304807,
+  "final_fit_seconds": 0.02278290002141148,
+  "final_predict_seconds": 0.08482999994885176,
+  "created_at_utc": "2026-11-03T17:46:36.597528+00:00"
 }

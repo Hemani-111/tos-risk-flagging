@@ -211,6 +211,24 @@ def candidate_grid():
     }
 
 
+# Map internal model names (used in candidate_grid) to canonical model folder names.
+MODEL_FOLDER_MAP = {
+    "multinomial_nb": "naive_bayes",
+    "logistic_regression": "logistic_regression",
+    "linear_svm": "svm/linear",
+    "rbf_svm": "svm/rbf",
+    "decision_tree": "decision_tree",
+    "random_forest": "random_forest",
+    "knn": "knn",
+    "gradient_boosting": "gradient_boosting",
+}
+
+
+def model_folder_name(name: str) -> str:
+    """Return the canonical model folder name for an internal model name."""
+    return MODEL_FOLDER_MAP.get(name, name)
+
+
 def make_model(name, params):
     if name == "multinomial_nb":
         return MultinomialNB(**params)
@@ -446,7 +464,7 @@ def run_protocol(protocol, out_dir):
             )
 
         # Save fitted development artifact.
-        artifact_dir = ROOT / "models" / name / "artifacts" / protocol
+        artifact_dir = ROOT / "models" / model_folder_name(name) / "artifacts" / protocol
         artifact_dir.mkdir(parents=True, exist_ok=True)
         joblib.dump(final_model, artifact_dir / "model.joblib")
         if dense:

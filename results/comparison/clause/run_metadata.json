@@ -1,7 +1,7 @@
 {
   "run_id": "comparison_clause_v2",
-  "created_at_utc": "2026-11-03T14:19:12.374083+00:00",
-  "git_revision": "429da4964db0d0ff4326086f278437f48a538487",
+  "created_at_utc": "2026-11-03T17:58:02.306014+00:00",
+  "git_revision": "39743ea25b3e3f6ba0a71fe835e7a880b6839687",
   "protocol": "clause",
   "split_id": "split_manifest_v1",
   "dataset_sha256": "cee557cc927d754cf17675154ed5e1e32eee2fdb9af6700c526e62cd66969f8c",
@@ -37,9 +37,9 @@
     "vocabulary": null
   },
   "svd_components": 100,
-  "vectorizer_fit_seconds": 1.39743420004379,
-  "svd_fit_seconds": 1.6850315000046976,
-  "svd_transform_seconds": 0.015978499955963343,
+  "vectorizer_fit_seconds": 1.031841199961491,
+  "svd_fit_seconds": 1.6594514999887906,
+  "svd_transform_seconds": 0.018703399982769042,
   "feature_shape": {
     "train": [
       13434,

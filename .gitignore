@@ -50,6 +50,7 @@ models/**/*.joblib
 models/**/*.pkl
 models/**/*.pickle
 models/**/*.bin
+models/**/*.svd
 
 # IDE
 .idea/

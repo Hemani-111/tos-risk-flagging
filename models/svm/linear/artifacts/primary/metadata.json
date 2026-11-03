@@ -3,17 +3,30 @@
   "protocol": "primary",
   "seed": 20261102,
   "parameters": {
-    "C": 0.1,
+    "C": 1.0,
     "class_weight": null,
     "max_iter": 5000
   },
   "representation": "sparse_word_tfidf_uni_bi",
   "svd_components": null,
+  "cv_macro_f1_mean": 0.8320574564891681,
+  "cv_macro_f1_std": 0.0009133048620532766,
+  "cv_fold_scores": [
+    0.8325719537569157,
+    0.8325974500971256,
+    0.8310029656134629
+  ],
   "train_rows": 13439,
   "validation_rows": 2658,
   "dataset_sha256": "cee557cc927d754cf17675154ed5e1e32eee2fdb9af6700c526e62cd66969f8c",
   "split_id": "split_manifest_v1",
   "locked_test_used": false,
   "development_only": true,
-  "created_at_utc": "2026-11-03T13:21:42.955653+00:00"
+  "vectorizer_fit_seconds": 0.9277554999571294,
+  "svd_fit_seconds": 1.2900709999958053,
+  "svd_transform_seconds": 0.012990100018214434,
+  "grid_fit_seconds": 6.696904600132257,
+  "final_fit_seconds": 0.26830739999422804,
+  "final_predict_seconds": 0.0010796000133268535,
+  "created_at_utc": "2026-11-03T17:36:57.587889+00:00"
 }
