@@ -26,7 +26,7 @@ models/
   random_forest/       Random Forest
   knn/                 K-Nearest Neighbours
   gradient_boosting/   HistGradientBoosting
-  production/          linear-svc-primary-v2 serving package
+  production/          linear-svc-primary-v2 serving package (at models/releases/linear-svc-primary-v2/)
 results/
   comparison/          eight-method comparison (CSV, Markdown, confusion matrices)
   experiments/         canonical run evidence
@@ -38,7 +38,6 @@ notebooks/
 scripts/
   prepare_data.py
   run_comparison.py
-  export_model.py
   check_parity.py
 backend/               FastAPI application + tests
 frontend/              Next.js application

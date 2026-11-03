@@ -46,10 +46,10 @@ data/processed/*
 !data/processed/audit_v1/*.csv
 
 # Models
-models/*.joblib
-models/*.pkl
-models/*.pickle
-models/*.bin
+models/**/*.joblib
+models/**/*.pkl
+models/**/*.pickle
+models/**/*.bin
 
 # IDE
 .idea/
