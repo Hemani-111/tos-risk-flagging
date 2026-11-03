@@ -1,0 +1,21 @@
+{
+  "method": "gradient_boosting",
+  "protocol": "primary",
+  "seed": 20261102,
+  "parameters": {
+    "max_iter": 200,
+    "learning_rate": 0.1,
+    "max_leaf_nodes": 31,
+    "l2_regularization": 1.0,
+    "early_stopping": false
+  },
+  "representation": "dense_svd100",
+  "svd_components": 100,
+  "train_rows": 13439,
+  "validation_rows": 2658,
+  "dataset_sha256": "cee557cc927d754cf17675154ed5e1e32eee2fdb9af6700c526e62cd66969f8c",
+  "split_id": "split_manifest_v1",
+  "locked_test_used": false,
+  "development_only": true,
+  "created_at_utc": "2026-11-03T13:28:24.861917+00:00"
+}

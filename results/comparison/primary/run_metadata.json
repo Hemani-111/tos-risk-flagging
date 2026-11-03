@@ -1,0 +1,78 @@
+{
+  "run_id": "comparison_primary_v1",
+  "created_at_utc": "2026-11-03T13:28:24.980890+00:00",
+  "git_revision": "f17441f54642531e796f506fbe328fa9c530e345",
+  "protocol": "primary",
+  "split_id": "split_manifest_v1",
+  "dataset_sha256": "cee557cc927d754cf17675154ed5e1e32eee2fdb9af6700c526e62cd66969f8c",
+  "seed": 20261102,
+  "locked_test_used": false,
+  "train_rows": 13439,
+  "validation_rows": 2658,
+  "sparse_feature_settings": {
+    "analyzer": "word",
+    "binary": false,
+    "decode_error": "strict",
+    "dtype": "<class 'numpy.float32'>",
+    "encoding": "utf-8",
+    "input": "content",
+    "lowercase": true,
+    "max_df": 0.99,
+    "max_features": 60000,
+    "min_df": 2,
+    "ngram_range": [
+      1,
+      2
+    ],
+    "norm": "l2",
+    "preprocessor": null,
+    "smooth_idf": true,
+    "stop_words": null,
+    "strip_accents": "unicode",
+    "sublinear_tf": true,
+    "token_pattern": "(?u)\\b\\w\\w+\\b",
+    "tokenizer": null,
+    "use_idf": true,
+    "vocabulary": null
+  },
+  "svd_components": 100,
+  "vectorizer_fit_seconds": 1.3537795000011101,
+  "svd_fit_seconds": 1.6374966999865137,
+  "feature_shape": {
+    "train": [
+      13439,
+      44489
+    ],
+    "validation": [
+      2658,
+      44489
+    ]
+  },
+  "dense_shape": {
+    "train": [
+      13439,
+      100
+    ],
+    "validation": [
+      2658,
+      100
+    ]
+  },
+  "environment": {
+    "python": "3.14.5",
+    "platform": "Windows-11-10.0.26200-SP0",
+    "sklearn": "1.9.0",
+    "numpy": "2.4.6",
+    "pandas": "3.0.3"
+  },
+  "methods": [
+    "multinomial_nb",
+    "logistic_regression",
+    "linear_svm",
+    "rbf_svm",
+    "decision_tree",
+    "random_forest",
+    "knn",
+    "gradient_boosting"
+  ]
+}

@@ -1,0 +1,19 @@
+{
+  "method": "linear_svm",
+  "protocol": "clause",
+  "seed": 20261102,
+  "parameters": {
+    "C": 1.0,
+    "class_weight": "balanced",
+    "max_iter": 5000
+  },
+  "representation": "sparse_word_tfidf_uni_bi",
+  "svd_components": null,
+  "train_rows": 13434,
+  "validation_rows": 2607,
+  "dataset_sha256": "cee557cc927d754cf17675154ed5e1e32eee2fdb9af6700c526e62cd66969f8c",
+  "split_id": "split_manifest_v1",
+  "locked_test_used": false,
+  "development_only": true,
+  "created_at_utc": "2026-11-03T13:28:59.646128+00:00"
+}

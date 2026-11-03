@@ -1,0 +1,37 @@
+{
+  "method": "logistic_regression",
+  "full_name": "Logistic Regression",
+  "family": "linear_model",
+  "description": "Linear classifier that models class probabilities via the softmax function. Regularized with L2 penalty; C controls inverse regularization strength; class weighting addresses imbalance.",
+  "why_tested": "Baseline linear method covered at mid-semester; well-calibrated linear reference that is fast to train and predict.",
+  "input_features": "Sparse word unigram/bigram TF-IDF (max_features=60000, min_df=2, max_df=0.99, sublinear_tf=True). Negation tokens such as 'not' and 'without' are kept as ordinary tokens.",
+  "classifier": "sklearn.linear_model.LogisticRegression (solver=lbfgs, multi-class ovr)",
+  "tuning_grid": {"C": [0.1, 1.0, 10.0], "class_weight": [None, "balanced"], "max_iter": [3000], "solver": ["lbfgs"]},
+  "selection_rule": "Max mean macro F1 on fixed group-respecting CV folds (development data only)",
+  "seed": 20261102,
+  "protocols": ["primary", "clause"],
+  "locked_test_used": false,
+  "representations": {
+    "primary": "sparse_word_tfidf_uni_bi",
+    "clause": "sparse_word_tfidf_uni_bi"
+  },
+  "results": {
+    "primary": {
+      "metrics": "models/logistic_regression/results/primary/metrics.csv",
+      "confusion_matrix": "models/logistic_regression/results/primary/confusion_matrix.csv",
+      "artifact": "models/logistic_regression/artifacts/primary/model.joblib"
+    },
+    "clause": {
+      "metrics": "models/logistic_regression/results/clause/metrics.csv",
+      "confusion_matrix": "models/logistic_regression/results/clause/confusion_matrix.csv",
+      "artifact": "models/logistic_regression/artifacts/clause/model.joblib"
+    }
+  },
+  "canonical_comparison": {
+    "primary": "results/comparison/primary/comparison.csv (row: logistic_regression)",
+    "clause": "results/comparison/clause/comparison.csv (row: logistic_regression)"
+  },
+  "artifact_note": "Fitted development pipeline saved to models/logistic_regression/artifacts/{protocol}/ (model.joblib + vectorizer.joblib + metadata.json).",
+  "smoke_command": "python scripts/run_comparison.py --protocol primary",
+  "full_command": "python scripts/run_comparison.py --protocol both"
+}

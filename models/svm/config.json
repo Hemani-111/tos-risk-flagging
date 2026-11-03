@@ -1,0 +1,66 @@
+{
+  "method": "svm",
+  "full_name": "Support Vector Machine (Linear and RBF)",
+  "family": "svm",
+  "description": "Large-margin linear classifier. Linear SVM finds a separating hyperplane in TF-IDF space; RBF SVM uses a kernel trick on dense TruncatedSVD-reduced features to capture nonlinear boundaries. C controls the margin/loss trade-off; gamma controls RBF kernel width.",
+  "why_tested": "Linear SVM covered at mid-semester; RBF SVM added for end-semester to test whether a nonlinear kernel improves over the linear margin on dense-reduced text features.",
+  "input_features": {
+    "linear": "Sparse word unigram/bigram TF-IDF (max_features=60000, min_df=2, max_df=0.99, sublinear_tf=True).",
+    "rbf": "Dense TruncatedSVD (100 components, training-fold fitted) of the same TF-IDF. SVD is a feature transform, not a classifier."
+  },
+  "classifier": {
+    "linear": "sklearn.svm.LinearSVC (loss=squared_hinge, multi-class ovr)",
+    "rbf": "sklearn.svm.SVC (kernel=rbf, cache_size=512)"
+  },
+  "tuning_grid": {
+    "linear": {"C": [0.1, 1.0, 10.0], "class_weight": [None, "balanced"], "max_iter": [5000]},
+    "rbf": {"C": [0.1, 1.0, 10.0], "gamma": ["scale", "auto"], "class_weight": [None, "balanced"]}
+  },
+  "selection_rule": "Max mean macro F1 on fixed group-respecting CV folds (development data only)",
+  "seed": 20261102,
+  "protocols": ["primary", "clause"],
+  "locked_test_used": false,
+  "representations": {
+    "linear": {
+      "primary": "sparse_word_tfidf_uni_bi",
+      "clause": "sparse_word_tfidf_uni_bi"
+    },
+    "rbf": {
+      "primary": "dense_svd100",
+      "clause": "dense_svd100"
+    }
+  },
+  "results": {
+    "primary": {
+      "linear": {
+        "metrics": "models/svm/linear/results/primary/metrics.csv",
+        "confusion_matrix": "models/svm/linear/results/primary/confusion_matrix.csv",
+        "artifact": "models/svm/linear/artifacts/primary/model.joblib"
+      },
+      "rbf": {
+        "metrics": "models/svm/rbf/results/primary/metrics.csv",
+        "confusion_matrix": "models/svm/rbf/results/primary/confusion_matrix.csv",
+        "artifact": "models/svm/rbf/artifacts/primary/model.joblib"
+      }
+    },
+    "clause": {
+      "linear": {
+        "metrics": "models/svm/linear/results/clause/metrics.csv",
+        "confusion_matrix": "models/svm/linear/results/clause/confusion_matrix.csv",
+        "artifact": "models/svm/linear/artifacts/clause/model.joblib"
+      },
+      "rbf": {
+        "metrics": "models/svm/rbf/results/clause/metrics.csv",
+        "confusion_matrix": "models/svm/rbf/results/clause/confusion_matrix.csv",
+        "artifact": "models/svm/rbf/artifacts/clause/model.joblib"
+      }
+    }
+  },
+  "canonical_comparison": {
+    "primary": "results/comparison/primary/comparison.csv (rows: linear_svm, rbf_svm)",
+    "clause": "results/comparison/clause/comparison.csv (rows: linear_svm, rbf_svm)"
+  },
+  "artifact_note": "Linear and RBF are variants of the SVM family, not separate algorithms. Fitted development pipelines saved under models/svm/{linear,rbf}/artifacts/{protocol}/. SVD (rbf only) is saved as svd.joblib.",
+  "smoke_command": "python scripts/run_comparison.py --protocol primary",
+  "full_command": "python scripts/run_comparison.py --protocol both"
+}

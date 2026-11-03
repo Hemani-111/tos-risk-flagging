@@ -1,0 +1,37 @@
+{
+  "method": "naive_bayes",
+  "full_name": "Multinomial Naive Bayes",
+  "family": "naive_bayes",
+  "description": "Probabilistic linear classifier based on Bayes' theorem with the 'naive' independence assumption between features. Uses smoothing (alpha) to handle unseen tokens.",
+  "why_tested": "Baseline linear method covered at mid-semester; fast, interpretable, and a standard text-classification reference.",
+  "input_features": "Sparse word unigram/bigram TF-IDF (max_features=60000, min_df=2, max_df=0.99, sublinear_tf=True). Negation tokens such as 'not' and 'without' are kept as ordinary tokens.",
+  "classifier": "sklearn.naive_bayes.MultinomialNB",
+  "tuning_grid": {"alpha": [0.1, 1.0, 10.0], "fit_prior": [True], "force_alpha": [True]},
+  "selection_rule": "Max mean macro F1 on fixed group-respecting CV folds (development data only)",
+  "seed": 20261102,
+  "protocols": ["primary", "clause"],
+  "locked_test_used": false,
+  "representations": {
+    "primary": "sparse_word_tfidf_uni_bi",
+    "clause": "sparse_word_tfidf_uni_bi"
+  },
+  "results": {
+    "primary": {
+      "metrics": "models/naive_bayes/results/primary/metrics.csv",
+      "confusion_matrix": "models/naive_bayes/results/primary/confusion_matrix.csv",
+      "artifact": "models/naive_bayes/artifacts/primary/model.joblib"
+    },
+    "clause": {
+      "metrics": "models/naive_bayes/results/clause/metrics.csv",
+      "confusion_matrix": "models/naive_bayes/results/clause/confusion_matrix.csv",
+      "artifact": "models/naive_bayes/artifacts/clause/model.joblib"
+    }
+  },
+  "canonical_comparison": {
+    "primary": "results/comparison/primary/comparison.csv (row: multinomial_nb)",
+    "clause": "results/comparison/clause/comparison.csv (row: multinomial_nb)"
+  },
+  "artifact_note": "Fitted development pipeline saved to models/naive_bayes/artifacts/{protocol}/ (model.joblib + vectorizer.joblib + metadata.json). Encoder/transformer weights are not used.",
+  "smoke_command": "python scripts/run_comparison.py --protocol primary",
+  "full_command": "python scripts/run_comparison.py --protocol both"
+}

@@ -1,65 +1,44 @@
-# Random Forest Experiment
+# Random Forest
 
 ## What this method does
 
-Random Forest is a bagging ensemble of decision trees. Each tree is trained on a bootstrap sample of rows and a random subset of features; predictions are averaged (majority vote) across trees. This reduces variance compared to a single tree.
+Random Forest is a bagging ensemble of decision trees. Each tree trains on a bootstrap sample with a random feature subset; predictions are majority-voted. Reduces variance compared to a single tree.
 
 ## Why we tested it
 
-To compare bagging against the linear SVM baseline and to quantify whether tree ensembles can capture nonlinear interactions in clause text that a linear margin model misses.
+End-semester addition; tests whether bagging stabilizes tree predictions and improves over a single decision tree.
 
-## Exact configurations
+## Input features
 
-| Setting | Value |
-|---------|-------|
-| Feature representation | Word unigram/bigram TF-IDF, max_features=60000, then training-fold TruncatedSVD to 100 dense components |
-| Tuning grid | n_estimators in {100, 200}, max_depth in {25, None}, min_samples_leaf in {2, 5}, max_features=sqrt, class_weight=balanced_subsample |
-| Selection rule | Max mean macro F1 across 3 fixed group folds (training only) |
-| Seed | 20261102 |
-| Protocols | Primary (unseen-service), Clause (duplicate-aware) |
-| Locked test used | No |
+Dense TruncatedSVD (100 components, training-fold fitted) of word unigram/bigram TF-IDF.
 
-## How to run
+## Classifier
 
-```
-python scripts/run_expanded_classical_tuning.py --protocol both
-python models/random_forest/run.py --protocol both
-python models/random_forest/run.py --protocol primary --smoke
-python models/random_forest/run.py --protocol both --save-artifact
-```
+`sklearn.ensemble.RandomForestClassifier` (criterion=`gini`)
 
-## Actual results (development-only)
+## Tuning
 
-### Primary protocol
-| Metric | Value |
-|--------|-------|
-| Validation macro F1 | ~0.7828 |
-| CV macro F1 (mean ± SD) | 0.7797 ± 0.00186 |
-| Train macro F1 | ~0.999 |
-| Risky precision | ~0.763 |
-| Risky recall | ~0.784 |
+Bounded grid over `n_estimators` in {100, 200}, `max_depth` in {25, None}, `min_samples_leaf` in {2, 5}, `max_features`=`sqrt`, `class_weight`=`balanced_subsample`, selected by mean macro F1 on fixed group-respecting CV folds.
 
-### Clause protocol
-| Metric | Value |
-|--------|-------|
-| Validation macro F1 | ~0.7771 |
-| CV macro F1 (mean ± SD) | 0.7847 ± 0.00619 |
-| Risky precision | ~0.747 |
-| Risky recall | ~0.787 |
+## Actual results (development-only; test not used)
 
-## Limitations
+| Protocol | Macro F1 | Accuracy | Risky precision | Risky recall | Risky FN | Risky FP |
+|----------|----------|----------|-----------------|--------------|----------|----------|
+| Primary | 0.7828 | 0.7886 | 0.7632 | 0.7836 | 187 | 210 |
+| Clause | 0.7804 | 0.7848 | 0.7475 | 0.7926 | 179 | 231 |
 
-- Large train-to-held-out gap (train ~0.999 vs validation ~0.78) indicates overfitting.
-- Trailing Linear SVM baseline (0.8316 primary CV / 0.8386 clause CV).
-- Dense 100-component SVD representation loses sparse text information; RF is expensive on high-dimensional text.
-- Development-only; not deployed.
+## Interpretation
+
+Strong improvement over Decision Tree but still below Linear SVM on macro F1 (0.7828 vs 0.8206 primary). Large train-to-held-out gap indicates overfitting. Training is slow (~6s) due to 200 trees.
 
 ## Files
 
 | Path | Contents |
 |------|----------|
-| `models/random_forest/config.json` | Configuration |
-| `models/random_forest/run.py` | Entry point |
-| `models/random_forest/code.ipynb` | Notebook |
-| `models/random_forest/results/{primary,clause}/` | Metrics, predictions, confusion matrix |
-| `models/random_forest/artifacts/` | Fitted development pipeline (after `--save-artifact`) |
+| `models/random_forest/config.json` | Reproducible configuration |
+| `models/random_forest/run.py` | Runnable entry point |
+| `models/random_forest/code.ipynb` | Educational notebook |
+| `models/random_forest/results/{primary,clause}/metrics.csv` | Validation metrics |
+| `models/random_forest/results/{primary,clause}/confusion_matrix.csv` | Confusion matrix |
+| `models/random_forest/artifacts/{primary,clause}/` | Fitted development pipeline |
+| `results/comparison/{primary,clause}/comparison.csv` | Canonical comparison row |

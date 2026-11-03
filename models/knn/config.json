@@ -1,40 +1,37 @@
 {
   "method": "knn",
+  "full_name": "K-Nearest Neighbours",
   "family": "instance_based",
-  "description": "K-Nearest Neighbors classifier on word unigram/bigram TF-IDF reduced with training-fold TruncatedSVD (100 components). Bounded group-CV tuning over n_neighbors, weights, and distance metric.",
-  "implementation_script": "scripts/run_expanded_classical_tuning.py",
-  "entry_point": "models/knn/run.py",
-  "protocol": ["primary", "clause"],
-  "feature_representation": "word unigum/bigram TF-IDF (max_features=60000, min_df=2, max_df=0.99, sublinear_tf=True) -> training-fold TruncatedSVD (100 components)",
-  "tuning_grid": {
-    "n_neighbors": [5, 15, 31],
-    "weights": ["uniform", "distance"],
-    "metric": ["euclidean", "manhattan"],
-    "n_jobs": [4]
-  },
+  "description": "Non-parametric classifier that assigns a clause the majority label of its k nearest training neighbours in feature space. Distance metric and weighting scheme are tuned.",
+  "why_tested": "End-semester addition; tests whether similarity-based retrieval of previously seen risky clauses is effective for this task.",
+  "input_features": "Dense TruncatedSVD (100 components, training-fold fitted) of word unigram/bigram TF-IDF.",
+  "classifier": "sklearn.neighbors.KNeighborsClassifier",
+  "tuning_grid": {"n_neighbors": [5, 15, 31], "weights": ["uniform", "distance"], "metric": ["euclidean", "manhattan"], "n_jobs": [4]},
+  "selection_rule": "Max mean macro F1 on fixed group-respecting CV folds (development data only)",
   "seed": 20261102,
+  "protocols": ["primary", "clause"],
   "locked_test_used": false,
-  "development_results": {
+  "representations": {
+    "primary": "dense_svd100",
+    "clause": "dense_svd100"
+  },
+  "results": {
     "primary": {
-      "run_id": "expanded_classical_primary_v1",
-      "metrics": "results/experiments/expanded_classical_primary_v1/validation_selected_family_metrics.csv",
-      "confusion_matrix": "results/experiments/expanded_classical_primary_v1/knn_validation_confusion.csv",
-      "predictions": "results/experiments/expanded_classical_primary_v1/validation_selected_family_predictions.csv",
-      "cv_summary": "results/experiments/expanded_classical_primary_v1/cv_summary.csv",
-      "cv_fold_metrics": "results/experiments/expanded_classical_primary_v1/cv_fold_metrics.csv",
-      "run_metadata": "results/experiments/expanded_classical_primary_v1/run_metadata.json"
+      "metrics": "models/knn/results/primary/metrics.csv",
+      "confusion_matrix": "models/knn/results/primary/confusion_matrix.csv",
+      "artifact": "models/knn/artifacts/primary/model.joblib"
     },
     "clause": {
-      "run_id": "expanded_classical_clause_v1",
-      "metrics": "results/experiments/expanded_classical_clause_v1/validation_selected_family_metrics.csv",
-      "confusion_matrix": "results/experiments/expanded_classical_clause_v1/knn_validation_confusion.csv",
-      "predictions": "results/experiments/expanded_classical_clause_v1/validation_selected_family_predictions.csv",
-      "cv_summary": "results/experiments/expanded_classical_clause_v1/cv_summary.csv",
-      "cv_fold_metrics": "results/experiments/expanded_classical_clause_v1/cv_fold_metrics.csv",
-      "run_metadata": "results/experiments/expanded_classical_clause_v1/run_metadata.json"
+      "metrics": "models/knn/results/clause/metrics.csv",
+      "confusion_matrix": "models/knn/results/clause/confusion_matrix.csv",
+      "artifact": "models/knn/artifacts/clause/model.joblib"
     }
   },
-  "artifact_note": "Development-only fitted model not serialized by the shared tuning script. Run models/knn/run.py --save-artifact to persist a fitted development model/pipeline to models/knn/artifacts/. The production release is models/releases/linear-svc-primary-v2/.",
-  "smoke_command": "python models/knn/run.py --protocol primary --smoke",
-  "full_command": "python scripts/run_expanded_classical_tuning.py --protocol both"
+  "canonical_comparison": {
+    "primary": "results/comparison/primary/comparison.csv (row: knn)",
+    "clause": "results/comparison/clause/comparison.csv (row: knn)"
+  },
+  "artifact_note": "Fitted development pipeline saved to models/knn/artifacts/{protocol}/ (model.joblib + svd.joblib + metadata.json). Inference requires storing all training vectors, so prediction cost grows with training size.",
+  "smoke_command": "python scripts/run_comparison.py --protocol primary",
+  "full_command": "python scripts/run_comparison.py --protocol both"
 }

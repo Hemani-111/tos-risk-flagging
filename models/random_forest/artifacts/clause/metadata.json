@@ -1,0 +1,22 @@
+{
+  "method": "random_forest",
+  "protocol": "clause",
+  "seed": 20261102,
+  "parameters": {
+    "n_estimators": 100,
+    "max_depth": 25,
+    "min_samples_leaf": 2,
+    "max_features": "sqrt",
+    "class_weight": "balanced_subsample",
+    "n_jobs": 4
+  },
+  "representation": "dense_svd100",
+  "svd_components": 100,
+  "train_rows": 13434,
+  "validation_rows": 2607,
+  "dataset_sha256": "cee557cc927d754cf17675154ed5e1e32eee2fdb9af6700c526e62cd66969f8c",
+  "split_id": "split_manifest_v1",
+  "locked_test_used": false,
+  "development_only": true,
+  "created_at_utc": "2026-11-03T13:35:07.275685+00:00"
+}

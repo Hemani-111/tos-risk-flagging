@@ -1,0 +1,20 @@
+{
+  "method": "logistic_regression",
+  "protocol": "clause",
+  "seed": 20261102,
+  "parameters": {
+    "C": 10.0,
+    "solver": "lbfgs",
+    "class_weight": "balanced",
+    "max_iter": 3000
+  },
+  "representation": "sparse_word_tfidf_uni_bi",
+  "svd_components": null,
+  "train_rows": 13434,
+  "validation_rows": 2607,
+  "dataset_sha256": "cee557cc927d754cf17675154ed5e1e32eee2fdb9af6700c526e62cd66969f8c",
+  "split_id": "split_manifest_v1",
+  "locked_test_used": false,
+  "development_only": true,
+  "created_at_utc": "2026-11-03T13:28:51.495873+00:00"
+}

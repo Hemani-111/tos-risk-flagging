@@ -1,43 +1,37 @@
 {
   "method": "random_forest",
+  "full_name": "Random Forest",
   "family": "ensemble_tree",
-  "description": "Random Forest classifier (bagged decision trees) on word unigram/bigram TF-IDF reduced with training-fold TruncatedSVD (100 components). Bounded group-CV tuning over n_estimators, max_depth, min_samples_leaf.",
-  "implementation_script": "scripts/run_expanded_classical_tuning.py",
-  "entry_point": "models/random_forest/run.py",
-  "protocol": ["primary", "clause"],
-  "feature_representation": "word unigram/bigram TF-IDF (max_features=60000, min_df=2, max_df=0.99, sublinear_tf=True) -> training-fold TruncatedSVD (100 components)",
-  "tuning_grid": {
-    "n_estimators": [100, 200],
-    "max_depth": [25, null],
-    "min_samples_leaf": [2, 5],
-    "max_features": ["sqrt"],
-    "class_weight": ["balanced_subsample"],
-    "n_jobs": [4],
-    "random_state": 20261102
-  },
+  "description": "Bagging ensemble of decision trees. Each tree trains on a bootstrap sample with a random feature subset; predictions are majority-voted. Reduces variance compared to a single tree.",
+  "why_tested": "End-semester addition; tests whether bagging stabilizes tree predictions and improves over a single decision tree.",
+  "input_features": "Dense TruncatedSVD (100 components, training-fold fitted) of word unigram/bigram TF-IDF.",
+  "classifier": "sklearn.ensemble.RandomForestClassifier (criterion=gini)",
+  "tuning_grid": {"n_estimators": [100, 200], "max_depth": [25, None], "min_samples_leaf": [2, 5], "max_features": ["sqrt"], "class_weight": ["balanced_subsample"], "n_jobs": [4]},
+  "selection_rule": "Max mean macro F1 on fixed group-respecting CV folds (development data only)",
   "seed": 20261102,
+  "protocols": ["primary", "clause"],
   "locked_test_used": false,
-  "development_results": {
+  "representations": {
+    "primary": "dense_svd100",
+    "clause": "dense_svd100"
+  },
+  "results": {
     "primary": {
-      "run_id": "expanded_classical_primary_v1",
-      "metrics": "results/experiments/expanded_classical_primary_v1/validation_selected_family_metrics.csv",
-      "confusion_matrix": "results/experiments/expanded_classical_primary_v1/random_forest_validation_confusion.csv",
-      "predictions": "results/experiments/expanded_classical_primary_v1/validation_selected_family_predictions.csv",
-      "cv_summary": "results/experiments/expanded_classical_primary_v1/cv_summary.csv",
-      "cv_fold_metrics": "results/experiments/expanded_classical_primary_v1/cv_fold_metrics.csv",
-      "run_metadata": "results/experiments/expanded_classical_primary_v1/run_metadata.json"
+      "metrics": "models/random_forest/results/primary/metrics.csv",
+      "confusion_matrix": "models/random_forest/results/primary/confusion_matrix.csv",
+      "artifact": "models/random_forest/artifacts/primary/model.joblib"
     },
     "clause": {
-      "run_id": "expanded_classical_clause_v1",
-      "metrics": "results/experiments/expanded_classical_clause_v1/validation_selected_family_metrics.csv",
-      "confusion_matrix": "results/experiments/expanded_classical_clause_v1/random_forest_validation_confusion.csv",
-      "predictions": "results/experiments/expanded_classical_clause_v1/validation_selected_family_predictions.csv",
-      "cv_summary": "results/experiments/expanded_classical_clause_v1/cv_summary.csv",
-      "cv_fold_metrics": "results/experiments/expanded_classical_clause_v1/cv_fold_metrics.csv",
-      "run_metadata": "results/experiments/expanded_classical_clause_v1/run_metadata.json"
+      "metrics": "models/random_forest/results/clause/metrics.csv",
+      "confusion_matrix": "models/random_forest/results/clause/confusion_matrix.csv",
+      "artifact": "models/random_forest/artifacts/clause/model.joblib"
     }
   },
-  "artifact_note": "Development-only fitted model not serialized by the shared tuning script. Run models/random_forest/run.py --save-artifact to persist a fitted development model/pipeline to models/random_forest/artifacts/. The production release is models/releases/linear-svc-primary-v2/ (LinearSVC, not Random Forest).",
-  "smoke_command": "python models/random_forest/run.py --protocol primary --smoke",
-  "full_command": "python scripts/run_expanded_classical_tuning.py --protocol both"
+  "canonical_comparison": {
+    "primary": "results/comparison/primary/comparison.csv (row: random_forest)",
+    "clause": "results/comparison/clause/comparison.csv (row: random_forest)"
+  },
+  "artifact_note": "Fitted development pipeline saved to models/random_forest/artifacts/{protocol}/ (model.joblib + svd.joblib + metadata.json).",
+  "smoke_command": "python scripts/run_comparison.py --protocol primary",
+  "full_command": "python scripts/run_comparison.py --protocol both"
 }
