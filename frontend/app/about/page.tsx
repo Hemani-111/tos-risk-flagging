@@ -1,46 +1,116 @@
 import Link from "next/link";
 import { Button } from "@/components/ui/Button";
+import { FiHelpCircle } from "react-icons/fi";
 
-export default function AboutPage() {
+const labels = [
+  {
+    label: "Risky",
+    detail: "The clause resembles language the training data associated with adverse outcomes. Read it closely.",
+    color: "#7a2e28",
+  },
+  {
+    label: "Neutral",
+    detail: "The clause does not carry a clear protective or adverse signal in the training labels.",
+    color: "#7a5d1c",
+  },
+  {
+    label: "Safe",
+    detail: "The clause resembles language the training data associated with protective terms.",
+    color: "#3d6a4e",
+  },
+];
+
+export default function HowItWorksPage() {
   return (
     <div className="py-12 sm:py-16">
-      <article className="mx-auto max-w-3xl space-y-10 px-4 sm:px-6">
-        <header>
-          <p className="text-sm font-medium text-muted-foreground">TermsGuard methodology</p>
-          <h1 className="mt-2 text-3xl font-semibold">What this screening can and cannot tell you</h1>
-          <p className="mt-4 leading-relaxed text-muted-foreground">TermsGuard divides extracted document text into clauses and assigns each analyzable clause one of three labels. It helps you find passages to read more closely; it does not interpret your legal position.</p>
+      <div className="mx-auto max-w-5xl px-4 sm:px-6 lg:px-8">
+        <header className="mb-10">
+          <p className="inline-flex items-center gap-2 text-sm font-medium text-muted-foreground">
+            <FiHelpCircle className="h-4 w-4" aria-hidden="true" />
+            How it works
+          </p>
+          <h1 className="mt-2 text-3xl font-semibold tracking-tight text-foreground sm:text-4xl">
+            What this preview shows
+          </h1>
+          <p className="mt-4 max-w-2xl text-base leading-7 text-muted-foreground">
+            TermsGuard is an interactive UI preview. It uses illustrative sample clauses to demonstrate
+            clause-by-clause review — it is not connected to a machine-learning model or a FastAPI
+            backend, and it does not upload or analyze your documents.
+          </p>
         </header>
 
-        <section className="space-y-3">
-          <h2 className="text-xl font-semibold">Labels</h2>
-          <dl className="grid gap-3 sm:grid-cols-3">
-            <div className="rounded-lg border border-border p-4"><dt className="font-semibold text-red-700">Risky</dt><dd className="mt-1 text-sm text-muted-foreground">The model associates the clause with adverse examples in its training labels.</dd></div>
-            <div className="rounded-lg border border-border p-4"><dt className="font-semibold text-yellow-800">Neutral</dt><dd className="mt-1 text-sm text-muted-foreground">The model associates it with neutral examples.</dd></div>
-            <div className="rounded-lg border border-border p-4"><dt className="font-semibold text-green-800">Safe</dt><dd className="mt-1 text-sm text-muted-foreground">The model associates it with examples labeled as protective.</dd></div>
-          </dl>
-          <p className="text-sm text-muted-foreground">“Safe” is a dataset category. It is not a guarantee, legal opinion, or assessment that the whole document is compliant.</p>
+        <section className="mb-10 rounded-xl border border-border bg-card p-6 sm:p-8 shadow-sm">
+          <h2 className="text-xl font-semibold text-foreground mb-4">How to use it</h2>
+          <ol className="space-y-4">
+            <li className="flex gap-3">
+              <span className="flex shrink-0 h-8 w-8 items-center justify-center rounded-lg bg-secondary text-xs font-semibold text-muted-foreground">
+                01
+              </span>
+              <div>
+                <h3 className="font-semibold text-foreground">Add a policy</h3>
+                <p className="mt-1 text-sm text-muted-foreground">Upload a PDF, DOCX, or TXT file, or paste policy text on the Analyze page.</p>
+              </div>
+            </li>
+            <li className="flex gap-3">
+              <span className="flex shrink-0 h-8 w-8 items-center justify-center rounded-lg bg-secondary text-xs font-semibold text-muted-foreground">
+                02
+              </span>
+              <div>
+                <h3 className="font-semibold text-foreground">See clause predictions</h3>
+                <p className="mt-1 text-sm text-muted-foreground">Browse clauses labeled Safe, Neutral, or Risky, then narrow the list with search and filters.</p>
+              </div>
+            </li>
+            <li className="flex gap-3">
+              <span className="flex shrink-0 h-8 w-8 items-center justify-center rounded-lg bg-secondary text-xs font-semibold text-muted-foreground">
+                03
+              </span>
+              <div>
+                <h3 className="font-semibold text-foreground">Read in context</h3>
+                <p className="mt-1 text-sm text-muted-foreground">Select a clause to jump to its source in the document and inspect neighboring clauses.</p>
+              </div>
+            </li>
+          </ol>
         </section>
 
-        <section className="space-y-3">
-          <h2 className="text-xl font-semibold">Model and evidence</h2>
-          <p className="text-sm leading-relaxed text-muted-foreground">The current application serves the existing RBF Support Vector Classifier with word unigram/bigram TF-IDF features. Its package version is shown with each result. Development experiments also compared and tuned linear models, but the newer development winner has not been promoted to production.</p>
-          <p className="text-sm leading-relaxed text-muted-foreground">The research benchmark uses conflict-reviewed excerpts from ToS;DR and fixed service-aware train, validation, and locked test partitions. The development report records 0.820 macro F1 on primary-protocol validation for the tuned Linear SVM. That is a validation result on selected English excerpts, not a complete-document or future-service accuracy estimate. The locked test partition remains reserved.</p>
-          <p className="text-sm leading-relaxed text-muted-foreground">Model scores are not calibrated confidence estimates. No probability or “needs review” threshold is currently used in the app.</p>
+        <section className="mb-10">
+          <h2 className="text-xl font-semibold text-foreground mb-4">Label categories</h2>
+          <p className="mb-4 text-sm text-muted-foreground">
+            Each sample clause carries one of three labels. These are screening categories, not legal
+            conclusions.
+          </p>
+          <div className="grid gap-3 sm:grid-cols-3">
+            {labels.map(({ label, detail, color }) => (
+              <div key={label} className="rounded-lg border border-border p-4">
+                <div className="flex items-center gap-2 mb-2">
+                  <span className="inline-flex items-center rounded-full" style={{ width: 8, height: 8, backgroundColor: color }} aria-hidden="true" />
+                  <span className="font-semibold text-foreground">{label}</span>
+                </div>
+                <p className="text-sm leading-relaxed text-muted-foreground" style={{ color: color }}>{detail}</p>
+              </div>
+            ))}
+          </div>
+          <p className="mt-5 text-sm text-muted-foreground">
+            “Safe” is a sample category. It is not a guarantee, legal opinion, or an assessment that
+            the whole document is compliant.
+          </p>
         </section>
 
-        <section className="space-y-3">
-          <h2 className="text-xl font-semibold">Documents and privacy</h2>
-          <p className="text-sm leading-relaxed text-muted-foreground">PDF, DOCX, and TXT files are processed by the configured backend. Scanned or image-only PDFs are unsupported because OCR is not enabled. Uploaded content is held in a temporary server file during analysis and removed afterward; the application does not keep server-side analysis history. Results are stored in session storage for the current browser tab and can be cleared from the results screen.</p>
-          <p className="text-sm leading-relaxed text-muted-foreground">The analyzer limits uploads to 10 MB, text to 2,000,000 characters, PDFs to 200 pages, and an analysis to 5,000 clauses. Extraction or segmentation can omit layout and page details; offsets refer to extracted text.</p>
+        <section className="rounded-xl border border-border bg-secondary/40 p-6 sm:p-8">
+          <h2 className="text-lg font-semibold text-foreground mb-2">Important limitations</h2>
+          <ul className="space-y-2 text-sm text-muted-foreground list-disc pl-5">
+            <li>The sample clauses are illustrative and do not come from a trained model.</li>
+            <li>No document is uploaded, stored, or analyzed by this preview.</li>
+            <li>Labels are screening predictions — they can be wrong or miss important context.</li>
+            <li>This is educational screening, not legal advice. Consult a qualified professional for legal matters.</li>
+          </ul>
         </section>
 
-        <section className="rounded-lg border border-border bg-secondary/40 p-5">
-          <h2 className="text-lg font-semibold">Important</h2>
-          <p className="mt-2 text-sm leading-relaxed text-muted-foreground">This is an educational screening tool, not legal advice. Automated labels can be wrong or miss important material. Read the full terms and consult a qualified legal professional about legal matters.</p>
-        </section>
-
-        <Link href="/analyze"><Button>Analyze a document</Button></Link>
-      </article>
+        <div className="mt-10 flex justify-end">
+          <Link href="/">
+            <Button>Start a sample review</Button>
+          </Link>
+        </div>
+      </div>
     </div>
   );
 }

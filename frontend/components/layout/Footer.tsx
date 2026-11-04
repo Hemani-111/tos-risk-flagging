@@ -7,7 +7,6 @@ export function Footer() {
         <p className="text-muted-foreground">TermsGuard <span aria-hidden="true">·</span> Educational screening, not legal advice.</p>
         <div className="flex gap-5">
           <Link href="/about" className="text-muted-foreground transition-colors hover:text-foreground">Methodology</Link>
-          <Link href="/research" className="text-muted-foreground transition-colors hover:text-foreground">Research</Link>
         </div>
       </div>
     </footer>
