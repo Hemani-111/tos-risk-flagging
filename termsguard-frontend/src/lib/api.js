@@ -1,0 +1,3 @@
+const API=import.meta.env.VITE_API_URL||'http://localhost:8000';
+export async function request(path,options){const response=await fetch(API+path,options);if(!response.ok){let message=`Request failed (${response.status})`;try{const data=await response.json();message=typeof data.detail==='string'?data.detail:message}catch{}throw Error(message)}return response.json()}
+export function normalize(data){const clauses=data.clauses;if(!Array.isArray(clauses))throw Error('The server response does not contain a clauses array.');return{filename:data.filename||'pasted-text.txt',title:'Document review',sections:[{heading:'Extracted clauses',clauses:clauses.map((c,i)=>({id:String(c.id??i),text:c.text??c.clause_text??'',label:c.label??c.prediction??'Neutral'}))}]}}

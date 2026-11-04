@@ -42,7 +42,7 @@ scripts/
   build_frozen_model_package.py
   check_parity.py
 backend/               FastAPI application + tests
-frontend/              Next.js application
+frontend/              React + Vite application
 tests/
 docs/                  DATASET.md, EXPERIMENT_PROTOCOL.md, FINAL_REPORT.md, MODEL_CARD.md, archive/
 ```
@@ -80,6 +80,8 @@ npm run dev
 ```
 
 Frontend runs at `http://127.0.0.1:3000`.
+It calls the FastAPI service at `http://localhost:8000` by default. Set
+`VITE_API_URL` in `frontend/.env.local` when the backend is hosted elsewhere.
 
 ---
 
