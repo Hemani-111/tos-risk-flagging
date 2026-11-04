@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { BrowserRouter, Routes, Route, Link, useLocation, useNavigate } from 'react-router-dom';
-import { FiFileText } from 'react-icons/fi';
+
 import Home from './pages/HomePage';
 import Analyze from './pages/AnalyzePage';
 import Results from './pages/ResultsPage';
@@ -15,7 +15,7 @@ function readSavedResult(){try{const result=JSON.parse(sessionStorage.getItem(RE
 function Site({result,setResult}){
   const location=useLocation();
   const navigate=useNavigate();
-  return <><header className="nav"><Link className="brand" to="/" aria-label="TermsGuard home"><span className="site-brand-icon"><FiFileText/></span>TermsGuard</Link><nav aria-label="Main navigation"><Link className={location.pathname==='/analyze'?'active':''} to="/analyze">Analyze</Link><Link className={location.pathname==='/research'?'active':''} to="/research">Research</Link><Link className={location.pathname==='/about'?'active':''} to="/about">How it works</Link></nav></header><Routes>
+  return <><header className="nav"><Link className="brand" to="/" aria-label="TermsGuard home"><img className="site-brand-logo" src="/logo.png" alt="TermsGuard logo"/></Link><nav aria-label="Main navigation"><Link className={location.pathname==='/analyze'?'active':''} to="/analyze">Analyze</Link><Link className={location.pathname==='/research'?'active':''} to="/research">Research</Link><Link className={location.pathname==='/about'?'active':''} to="/about">How it works</Link></nav></header><Routes>
     <Route path="/" element={<Home/>}/>
     <Route path="/analyze" element={<Analyze onResult={(next)=>setResult(next)}/>}/>
     <Route path="/results" element={<Results result={result} onClear={()=>{sessionStorage.removeItem(RESULT_KEY);setResult(null)}}/>}/>
