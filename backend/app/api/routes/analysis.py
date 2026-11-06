@@ -1,3 +1,5 @@
+from __future__ import annotations
+
 import asyncio
 from concurrent.futures import Future, ThreadPoolExecutor
 import logging
@@ -40,11 +42,11 @@ class ClauseResponse(BaseModel):
     id: str
     text: str
     label: str
-    section: str | None = None
+    section: Optional[str] = None
     startOffset: int
     endOffset: int
-    pageStart: int | None = None
-    pageEnd: int | None = None
+    pageStart: Optional[int] = None
+    pageEnd: Optional[int] = None
 
 
 class AnalysisResponse(BaseModel):

@@ -351,7 +351,7 @@ export default function ReviewPage({
                 <p>{illustrative ? "Read each highlighted passage in its full context." : "Extracted text. Original wording is preserved."}</p>
               </div>
               {!illustrative && documentData.extractedText ? (
-                <div className="tg-original-text" aria-label={`Extracted text from ${documentData.filename ?? "document"}`}>
+                <div className="tg-original-text" style={{ fontSize: `${fontSize}px` }} aria-label={`Extracted text from ${documentData.filename ?? "document"}`}>
                   {sourceSegments.map((segment, index) => segment.clause ? (
                     <mark
                       className={`tg-passage tg-label-${segment.clause.label.toLowerCase()} ${selectedId === segment.clause.id ? "selected" : ""}`}

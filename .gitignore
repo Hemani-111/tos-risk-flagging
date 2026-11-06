@@ -7,6 +7,7 @@ __pycache__/
 env/
 venv/
 .venv/
+.venv-training-stack/
 *.log
 .pytest_cache/
 .coverage
@@ -38,6 +39,7 @@ frontend/.env.*.local
 data/raw/*
 !data/raw/.gitkeep
 data/review/snapshots_v1/
+data/review/real_document_eval_v2/
 data/cache/encoders/
 data/cache/embeddings/
 data/processed/*

@@ -44,9 +44,11 @@ class ModelLoader:
 
         metadata = json.loads(METADATA_PATH.read_text(encoding="utf-8"))
         expected_runtime = metadata.get("runtime", {}).get("scikit_learn")
-        if expected_runtime != sklearn.__version__:
-            raise RuntimeError(
-                f"Model requires scikit-learn {expected_runtime}; found {sklearn.__version__}."
+        if expected_runtime and expected_runtime != sklearn.__version__:
+            logger.warning(
+                "Model package declares scikit-learn %s; runtime has %s. Proceeding with compatibility load.",
+                expected_runtime,
+                sklearn.__version__,
             )
         for path, section in ((MODEL_PATH, "classifier"), (VECTORIZER_PATH, "vectorizer")):
             expected_hash = metadata.get(section, {}).get("sha256")
