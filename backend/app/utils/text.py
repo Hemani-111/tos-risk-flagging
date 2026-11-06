@@ -1,11 +1,12 @@
 import os
 import re
-import unicodedata
 
 
 def normalize_whitespace(text: str) -> str:
     """Normalize whitespace in extracted text."""
-    text = unicodedata.normalize("NFKD", text)
+    # Preserve Unicode code points and paragraph/list boundaries. This helper is
+    # for display/search cleanup only; never use its output for source offsets.
+    text = text.replace("\r\n", "\n").replace("\r", "\n").replace("\u00a0", " ")
     text = re.sub(r"[ \t]+", " ", text)
     text = re.sub(r"\n{3,}", "\n\n", text)
     return text.strip()

@@ -77,6 +77,7 @@ def _run_analysis(
     text: str,
     filename: str,
     page_ranges: list[tuple[int, int, int]] | None = None,
+    extraction_warnings: list[str] | None = None,
 ) -> AnalysisResponse:
     if not text.strip():
         raise HTTPException(status_code=422, detail="The document contains no extractable text.")
@@ -113,7 +114,7 @@ def _run_analysis(
         overallAssessment=summary["overallAssessment"],
         modelVersion=package["modelVersion"],
         schemaVersion=package["schemaVersion"],
-        warnings=package["warnings"],
+        warnings=list(package["warnings"]) + list(extraction_warnings or []),
         extractedText=text,
         clauses=[ClauseResponse(**item) for item in clause_results],
         riskyClauses=[ClauseResponse(**item) for item in clause_results if item["label"] == "Risky"],
@@ -135,7 +136,12 @@ def _submit_analysis(worker, *args) -> Future:
 def _process_upload(temp_path: str, extension: str, filename: str) -> AnalysisResponse:
     parser = get_parser(extension)
     try:
-        if hasattr(parser, "parse_with_metadata"):
+        extraction_warnings = []
+        if hasattr(parser, "parse_with_details"):
+            parsed = parser.parse_with_details(temp_path)
+            extracted_text, page_ranges = parsed.text, parsed.page_ranges
+            extraction_warnings = parsed.warnings
+        elif hasattr(parser, "parse_with_metadata"):
             extracted_text, page_ranges = parser.parse_with_metadata(temp_path)
         else:
             extracted_text = parser.parse(temp_path)
@@ -146,7 +152,7 @@ def _process_upload(temp_path: str, extension: str, filename: str) -> AnalysisRe
         raise HTTPException(status_code=413, detail=str(exc)) from exc
     except DocumentParsingError as exc:
         raise HTTPException(status_code=422, detail=str(exc)) from exc
-    return _run_analysis(extracted_text, filename, page_ranges)
+    return _run_analysis(extracted_text, filename, page_ranges, extraction_warnings)
 
 
 def _remove_temp_file(path: str) -> None:
